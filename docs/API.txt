@@ -1,0 +1,57 @@
+GET
+POST
+PUT
+DELETE
+
+/api/courses
+GET all courses -> map through and create cards on front page
+	{
+	   payload: course_1: {
+			course_id: num,
+			*course_brief: str,
+			-teacher_id: -> join this to profile
+			teacher_name: str,
+			*image: urlstr,
+			*thumbnail: urlstr,
+			*bio_text: str,
+			location: str,
+			*is_online: bool,
+			*is_offline: bool,
+			*long_description: str,
+			rating:
+			course_price? -> future problem
+			course_tags? -> future problem
+		    },
+		    ...course_2
+	}
+
+/api/courses/[id]
+GET course by id -> page 2 course info component
+
+
+
+
+** DOWN THE LINE **
+/api/courses/tag/[query]
+GET course by tag
+
+/api/users/[id]
+PUT user_id to update user info
+
+/api/profiles[id]
+PUT user_id to update profile into
+
+/api/users
+POST create new user
+
+/api/profiles
+GET all profiles -> 
+
+/api/profiles/[id] -> 
+GET profile by user_id -> just see the profile
+
+
+/api/users -> update user info
+GET all users
+/api/users/[id]
+GET user by id

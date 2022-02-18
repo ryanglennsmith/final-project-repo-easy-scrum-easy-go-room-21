@@ -1,0 +1,21 @@
+*** HERE'S WHAT YOU NEED TO KNOW ***
+(sudo) $ npm i -g json-server
+choose a port to run the json server (different port from your web server)
+
+$ json-server --watch API.json --port 3609
+find what you need @ localhost:3609/courses
+
+*** HERE'S WHAT YOU WANT TO KNOW ***
+install json-server 
+
+starter is db.json with data from mockaroo
+
+go get some more cool data ... ... ... (look at the code in dbStarter.js)
+
+fill API.json with DATA SWEET DELICIOUS DATA
+
+(made the whole thing into an object with {"courses": [allTheData]} )
+
+*** HERE'S SOMETHING TO THINK ABOUT ***
+// a consideration for later is that these images are full-size
+
