@@ -30,7 +30,9 @@ export default function CourseCard({ cards }) {
                 component="img"
                 sx={{
                   // 16:9
-                  pt: '56.25%',
+
+                  padding: '1.5rem',
+                  pt: '2rem',
                 }}
                 image={card.image}
                 alt="random"
