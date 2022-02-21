@@ -4,77 +4,80 @@ import {
   Toolbar,
   Typography,
   Container,
-  Box,
   Link,
+  Box,
 } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import React from 'react';
 
 export default function NavBar() {
+  const matches = useMediaQuery('(min-width:700px)');
+
   return (
-    <AppBar position="relative">
+    <AppBar position="relative" color="primary" style={{ background: '#fff' }}>
       <Toolbar
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
-          margin: '0px 13rem ',
+          // alignContent: 'space-around',
         }}
       >
-        <Container sx={{ display: 'flex' }} maxWidth={'sm'}>
-          <Typography variant="h6" color="inherit" noWrap>
-            <img
-              src="https://i1.lensdump.com/i/rSrdZa.png"
-              style={{ maxWidth: '4rem' }}
-            ></img>{' '}
-            Service Stack
+        {/* LOGO */}
+        <Container sx={{ display: 'flex', flexDirection: 'row' }}>
+          <img
+            src="https://i1.lensdump.com/i/rSrdZa.png"
+            style={{ maxWidth: '4rem' }}
+          ></img>
+          <Typography variant="h6" color="#000000">
+            Service stack
           </Typography>
         </Container>
 
-        <Container
-          sx={{
-            display: 'flex',
-            justifyContent: 'flex-end',
-          }}
-        >
+        <Box className="navbar-buttons" sx={{ display: 'flex', wrap: 'wrap' }}>
+          {matches && (
+            <Link
+              sx={{ paddingRight: '2rem' }}
+              color="#000000"
+              underline="none"
+            >
+              Home
+            </Link>
+          )}
+
+          {matches && (
+            <Link
+              sx={{ paddingRight: '2rem' }}
+              color="#000000"
+              underline="none"
+            >
+              item 1
+            </Link>
+          )}
+
+          {matches && (
+            <Link
+              sx={{ paddingRight: '2rem' }}
+              color="#000000"
+              underline="none"
+            >
+              item 2
+            </Link>
+          )}
           <Link
-            href="/"
+            sx={{ paddingRight: '2rem', width: '5rem' }}
             color="#000000"
             underline="none"
-            sx={{ paddingRight: '2rem' }}
           >
-            nav-item
+            Sign In
           </Link>
-
-          <Link
-            href="/"
-            color="#000000"
-            underline="none"
-            sx={{ paddingRight: '2rem' }}
+          <Button
+            color="secondary"
+            variant="outlined"
+            sx={{ marginRight: '5rem' }}
           >
-            nav-item
-          </Link>
-
-          <Link
-            href="/"
-            color="#000000"
-            underline="none"
-            sx={{ paddingRight: '2rem' }}
-          >
-            nav-item
-          </Link>
-
-          <Link
-            href="/"
-            color="#000000"
-            underline="none"
-            sx={{ paddingRight: '2rem' }}
-          >
-            Sign in
-          </Link>
-
-          <Button href="/" color="secondary" size="small" variant="outlined">
             Join
           </Button>
-        </Container>
+        </Box>
       </Toolbar>
     </AppBar>
   );
