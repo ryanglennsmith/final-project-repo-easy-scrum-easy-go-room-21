@@ -14,12 +14,12 @@ export default function NavBar() {
   const matches = useMediaQuery('(min-width:700px)');
 
   return (
-    <AppBar position="relative">
+    <AppBar position="relative" color="primary">
       <Toolbar
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
-          margin: '0px 13rem ',
+          // alignContent: 'space-around',
         }}
       >
         {/* LOGO */}
@@ -29,57 +29,55 @@ export default function NavBar() {
             style={{ maxWidth: '4rem' }}
           ></img>
           <Typography variant="h6" color="inherit">
-            Service Stack
+            Service stack
           </Typography>
         </Container>
 
-        {/* NAV-BAR LINKS */}
-        <Container
-          sx={{
-            display: 'flex',
-            justifyContent: 'flex-end',
-          }}
-        >
-          <Box
-            href="/"
-            color="#000000"
-            underline="none"
-            sx={{ paddingRight: '2rem' }}
-          >
-            {matches ? 'Home' : ''}
-          </Box>
+        <Box className="navbar-buttons" sx={{ display: 'flex', wrap: 'wrap' }}>
+          {matches && (
+            <Link
+              sx={{ paddingRight: '2rem' }}
+              color="#000000"
+              underline="none"
+            >
+              Home
+            </Link>
+          )}
 
-          <Box
-            href="/"
-            color="#000000"
-            underline="none"
-            sx={{ paddingRight: '2rem' }}
-          >
-            {matches ? 'Item' : ''}
-          </Box>
+          {matches && (
+            <Link
+              sx={{ paddingRight: '2rem' }}
+              color="#000000"
+              underline="none"
+            >
+              item 1
+            </Link>
+          )}
 
-          <Box
-            href="/"
+          {matches && (
+            <Link
+              sx={{ paddingRight: '2rem' }}
+              color="#000000"
+              underline="none"
+            >
+              item 2
+            </Link>
+          )}
+          <Link
+            sx={{ paddingRight: '2rem', width: '5rem' }}
             color="#000000"
             underline="none"
-            sx={{ paddingRight: '2rem' }}
-          >
-            {matches ? 'Item' : ''}
-          </Box>
-
-          <Box
-            href="/"
-            color="#000000"
-            underline="none"
-            sx={{ paddingRight: '2rem' }}
           >
             Sign in
-          </Box>
-
-          <Button href="/" color="secondary" size="small" variant="outlined">
+          </Link>
+          <Button
+            color="secondary"
+            variant="contained"
+            sx={{ marginRight: '4rem' }}
+          >
             Join
           </Button>
-        </Container>
+        </Box>
       </Toolbar>
     </AppBar>
   );
