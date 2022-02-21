@@ -4,12 +4,15 @@ import {
   Toolbar,
   Typography,
   Container,
-  Box,
   Link,
+  Box,
 } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import React from 'react';
 
 export default function NavBar() {
+  const matches = useMediaQuery('(min-width:700px)');
+
   return (
     <AppBar position="relative">
       <Toolbar
@@ -19,57 +22,59 @@ export default function NavBar() {
           margin: '0px 13rem ',
         }}
       >
-        <Container sx={{ display: 'flex' }} maxWidth={'sm'}>
-          <Typography variant="h6" color="inherit" noWrap>
-            <img
-              src="https://i1.lensdump.com/i/rSrdZa.png"
-              style={{ maxWidth: '4rem' }}
-            ></img>{' '}
+        {/* LOGO */}
+        <Container sx={{ display: 'flex', flexDirection: 'row' }}>
+          <img
+            src="https://i1.lensdump.com/i/rSrdZa.png"
+            style={{ maxWidth: '4rem' }}
+          ></img>
+          <Typography variant="h6" color="inherit">
             Service Stack
           </Typography>
         </Container>
 
+        {/* NAV-BAR LINKS */}
         <Container
           sx={{
             display: 'flex',
             justifyContent: 'flex-end',
           }}
         >
-          <Link
+          <Box
             href="/"
             color="#000000"
             underline="none"
             sx={{ paddingRight: '2rem' }}
           >
-            nav-item
-          </Link>
+            {matches ? 'Home' : ''}
+          </Box>
 
-          <Link
+          <Box
             href="/"
             color="#000000"
             underline="none"
             sx={{ paddingRight: '2rem' }}
           >
-            nav-item
-          </Link>
+            {matches ? 'Item' : ''}
+          </Box>
 
-          <Link
+          <Box
             href="/"
             color="#000000"
             underline="none"
             sx={{ paddingRight: '2rem' }}
           >
-            nav-item
-          </Link>
+            {matches ? 'Item' : ''}
+          </Box>
 
-          <Link
+          <Box
             href="/"
             color="#000000"
             underline="none"
             sx={{ paddingRight: '2rem' }}
           >
             Sign in
-          </Link>
+          </Box>
 
           <Button href="/" color="secondary" size="small" variant="outlined">
             Join
