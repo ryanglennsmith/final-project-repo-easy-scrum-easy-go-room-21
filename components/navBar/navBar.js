@@ -68,7 +68,7 @@ export default function NavBar() {
             color="#000000"
             underline="none"
           >
-            Sign in
+            Sign In
           </Link>
           <Button
             color="secondary"
