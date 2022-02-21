@@ -1,33 +1,80 @@
-import { AppBar, Button, Toolbar, Typography } from '@mui/material';
+import {
+  AppBar,
+  Button,
+  Toolbar,
+  Typography,
+  Container,
+  Box,
+  Link,
+} from '@mui/material';
 import React from 'react';
 
 export default function NavBar() {
   return (
     <AppBar position="relative">
-      <Toolbar>
-        <div>
+      <Toolbar
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          margin: '0px 13rem ',
+        }}
+      >
+        <Container sx={{ display: 'flex' }} maxWidth={'sm'}>
           <Typography variant="h6" color="inherit" noWrap>
-            LOGO
+            <img
+              src="https://i1.lensdump.com/i/rSrdZa.png"
+              style={{ maxWidth: '4rem' }}
+            ></img>{' '}
+            Service Stack
           </Typography>
-        </div>
+        </Container>
 
-        <div>
-          <Button color="secondary" variant="contained">
+        <Container
+          sx={{
+            display: 'flex',
+            justifyContent: 'flex-end',
+          }}
+        >
+          <Link
+            href="/"
+            color="#000000"
+            underline="none"
+            sx={{ paddingRight: '2rem' }}
+          >
             nav-item
-          </Button>
-          <Button color="secondary" variant="contained">
+          </Link>
+
+          <Link
+            href="/"
+            color="#000000"
+            underline="none"
+            sx={{ paddingRight: '2rem' }}
+          >
             nav-item
-          </Button>
-          <Button color="secondary" variant="contained">
+          </Link>
+
+          <Link
+            href="/"
+            color="#000000"
+            underline="none"
+            sx={{ paddingRight: '2rem' }}
+          >
             nav-item
+          </Link>
+
+          <Link
+            href="/"
+            color="#000000"
+            underline="none"
+            sx={{ paddingRight: '2rem' }}
+          >
+            Sign in
+          </Link>
+
+          <Button href="/" color="secondary" size="small" variant="outlined">
+            Join
           </Button>
-          <Button color="secondary" variant="contained">
-            nav-item
-          </Button>
-          <Button color="secondary" variant="contained">
-            nav-item
-          </Button>
-        </div>
+        </Container>
       </Toolbar>
     </AppBar>
   );

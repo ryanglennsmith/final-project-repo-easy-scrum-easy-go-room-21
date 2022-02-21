@@ -62,6 +62,7 @@ export default function Album() {
             >
               Album layout
             </Typography>
+
             <Typography
               variant="h5"
               align="center"
@@ -83,6 +84,7 @@ export default function Album() {
             </Stack>
           </Container>
         </Box>
+
         <Container sx={{ py: 8 }} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
