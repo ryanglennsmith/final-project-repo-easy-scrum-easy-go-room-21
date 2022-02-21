@@ -16,6 +16,7 @@ import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import NavBar from '../components/navBar/navBar.js';
+import Banner from '@components/Banner/Banner.js';
 
 function Copyright() {
   return (
@@ -45,46 +46,14 @@ export default function Album() {
 
       <main>
         {/* Hero unit */}
-        <Box
+        {/* <Box
           sx={{
             bgcolor: 'background.paper',
             pt: 8,
             pb: 6,
           }}
-        >
-          <Container maxWidth="sm">
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="text.primary"
-              gutterBottom
-            >
-              Album layout
-            </Typography>
-
-            <Typography
-              variant="h5"
-              align="center"
-              color="text.secondary"
-              paragraph
-            >
-              Something short and leading about the collection below—its
-              contents, the creator, etc. Make it short and sweet, but not too
-              short so folks don&apos;t simply skip over it entirely.
-            </Typography>
-            <Stack
-              sx={{ pt: 4 }}
-              direction="row"
-              spacing={2}
-              justifyContent="center"
-            >
-              <Button variant="contained">Main call to action</Button>
-              <Button variant="outlined">Secondary action</Button>
-            </Stack>
-          </Container>
-        </Box>
-
+        ></Box> */}
+        <Banner />
         <Container sx={{ py: 8 }} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>

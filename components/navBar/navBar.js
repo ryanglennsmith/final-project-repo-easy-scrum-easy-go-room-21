@@ -11,7 +11,7 @@ import React from 'react';
 
 export default function NavBar() {
   return (
-    <AppBar position="relative">
+    <AppBar position="relative" style={{ background: '#fff' }}>
       <Toolbar
         sx={{
           display: 'flex',
