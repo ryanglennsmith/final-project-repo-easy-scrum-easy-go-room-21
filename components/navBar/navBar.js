@@ -14,7 +14,7 @@ export default function NavBar() {
   const matches = useMediaQuery('(min-width:700px)');
 
   return (
-    <AppBar position="relative" color="primary">
+    <AppBar position="relative" color="primary" style={{ background: '#fff' }}>
       <Toolbar
         sx={{
           display: 'flex',
@@ -28,7 +28,7 @@ export default function NavBar() {
             src="https://i1.lensdump.com/i/rSrdZa.png"
             style={{ maxWidth: '4rem' }}
           ></img>
-          <Typography variant="h6" color="inherit">
+          <Typography variant="h6" color="#000000">
             Service stack
           </Typography>
         </Container>
@@ -73,7 +73,7 @@ export default function NavBar() {
           <Button
             color="secondary"
             variant="contained"
-            sx={{ marginRight: '4rem' }}
+            sx={{ marginRight: '5rem' }}
           >
             Join
           </Button>
