@@ -72,7 +72,7 @@ export default function NavBar() {
           </Link>
           <Button
             color="secondary"
-            variant="contained"
+            variant="outlined"
             sx={{ marginRight: '5rem' }}
           >
             Join
