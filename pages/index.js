@@ -20,20 +20,7 @@ import NavBar from '../components/navBar/navBar.js';
 import CourseCard from '../components/course-card/CourseCard.js';
 
 import Banner from '@components/Banner/Banner.js';
-
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import Footer from '@components/Footer/Footer.js';
 
 const data = [
   {
@@ -420,32 +407,13 @@ export default function Album() {
 
       <main>
         {/* Hero unit */}
-       
+
         <Banner />
         {/* course card starts*/}
         <CourseCard cards={data} />
         {/* course card ends*/}
-    
-        
-        
-
       </main>
-      {/* Footer */}
-      <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="text.secondary"
-          component="p"
-        >
-          Something here to give the footer a purpose!
-        </Typography>
-        <Copyright />
-      </Box>
-      {/* End footer */}
+      <Footer />
     </ThemeProvider>
   );
 }
