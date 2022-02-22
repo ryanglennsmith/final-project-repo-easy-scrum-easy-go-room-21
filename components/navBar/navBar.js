@@ -14,7 +14,11 @@ export default function NavBar() {
   const matches = useMediaQuery('(min-width:700px)');
 
   return (
-    <AppBar position="relative" color="primary" style={{ background: '#fff' }}>
+    <AppBar
+      position="relative"
+      color="primary"
+      style={{ background: 'transparent', boxShadow: 'none' }}
+    >
       <Toolbar
         sx={{
           display: 'flex',
@@ -25,11 +29,11 @@ export default function NavBar() {
         {/* LOGO */}
         <Container sx={{ display: 'flex', flexDirection: 'row' }}>
           <img
-            src="https://i1.lensdump.com/i/rSrdZa.png"
+            src="./public/images/Logo.png"
             style={{ maxWidth: '4rem' }}
           ></img>
           <Typography variant="h6" color="#000000">
-            Service stack
+            WeAreSharers
           </Typography>
         </Container>
 
@@ -64,16 +68,17 @@ export default function NavBar() {
             </Link>
           )}
           <Link
-            sx={{ paddingRight: '2rem', width: '5rem' }}
+            sx={{ paddingRight: '2rem', width: '6rem' }}
             color="#000000"
             underline="none"
+            nowrap
           >
             Sign In
           </Link>
           <Button
             color="secondary"
-            variant="outlined"
-            sx={{ marginRight: '5rem' }}
+            variant="contained"
+            sx={{ marginRight: '5rem', color: '#fff', background: '#FF8957' }}
           >
             Join
           </Button>
