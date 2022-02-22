@@ -8,72 +8,97 @@ import {
   Box,
 } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import Image from 'next/image';
 import React from 'react';
 
 export default function NavBar() {
-  const matches = useMediaQuery('(min-width:700px)');
+  const matches = useMediaQuery('(min-width:900px)');
 
   return (
-    <AppBar position="relative" color="primary" style={{ background: '#fff' }}>
+    <AppBar
+      position="relative"
+      color="primary"
+      sx={{
+        width: '100vw',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+      style={{
+        background: 'transparent',
+        boxShadow: 'none',
+      }}
+    >
       <Toolbar
         sx={{
           display: 'flex',
-          justifyContent: 'space-between',
-          // alignContent: 'space-around',
+          justifyContent: 'space-around',
+          alignItems: 'center',
+          width: '80%',
         }}
       >
+        {/* when screen goes to small screen width switches 100*/}
+
         {/* LOGO */}
-        <Container sx={{ display: 'flex', flexDirection: 'row' }}>
+        <Container
+          sx={{
+            display: 'flex',
+            width: '50%',
+            justifyContent: 'center',
+          }}
+        >
           <img
-            src="https://i1.lensdump.com/i/rSrdZa.png"
+            src="https://i1.lensdump.com/i/re9GT7.md.png"
+            alt="logo"
             style={{ maxWidth: '4rem' }}
           ></img>
           <Typography variant="h6" color="#000000">
-            Service stack
+            WeAreSharers
           </Typography>
         </Container>
 
-        <Box className="navbar-buttons" sx={{ display: 'flex', wrap: 'wrap' }}>
+        <Box
+          className="navbar-buttons"
+          sx={{
+            display: 'flex',
+            wrap: 'wrap',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '50%',
+            gap: '2rem',
+          }}
+        >
           {matches && (
-            <Link
-              sx={{ paddingRight: '2rem' }}
-              color="#000000"
-              underline="none"
-            >
-              Home
+            <Link color="#000000" underline="none">
+              ABOUT
             </Link>
           )}
 
           {matches && (
-            <Link
-              sx={{ paddingRight: '2rem' }}
-              color="#000000"
-              underline="none"
-            >
-              item 1
+            <Link color="#000000" underline="none">
+              MENU1
             </Link>
           )}
 
           {matches && (
-            <Link
-              sx={{ paddingRight: '2rem' }}
-              color="#000000"
-              underline="none"
-            >
-              item 2
+            <Link color="#000000" underline="none">
+              MENU2
             </Link>
           )}
-          <Link
-            sx={{ paddingRight: '2rem', width: '5rem' }}
-            color="#000000"
-            underline="none"
-          >
-            Sign In
+          <Link color="#000000" underline="none" nowrap>
+            SIGN IN
           </Link>
           <Button
             color="secondary"
-            variant="outlined"
-            sx={{ marginRight: '5rem' }}
+            variant="contained"
+            sx={{
+              color: '#fff',
+              background: '#FF8957',
+              '&:hover': { background: '#FF8957' },
+              fontFamily: 'Inter',
+              fontStyle: 'normal',
+              letterSpacing: '0em',
+            }}
           >
             Join
           </Button>
