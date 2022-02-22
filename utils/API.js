@@ -15,7 +15,7 @@ export const API = {
       course_brief:
         'Master cleanse taiyaki ethical bushwick slow-carb migas XOXO direct trade',
       course_title: 'Painting Disasters',
-      rating: '2.45',
+      rating: 3.45,
       dates_available: [
         { Sunday: 'true' },
         { Monday: 'true' },
@@ -25,6 +25,16 @@ export const API = {
         { Friday: 'false' },
         { Saturday: 'false' },
       ],
+      course_bullets: [
+        'Prism copper mug edison bulb everyday carry direct trade raclette, pug four dollar toast lumbersexual chia taiyaki before they sold out thundercats',
+        'Microdosing pour-over mustache, cardigan 3 wolf moon before they sold out shoreditch sartorial chartreuse cold-pressed cray',
+        'PBR&B jean shorts salvia occupy semiotics, hashtag pabst disrupt godard',
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1461344577544-4e5dc9487184?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1461344577544-4e5dc9487184?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
     {
       course_id: 2,
@@ -51,6 +61,17 @@ export const API = {
         { Friday: 'true' },
         { Saturday: 'true' },
       ],
+      course_bullets: [
+        'Next level godard quinoa, pickled bushwick af seitan put a bird on it mlkshk enamel pin',
+        'Meditation sustainable lyft, schlitz poke air plant tumeric ennui unicorn',
+        'Tbh adaptogen roof party photo booth tousled',
+        "Flexitarian neutra truffaut, iceland lyft distillery +1 you probably haven't heard of them vexillologist fixie meh raw denim jean shorts kitsch",
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1496769843785-93aa0be525dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1496769843785-93aa0be525dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
     {
       course_id: 3,
@@ -77,6 +98,16 @@ export const API = {
         { Friday: 'true' },
         { Saturday: 'true' },
       ],
+      course_bullets: [
+        'Four dollar toast dreamcatcher chambray everyday carry 8-bit marfa kickstarter pok pok whatever air plant street art retro cray sriracha shaman',
+        'IPhone poke echo park craft beer',
+        'Leggings unicorn 8-bit, jean shorts hella fashion axe vinyl pop-up taxidermy lumbersexual',
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1614644147798-f8c0fc9da7f6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1614644147798-f8c0fc9da7f6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
     {
       course_id: 4,
@@ -93,7 +124,7 @@ export const API = {
       course_brief:
         ' Flannel kale chips tumblr organic irony sustainable fixie YOLO lyft master cleanse cloud bread vaporware aesthetic tilde',
       course_title: 'Smoking Pottery: Making Planters for Herbs',
-      rating: '2.94',
+      rating: 3.94,
       dates_available: [
         { Sunday: 'false' },
         { Monday: 'false' },
@@ -103,6 +134,18 @@ export const API = {
         { Friday: 'false' },
         { Saturday: 'false' },
       ],
+      course_bullets: [
+        'Flannel swag sriracha thundercats tattooed drinking vinegar',
+        "Green juice poutine DIY, meh 90's enamel pin sustainable cornhole glossier gentrify snackwave",
+        "Green juice poutine DIY, meh 90's enamel pin sustainable cornhole glossier gentrify snackwave",
+        'Aesthetic glossier waistcoat, master cleanse stumptown fashion axe knausgaard cliche',
+        'Blog gluten-free echo park kale chips, pok pok fixie glossier paleo raclette tumblr chillwave',
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1493106641515-6b5631de4bb9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1493106641515-6b5631de4bb9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
     {
       course_id: 5,
@@ -120,7 +163,7 @@ export const API = {
         ' Food truck cornhole put a bird on it kickstarter letterpress, flexitarian pinterest pork belly mixtape',
       course_title:
         'Never Get Bored: I Will Teach You How to Change Careers Every Week',
-      rating: '0.176',
+      rating: '0.1763',
       dates_available: [
         { Sunday: 'false' },
         { Monday: 'false' },
@@ -130,6 +173,16 @@ export const API = {
         { Friday: 'true' },
         { Saturday: 'false' },
       ],
+      course_bullets: [
+        'Viral craft beer pop-up, tilde actually cred lo-fi mlkshk',
+        'Venmo man bun hot chicken meditation whatever bespoke forage pug trust fund chambray bitters',
+        'PBR&B jean shorts salvia occupy semiotics, hashtag pabst disrupt godard',
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1573496358961-3c82861ab8f4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1573496358961-3c82861ab8f4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
     {
       course_id: 6,
@@ -146,7 +199,7 @@ export const API = {
       course_brief:
         ' Hella blog roof party marfa cornhole banjo, plaid put a bird on it leggings meggings ramps air plant yuccie brunch wolf',
       course_title: 'A Course in Klingon Dialects',
-      rating: '0.129',
+      rating: '0.1293',
       dates_available: [
         { Sunday: 'true' },
         { Monday: 'true' },
@@ -156,6 +209,16 @@ export const API = {
         { Friday: 'true' },
         { Saturday: 'true' },
       ],
+      course_bullets: [
+        'Cray occupy ugh vegan',
+        'Church-key neutra bicycle rights literally',
+        'Church-key neutra bicycle rights literally',
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
     {
       course_id: 7,
@@ -172,7 +235,7 @@ export const API = {
       course_brief:
         ' Art party shabby chic salvia readymade tousled health goth',
       course_title: 'Knitting 101',
-      rating: '0.523',
+      rating: '0.5233',
       dates_available: [
         { Sunday: 'true' },
         { Monday: 'false' },
@@ -182,6 +245,17 @@ export const API = {
         { Friday: 'false' },
         { Saturday: 'true' },
       ],
+      course_bullets: [
+        'Next level health goth subway tile neutra',
+        'Flannel swag sriracha thundercats tattooed drinking vinegar',
+        'Cliche mumblecore vape gastropub street art pitchfork',
+        'Pork belly meh pug, selfies health goth pitchfork hoodie distillery air plant tote bag prism',
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1589279715734-6631a314dfa2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1589279715734-6631a314dfa2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
     {
       course_id: 8,
@@ -198,7 +272,7 @@ export const API = {
       course_brief:
         ' Authentic quinoa raclette poutine vexillologist trust fund, XOXO sustainable williamsburg green juice man bun jianbing narwhal brooklyn',
       course_title: 'How to Speedrun Altered Beast on the Sega Genesis',
-      rating: '0.611',
+      rating: '0.6113',
       dates_available: [
         { Sunday: 'true' },
         { Monday: 'true' },
@@ -208,6 +282,18 @@ export const API = {
         { Friday: 'false' },
         { Saturday: 'false' },
       ],
+      course_bullets: [
+        'Pork belly meh pug, selfies health goth pitchfork hoodie distillery air plant tote bag prism',
+        'Hammock lo-fi semiotics, gentrify viral lyft enamel pin trust fund four loko roof party food truck mumblecore man bun',
+        'Next level health goth subway tile neutra',
+        'Semiotics bespoke green juice trust fund poutine vegan gastropub poke kombucha meh activated charcoal chillwave health goth',
+        'Microdosing distillery pickled DIY poutine air plant',
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1598630388567-9fdbfd7e928e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1598630388567-9fdbfd7e928e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
     {
       course_id: 9,
@@ -234,6 +320,17 @@ export const API = {
         { Friday: 'false' },
         { Saturday: 'true' },
       ],
+      course_bullets: [
+        'Leggings edison bulb hella direct trade banh mi paleo',
+        'Prism copper mug edison bulb everyday carry direct trade raclette, pug four dollar toast lumbersexual chia taiyaki before they sold out thundercats',
+        'Sustainable cred retro jean shorts vinyl migas mixtape street art chartreuse skateboard cardigan',
+        'Ugh knausgaard hot chicken single-origin coffee truffaut blue bottle PBR&B taiyaki echo park',
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1566554273541-37a9ca77b91f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1566554273541-37a9ca77b91f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
     {
       course_id: 10,
@@ -260,6 +357,16 @@ export const API = {
         { Friday: 'true' },
         { Saturday: 'false' },
       ],
+      course_bullets: [
+        'Next level health goth subway tile neutra',
+        'Cliche mumblecore vape gastropub street art pitchfork',
+        'Microdosing distillery pickled DIY poutine air plant',
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
     {
       course_id: 11,
@@ -276,7 +383,7 @@ export const API = {
       course_brief:
         ' Four dollar toast glossier authentic, messenger bag post-ironic leggings bicycle rights',
       course_title: 'Learn to Build a Better Mousetrap',
-      rating: '3.53',
+      rating: 4.529999999999999,
       dates_available: [
         { Sunday: 'false' },
         { Monday: 'false' },
@@ -286,6 +393,17 @@ export const API = {
         { Friday: 'true' },
         { Saturday: 'true' },
       ],
+      course_bullets: [
+        'Hammock lo-fi semiotics, gentrify viral lyft enamel pin trust fund four loko roof party food truck mumblecore man bun',
+        'IPhone pabst stumptown, gastropub pork belly kale chips forage cronut pop-up YOLO selvage small batch skateboard',
+        'Post-ironic humblebrag beard sartorial copper mug stumptown deep v tousled',
+        'Meggings messenger bag af, dreamcatcher XOXO salvia wayfarers',
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1608613304899-ea8098577e38?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1608613304899-ea8098577e38?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
     {
       course_id: 12,
@@ -302,7 +420,7 @@ export const API = {
       course_brief:
         " Cred kogi 90's, snackwave retro succulents sustainable fanny pack heirloom irony",
       course_title: 'Quickdraw Power Tools',
-      rating: '2.99',
+      rating: 3.99,
       dates_available: [
         { Sunday: 'true' },
         { Monday: 'true' },
@@ -312,6 +430,17 @@ export const API = {
         { Friday: 'false' },
         { Saturday: 'true' },
       ],
+      course_bullets: [
+        'Knausgaard vexillologist irony, godard locavore offal bitters',
+        'Aesthetic glossier waistcoat, master cleanse stumptown fashion axe knausgaard cliche',
+        'Organic shabby chic live-edge fanny pack, stumptown photo booth chillwave paleo blog bushwick roof party artisan intelligentsia hashtag',
+        'Pok pok copper mug whatever synth',
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1618090584126-129cd1f3fbae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1618090584126-129cd1f3fbae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
     {
       course_id: 13,
@@ -328,7 +457,7 @@ export const API = {
       course_brief:
         ' Unicorn marfa cronut, keffiyeh normcore polaroid brunch chicharrones iPhone squid poke DIY YOLO',
       course_title: 'Sew a Tea Bag for 200',
-      rating: '1.15',
+      rating: '1.153',
       dates_available: [
         { Sunday: 'true' },
         { Monday: 'false' },
@@ -338,6 +467,17 @@ export const API = {
         { Friday: 'false' },
         { Saturday: 'true' },
       ],
+      course_bullets: [
+        '',
+        'Copper mug tattooed cred air plant lumbersexual yuccie YOLO jean shorts raclette literally slow-carb',
+        'Cliche skateboard portland retro',
+        'IPhone pabst stumptown, gastropub pork belly kale chips forage cronut pop-up YOLO selvage small batch skateboard',
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1469833120660-1a218b53d28a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1469833120660-1a218b53d28a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
     {
       course_id: 14,
@@ -353,7 +493,7 @@ export const API = {
       image: 'https://images.unsplash.com/photo-1631273553464-7595e1a5b68d',
       course_brief: ' Hot chicken mumblecore hashtag mlkshk brooklyn',
       course_title: 'Beads',
-      rating: '0.709',
+      rating: '0.7093',
       dates_available: [
         { Sunday: 'true' },
         { Monday: 'false' },
@@ -363,6 +503,16 @@ export const API = {
         { Friday: 'false' },
         { Saturday: 'false' },
       ],
+      course_bullets: [
+        'Banjo man braid retro adaptogen leggings poutine',
+        'Viral craft beer pop-up, tilde actually cred lo-fi mlkshk',
+        'Direct trade kickstarter dreamcatcher fingerstache truffaut woke',
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1631273553464-7595e1a5b68d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1631273553464-7595e1a5b68d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
     {
       course_id: 15,
@@ -379,7 +529,7 @@ export const API = {
       course_brief:
         ' Coloring book pitchfork everyday carry, cardigan taiyaki butcher ethical brunch woke',
       course_title: 'DIY 19th Century Style Bloomers',
-      rating: '0.326',
+      rating: '0.3263',
       dates_available: [
         { Sunday: 'false' },
         { Monday: 'true' },
@@ -389,6 +539,18 @@ export const API = {
         { Friday: 'true' },
         { Saturday: 'true' },
       ],
+      course_bullets: [
+        'Post-ironic skateboard art party fixie glossier cray vice craft beer snackwave intelligentsia vaporware',
+        'Prism copper mug edison bulb everyday carry direct trade raclette, pug four dollar toast lumbersexual chia taiyaki before they sold out thundercats',
+        'Air plant fixie tofu artisan poke helvetica, vexillologist asymmetrical celiac sriracha aesthetic squid jean shorts cloud bread',
+        'Post-ironic humblebrag beard sartorial copper mug stumptown deep v tousled',
+        'La croix direct trade photo booth humblebrag cornhole hashtag heirloom street art freegan man braid pour-over',
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1596939122461-e48c8a8a2d85?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1596939122461-e48c8a8a2d85?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
     {
       course_id: 16,
@@ -404,7 +566,7 @@ export const API = {
       image: 'https://images.unsplash.com/photo-1504222490345-c075b6008014',
       course_brief: ' Wolf fingerstache vegan celiac twee stumptown',
       course_title: 'Make It Go FAST',
-      rating: '3.97',
+      rating: 4.970000000000001,
       dates_available: [
         { Sunday: 'true' },
         { Monday: 'true' },
@@ -414,6 +576,18 @@ export const API = {
         { Friday: 'true' },
         { Saturday: 'true' },
       ],
+      course_bullets: [
+        'Kombucha prism readymade lomo fixie',
+        'Sustainable fixie twee, poutine flannel post-ironic venmo meggings 8-bit copper mug try-hard',
+        'Adaptogen tote bag af, portland la croix whatever small batch meggings',
+        'Organic pok pok fingerstache cray, air plant lyft succulents kinfolk',
+        'Keffiyeh cold-pressed gastropub chartreuse asymmetrical',
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1504222490345-c075b6008014?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1504222490345-c075b6008014?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
     {
       course_id: 17,
@@ -430,7 +604,7 @@ export const API = {
       course_brief:
         ' Activated charcoal poutine taiyaki air plant, slow-carb scenester umami fingerstache jean shorts lumbersexual lyft flannel kombucha',
       course_title: "Tag Your Neighbor's House Without Getting Caught",
-      rating: '2.49',
+      rating: 3.49,
       dates_available: [
         { Sunday: 'true' },
         { Monday: 'false' },
@@ -440,6 +614,18 @@ export const API = {
         { Friday: 'false' },
         { Saturday: 'true' },
       ],
+      course_bullets: [
+        'Gochujang celiac migas, shabby chic gentrify PBR&B succulents tote bag cardigan cloud bread snackwave lyft disrupt coloring book',
+        "Disrupt neutra tote bag poke tacos craft beer freegan 90's vegan enamel pin chartreuse twee jean shorts tousled tofu",
+        'Microdosing distillery pickled DIY poutine air plant',
+        'Tattooed sriracha hashtag helvetica blue bottle hell of la croix shaman raclette mlkshk irony cliche unicorn',
+        'Ugh knausgaard hot chicken single-origin coffee truffaut blue bottle PBR&B taiyaki echo park',
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1623526104629-f1b8eb5bd195?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1623526104629-f1b8eb5bd195?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
     {
       course_id: 18,
@@ -467,6 +653,17 @@ export const API = {
         { Friday: 'false' },
         { Saturday: 'true' },
       ],
+      course_bullets: [
+        'Semiotics bespoke green juice trust fund poutine vegan gastropub poke kombucha meh activated charcoal chillwave health goth',
+        'Direct trade iPhone locavore, forage air plant freegan schlitz gastropub meh ethical DIY paleo',
+        'Sustainable fixie twee, poutine flannel post-ironic venmo meggings 8-bit copper mug try-hard',
+        'Sustainable cred retro jean shorts vinyl migas mixtape street art chartreuse skateboard cardigan',
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1517971129774-8a2b38fa128e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1517971129774-8a2b38fa128e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
     {
       course_id: 19,
@@ -483,7 +680,7 @@ export const API = {
       course_brief:
         ' Vape salvia schlitz slow-carb chia affogato before they sold out narwhal selvage, snackwave dreamcatcher portland intelligentsia normcore cred',
       course_title: 'Hypnosis',
-      rating: '3.57',
+      rating: 4.57,
       dates_available: [
         { Sunday: 'false' },
         { Monday: 'false' },
@@ -493,6 +690,18 @@ export const API = {
         { Friday: 'true' },
         { Saturday: 'false' },
       ],
+      course_bullets: [
+        'Cray occupy ugh vegan',
+        'Adaptogen tote bag af, portland la croix whatever small batch meggings',
+        'Cray occupy ugh vegan',
+        'Retro kickstarter small batch tattooed cardigan kitsch',
+        'Organic pok pok fingerstache cray, air plant lyft succulents kinfolk',
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1599694522028-65abc96dfd2f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1599694522028-65abc96dfd2f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
     {
       course_id: 20,
@@ -508,7 +717,7 @@ export const API = {
       image: 'https://images.unsplash.com/photo-1633887091273-a3bd71efddde',
       course_brief: ' Ugh cray flexitarian mumblecore vinyl',
       course_title: 'Painting, or Face-Painting?',
-      rating: '0.986',
+      rating: '0.9863',
       dates_available: [
         { Sunday: 'false' },
         { Monday: 'true' },
@@ -518,6 +727,16 @@ export const API = {
         { Friday: 'true' },
         { Saturday: 'true' },
       ],
+      course_bullets: [
+        'Direct trade kickstarter dreamcatcher fingerstache truffaut woke',
+        'Church-key neutra bicycle rights literally',
+        "Flexitarian neutra truffaut, iceland lyft distillery +1 you probably haven't heard of them vexillologist fixie meh raw denim jean shorts kitsch",
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1633887091273-a3bd71efddde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1633887091273-a3bd71efddde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
     {
       course_id: 21,
@@ -534,7 +753,7 @@ export const API = {
       course_brief:
         ' Plaid polaroid literally quinoa forage woke biodiesel viral kinfolk freegan neutra',
       course_title: 'The Top Ninety-Six Portuguese Phrases About Flowers',
-      rating: '2.78',
+      rating: 3.78,
       dates_available: [
         { Sunday: 'false' },
         { Monday: 'false' },
@@ -544,6 +763,17 @@ export const API = {
         { Friday: 'false' },
         { Saturday: 'true' },
       ],
+      course_bullets: [
+        'Aesthetic glossier waistcoat, master cleanse stumptown fashion axe knausgaard cliche',
+        'Meditation sustainable lyft, schlitz poke air plant tumeric ennui unicorn',
+        'Microdosing distillery pickled DIY poutine air plant',
+        'Viral craft beer pop-up, tilde actually cred lo-fi mlkshk',
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1558443957-d056622df610?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1558443957-d056622df610?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
     {
       course_id: 22,
@@ -560,7 +790,7 @@ export const API = {
       course_brief:
         ' Microdosing pop-up farm-to-table, slow-carb flannel vinyl hot chicken VHS migas cold-pressed vexillologist skateboard mixtape scenester affogato',
       course_title: 'You Can Defend Yourself from Bears with Bach',
-      rating: '0.0190',
+      rating: '0.01903',
       dates_available: [
         { Sunday: 'true' },
         { Monday: 'true' },
@@ -570,6 +800,17 @@ export const API = {
         { Friday: 'false' },
         { Saturday: 'false' },
       ],
+      course_bullets: [
+        'Iceland tacos leggings hashtag, tote bag succulents wolf street art microdosing forage master cleanse',
+        'Kombucha prism readymade lomo fixie',
+        'Meggings messenger bag af, dreamcatcher XOXO salvia wayfarers',
+        'Single-origin coffee butcher raclette deep v art party, waistcoat tumeric typewriter XOXO quinoa celiac',
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1631739714671-0de24b57d810?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1631739714671-0de24b57d810?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
     {
       course_id: 23,
@@ -586,7 +827,7 @@ export const API = {
       course_brief:
         ' Farm-to-table mustache woke truffaut disrupt kinfolk ennui',
       course_title: "I'll Just Let You Hold My Guitar for Your Tinder Profile",
-      rating: '1.54',
+      rating: '1.543',
       dates_available: [
         { Sunday: 'true' },
         { Monday: 'true' },
@@ -596,6 +837,16 @@ export const API = {
         { Friday: 'true' },
         { Saturday: 'true' },
       ],
+      course_bullets: [
+        "90's microdosing freegan artisan jean shorts activated charcoal intelligentsia",
+        'Leggings edison bulb hella direct trade banh mi paleo',
+        'Viral craft beer pop-up, tilde actually cred lo-fi mlkshk',
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1618673747378-7e0d3561371a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1618673747378-7e0d3561371a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
     {
       course_id: 24,
@@ -612,7 +863,7 @@ export const API = {
       course_brief:
         ' Franzen direct trade bitters, gentrify narwhal hella ugh banjo copper mug everyday carry street art brooklyn lumbersexual tumblr',
       course_title: 'How to Drum in a Desert',
-      rating: '0.944',
+      rating: '0.9443',
       dates_available: [
         { Sunday: 'true' },
         { Monday: 'true' },
@@ -622,6 +873,16 @@ export const API = {
         { Friday: 'false' },
         { Saturday: 'true' },
       ],
+      course_bullets: [
+        'Copper mug tattooed cred air plant lumbersexual yuccie YOLO jean shorts raclette literally slow-carb',
+        'Cliche mumblecore vape gastropub street art pitchfork',
+        'Venmo man bun hot chicken meditation whatever bespoke forage pug trust fund chambray bitters',
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1578961771886-97d51aee46bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1578961771886-97d51aee46bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
     {
       course_id: 25,
@@ -638,7 +899,7 @@ export const API = {
       course_brief:
         ' Bushwick glossier literally meggings, vaporware squid snackwave meh ennui DIY chambray',
       course_title: 'A Course in Props for Stopping Traffic',
-      rating: '1.21',
+      rating: '1.213',
       dates_available: [
         { Sunday: 'true' },
         { Monday: 'false' },
@@ -648,9 +909,80 @@ export const API = {
         { Friday: 'false' },
         { Saturday: 'false' },
       ],
+      course_bullets: [
+        'Sustainable cred retro jean shorts vinyl migas mixtape street art chartreuse skateboard cardigan',
+        'Pok pok microdosing offal, brunch vice schlitz paleo helvetica',
+        'Whatever jean shorts williamsburg, pok pok tumblr lyft 8-bit edison bulb kogi man braid air plant',
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1493863641943-9b68992a8d07?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1493863641943-9b68992a8d07?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+      },
     },
   ],
 };
+// ****************************
+// code from 22-02
+// import axios from 'axios';
+// const get75hipster = async () => {
+//   try {
+//     const res = await axios.get(
+//       'http://hipsum.co/api/?type=hipster-centric&sentences=75'
+//     );
+//     return res;
+//   } catch (error) {
+//     console.error(error);
+//     return;
+//   }
+// };
+
+// const sentences = await get75hipster();
+// const cleanedSentences = sentences.data[0]
+//   .split('.')
+//   .map((sentence) => sentence.trim());
+
+// API.courses.forEach((entry) => {
+//   if (entry.rating < 2) {
+//     entry.rating += 3;
+//   } else if (entry.rating < 4) {
+//     entry.rating++;
+//   }
+//   const sentenceArray = [];
+//   let randomThreeToFive = Math.ceil(Math.random() * 3 + 2);
+//   while (randomThreeToFive > 0) {
+//     sentenceArray.push(
+//       cleanedSentences[Math.floor(Math.random() * cleanedSentences.length)]
+//     );
+//     randomThreeToFive--;
+//   }
+//   entry.course_bullets = sentenceArray;
+//   entry.images = {
+//     full:
+//       entry.image +
+//       '?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+//     thumb:
+//       entry.image +
+//       '?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+//   };
+// });
+// const imageURLs = API.courses.map((course) => {
+//   return {
+//     images: {
+//       full:
+//         course.image +
+//         '?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+//       thumb:
+//         course.image +
+//         '?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80',
+//     },
+//   };
+// });
+// console.log(imageURLs);
+// import fs from 'fs';
+// fs.writeFileSync('./API.json', JSON.stringify(API));
+// ****************************
+// code from 21-02
 
 // code for adding to API object
 
