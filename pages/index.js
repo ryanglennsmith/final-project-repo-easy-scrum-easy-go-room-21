@@ -21,7 +21,6 @@ import CourseCard from '../components/course-card/CourseCard.js';
 
 import Banner from '@components/Banner/Banner.js';
 
-
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
@@ -50,6 +49,17 @@ const data = [
     image: 'https://images.unsplash.com/photo-1461344577544-4e5dc9487184',
     course_brief:
       'Master cleanse taiyaki ethical bushwick slow-carb migas XOXO direct trade',
+    course_title: 'Painting Disasters',
+    rating: '2.45',
+    dates_available: [
+      { Sunday: 'true' },
+      { Monday: 'true' },
+      { Tuesday: 'true' },
+      { Wednesday: 'false' },
+      { Thursday: 'true' },
+      { Friday: 'false' },
+      { Saturday: 'false' },
+    ],
   },
   {
     course_id: 2,
@@ -64,6 +74,17 @@ const data = [
     is_offline: 'true',
     image: 'https://images.unsplash.com/photo-1496769843785-93aa0be525dc',
     course_brief: ' Actually etsy brunch trust fund, banjo meggings craft beer',
+    course_title: 'Pacifist Clay Pigeons',
+    rating: '4.00',
+    dates_available: [
+      { Sunday: 'true' },
+      { Monday: 'false' },
+      { Tuesday: 'true' },
+      { Wednesday: 'true' },
+      { Thursday: 'false' },
+      { Friday: 'true' },
+      { Saturday: 'true' },
+    ],
   },
   {
     course_id: 3,
@@ -79,6 +100,17 @@ const data = [
     image: 'https://images.unsplash.com/photo-1614644147798-f8c0fc9da7f6',
     course_brief:
       ' Crucifix poutine YOLO, godard beard roof party plaid thundercats tacos kitsch shabby chic street art',
+    course_title: 'Parapsychology and Psychokenesis',
+    rating: '4.63',
+    dates_available: [
+      { Sunday: 'true' },
+      { Monday: 'true' },
+      { Tuesday: 'false' },
+      { Wednesday: 'false' },
+      { Thursday: 'false' },
+      { Friday: 'true' },
+      { Saturday: 'true' },
+    ],
   },
   {
     course_id: 4,
@@ -94,6 +126,17 @@ const data = [
     image: 'https://images.unsplash.com/photo-1493106641515-6b5631de4bb9',
     course_brief:
       ' Flannel kale chips tumblr organic irony sustainable fixie YOLO lyft master cleanse cloud bread vaporware aesthetic tilde',
+    course_title: 'Smoking Pottery: Making Planters for Herbs',
+    rating: '2.94',
+    dates_available: [
+      { Sunday: 'false' },
+      { Monday: 'false' },
+      { Tuesday: 'false' },
+      { Wednesday: 'false' },
+      { Thursday: 'false' },
+      { Friday: 'false' },
+      { Saturday: 'false' },
+    ],
   },
   {
     course_id: 5,
@@ -109,6 +152,18 @@ const data = [
     image: 'https://images.unsplash.com/photo-1573496358961-3c82861ab8f4',
     course_brief:
       ' Food truck cornhole put a bird on it kickstarter letterpress, flexitarian pinterest pork belly mixtape',
+    course_title:
+      'Never Get Bored: I Will Teach You How to Change Careers Every Week',
+    rating: '0.176',
+    dates_available: [
+      { Sunday: 'false' },
+      { Monday: 'false' },
+      { Tuesday: 'true' },
+      { Wednesday: 'true' },
+      { Thursday: 'true' },
+      { Friday: 'true' },
+      { Saturday: 'false' },
+    ],
   },
   {
     course_id: 6,
@@ -124,6 +179,17 @@ const data = [
     image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04',
     course_brief:
       ' Hella blog roof party marfa cornhole banjo, plaid put a bird on it leggings meggings ramps air plant yuccie brunch wolf',
+    course_title: 'A Course in Klingon Dialects',
+    rating: '0.129',
+    dates_available: [
+      { Sunday: 'true' },
+      { Monday: 'true' },
+      { Tuesday: 'true' },
+      { Wednesday: 'false' },
+      { Thursday: 'false' },
+      { Friday: 'true' },
+      { Saturday: 'true' },
+    ],
   },
   {
     course_id: 7,
@@ -138,6 +204,17 @@ const data = [
     is_offline: 'true',
     image: 'https://images.unsplash.com/photo-1589279715734-6631a314dfa2',
     course_brief: ' Art party shabby chic salvia readymade tousled health goth',
+    course_title: 'Knitting 101',
+    rating: '0.523',
+    dates_available: [
+      { Sunday: 'true' },
+      { Monday: 'false' },
+      { Tuesday: 'false' },
+      { Wednesday: 'true' },
+      { Thursday: 'true' },
+      { Friday: 'false' },
+      { Saturday: 'true' },
+    ],
   },
   {
     course_id: 8,
@@ -153,6 +230,17 @@ const data = [
     image: 'https://images.unsplash.com/photo-1598630388567-9fdbfd7e928e',
     course_brief:
       ' Authentic quinoa raclette poutine vexillologist trust fund, XOXO sustainable williamsburg green juice man bun jianbing narwhal brooklyn',
+    course_title: 'How to Speedrun Altered Beast on the Sega Genesis',
+    rating: '0.611',
+    dates_available: [
+      { Sunday: 'true' },
+      { Monday: 'true' },
+      { Tuesday: 'false' },
+      { Wednesday: 'false' },
+      { Thursday: 'false' },
+      { Friday: 'false' },
+      { Saturday: 'false' },
+    ],
   },
   {
     course_id: 9,
@@ -168,6 +256,17 @@ const data = [
     image: 'https://images.unsplash.com/photo-1566554273541-37a9ca77b91f',
     course_brief:
       ' Chartreuse franzen health goth, kogi DIY cloud bread air plant farm-to-table glossier',
+    course_title: 'Cooking the Entire Larousse Gastronomique',
+    rating: '4.92',
+    dates_available: [
+      { Sunday: 'false' },
+      { Monday: 'false' },
+      { Tuesday: 'true' },
+      { Wednesday: 'true' },
+      { Thursday: 'false' },
+      { Friday: 'false' },
+      { Saturday: 'true' },
+    ],
   },
   {
     course_id: 10,
@@ -183,6 +282,17 @@ const data = [
     image: 'https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf',
     course_brief:
       ' Put a bird on it church-key tacos VHS lo-fi everyday carry salvia, occupy jianbing bicycle rights vexillologist',
+    course_title: 'Flambee All Day, Every Day',
+    rating: '4.79',
+    dates_available: [
+      { Sunday: 'false' },
+      { Monday: 'true' },
+      { Tuesday: 'true' },
+      { Wednesday: 'false' },
+      { Thursday: 'false' },
+      { Friday: 'true' },
+      { Saturday: 'false' },
+    ],
   },
   {
     course_id: 11,
@@ -198,6 +308,17 @@ const data = [
     image: 'https://images.unsplash.com/photo-1608613304899-ea8098577e38',
     course_brief:
       ' Four dollar toast glossier authentic, messenger bag post-ironic leggings bicycle rights',
+    course_title: 'Learn to Build a Better Mousetrap',
+    rating: '3.53',
+    dates_available: [
+      { Sunday: 'false' },
+      { Monday: 'false' },
+      { Tuesday: 'true' },
+      { Wednesday: 'false' },
+      { Thursday: 'false' },
+      { Friday: 'true' },
+      { Saturday: 'true' },
+    ],
   },
   {
     course_id: 12,
@@ -213,6 +334,17 @@ const data = [
     image: 'https://images.unsplash.com/photo-1618090584126-129cd1f3fbae',
     course_brief:
       " Cred kogi 90's, snackwave retro succulents sustainable fanny pack heirloom irony",
+    course_title: 'Quickdraw Power Tools',
+    rating: '2.99',
+    dates_available: [
+      { Sunday: 'true' },
+      { Monday: 'true' },
+      { Tuesday: 'false' },
+      { Wednesday: 'true' },
+      { Thursday: 'false' },
+      { Friday: 'false' },
+      { Saturday: 'true' },
+    ],
   },
   {
     course_id: 13,
@@ -228,6 +360,17 @@ const data = [
     image: 'https://images.unsplash.com/photo-1469833120660-1a218b53d28a',
     course_brief:
       ' Unicorn marfa cronut, keffiyeh normcore polaroid brunch chicharrones iPhone squid poke DIY YOLO',
+    course_title: 'Sew a Tea Bag for 200',
+    rating: '1.15',
+    dates_available: [
+      { Sunday: 'true' },
+      { Monday: 'false' },
+      { Tuesday: 'true' },
+      { Wednesday: 'true' },
+      { Thursday: 'false' },
+      { Friday: 'false' },
+      { Saturday: 'true' },
+    ],
   },
   {
     course_id: 14,
@@ -242,6 +385,17 @@ const data = [
     is_offline: 'true',
     image: 'https://images.unsplash.com/photo-1631273553464-7595e1a5b68d',
     course_brief: ' Hot chicken mumblecore hashtag mlkshk brooklyn',
+    course_title: 'Beads',
+    rating: '0.709',
+    dates_available: [
+      { Sunday: 'true' },
+      { Monday: 'false' },
+      { Tuesday: 'false' },
+      { Wednesday: 'false' },
+      { Thursday: 'false' },
+      { Friday: 'false' },
+      { Saturday: 'false' },
+    ],
   },
   {
     course_id: 15,
@@ -257,6 +411,17 @@ const data = [
     image: 'https://images.unsplash.com/photo-1596939122461-e48c8a8a2d85',
     course_brief:
       ' Coloring book pitchfork everyday carry, cardigan taiyaki butcher ethical brunch woke',
+    course_title: 'DIY 19th Century Style Bloomers',
+    rating: '0.326',
+    dates_available: [
+      { Sunday: 'false' },
+      { Monday: 'true' },
+      { Tuesday: 'false' },
+      { Wednesday: 'false' },
+      { Thursday: 'true' },
+      { Friday: 'true' },
+      { Saturday: 'true' },
+    ],
   },
   {
     course_id: 16,
@@ -271,6 +436,17 @@ const data = [
     is_offline: 'false',
     image: 'https://images.unsplash.com/photo-1504222490345-c075b6008014',
     course_brief: ' Wolf fingerstache vegan celiac twee stumptown',
+    course_title: 'Make It Go FAST',
+    rating: '3.97',
+    dates_available: [
+      { Sunday: 'true' },
+      { Monday: 'true' },
+      { Tuesday: 'true' },
+      { Wednesday: 'false' },
+      { Thursday: 'true' },
+      { Friday: 'true' },
+      { Saturday: 'true' },
+    ],
   },
   {
     course_id: 17,
@@ -286,6 +462,17 @@ const data = [
     image: 'https://images.unsplash.com/photo-1623526104629-f1b8eb5bd195',
     course_brief:
       ' Activated charcoal poutine taiyaki air plant, slow-carb scenester umami fingerstache jean shorts lumbersexual lyft flannel kombucha',
+    course_title: "Tag Your Neighbor's House Without Getting Caught",
+    rating: '2.49',
+    dates_available: [
+      { Sunday: 'true' },
+      { Monday: 'false' },
+      { Tuesday: 'true' },
+      { Wednesday: 'true' },
+      { Thursday: 'true' },
+      { Friday: 'false' },
+      { Saturday: 'true' },
+    ],
   },
   {
     course_id: 18,
@@ -301,6 +488,18 @@ const data = [
     image: 'https://images.unsplash.com/photo-1517971129774-8a2b38fa128e',
     course_brief:
       ' Jianbing pok pok blue bottle, taxidermy kinfolk artisan tbh',
+    course_title:
+      'A Course in the Abstract Poetry of Post-Postmodern Meta-Existentialist Hegemony of Dialectic Hermeneutics',
+    rating: '4.36',
+    dates_available: [
+      { Sunday: 'false' },
+      { Monday: 'true' },
+      { Tuesday: 'true' },
+      { Wednesday: 'false' },
+      { Thursday: 'false' },
+      { Friday: 'false' },
+      { Saturday: 'true' },
+    ],
   },
   {
     course_id: 19,
@@ -316,6 +515,17 @@ const data = [
     image: 'https://images.unsplash.com/photo-1599694522028-65abc96dfd2f',
     course_brief:
       ' Vape salvia schlitz slow-carb chia affogato before they sold out narwhal selvage, snackwave dreamcatcher portland intelligentsia normcore cred',
+    course_title: 'Hypnosis',
+    rating: '3.57',
+    dates_available: [
+      { Sunday: 'false' },
+      { Monday: 'false' },
+      { Tuesday: 'false' },
+      { Wednesday: 'false' },
+      { Thursday: 'false' },
+      { Friday: 'true' },
+      { Saturday: 'false' },
+    ],
   },
   {
     course_id: 20,
@@ -330,6 +540,17 @@ const data = [
     is_offline: 'false',
     image: 'https://images.unsplash.com/photo-1633887091273-a3bd71efddde',
     course_brief: ' Ugh cray flexitarian mumblecore vinyl',
+    course_title: 'Painting, or Face-Painting?',
+    rating: '0.986',
+    dates_available: [
+      { Sunday: 'false' },
+      { Monday: 'true' },
+      { Tuesday: 'true' },
+      { Wednesday: 'true' },
+      { Thursday: 'true' },
+      { Friday: 'true' },
+      { Saturday: 'true' },
+    ],
   },
   {
     course_id: 21,
@@ -345,6 +566,17 @@ const data = [
     image: 'https://images.unsplash.com/photo-1558443957-d056622df610',
     course_brief:
       ' Plaid polaroid literally quinoa forage woke biodiesel viral kinfolk freegan neutra',
+    course_title: 'The Top Ninety-Six Portuguese Phrases About Flowers',
+    rating: '2.78',
+    dates_available: [
+      { Sunday: 'false' },
+      { Monday: 'false' },
+      { Tuesday: 'false' },
+      { Wednesday: 'false' },
+      { Thursday: 'false' },
+      { Friday: 'false' },
+      { Saturday: 'true' },
+    ],
   },
   {
     course_id: 22,
@@ -360,6 +592,17 @@ const data = [
     image: 'https://images.unsplash.com/photo-1631739714671-0de24b57d810',
     course_brief:
       ' Microdosing pop-up farm-to-table, slow-carb flannel vinyl hot chicken VHS migas cold-pressed vexillologist skateboard mixtape scenester affogato',
+    course_title: 'You Can Defend Yourself from Bears with Bach',
+    rating: '0.0190',
+    dates_available: [
+      { Sunday: 'true' },
+      { Monday: 'true' },
+      { Tuesday: 'true' },
+      { Wednesday: 'true' },
+      { Thursday: 'false' },
+      { Friday: 'false' },
+      { Saturday: 'false' },
+    ],
   },
   {
     course_id: 23,
@@ -374,6 +617,17 @@ const data = [
     is_offline: 'true',
     image: 'https://images.unsplash.com/photo-1618673747378-7e0d3561371a',
     course_brief: ' Farm-to-table mustache woke truffaut disrupt kinfolk ennui',
+    course_title: "I'll Just Let You Hold My Guitar for Your Tinder Profile",
+    rating: '1.54',
+    dates_available: [
+      { Sunday: 'true' },
+      { Monday: 'true' },
+      { Tuesday: 'false' },
+      { Wednesday: 'true' },
+      { Thursday: 'false' },
+      { Friday: 'true' },
+      { Saturday: 'true' },
+    ],
   },
   {
     course_id: 24,
@@ -389,6 +643,17 @@ const data = [
     image: 'https://images.unsplash.com/photo-1578961771886-97d51aee46bc',
     course_brief:
       ' Franzen direct trade bitters, gentrify narwhal hella ugh banjo copper mug everyday carry street art brooklyn lumbersexual tumblr',
+    course_title: 'How to Drum in a Desert',
+    rating: '0.944',
+    dates_available: [
+      { Sunday: 'true' },
+      { Monday: 'true' },
+      { Tuesday: 'false' },
+      { Wednesday: 'false' },
+      { Thursday: 'false' },
+      { Friday: 'false' },
+      { Saturday: 'true' },
+    ],
   },
   {
     course_id: 25,
@@ -404,9 +669,19 @@ const data = [
     image: 'https://images.unsplash.com/photo-1493863641943-9b68992a8d07',
     course_brief:
       ' Bushwick glossier literally meggings, vaporware squid snackwave meh ennui DIY chambray',
+    course_title: 'A Course in Props for Stopping Traffic',
+    rating: '1.21',
+    dates_available: [
+      { Sunday: 'true' },
+      { Monday: 'false' },
+      { Tuesday: 'false' },
+      { Wednesday: 'true' },
+      { Thursday: 'true' },
+      { Friday: 'false' },
+      { Saturday: 'false' },
+    ],
   },
 ];
-
 const theme = createTheme();
 
 export default function Album() {
@@ -420,15 +695,11 @@ export default function Album() {
 
       <main>
         {/* Hero unit */}
-       
+
         <Banner />
         {/* course card starts*/}
         <CourseCard cards={data} />
         {/* course card ends*/}
-    
-        
-        
-
       </main>
       {/* Footer */}
       <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
