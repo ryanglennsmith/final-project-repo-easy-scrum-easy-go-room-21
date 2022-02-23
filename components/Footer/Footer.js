@@ -1,5 +1,12 @@
 import { Box, Link, Typography } from '@mui/material';
 
+// Footer CSS
+import {
+  footerContainerBox,
+  footerBox,
+  footerTypography,
+} from '../../globalCss.js';
+
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
@@ -14,20 +21,8 @@ function Copyright() {
 }
 export default function Footer() {
   return (
-    <Box
-      sx={{
-        bgcolor: '#555555',
-        display: 'flex',
-        justifyContent: 'space-around',
-        flexDirection: 'row',
-        alignContent: 'center',
-        alignItems: 'center',
-        padding: '1rem 4rem',
-        color: '#9A9A9A',
-      }}
-      component="footer"
-    >
-      <Box sx={{ display: 'flex', justifyContent: 'column' }}>
+    <Box sx={footerContainerBox} component="footer">
+      <Box sx={footerBox}>
         <img
           src="https://i1.lensdump.com/i/re9GT7.png"
           style={{ maxWidth: '4rem' }}
@@ -36,7 +31,7 @@ export default function Footer() {
           variant="h6"
           align="center"
           gutterBottom
-          sx={{ maxWidth: '20rem', color: '#9A9A9A' }}
+          sx={footerTypography}
         >
           WeAreSharers
         </Typography>

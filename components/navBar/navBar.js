@@ -10,6 +10,13 @@ import {
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Image from 'next/image';
 import React from 'react';
+import {
+  navBarApp,
+  navBarToolBar,
+  navBarContainer,
+  navBarBox,
+  navbarButton,
+} from 'globalCss.js';
 
 export default function NavBar() {
   const matches = useMediaQuery('(min-width:900px)');
@@ -18,88 +25,49 @@ export default function NavBar() {
     <AppBar
       position="relative"
       color="primary"
-      sx={{
-        width: '100vw',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
+      sx={navBarApp}
       style={{
         background: 'transparent',
         boxShadow: 'none',
       }}
     >
-      <Toolbar
-        sx={{
-          display: 'flex',
-          justifyContent: 'space-around',
-          alignItems: 'center',
-          width: '80%',
-        }}
-      >
+      <Toolbar sx={navBarToolBar}>
         {/* when screen goes to small screen width switches 100*/}
 
         {/* LOGO */}
-        <Container
-          sx={{
-            display: 'flex',
-            width: '50%',
-            justifyContent: 'center',
-          }}
-        >
+        <Container sx={navBarContainer}>
           <img
             src="https://i1.lensdump.com/i/re9GT7.md.png"
             alt="logo"
             style={{ maxWidth: '4rem' }}
           ></img>
-          <Typography variant="h6" color="#000000">
+          <Typography variant="h6" color="#fff">
             WeAreSharers
           </Typography>
         </Container>
 
-        <Box
-          className="navbar-buttons"
-          sx={{
-            display: 'flex',
-            wrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '50%',
-            gap: '2rem',
-          }}
-        >
+        <Box className="navbar-buttons" sx={navBarBox}>
           {matches && (
-            <Link color="#000000" underline="none">
+            <Link color="#fff" underline="none">
               ABOUT
             </Link>
           )}
 
           {matches && (
-            <Link color="#000000" underline="none">
+            <Link color="#fff" underline="none">
               MENU1
             </Link>
           )}
 
           {matches && (
-            <Link color="#000000" underline="none">
+            <Link color="#fff" underline="none">
               MENU2
             </Link>
           )}
-          <Link color="#000000" underline="none" nowrap>
+          <Link color="#fff" underline="none" nowrap>
             SIGN IN
           </Link>
-          <Button
-            color="secondary"
-            variant="contained"
-            sx={{
-              color: '#fff',
-              background: '#FF8957',
-              '&:hover': { background: '#FF8957' },
-              fontFamily: 'Inter',
-              fontStyle: 'normal',
-              letterSpacing: '0em',
-            }}
-          >
+          <Button color="secondary" variant="contained" sx={navbarButton}>
             Join
           </Button>
         </Box>

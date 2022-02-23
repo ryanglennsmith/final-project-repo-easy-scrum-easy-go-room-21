@@ -6,52 +6,34 @@ import { Box } from '@mui/system';
 import { Input, TextField } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
+// CSS
+import {
+  bannerBox,
+  bannerContainer,
+  bannerTypographyWeb,
+  bannerTypographyMobile,
+  bannerStack,
+  bannerTextFieldWeb,
+  bannerTypographySubWeb,
+  bannerTypographySubMobile,
+  bannerButton,
+} from '../../globalCss.js';
+import NavBar from '@components/navBar/navBar.js';
+
 export default function Banner() {
   const matches = useMediaQuery('(min-width:700px)');
 
   return (
-    <Box
-      sx={{
-        backgroundImage: 'url("https://i.lensdump.com/i/redSH7.png")',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundColor: '#555555',
-        backgroundSize: '160rem',
-        width: '100%',
-      }}
-    >
-      <Container
-        maxWidth="sm"
-        sx={{
-          background: 'transparent',
-          width: '100vw',
-          padding: '5rem 0rem',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-        }}
-      >
+    <Box sx={bannerBox}>
+      <NavBar />
+      <Container maxWidth="sd" sx={bannerContainer}>
         {matches && (
           <Typography
             component="h1"
             variant="h2"
             align="center"
             gutterBottom
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignSelf: 'center',
-              borderRadius: '6px',
-              width: '50rem',
-              color: '#fff',
-              fontFamily: 'Inter',
-              fontSize: '72px',
-              fontStyle: 'normal',
-              fontWeight: '700',
-              lineHeight: '58.09px',
-              letterSpacing: '0em',
-              textAlign: 'center',
-            }}
+            sx={bannerTypographyWeb}
           >
             {`Find The Perfect {Tutor}`}
           </Typography>
@@ -62,21 +44,7 @@ export default function Banner() {
             variant="h2"
             align="center"
             gutterBottom
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignSelf: 'center',
-              borderRadius: '6px',
-              width: '25rem',
-              color: '#fff',
-              fontFamily: 'Inter',
-              fontSize: '60px',
-              fontStyle: 'normal',
-              fontWeight: '700',
-              lineHeight: '58.09px',
-              letterSpacing: '0em',
-              textAlign: 'center',
-            }}
+            sx={bannerTypographyMobile}
           >
             {`Find The Perfect {Tutor}`}
           </Typography>
@@ -88,21 +56,7 @@ export default function Banner() {
             align="center"
             color="text.secondary"
             paragraph
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignSelf: 'center',
-              borderRadius: '6px',
-              width: '20rem',
-              color: '#fff',
-              fontFamily: 'Inter',
-              fontSize: '16px',
-              fontStyle: 'normal',
-              fontWeight: '400',
-              lineHeight: '24px',
-              letterSpacing: '0em',
-              textAlign: 'center',
-            }}
+            sx={bannerTypographySubWeb}
           >
             Build, monetize, manage, and grow membership sites, courses,
             subscriptions, communities, events, or the digital product of your
@@ -115,21 +69,7 @@ export default function Banner() {
             align="center"
             color="text.secondary"
             paragraph
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignSelf: 'center',
-              borderRadius: '6px',
-              width: '40rem',
-              color: '#fff',
-              fontFamily: 'Inter',
-              fontSize: '26px',
-              fontStyle: 'normal',
-              fontWeight: '400',
-              lineHeight: '24px',
-              letterSpacing: '0em',
-              textAlign: 'center',
-            }}
+            sx={bannerTypographySubMobile}
           >
             Build, monetize, manage, and grow membership sites, courses,
             subscriptions, communities, events, or the digital product of your
@@ -137,7 +77,7 @@ export default function Banner() {
           </Typography>
         )}
         <Stack
-          sx={{ pt: 4 }}
+          sx={bannerStack}
           direction="row"
           spacing={2}
           justifyContent="center"
@@ -147,7 +87,7 @@ export default function Banner() {
             <TextField
               id="outlined-basic"
               variant="outlined"
-              sx={{ background: '#fff', borderRadius: '6px', width: '20rem' }}
+              sx={bannerTextFieldWeb}
             />
           )}
           {/* Search input for smaller than 700px */}
@@ -158,25 +98,11 @@ export default function Banner() {
               sx={{
                 background: '#fff',
                 borderRadius: '6px',
-                width: '1rem',
+                width: '10rem',
               }}
             />
           )}
-          <Button
-            variant="contained"
-            sx={{
-              marginRight: '5rem',
-              color: '#fff',
-              background: '#FF8957',
-              fontFamily: 'Inter',
-              fontSize: '18px',
-              fontStyle: 'normal',
-              fontWeight: '600',
-              lineHeight: '40px',
-              letterSpacing: '0em',
-              textAlign: 'center',
-            }}
-          >
+          <Button variant="contained" sx={bannerButton}>
             Search
           </Button>
         </Stack>

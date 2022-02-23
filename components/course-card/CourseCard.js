@@ -10,36 +10,33 @@ import Container from '@mui/material/Container';
 import Rating from '@mui/material/Rating';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
+// Importing CSS
+import {
+  courseCardContainer,
+  courseCardCardSection,
+  courseCardCardMedia,
+  courseCardCardContent,
+} from '../../globalCss.js';
+
 //plan -  fetch data from ryan's mock api
 
 //pass mock data as prop
 export default function CourseCard({ cards }) {
   const matches = useMediaQuery('(min-width:700px)');
   return (
-    <Container sx={{ py: 6 }} maxWidth="md">
+    <Container sx={courseCardContainer} maxWidth="md">
       {/* End hero unit */}
       <Grid container spacing={4}>
         {cards.map((card) => (
           <Grid item key={card.id} xs={12} sm={6} md={6}>
-            <Card
-              sx={{
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-              }}
-            >
+            <Card sx={courseCardCardSection}>
               <CardMedia
                 component="img"
-                sx={{
-                  // 16:9
-
-                  padding: '1.5rem',
-                  pt: '2rem',
-                }}
+                sx={courseCardCardMedia}
                 image={card.image}
                 alt="random"
               />
-              <CardContent sx={{ flexGrow: 1 }}>
+              <CardContent sx={courseCardCardContent}>
                 <Typography gutterBottom variant="h5" component="h2">
                   {card.teacher_name}
                 </Typography>
