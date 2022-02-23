@@ -51,7 +51,7 @@ export const API = {
       course_brief:
         ' Actually etsy brunch trust fund, banjo meggings craft beer',
       course_title: 'Pacifist Clay Pigeons',
-      rating: '4.00',
+      rating: 4,
       dates_available: [
         { Sunday: 'true' },
         { Monday: 'false' },
@@ -88,7 +88,7 @@ export const API = {
       course_brief:
         ' Crucifix poutine YOLO, godard beard roof party plaid thundercats tacos kitsch shabby chic street art',
       course_title: 'Parapsychology and Psychokenesis',
-      rating: '4.63',
+      rating: 4.63,
       dates_available: [
         { Sunday: 'true' },
         { Monday: 'true' },
@@ -163,7 +163,7 @@ export const API = {
         ' Food truck cornhole put a bird on it kickstarter letterpress, flexitarian pinterest pork belly mixtape',
       course_title:
         'Never Get Bored: I Will Teach You How to Change Careers Every Week',
-      rating: '0.1763',
+      rating: 3.1763,
       dates_available: [
         { Sunday: 'false' },
         { Monday: 'false' },
@@ -199,7 +199,7 @@ export const API = {
       course_brief:
         ' Hella blog roof party marfa cornhole banjo, plaid put a bird on it leggings meggings ramps air plant yuccie brunch wolf',
       course_title: 'A Course in Klingon Dialects',
-      rating: '0.1293',
+      rating: 3.1293,
       dates_available: [
         { Sunday: 'true' },
         { Monday: 'true' },
@@ -235,7 +235,7 @@ export const API = {
       course_brief:
         ' Art party shabby chic salvia readymade tousled health goth',
       course_title: 'Knitting 101',
-      rating: '0.5233',
+      rating: 3.5233,
       dates_available: [
         { Sunday: 'true' },
         { Monday: 'false' },
@@ -272,7 +272,7 @@ export const API = {
       course_brief:
         ' Authentic quinoa raclette poutine vexillologist trust fund, XOXO sustainable williamsburg green juice man bun jianbing narwhal brooklyn',
       course_title: 'How to Speedrun Altered Beast on the Sega Genesis',
-      rating: '0.6113',
+      rating: 3.6113,
       dates_available: [
         { Sunday: 'true' },
         { Monday: 'true' },
@@ -310,7 +310,7 @@ export const API = {
       course_brief:
         ' Chartreuse franzen health goth, kogi DIY cloud bread air plant farm-to-table glossier',
       course_title: 'Cooking the Entire Larousse Gastronomique',
-      rating: '4.92',
+      rating: 4.92,
       dates_available: [
         { Sunday: 'false' },
         { Monday: 'false' },
@@ -347,7 +347,7 @@ export const API = {
       course_brief:
         ' Put a bird on it church-key tacos VHS lo-fi everyday carry salvia, occupy jianbing bicycle rights vexillologist',
       course_title: 'Flambee All Day, Every Day',
-      rating: '4.79',
+      rating: 4.79,
       dates_available: [
         { Sunday: 'false' },
         { Monday: 'true' },
@@ -457,7 +457,7 @@ export const API = {
       course_brief:
         ' Unicorn marfa cronut, keffiyeh normcore polaroid brunch chicharrones iPhone squid poke DIY YOLO',
       course_title: 'Sew a Tea Bag for 200',
-      rating: '1.153',
+      rating: 4.1530000000000005,
       dates_available: [
         { Sunday: 'true' },
         { Monday: 'false' },
@@ -493,7 +493,7 @@ export const API = {
       image: 'https://images.unsplash.com/photo-1631273553464-7595e1a5b68d',
       course_brief: ' Hot chicken mumblecore hashtag mlkshk brooklyn',
       course_title: 'Beads',
-      rating: '0.7093',
+      rating: 3.7093,
       dates_available: [
         { Sunday: 'true' },
         { Monday: 'false' },
@@ -529,7 +529,7 @@ export const API = {
       course_brief:
         ' Coloring book pitchfork everyday carry, cardigan taiyaki butcher ethical brunch woke',
       course_title: 'DIY 19th Century Style Bloomers',
-      rating: '0.3263',
+      rating: 3.3263,
       dates_available: [
         { Sunday: 'false' },
         { Monday: 'true' },
@@ -643,7 +643,7 @@ export const API = {
         ' Jianbing pok pok blue bottle, taxidermy kinfolk artisan tbh',
       course_title:
         'A Course in the Abstract Poetry of Post-Postmodern Meta-Existentialist Hegemony of Dialectic Hermeneutics',
-      rating: '4.36',
+      rating: 4.36,
       dates_available: [
         { Sunday: 'false' },
         { Monday: 'true' },
@@ -717,7 +717,7 @@ export const API = {
       image: 'https://images.unsplash.com/photo-1633887091273-a3bd71efddde',
       course_brief: ' Ugh cray flexitarian mumblecore vinyl',
       course_title: 'Painting, or Face-Painting?',
-      rating: '0.9863',
+      rating: 3.9863,
       dates_available: [
         { Sunday: 'false' },
         { Monday: 'true' },
@@ -790,7 +790,7 @@ export const API = {
       course_brief:
         ' Microdosing pop-up farm-to-table, slow-carb flannel vinyl hot chicken VHS migas cold-pressed vexillologist skateboard mixtape scenester affogato',
       course_title: 'You Can Defend Yourself from Bears with Bach',
-      rating: '0.01903',
+      rating: 3.01903,
       dates_available: [
         { Sunday: 'true' },
         { Monday: 'true' },
@@ -827,7 +827,7 @@ export const API = {
       course_brief:
         ' Farm-to-table mustache woke truffaut disrupt kinfolk ennui',
       course_title: "I'll Just Let You Hold My Guitar for Your Tinder Profile",
-      rating: '1.543',
+      rating: 4.543,
       dates_available: [
         { Sunday: 'true' },
         { Monday: 'true' },
@@ -863,7 +863,7 @@ export const API = {
       course_brief:
         ' Franzen direct trade bitters, gentrify narwhal hella ugh banjo copper mug everyday carry street art brooklyn lumbersexual tumblr',
       course_title: 'How to Drum in a Desert',
-      rating: '0.9443',
+      rating: 3.9443,
       dates_available: [
         { Sunday: 'true' },
         { Monday: 'true' },
@@ -899,7 +899,7 @@ export const API = {
       course_brief:
         ' Bushwick glossier literally meggings, vaporware squid snackwave meh ennui DIY chambray',
       course_title: 'A Course in Props for Stopping Traffic',
-      rating: '1.213',
+      rating: 4.213,
       dates_available: [
         { Sunday: 'true' },
         { Monday: 'false' },
@@ -922,6 +922,16 @@ export const API = {
     },
   ],
 };
+API.courses.forEach((course) => {
+  course.rating = Number(course.rating);
+  if (course.rating < 2) {
+    course.rating += 3;
+  }
+});
+const fs = require('fs');
+fs.writeFileSync('./API.json', JSON.stringify(API));
+// code to fix ratings numbers
+
 // ****************************
 // code from 22-02
 // import axios from 'axios';
