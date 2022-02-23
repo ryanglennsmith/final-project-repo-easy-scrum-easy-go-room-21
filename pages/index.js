@@ -22,7 +22,6 @@ import CourseCard from '../components/course-card/CourseCard.js';
 import Banner from '@components/Banner/Banner.js';
 import Footer from '@components/Footer/Footer.js';
 
-
 const data = [
   {
     course_id: 1,
@@ -679,7 +678,7 @@ export default function Album() {
       <CssBaseline />
 
       {/* NavBar start */}
-      <NavBar />
+
       {/* NavBar end */}
 
       <main>
