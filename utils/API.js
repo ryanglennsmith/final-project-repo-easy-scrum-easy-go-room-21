@@ -922,12 +922,12 @@ export const API = {
     },
   ],
 };
-API.courses.forEach((course) => {
-  course.rating = Number(course.rating);
-  if (course.rating < 2) {
-    course.rating += 3;
-  }
-});
+// API.courses.forEach((course) => {
+//   course.rating = Number(course.rating);
+//   if (course.rating < 2) {
+//     course.rating += 3;
+//   }
+// });
 // const fs = require('fs');
 // fs.writeFileSync('./API.json', JSON.stringify(API));
 // code to fix ratings numbers

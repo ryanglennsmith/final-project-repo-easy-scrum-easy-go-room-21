@@ -22,8 +22,11 @@ import {
   profileSearchBar,
   titleTypo,
 } from 'globalCss';
+
+import { API } from 'utils/API';
+
 export default function CoursePage({ data }) {
-  const course = data.course[0];
+  const course = data;
   const days = course.dates_available.map((date) => {
     return Object.keys(date);
   });
@@ -168,8 +171,9 @@ export default function CoursePage({ data }) {
 export async function getStaticPaths() {
   // call a fetch to all the courses
   // map all courses by id
-  const res = await fetch('http://localhost:3000/api/courses');
-  const data = await res.json();
+  // const res = await fetch('http://localhost:3000/api/courses');
+  // const data = await res.json();
+  const data = API;
   // data.courses
   const paths = data.courses.map((course) => {
     const id = String(course.course_id);
@@ -186,8 +190,11 @@ export async function getStaticPaths() {
   };
 }
 export async function getStaticProps({ params }) {
-  const res = await fetch(`http://localhost:3000/api/courses/${params.id}`);
-  const data = await res.json();
+  // const res = await fetch(`http://localhost:3000/api/courses/${params.id}`);
+  // const data = await res.json();
+
+  const id = params.id - 1;
+  const data = API.courses[id];
   return { props: { data } };
 }
 
