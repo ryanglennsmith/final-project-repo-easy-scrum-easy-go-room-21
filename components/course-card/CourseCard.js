@@ -16,6 +16,7 @@ import {
   courseCardCardSection,
   courseCardCardMedia,
   courseCardCardContent,
+  courseCardButton,
 } from '../../globalCss.js';
 import { Link } from '@mui/material';
 
@@ -30,7 +31,10 @@ export default function CourseCard({ cards }) {
       <Grid container spacing={4}>
         {cards.map((card) => (
           <Grid item key={card.course_id} xs={12} sm={6} md={6}>
-            <Link href={`/courses/${card.course_id}`}>
+            <Link
+              href={`/courses/${card.course_id}`}
+              style={{ textDecoration: 'none' }}
+            >
               <Card sx={courseCardCardSection}>
                 <CardMedia
                   component="img"
@@ -58,14 +62,7 @@ export default function CourseCard({ cards }) {
                   {/* number of the comments  */}
                   <Typography>{`(152)`}</Typography>
                   {matches && (
-                    <Button
-                      variant="outlined"
-                      className="contactMeButton"
-                      // sx={{
-                      //   // m: 6,
-                      //   mx: 12,
-                      // }}
-                    >
+                    <Button variant="outlined" sx={courseCardButton}>
                       Contact Me
                     </Button>
                   )}

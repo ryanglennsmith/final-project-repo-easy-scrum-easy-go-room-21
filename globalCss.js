@@ -65,7 +65,19 @@ export const courseCardCardSection = {
 
 export const courseCardCardMedia = { padding: '1.5rem', pt: '2rem' };
 
-export const courseCardCardContent = { flexGrow: 1 };
+export const courseCardCardContent = {
+  flexGrow: 1,
+};
+
+export const courseCardButton = {
+  color: '#fff',
+  background: '#FF8957',
+  '&:hover': { background: '#FF8957' },
+  fontFamily: 'Inter',
+  fontStyle: 'Semi Bold',
+  letterSpacing: '0rem',
+  marginLeft: 'auto',
+};
 
 // *******BANNER CSS*******
 export const bannerBox = {
