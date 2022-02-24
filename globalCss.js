@@ -222,18 +222,19 @@ export const footerTypography = { maxWidth: '20rem', color: '#9A9A9A' };
 // *******Profile CSS*******
 
 export const titleTypo = {
-  fontFamily: 'Roboto',
-  fontSize: '36px',
+  fontFamily: 'sans-serif',
+  fontSize: '40px',
   fontStyle: 'normal',
-  fontWeight: '700',
+  fontWeight: '800',
   lineHeight: '40px',
-  letterSpacing: '0em',
+  letterSpacing: '-1px',
   textAlign: 'left',
 };
 
 export const nameTypo = {
   fontFamily: 'Rhodium Libre',
-  fontSize: '24px',
+  margin: '10px 0 10px 0',
+  fontSize: '25px',
   fontStyle: 'normal',
   fontWeight: '400',
   lineHeight: '41.04px',
@@ -252,11 +253,12 @@ export const subHeadingTypo = {
 };
 
 export const generalTypo = {
-  fontFamily: 'Roboto',
+  fontFamily: 'sans-serif',
   fontSize: '16px',
   fontStyle: 'normal',
   fontWeight: '300',
   lineHeight: '19px',
+  margin: '10px 0 10px 0',
   letterSpacing: '0rem',
   textAlign: 'left',
 };

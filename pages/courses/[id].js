@@ -63,6 +63,7 @@ export default function CoursePage({ data }) {
           flexDirection: 'row',
           justifyContent: 'center',
           width: '60%',
+          margin: 'auto',
         }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -74,9 +75,7 @@ export default function CoursePage({ data }) {
           />{' '}
         </Box>
         <Box sx={{ ...titleTypo, marginLeft: '4rem' }}>
-          <Typography className="courseTitle">
-            {course.course_title}{' '}
-          </Typography>
+          <Typography sx={titleTypo}>{course.course_title} </Typography>
 
           <Typography sx={nameTypo}> {course.teacher_name}</Typography>
           <Typography sx={generalTypo}> {course.course_brief}</Typography>
