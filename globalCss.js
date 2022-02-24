@@ -1,3 +1,14 @@
+// *******General CSS*******
+export const centerContentRow = {
+  display: 'flex',
+  flexDirection: 'row',
+};
+export const centerContentCol = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+};
+
 // *******NAVBAR CSS*******
 export const navBarApp = {
   width: '100vw',
@@ -35,6 +46,10 @@ export const navbarButton = {
   fontFamily: 'Inter',
   fontStyle: 'normal',
   letterSpacing: '0em',
+};
+
+export const navbarSidePageBox = {
+  backgroundColor: '#FF8957',
 };
 
 // ********* COURSECARD CSS *******
@@ -171,7 +186,7 @@ export const bannerButton = {
 };
 
 // *******Footer CSS*******
-export const footerContainerBox = {
+export const footerContainerBoxMd = {
   bgcolor: '#555555',
   display: 'flex',
   justifyContent: 'space-around',
@@ -180,7 +195,82 @@ export const footerContainerBox = {
   alignItems: 'center',
   padding: '1rem 4rem',
   color: '#9A9A9A',
+
+  left: '0',
+  width: '100%',
+  bottom: '110',
+};
+
+export const footerContainerBoxLgr = {
+  bgcolor: '#555555',
+  display: 'flex',
+  justifyContent: 'space-around',
+  flexDirection: 'row',
+  alignContent: 'center',
+  alignItems: 'center',
+  padding: '1rem 4rem',
+  color: '#9A9A9A',
+
+  position: 'absolute',
+  bottom: '0',
+  width: '100%',
 };
 export const footerBox = { display: 'flex', justifyContent: 'column' };
 
 export const footerTypography = { maxWidth: '20rem', color: '#9A9A9A' };
+
+// *******Profile CSS*******
+
+export const titleTypo = {
+  fontFamily: 'Roboto',
+  fontSize: '36px',
+  fontStyle: 'normal',
+  fontWeight: '700',
+  lineHeight: '40px',
+  letterSpacing: '0em',
+  textAlign: 'left',
+};
+
+export const nameTypo = {
+  fontFamily: 'Rhodium Libre',
+  fontSize: '24px',
+  fontStyle: 'normal',
+  fontWeight: '400',
+  lineHeight: '41.04px',
+  letterSpacing: '0em',
+  textAlign: 'left',
+};
+
+export const subHeadingTypo = {
+  fontFamily: 'Roboto',
+  fontSize: '36px',
+  fontStyle: 'normal',
+  fontWeight: '700',
+  lineHeight: '40px',
+  letterSpacing: '0em',
+  textAlign: 'left',
+};
+
+export const generalTypo = {
+  fontFamily: 'Roboto',
+  fontSize: '16px',
+  fontStyle: 'normal',
+  fontWeight: '300',
+  lineHeight: '18.75px',
+  letterSpacing: '0rem',
+  textAlign: 'left',
+};
+
+export const aboutSection = {
+  display: 'flex',
+  flexDirection: 'column',
+  margin: '0 auto',
+  width: '70%',
+};
+
+export const profileSearchBar = {
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'center',
+  margin: '4rem 0',
+};

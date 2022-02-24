@@ -1,5 +1,26 @@
 import Image from 'next/image';
-import { Button } from '@mui/material';
+import {
+  Box,
+  Button,
+  Rating,
+  TextField,
+  Typography,
+  useMediaQuery,
+} from '@mui/material';
+import Footer from '@components/Footer/Footer';
+import NavBar from '@components/navBar/navBar';
+import {
+  aboutSection,
+  centerContentRow,
+  footerContainerBoxLgr,
+  footerContainerBoxMd,
+  generalTypo,
+  nameTypo,
+  navbarButton,
+  navbarSidePageBox,
+  profileSearchBar,
+  titleTypo,
+} from 'globalCss';
 export default function CoursePage({ data }) {
   const course = data.course[0];
   const days = course.dates_available.map((date) => {
@@ -8,45 +29,111 @@ export default function CoursePage({ data }) {
   const available = course.dates_available.map((date) => {
     return Object.values(date).toString();
   });
+  const matchesMd = useMediaQuery('(max-width:913px)');
+  const matchesLrg = useMediaQuery('(min-width:913px)');
 
   return (
-    <div className="topLevelContainer courseProfile">
-      <Image src={course.image} width="400px" height="260px" alt="painting" />
-      <section className="lessonCard">
-        <h1 className="courseTitle">{course.course_title}</h1>
-        <p className="courseSubHead">{course.course_brief}</p>
-        <p className="courseTeacherName">{course.teacher_name}</p>
-        <p className="courseRating">rating: {course.rating}</p>
-        <p className="courseDates">
-          {available.map((value, index) => {
-            if (value == 'true') {
-              return <span style={{ fontWeight: 'bold' }}>{days[index]} </span>;
-            } else {
-              return <span style={{ color: 'gray' }}>{days[index]} </span>;
-            }
-          })}
-        </p>
-        <p className="courseOnlineStatus">
-          {course.is_offline === 'true' ? (
-            <span style={{ fontWeight: 'bold' }}>Offline</span>
-          ) : (
-            <span style={{ color: 'gray' }}>Offline</span>
-          )}{' '}
-          |{' '}
-          {course.is_online === 'true' ? (
-            <span style={{ fontWeight: 'bold' }}>Online</span>
-          ) : (
-            <span style={{ color: 'gray' }}>Online</span>
-          )}
-        </p>
-        <Button>{course.email}</Button>
-      </section>
-      <section className="courseDescription">
-        <h2>About this class</h2>
-        <p className="courseLongDescription">{course.long_description}</p>
-      </section>
+    <Box style={{ height: '100vh' }}>
+      <Box sx={navbarSidePageBox}>
+        <NavBar logoLink={'https://i.lensdump.com/i/reFewK.png'} />
+      </Box>
+      <Box sx={profileSearchBar}>
+        <TextField
+          id="outlined-basic"
+          variant="outlined"
+          sx={{
+            background: '#fff',
+            borderRadius: '6px',
+            width: '60%',
+          }}
+        />
+        <Button variant="contained" sx={navbarButton}>
+          Search
+        </Button>
+      </Box>
+      <Box
+        sx={{
+          flexGrow: 1,
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'center',
+        }}
+      >
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Image
+            src={course.images.thumb}
+            width="400px"
+            height="260px"
+            alt="painting"
+          />{' '}
+        </Box>
+        <Box sx={{ ...titleTypo, marginLeft: '4rem' }}>
+          <Typography className="courseTitle">
+            {course.course_title}{' '}
+          </Typography>
 
-      {/* 
+          <Typography sx={nameTypo}> {course.teacher_name}</Typography>
+          <Typography sx={generalTypo}> {course.course_brief}</Typography>
+
+          <Box sx={centerContentRow}>
+            <Rating
+              name="read-only"
+              defaultValue={Number(course.rating)}
+              precision={0.5}
+              readOnly
+            />
+            <Typography>{` (${course.rating})`}</Typography>
+            {/* number of the comments  */}
+            <Typography>{` (152)`}</Typography>
+          </Box>
+
+          <Box sx={centerContentRow}>
+            {available.map((value, index) => {
+              if (value == 'true') {
+                return (
+                  <Typography sx={{ ...generalTypo, fontWeight: 'bold' }}>
+                    {`|${days[index]} |`}{' '}
+                  </Typography>
+                );
+              } else {
+                return (
+                  <Typography sx={{ ...generalTypo, color: 'gray' }}>
+                    {`|${days[index]} |`}{' '}
+                  </Typography>
+                );
+              }
+            })}
+          </Box>
+
+          <Box sx={centerContentRow}>
+            {course.is_offline === 'true' ? (
+              <Typography sx={{ ...generalTypo, fontWeight: 'bold' }}>
+                Offline
+              </Typography>
+            ) : (
+              <Typography sx={{ ...generalTypo, color: 'gray' }}>
+                Offline
+              </Typography>
+            )}{' '}
+            |{' '}
+            {course.is_online === 'true' ? (
+              <Typography sx={{ ...generalTypo, fontWeight: 'bold' }}>
+                Online
+              </Typography>
+            ) : (
+              <Typography sx={{ ...generalTypo, color: 'gray' }}>
+                Online
+              </Typography>
+            )}
+          </Box>
+          <Button sx={navbarButton}>{course.email}</Button>
+        </Box>{' '}
+      </Box>
+      <Box sx={aboutSection}>
+        <Typography variant="h3">About this class</Typography>
+        <Typography>{course.long_description}</Typography>
+      </Box>
+      {/*
 ---
 
 - Profile (title, subtext, rating, name, date, aboutClass, content)
@@ -54,8 +141,12 @@ export default function CoursePage({ data }) {
 - LessonCard(title, subText, rating, name, date)
 - Action Button (text, function) (Child component)
 - Description (aboutClass, content) (Child component)
-*/}
-    </div>
+*/}{' '}
+      {/* When the screen width reaches atleast 913px, then this css takes place. */}
+      {matchesLrg && <Footer styling={footerContainerBoxLgr} />}
+      {/* When the screen width reaches at most 913px, then this css takes place. */}
+      {matchesMd && <Footer styling={footerContainerBoxMd} />}
+    </Box>
   );
 }
 
