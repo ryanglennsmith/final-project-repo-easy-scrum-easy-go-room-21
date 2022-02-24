@@ -1,23 +1,45 @@
-import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import CssBaseline from '@mui/material/CssBaseline';
+import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import Link from '@mui/material/Link';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-export default function Home() {
+import NavBar from '../components/navBar/navBar.js';
+import { footerContainerBoxMd } from 'globalCss.js';
+import CourseCard from '../components/course-card/CourseCard.js';
+
+import Banner from '@components/Banner/Banner.js';
+import Footer from '@components/Footer/Footer.js';
+import { API } from 'utils/API.js';
+
+const data = API.courses;
+const theme = createTheme();
+
+export default function Album() {
   return (
-    <div className="container">
-      <Head>
-        <title>Next.js Starter!</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
 
       <main>
-        <Header title="Welcome to my app!" />
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-      </main>
+        {/* Hero unit */}
 
-      <Footer />
-    </div>
-  )
+        <Banner />
+        {/* course card starts*/}
+        <CourseCard cards={data} />
+        {/* course card ends*/}
+      </main>
+      <Footer styling={footerContainerBoxMd} />
+    </ThemeProvider>
+  );
 }

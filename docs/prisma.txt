@@ -1,0 +1,44 @@
+*** IF YOU'RE JUST TRYING IT OUT, SKIP TO *FOR TUTORIAL PURPOSES* ***
+** IN A WIP **
+project already has package.json and there's a DB server running with at least one table
+$ npm i prisma -D
+$ npx prisma
+$ npx prisma init -> create ./prisma/schema.prisma && create .env where DB creds lives
+in ./prisma/schema.prisma add: 
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+and set the URL creds in .env
+see documentation for introspecting DB
+see below for generating tables
+
+*** FOR TUTORIAL PURPOSES ***
+init heroku PG DB
+install prisma on repo '$ npm i prisma typescript ts-node @types/node -D' (sneak in TS)
+$ touch tsconfig.json: 
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "outDir": "dist",
+    "strict": true,
+    "lib": ["esnext"],
+    "esModuleInterop": true
+  }
+}
+
+ 
+prisma CLI at '$ npx prisma'
+$ npx prisma init -> create ./prisma/schema.prisma && create .env where DB creds lives
+
+create schema in ./prisma/schema.prisma
+
+*** IGNORE THE SHADOW DB STUFF / DOESN'T WORK WITH FREE HEROKU PLAN ***
+** DO NOT BOTHER WITH npx prisma migrate dev --name init **
+instead do: $ npx prisma db push
+-- i guess this is probably a destructive command, so be careful
+-- also it should install prisma client, if not do:
+$ npm install @prisma/client
+* Whenever you make changes to your Prisma schema in the future, you manually need to invoke prisma generate in order to accommodate the changes in your Prisma Client API. *
+
+

@@ -1,0 +1,24 @@
+-1 Dummy data / mock backend
+
+
+1 Deploy PG DB with necessary data/tables
+	
+	-create schema in Prisma to populate DB <-
+	
+	this is the hard bit...
+
+	...but it should make the next bit easier
+
+
+2 Create API pages in nextjs w/routes from API.txt
+	
+	-create page for /api/courses
+		index.js
+		-fetch function for this route
+		something like:
+		const getAllCourses = await prisma.course.findMany({})
+
+	-create dynamic route for api/courses/[id]
+		[id].js
+		-fetch function for this route
+		const getCourseById ... 
