@@ -256,7 +256,7 @@ export const generalTypo = {
   fontSize: '16px',
   fontStyle: 'normal',
   fontWeight: '300',
-  lineHeight: '18.75px',
+  lineHeight: '19px',
   letterSpacing: '0rem',
   textAlign: 'left',
 };

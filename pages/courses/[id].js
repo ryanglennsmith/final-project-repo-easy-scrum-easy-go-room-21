@@ -34,9 +34,12 @@ export default function CoursePage({ data }) {
 
   return (
     <Box style={{ height: '100vh' }}>
+      {/* Navbar section */}
       <Box sx={navbarSidePageBox}>
         <NavBar logoLink={'https://i.lensdump.com/i/reFewK.png'} />
       </Box>
+      {/* Navbar section end*/}
+      {/* Search section */}
       <Box sx={profileSearchBar}>
         <TextField
           id="outlined-basic"
@@ -51,12 +54,15 @@ export default function CoursePage({ data }) {
           Search
         </Button>
       </Box>
+      {/* Search section end */}
+      {/* Profile page image/info section */}
       <Box
         sx={{
           flexGrow: 1,
           display: 'flex',
           flexDirection: 'row',
           justifyContent: 'center',
+          width: '60%',
         }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -129,10 +135,13 @@ export default function CoursePage({ data }) {
           <Button sx={navbarButton}>{course.email}</Button>
         </Box>{' '}
       </Box>
+      {/* Profile page image/info section end*/}
+      {/* About section */}
       <Box sx={aboutSection}>
         <Typography variant="h3">About this class</Typography>
         <Typography>{course.long_description}</Typography>
       </Box>
+      {/* About section end */}
       {/*
 ---
 
