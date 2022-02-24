@@ -9,6 +9,7 @@ import {
 } from '@mui/material';
 import Footer from '@components/Footer/Footer';
 import NavBar from '@components/navBar/navBar';
+// Importing CSS
 import {
   aboutSection,
   centerContentRow,
