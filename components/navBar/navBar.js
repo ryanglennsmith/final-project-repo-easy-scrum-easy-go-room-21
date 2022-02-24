@@ -1,12 +1,4 @@
-import {
-  AppBar,
-  Button,
-  Toolbar,
-  Typography,
-  Container,
-  Link,
-  Box,
-} from '@mui/material';
+import { AppBar, Button, Toolbar, Container, Link, Box } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Image from 'next/image';
 import React from 'react';
@@ -18,7 +10,7 @@ import {
   navbarButton,
 } from 'globalCss.js';
 
-export default function NavBar() {
+export default function NavBar({ logoLink }) {
   const matches = useMediaQuery('(min-width:900px)');
 
   return (
@@ -35,17 +27,11 @@ export default function NavBar() {
         {/* when screen goes to small screen width switches 100*/}
 
         {/* LOGO */}
-        <Container sx={navBarContainer}>
-          <img
-            src="https://i1.lensdump.com/i/re9GT7.md.png"
-            alt="logo"
-            style={{ maxWidth: '4rem' }}
-          ></img>
-          <Typography variant="h6" color="#fff">
-            WeAreSharers
-          </Typography>
-        </Container>
-
+        <Link href="/">
+          <Container sx={navBarContainer}>
+            <img src={logoLink} alt="logo" style={{ maxWidth: '20rem' }}></img>
+          </Container>
+        </Link>
         <Box className="navbar-buttons" sx={navBarBox}>
           {matches && (
             <Link color="#fff" underline="none">
@@ -64,7 +50,7 @@ export default function NavBar() {
               MENU2
             </Link>
           )}
-          <Link color="#fff" underline="none" nowrap>
+          <Link color="#fff" underline="none">
             SIGN IN
           </Link>
           <Button color="secondary" variant="contained" sx={navbarButton}>

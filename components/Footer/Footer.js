@@ -9,9 +9,9 @@ import {
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="text.secondary" align="center">
+    <Typography variant="body2" color="#9A9A9A" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="#9A9A9A" href="https://mui.com/">
         WeAreSharers
       </Link>{' '}
       {new Date().getFullYear()}
@@ -19,24 +19,18 @@ function Copyright() {
     </Typography>
   );
 }
-export default function Footer() {
+export default function Footer({ styling }) {
   return (
-    <Box sx={footerContainerBox} component="footer">
-      <Box sx={footerBox}>
-        <img
-          src="https://i1.lensdump.com/i/re9GT7.png"
-          style={{ maxWidth: '4rem' }}
-        ></img>
-        <Typography
-          variant="h6"
-          align="center"
-          gutterBottom
-          sx={footerTypography}
-        >
-          WeAreSharers
-        </Typography>
+    <Box style={{ marginTop: '10rem' }}>
+      <Box sx={styling} component="footer">
+        <Box sx={footerBox}>
+          <img
+            src="https://i1.lensdump.com/i/reF4Pa.png"
+            style={{ maxWidth: '20rem' }}
+          ></img>
+        </Box>
+        <Copyright />
       </Box>
-      <Copyright />
     </Box>
   );
 }

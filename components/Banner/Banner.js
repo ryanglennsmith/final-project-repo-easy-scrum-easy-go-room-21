@@ -25,7 +25,8 @@ export default function Banner() {
 
   return (
     <Box sx={bannerBox}>
-      <NavBar />
+      <NavBar logoLink={'https://i1.lensdump.com/i/reF4Pa.png'} />
+
       <Container maxWidth="sd" sx={bannerContainer}>
         {matches && (
           <Typography

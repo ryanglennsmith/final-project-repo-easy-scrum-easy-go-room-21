@@ -17,6 +17,7 @@ import {
   courseCardCardMedia,
   courseCardCardContent,
 } from '../../globalCss.js';
+import { Link } from '@mui/material';
 
 //plan -  fetch data from ryan's mock api
 
@@ -28,47 +29,49 @@ export default function CourseCard({ cards }) {
       {/* End hero unit */}
       <Grid container spacing={4}>
         {cards.map((card) => (
-          <Grid item key={card.id} xs={12} sm={6} md={6}>
-            <Card sx={courseCardCardSection}>
-              <CardMedia
-                component="img"
-                sx={courseCardCardMedia}
-                image={card.image}
-                alt="random"
-              />
-              <CardContent sx={courseCardCardContent}>
-                <Typography gutterBottom variant="h5" component="h2">
-                  {card.teacher_name}
-                </Typography>
-                <Typography>{card.course_brief}</Typography>
-              </CardContent>
-              <CardActions>
-                {/* star-rating add sx */}
-                {/* need to resize for smaller view portr */}
-                <Rating
-                  name="read-only"
-                  defaultValue={Number(card.rating)}
-                  precision={0.5}
-                  readOnly
+          <Grid item key={card.course_id} xs={12} sm={6} md={6}>
+            <Link href={`/courses/${card.course_id}`}>
+              <Card sx={courseCardCardSection}>
+                <CardMedia
+                  component="img"
+                  sx={courseCardCardMedia}
+                  image={card.images.full}
+                  alt="random"
                 />
-                {/* teacher rating as a number add sx margin right */}
-                <Typography>{`(${card.rating})`}</Typography>
-                {/* number of the comments  */}
-                <Typography>{`(152)`}</Typography>
-                {matches && (
-                  <Button
-                    variant="outlined"
-                    className="contactMeButton"
-                    // sx={{
-                    //   // m: 6,
-                    //   mx: 12,
-                    // }}
-                  >
-                    Contact Me
-                  </Button>
-                )}
-              </CardActions>
-            </Card>
+                <CardContent sx={courseCardCardContent}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {card.teacher_name}
+                  </Typography>
+                  <Typography>{card.course_brief}</Typography>
+                </CardContent>
+                <CardActions>
+                  {/* star-rating add sx */}
+                  {/* need to resize for smaller view portr */}
+                  <Rating
+                    name="read-only"
+                    defaultValue={Number(card.rating)}
+                    precision={0.5}
+                    readOnly
+                  />
+                  {/* teacher rating as a number add sx margin right */}
+                  <Typography>{`(${card.rating})`}</Typography>
+                  {/* number of the comments  */}
+                  <Typography>{`(152)`}</Typography>
+                  {matches && (
+                    <Button
+                      variant="outlined"
+                      className="contactMeButton"
+                      // sx={{
+                      //   // m: 6,
+                      //   mx: 12,
+                      // }}
+                    >
+                      Contact Me
+                    </Button>
+                  )}
+                </CardActions>
+              </Card>
+            </Link>
           </Grid>
         ))}
       </Grid>
