@@ -45,6 +45,11 @@ export default function Results() {
   const matchesLrg = useMediaQuery('(min-width:913px)');
   const [input, setInput] = useState('');
 
+  function handleChange(e) {
+    setInput(e.target.value);
+    console.log(input);
+  }
+
   return (
     <Box style={{ height: '100vh' }}>
       {/* Navbar section */}
@@ -56,6 +61,8 @@ export default function Results() {
       <Box sx={profileSearchBar}>
         <TextField
           id="outlined-basic"
+          value={input}
+          onChange={handleChange}
           variant="outlined"
           sx={{
             background: '#fff',
