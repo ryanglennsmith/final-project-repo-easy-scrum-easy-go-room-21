@@ -67,7 +67,7 @@ export default function Results() {
     item.course_title.toUpperCase().includes(search.toUpperCase())
   );
 
-  console.log(searchResult);
+  // console.log(searchResult);
 
   return (
     <Box style={{ height: '100vh' }}>
@@ -94,12 +94,17 @@ export default function Results() {
         </Button>
       </Box>
       {/* Search section end */}
-      {searchResult && (
+      {searchResult && search ? (
         <Box sx={aboutSection}>
           <Typography variant="h4">Results for {search}</Typography>
           <Typography></Typography>
           {/* search results displayed here as cards */}
           <CourseCard cards={searchResult} />
+        </Box>
+      ) : (
+        <Box sx={aboutSection}>
+          {' '}
+          <Typography>Search results not found</Typography>{' '}
         </Box>
       )}
 
