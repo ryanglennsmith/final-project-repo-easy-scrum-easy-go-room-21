@@ -59,11 +59,17 @@ export const courseCardContainer = {
 
 export const courseCardCardSection = {
   height: '100%',
+  width: '280px',
   display: 'flex',
   flexDirection: 'column',
+  alignItems: 'center',
 };
 
-export const courseCardCardMedia = { padding: '1.5rem', pt: '2rem' };
+export const courseCardCardMedia = {
+  padding: '1.5rem',
+  pt: '2rem',
+  margin: 'auto',
+};
 
 export const courseCardCardContent = {
   flexGrow: 1,

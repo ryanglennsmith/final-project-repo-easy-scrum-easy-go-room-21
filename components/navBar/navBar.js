@@ -1,7 +1,8 @@
 import { AppBar, Button, Toolbar, Container, Link, Box } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import Image from 'next/image';
+import { useRouter } from 'next/router';
 import React from 'react';
+import { useUser } from '@auth0/nextjs-auth0';
 
 // Importing CSS
 import {
@@ -13,8 +14,17 @@ import {
 } from 'globalCss.js';
 
 export default function NavBar({ logoLink }) {
+  const { user, error, isLoading } = useUser();
+  const router = useRouter();
   const matches = useMediaQuery('(min-width:900px)');
-
+  const loginClick = (e) => {
+    e.preventDefault();
+    router.push('/api/auth/login');
+  };
+  const logoutClick = (e) => {
+    e.preventDefault();
+    router.push('api/auth/logout');
+  };
   return (
     <AppBar
       position="relative"
@@ -52,12 +62,25 @@ export default function NavBar({ logoLink }) {
               MENU2
             </Link>
           )}
-          <Link color="#fff" underline="none">
-            SIGN IN
-          </Link>
-          <Button color="secondary" variant="contained" sx={navbarButton}>
-            Join
-          </Button>
+          {!user ? (
+            <Button
+              color="secondary"
+              variant="contained"
+              sx={navbarButton}
+              onClick={loginClick}
+            >
+              SIGN IN
+            </Button>
+          ) : (
+            <Button
+              color="secondary"
+              variant="contained"
+              sx={navbarButton}
+              onClick={logoutClick}
+            >
+              LOG OUT
+            </Button>
+          )}
         </Box>
       </Toolbar>
     </AppBar>

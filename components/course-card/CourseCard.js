@@ -30,7 +30,7 @@ export default function CourseCard({ cards }) {
       {/* End hero unit */}
       <Grid container spacing={4}>
         {cards.map((card) => (
-          <Grid item key={card.course_id} xs={12} sm={6} md={6}>
+          <Grid item key={card.course_id} xs={12} sm={6} md={6} lg={4}>
             <Link
               href={`/courses/${card.course_id}`}
               style={{ textDecoration: 'none' }}
@@ -38,14 +38,18 @@ export default function CourseCard({ cards }) {
               <Card sx={courseCardCardSection}>
                 <CardMedia
                   component="img"
-                  sx={courseCardCardMedia}
-                  image={card.images.full}
-                  alt="random"
+                  sx={
+                    (courseCardCardMedia,
+                    { borderRadius: '10px', width: '200px' })
+                  }
+                  image={card.images.thumb}
+                  alt={card.teacher_name}
                 />
                 <CardContent sx={courseCardCardContent}>
                   <Typography gutterBottom variant="h5" component="h2">
-                    {card.teacher_name}
+                    {card.course_title}
                   </Typography>
+                  <Typography>Instructor: {card.teacher_name}</Typography>
                   <Typography>{card.course_brief}</Typography>
                 </CardContent>
                 <CardActions>
@@ -53,12 +57,14 @@ export default function CourseCard({ cards }) {
                   {/* need to resize for smaller view portr */}
                   <Rating
                     name="read-only"
-                    defaultValue={Number(card.rating)}
-                    precision={0.5}
+                    defaultValue={Number(card.rating).toFixed(1)}
+                    precision={0.1}
                     readOnly
                   />
                   {/* teacher rating as a number add sx margin right */}
-                  <Typography>{`(${card.rating})`}</Typography>
+                  <Typography>{`(${Number(card.rating).toFixed(
+                    1
+                  )})`}</Typography>
                   {/* number of the comments  */}
                   <Typography>{`(152)`}</Typography>
                   {matches && (

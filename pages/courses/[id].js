@@ -6,6 +6,7 @@ import {
   TextField,
   Typography,
   useMediaQuery,
+  Container,
 } from '@mui/material';
 import Footer from '@components/Footer/Footer';
 import NavBar from '@components/navBar/navBar';
@@ -66,19 +67,36 @@ export default function CoursePage({ data }) {
           display: 'flex',
           flexDirection: 'row',
           justifyContent: 'center',
-          width: '60%',
+          alignItems: 'flex-start',
+          width: '80vw',
           margin: 'auto',
         }}
       >
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            minWidth: '260px',
+            height: '400px',
+            alignItems: 'flex-start',
+          }}
+        >
           <Image
-            src={course.images.thumb}
+            src={course.images.full}
             width="400px"
-            height="260px"
+            height="400px"
             alt="painting"
+            layout="fixed"
+            objectFit="contain"
           />{' '}
         </Box>
-        <Box sx={{ ...titleTypo, marginLeft: '4rem' }}>
+        <Box
+          sx={{
+            ...titleTypo,
+            marginLeft: '4rem',
+            width: '240px',
+            height: '400px',
+          }}
+        >
           <Typography sx={titleTypo}>{course.course_title} </Typography>
 
           <Typography sx={nameTypo}> {course.teacher_name}</Typography>
@@ -100,14 +118,24 @@ export default function CoursePage({ data }) {
             {available.map((value, index) => {
               if (value == 'true') {
                 return (
-                  <Typography sx={{ ...generalTypo, fontWeight: 'bold' }}>
-                    {`|${days[index]} |`}{' '}
+                  <Typography
+                    variant="string"
+                    sx={{
+                      ...generalTypo,
+                      fontWeight: 'bold',
+                      fontSize: '12px',
+                    }}
+                  >
+                    {` ${days[index]} `}{' '}
                   </Typography>
                 );
               } else {
                 return (
-                  <Typography sx={{ ...generalTypo, color: 'gray' }}>
-                    {`|${days[index]} |`}{' '}
+                  <Typography
+                    variant="string"
+                    sx={{ ...generalTypo, color: 'gray', fontSize: '12px' }}
+                  >
+                    {` ${days[index]} `}{' '}
                   </Typography>
                 );
               }
