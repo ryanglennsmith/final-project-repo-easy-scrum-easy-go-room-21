@@ -23,7 +23,7 @@ import {
   titleTypo,
 } from 'globalCss';
 
-import { API } from 'utils/API';
+import { API } from '../../db/reviewData.js';
 
 export default function CoursePage({ data }) {
   const course = data;
@@ -93,7 +93,7 @@ export default function CoursePage({ data }) {
             />
             <Typography>{` (${course.rating})`}</Typography>
             {/* number of the comments  */}
-            <Typography>{` (152)`}</Typography>
+            <Typography>{`  ${course.numOfReviews}`}</Typography>
           </Box>
 
           <Box sx={centerContentRow}>
