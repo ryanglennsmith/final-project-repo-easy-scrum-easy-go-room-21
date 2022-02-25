@@ -42,8 +42,8 @@ export default function NavBar({ logoLink }) {
           )}
 
           {matches && (
-            <Link color="#fff" underline="none">
-              MENU1
+            <Link href="/search/results" color="#fff" underline="none">
+              EXPLORE
             </Link>
           )}
 
