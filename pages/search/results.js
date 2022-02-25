@@ -94,12 +94,14 @@ export default function Results() {
         </Button>
       </Box>
       {/* Search section end */}
-      <Box sx={aboutSection}>
-        <Typography variant="h4">Results for {search}</Typography>
-        <Typography></Typography>
-        {/* search results displayed here as cards */}
-        <CourseCard cards={searchResult} />
-      </Box>
+      {searchResult && (
+        <Box sx={aboutSection}>
+          <Typography variant="h4">Results for {search}</Typography>
+          <Typography></Typography>
+          {/* search results displayed here as cards */}
+          <CourseCard cards={searchResult} />
+        </Box>
+      )}
 
       {/* When the screen width reaches atleast 913px, then this css takes place. */}
       {matchesLrg && <Footer styling={footerContainerBoxLgr} />}
