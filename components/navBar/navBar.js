@@ -28,14 +28,13 @@ export default function NavBar({ logoLink }) {
   return (
     <AppBar
       position="relative"
-      color="primary"
       sx={navBarApp}
       style={{
         background: 'transparent',
         boxShadow: 'none',
       }}
     >
-      <Toolbar sx={navBarToolBar}>
+      <Toolbar sx={navBarToolBar} style={{ padding: 0 }}>
         {/* when screen goes to small screen width switches 100*/}
 
         {/* LOGO */}
@@ -44,6 +43,7 @@ export default function NavBar({ logoLink }) {
             <img src={logoLink} alt="logo" style={{ maxWidth: '20rem' }}></img>
           </Container>
         </Link>
+
         <Box className="navbar-buttons" sx={navBarBox}>
           {matches && (
             <Link color="#fff" underline="none">
@@ -63,21 +63,11 @@ export default function NavBar({ logoLink }) {
             </Link>
           )}
           {!user ? (
-            <Button
-              color="secondary"
-              variant="contained"
-              sx={navbarButton}
-              onClick={loginClick}
-            >
+            <Button variant="contained" sx={navbarButton} onClick={loginClick}>
               SIGN IN
             </Button>
           ) : (
-            <Button
-              color="secondary"
-              variant="contained"
-              sx={navbarButton}
-              onClick={logoutClick}
-            >
+            <Button variant="contained" sx={navbarButton} onClick={logoutClick}>
               LOG OUT
             </Button>
           )}

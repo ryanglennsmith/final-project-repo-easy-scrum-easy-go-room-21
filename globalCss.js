@@ -11,22 +11,22 @@ export const centerContentCol = {
 
 // *******NAVBAR CSS*******
 export const navBarApp = {
-  width: '100vw',
+  width: '100%',
   display: 'flex',
-  justifyContent: 'center',
+  justifyContent: 'space-between',
   alignItems: 'center',
 };
 
 export const navBarToolBar = {
   display: 'flex',
-  justifyContent: 'space-around',
+  justifyContent: 'space-between',
   alignItems: 'center',
-  width: '80%',
+  width: '1200px',
+  padding: 0,
 };
 
 export const navBarContainer = {
   display: 'flex',
-  width: '50%',
   justifyContent: 'center',
 };
 
@@ -35,7 +35,6 @@ export const navBarBox = {
   wrap: 'wrap',
   alignItems: 'center',
   justifyContent: 'center',
-  width: '50%',
   gap: '2rem',
 };
 
@@ -59,30 +58,67 @@ export const courseCardContainer = {
 
 export const courseCardCardSection = {
   height: '100%',
-  width: '280px',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
 };
 
-export const courseCardCardMedia = {
-  padding: '1.5rem',
-  pt: '2rem',
-  margin: 'auto',
-};
+export const courseCardCardMedia = {};
 
 export const courseCardCardContent = {
   flexGrow: 1,
+  paddingTop: '10px',
 };
 
+export const courseCardContentTitle = {
+  fontFamily: 'Lato',
+  fontWeight: '600',
+  color: '#222',
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  width: '20rem',
+};
+
+export const courseCardContentTeacherName = {
+  fontFamily: 'Rhodium Libre',
+  fontWeight: '300',
+  fontSize: '18px',
+  textAlign: 'right',
+  color: '#bbb',
+  marginBottom: '10px',
+};
+export const courseCardContentCourseBrief = {
+  fontFamily: 'Noto Sans Display',
+  fontWeight: '400',
+  fontSize: '16px',
+  color: '#666',
+  marginBottom: '10px',
+};
+
+export const courseCardActions = {
+  width: '100%',
+  justifyContent: 'space-evenly',
+  paddingBottom: '20px',
+};
+
+export const courseCardRateAvg = {
+  fontFamily: 'Noto Sans Display',
+  fontSize: '18px',
+  fontWeight: '400',
+  color: '#faaf00',
+};
+export const courseCardReviewCount = {
+  fontFamily: 'Noto Sans Display',
+  fontSize: '15px',
+  fontWeight: '400',
+  color: '#666',
+};
 export const courseCardButton = {
   color: '#fff',
   background: '#FF8957',
-  '&:hover': { background: '#FF8957' },
-  fontFamily: 'Inter',
-  fontStyle: 'Semi Bold',
-  letterSpacing: '0rem',
-  marginLeft: 'auto',
+  '&:hover': { background: '#ff763c' },
+  border: 'none',
 };
 
 // *******BANNER CSS*******
@@ -93,15 +129,16 @@ export const bannerBox = {
   backgroundColor: '#555555',
   backgroundSize: '160rem',
   width: '100%',
+  height: '600px',
 };
 
+export const bannerNavBar = {};
 export const bannerContainer = {
   background: 'transparent',
-  width: '100vw',
-  padding: '5rem 0rem',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
+  height: '80%',
 };
 
 // Webpage size for header
@@ -113,10 +150,9 @@ export const bannerTypographyWeb = {
   width: '50rem',
   color: '#fff',
   fontFamily: 'Inter',
-  fontSize: '72px',
+  fontSize: '60px',
   fontStyle: 'normal',
   fontWeight: '700',
-  lineHeight: '58.09px',
   letterSpacing: '0em',
   textAlign: 'center',
 };
@@ -126,16 +162,10 @@ export const bannerTypographyMobile = {
   display: 'flex',
   justifyContent: 'center',
   alignSelf: 'center',
-  borderRadius: '6px',
   width: '25rem',
   color: '#fff',
-  fontFamily: 'Inter',
   fontSize: '60px',
-  fontStyle: 'normal',
   fontWeight: '700',
-  lineHeight: '58.09px',
-  letterSpacing: '0em',
-  textAlign: 'center',
 };
 
 // Webpage size for sub header
@@ -143,16 +173,12 @@ export const bannerTypographySubWeb = {
   display: 'flex',
   justifyContent: 'center',
   alignSelf: 'center',
-  borderRadius: '6px',
-  width: '20rem',
-  color: '#fff',
+  width: '1000px',
+  color: '#ddd',
   fontFamily: 'Inter',
-  fontSize: '16px',
-  fontStyle: 'normal',
-  fontWeight: '400',
+  fontSize: '20px',
+  fontWeight: '200',
   lineHeight: '24px',
-  letterSpacing: '0em',
-  textAlign: 'center',
 };
 
 // Mobile size for sub header
@@ -160,15 +186,10 @@ export const bannerTypographySubMobile = {
   display: 'flex',
   justifyContent: 'center',
   alignSelf: 'center',
-  borderRadius: '6px',
   width: '40rem',
   color: '#fff',
-  fontFamily: 'Inter',
-  fontSize: '26px',
-  fontStyle: 'normal',
-  fontWeight: '400',
+  fontSize: '16px',
   lineHeight: '24px',
-  letterSpacing: '0em',
   textAlign: 'center',
 };
 
@@ -179,14 +200,13 @@ export const bannerStack = {
 // Web size for the search field
 export const bannerTextFieldWeb = {
   background: '#fff',
-  borderRadius: '6px',
-  width: '20rem',
+  width: '30rem',
+  borderRadius: '10px',
 };
 
 // Mobile size for the search field
 export const bannerTextFieldMobile = {
   background: '#fff',
-  borderRadius: '6px',
   width: '10rem',
 };
 
@@ -194,13 +214,11 @@ export const bannerButton = {
   marginRight: '5rem',
   color: '#fff',
   background: '#FF8957',
+  '&:hover': { background: '#ff763c' },
   fontFamily: 'Inter',
   fontSize: '18px',
-  fontStyle: 'normal',
-  fontWeight: '600',
-  lineHeight: '40px',
-  letterSpacing: '0em',
-  textAlign: 'center',
+  fontWeight: '200',
+  border: 'none',
 };
 
 // *******Footer CSS*******
