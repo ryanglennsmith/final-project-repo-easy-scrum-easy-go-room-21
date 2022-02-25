@@ -1,10 +1,11 @@
-import { Button, Container, TextField } from '@mui/material';
+import { Button, Container, TextField, Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
+import HoverRating from '@components/ReviewRating/review';
 
 export default function AddNewReview({ reviewData, setReviewData }) {
   const [name, setName] = useState('');
   // const [date, setDate] = useState("")
-  // const [rating, setRating] = useState(0)
+  const [rating, setRating] = useState(0)
   // const [text, setText] = useState("")
 
   // function makeNewReview(){
@@ -16,18 +17,25 @@ export default function AddNewReview({ reviewData, setReviewData }) {
   //       },
 
   // }
+
+ 
   function handleChange(e) {
     setName(e.target.value);
-    console.log(name);
+    console.log(rating);
   }
 
   return (
     <Container>
+    <Typography>Leave your review </Typography>
+    <Typography>Rate your experience:</Typography>
+
+    
       <TextField
-        onChange={() => {
+        onChange={(e) => {
           handleChange(e);
         }}
       ></TextField>
+      <HoverRating setRating={setRating} />
       <Button></Button>
     </Container>
   );
@@ -37,9 +45,9 @@ export default function AddNewReview({ reviewData, setReviewData }) {
     Import and add InputFields for form from MUI
     Import and add  submit button from MUI 
 
-    - Typography ("Leave your review")
-    - Typography ("Rate your experience:")
-    - Rating (changeAble)
+    - Typography ("Leave your review") done
+    - Typography ("Rate your experience:") done
+    - Rating (changeAble)done
     - TextField (Large and draggable,placeholderText: "Write a review" )
     - TextField (Small, placeholderText:"Your name")
     - TextField (Small, placeholderText: "Your email")
