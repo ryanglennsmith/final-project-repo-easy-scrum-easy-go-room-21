@@ -12,6 +12,7 @@ import {
 //import navBar, course-card and footer from components folder
 import Footer from '@components/Footer/Footer';
 import NavBar from '@components/navBar/navBar';
+import CourseCard from '@components/course-card/CourseCard';
 
 // Importing CSS
 import {
@@ -29,6 +30,7 @@ import {
 
 // import api data and map through to create card content
 import { API } from 'utils/API';
+import { useState } from 'react';
 
 // put a temp hyperlink on homepage so we can navigate to the search page with ease
 
@@ -37,10 +39,11 @@ import { API } from 'utils/API';
 //note to self: search bar components on both pages will operate in different ways. The search component on results page WILL NOT redirect users to another page to display results whereas it will on the homepage.
 
 //connect search button so that when it is pressed, we are redirected to the results page(which then would display course cards related to user input)
-
+const data = API.courses;
 export default function Results() {
   const matchesMd = useMediaQuery('(max-width:913px)');
   const matchesLrg = useMediaQuery('(min-width:913px)');
+  const [input, setInput] = useState('');
 
   return (
     <Box style={{ height: '100vh' }}>
@@ -68,6 +71,8 @@ export default function Results() {
       <Box sx={aboutSection}>
         <Typography variant="h4">Results for ‘Cooking class’</Typography>
         <Typography></Typography>
+        {/* search results displayed here as cards */}
+        <CourseCard cards={data} />
       </Box>
 
       {/* When the screen width reaches atleast 913px, then this css takes place. */}
