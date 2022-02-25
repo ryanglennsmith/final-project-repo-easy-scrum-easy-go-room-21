@@ -32,8 +32,6 @@ import {
 import { API } from 'utils/API';
 import { useState } from 'react';
 
-// put a temp hyperlink on homepage so we can navigate to the search page with ease
-
 // from homepage, user input is taken in  and onclick of search button-----> user input is passed to results page  ----> list of results displayed on results page.
 
 //note to self: search bar components on both pages will operate in different ways. The search component on results page WILL NOT redirect users to another page to display results whereas it will on the homepage.
@@ -43,10 +41,22 @@ const data = API.courses;
 export default function Results() {
   const matchesMd = useMediaQuery('(max-width:913px)');
   const matchesLrg = useMediaQuery('(min-width:913px)');
+
   const [input, setInput] = useState('');
+  const [search, setSearch] = useState('');
 
   function handleChange(e) {
+    // saves value into the state
+    e.preventDefault();
     setInput(e.target.value);
+    // console.log(input);
+  }
+
+  function onClick(e) {
+    // clears the search field when user clicks button
+    e.preventDefault();
+    setSearch(input);
+    setInput('');
     console.log(input);
   }
 
@@ -70,13 +80,13 @@ export default function Results() {
             width: '60%',
           }}
         />
-        <Button variant="contained" sx={navbarButton}>
+        <Button variant="contained" sx={navbarButton} onClick={onClick}>
           Search
         </Button>
       </Box>
       {/* Search section end */}
       <Box sx={aboutSection}>
-        <Typography variant="h4">Results for ‘Cooking class’</Typography>
+        <Typography variant="h4">Results for {search}</Typography>
         <Typography></Typography>
         {/* search results displayed here as cards */}
         <CourseCard cards={data} />
