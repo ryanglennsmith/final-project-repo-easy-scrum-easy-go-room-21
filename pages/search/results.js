@@ -38,6 +38,9 @@ import { useState } from 'react';
 
 //connect search button so that when it is pressed, we are redirected to the results page(which then would display course cards related to user input)
 const data = API.courses;
+
+// compare input to data.course_title
+
 export default function Results() {
   const matchesMd = useMediaQuery('(max-width:913px)');
   const matchesLrg = useMediaQuery('(min-width:913px)');
