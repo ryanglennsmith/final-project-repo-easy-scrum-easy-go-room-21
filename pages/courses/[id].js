@@ -24,6 +24,7 @@ import {
 } from 'globalCss';
 
 import { API } from '../../db/reviewData.js';
+import Review from '@components/Review/Review.js';
 
 export default function CoursePage({ data }) {
   const course = data;
@@ -33,8 +34,8 @@ export default function CoursePage({ data }) {
   const available = course.dates_available.map((date) => {
     return Object.values(date).toString();
   });
-  const matchesMd = useMediaQuery('(max-width:913px)');
-  const matchesLrg = useMediaQuery('(min-width:913px)');
+  const matchesMd = useMediaQuery('(max-width:700px)');
+  const matchesLrg = useMediaQuery('(min-width:700px)');
 
   return (
     <Box style={{ height: '100vh' }}>
@@ -145,6 +146,15 @@ export default function CoursePage({ data }) {
         <Typography>{course.long_description}</Typography>
       </Box>
       {/* About section end */}
+      {/* Review section */}
+
+     <Review reviews={data.reviews} />
+
+
+
+      {/*Review section */}
+
+
       {/*
 ---
 
