@@ -63,6 +63,12 @@ export default function Results() {
     console.log(input);
   }
 
+  const searchResult = data.filter((item) =>
+    item.course_title.toUpperCase().includes(search.toUpperCase())
+  );
+
+  console.log(searchResult);
+
   return (
     <Box style={{ height: '100vh' }}>
       {/* Navbar section */}
@@ -92,7 +98,7 @@ export default function Results() {
         <Typography variant="h4">Results for {search}</Typography>
         <Typography></Typography>
         {/* search results displayed here as cards */}
-        <CourseCard cards={data} />
+        <CourseCard cards={searchResult} />
       </Box>
 
       {/* When the screen width reaches atleast 913px, then this css takes place. */}
