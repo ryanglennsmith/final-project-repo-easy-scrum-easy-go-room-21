@@ -25,22 +25,22 @@ export default function Review({ reviews }) {
             <Card sx={courseCardCardSection}>
               <CardContent sx={courseCardCardContent}>
                 <Typography gutterBottom variant="h5" component="h2">
-                  {review.reviewerName}
+                  {review.reviewer}
                 </Typography>
-                <Typography>{review.datePosted}</Typography>
-                <Typography>{review.reviewText}</Typography>
+                <Typography>{review.date}</Typography>
+                <Typography>{review.review_text}</Typography>
               </CardContent>
               <CardActions>
                 {/* star-rating add sx */}
                 {/* need to resize for smaller view portr */}
                 <Rating
                   name="read-only"
-                  defaultValue={Number(review.ratingGiven)}
+                  defaultValue={Number(review.rating)}
                   precision={0.5}
                   readOnly
                 />
                 {/* teacher rating as a number add sx margin right */}
-                <Typography>{`(${review.ratingGiven})`}</Typography>
+                <Typography>{`(${review.rating})`}</Typography>
                 {/* number of the comments  */}
               </CardActions>
             </Card>

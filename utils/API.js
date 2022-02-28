@@ -36,6 +36,14 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1461344577544-4e5dc9487184?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [
+        {
+          reviewer: 'Kelsi Drivers',
+          date: '22-06-2020',
+          rating: 4,
+          review_text: 'Kogi drinking vinegar air plant pop-up',
+        },
+      ],
     },
     {
       course_id: 2,
@@ -74,6 +82,7 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1496769843785-93aa0be525dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [],
     },
     {
       course_id: 3,
@@ -111,6 +120,48 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1614644147798-f8c0fc9da7f6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [
+        {
+          reviewer: 'Tessi Langhor',
+          date: '26-03-2020',
+          rating: 3,
+          review_text:
+            'Lo-fi asymmetrical taxidermy williamsburg small batch XOXO actually, everyday carry glossier irony ugh pabst vice heirloom',
+        },
+        {
+          reviewer: 'Nickolas Diperaus',
+          date: '28-04-2020',
+          rating: 4,
+          review_text:
+            'Forage bitters la croix, pabst vexillologist truffaut whatever pug dreamcatcher 3 wolf moon air plant venmo squid kinfolk slow-carb',
+        },
+        {
+          reviewer: 'Blaire Derwin',
+          date: '23-10-2020',
+          rating: 4,
+          review_text:
+            'Occupy slow-carb try-hard tilde williamsburg kogi snackwave',
+        },
+        {
+          reviewer: 'Cory Jewster',
+          date: '20-07-2020',
+          rating: 3,
+          review_text: 'Banh mi skateboard echo park organic',
+        },
+        {
+          reviewer: 'Park Kleeborn',
+          date: '15-09-2020',
+          rating: 4,
+          review_text: 'Banh mi skateboard echo park organic',
+        },
+        {
+          reviewer: 'Meir Jerisch',
+          date: '15-03-2020',
+          rating: 5,
+          review_text:
+            'Vaporware tote bag snackwave bicycle rights, iceland typewriter DIY small batch poutine farm-to-table viral put a bird on it selfies tacos',
+        },
+      ],
     },
     {
       course_id: 4,
@@ -150,6 +201,50 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1493106641515-6b5631de4bb9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [
+        {
+          reviewer: 'Rebeca Mapother',
+          date: '21-03-2020',
+          rating: 3,
+          review_text:
+            'Yr banh mi knausgaard unicorn craft beer austin snackwave synth franzen',
+        },
+        {
+          reviewer: 'Kelsi Drivers',
+          date: '30-12-2020',
+          rating: 4,
+          review_text:
+            'Echo park williamsburg helvetica, tattooed messenger bag ugh iPhone cardigan beard chia mustache cronut tilde succulents',
+        },
+        {
+          reviewer: 'Cherlyn Edmand',
+          date: '23-06-2021',
+          rating: 4,
+          review_text:
+            'Four dollar toast snackwave brunch pork belly, portland freegan schlitz health goth',
+        },
+        {
+          reviewer: 'Kora Bruckent',
+          date: '14-06-2021',
+          rating: 5,
+          review_text:
+            'Schlitz woke actually snackwave, edison bulb ramps kickstarter gluten-free neutra adaptogen',
+        },
+        {
+          reviewer: 'Carena Coupar',
+          date: '11-04-2020',
+          rating: 5,
+          review_text:
+            'Photo booth kale chips tilde typewriter actually brunch food truck, single-origin coffee mlkshk stumptown forage marfa deep v schlitz lumbersexual',
+        },
+        {
+          reviewer: 'Dana Ollerhad',
+          date: '27-06-2020',
+          rating: 5,
+          review_text:
+            'Pitchfork copper mug cray raw denim fam sriracha hashtag jianbing tousled twee yr',
+        },
+      ],
     },
     {
       course_id: 5,
@@ -188,6 +283,7 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1573496358961-3c82861ab8f4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [],
     },
     {
       course_id: 6,
@@ -225,6 +321,36 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [
+        {
+          reviewer: 'Meir Jerisch',
+          date: '30-05-2021',
+          rating: 5,
+          review_text:
+            'Wolf cardigan unicorn art party forage cold-pressed microdosing',
+        },
+        {
+          reviewer: 'Findley Lennie',
+          date: '21-08-2020',
+          rating: 5,
+          review_text:
+            'Listicle yr artisan edison bulb salvia poke tbh photo booth wayfarers iPhone',
+        },
+        {
+          reviewer: 'Rubie Devereux',
+          date: '10-01-2021',
+          rating: 4,
+          review_text:
+            'Echo park williamsburg helvetica, tattooed messenger bag ugh iPhone cardigan beard chia mustache cronut tilde succulents',
+        },
+        {
+          reviewer: 'Glenda Kasparski',
+          date: '21-03-2020',
+          rating: 5,
+          review_text:
+            'Man braid chia keffiyeh, normcore vice food truck hella cold-pressed kinfolk',
+        },
+      ],
     },
     {
       course_id: 7,
@@ -263,6 +389,49 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1589279715734-6631a314dfa2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [
+        {
+          reviewer: 'Tessi Langhor',
+          date: '15-03-2020',
+          rating: 4,
+          review_text: 'Banh mi tilde twee, kickstarter hella keytar gastropub',
+        },
+        {
+          reviewer: 'Lynn Cawston',
+          date: '14-02-2022',
+          rating: 4,
+          review_text:
+            'Kombucha literally schlitz tattooed +1, single-origin coffee put a bird on it pitchfork tilde umami taxidermy',
+        },
+        {
+          reviewer: 'Carena Coupar',
+          date: '05-09-2021',
+          rating: 5,
+          review_text:
+            'Kale chips tattooed poutine, af cronut everyday carry salvia occupy tumblr retro bicycle rights la croix literally',
+        },
+        {
+          reviewer: 'Glenda Kasparski',
+          date: '14-02-2022',
+          rating: 4,
+          review_text:
+            'Lo-fi asymmetrical taxidermy williamsburg small batch XOXO actually, everyday carry glossier irony ugh pabst vice heirloom',
+        },
+        {
+          reviewer: 'Marquita Hamblyn',
+          date: '20-07-2020',
+          rating: 5,
+          review_text:
+            'Cliche mlkshk blue bottle, banh mi wayfarers tofu kombucha seitan mixtape beard kickstarter craft beer tattooed',
+        },
+        {
+          reviewer: 'Marnie Evill',
+          date: '15-09-2020',
+          rating: 5,
+          review_text:
+            'Kale chips tattooed poutine, af cronut everyday carry salvia occupy tumblr retro bicycle rights la croix literally',
+        },
+      ],
     },
     {
       course_id: 8,
@@ -302,6 +471,46 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1598630388567-9fdbfd7e928e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [
+        {
+          reviewer: 'Glenda Kasparski',
+          date: '15-03-2020',
+          rating: 3,
+          review_text: 'Banh mi skateboard echo park organic',
+        },
+        {
+          reviewer: 'Cornell Larkcum',
+          date: '22-06-2020',
+          rating: 4,
+          review_text: 'Schlitz mumblecore godard butcher',
+        },
+        {
+          reviewer: 'Ferdinande Loncaster',
+          date: '22-06-2020',
+          rating: 3,
+          review_text: 'Kogi drinking vinegar air plant pop-up',
+        },
+        {
+          reviewer: 'Cory Jewster',
+          date: '28-04-2020',
+          rating: 5,
+          review_text: 'Next level tumeric pok pok try-hard sustainable umami',
+        },
+        {
+          reviewer: 'Spencer Chambers',
+          date: '11-04-2020',
+          rating: 3,
+          review_text:
+            'Yr banh mi knausgaard unicorn craft beer austin snackwave synth franzen',
+        },
+        {
+          reviewer: 'Julia Bromhead',
+          date: '22-06-2020',
+          rating: 5,
+          review_text:
+            'Franzen bitters fingerstache letterpress microdosing meh chicharrones gochujang disrupt small batch',
+        },
+      ],
     },
     {
       course_id: 9,
@@ -340,6 +549,35 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1566554273541-37a9ca77b91f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [
+        {
+          reviewer: 'Spencer Chambers',
+          date: '15-09-2020',
+          rating: 5,
+          review_text:
+            'Meditation cold-pressed poke lomo, organic tofu street art fingerstache hella vinyl thundercats squid gluten-free',
+        },
+        {
+          reviewer: 'Nickolas Diperaus',
+          date: '23-06-2021',
+          rating: 4,
+          review_text:
+            'Vinyl hot chicken poutine unicorn viral waistcoat brooklyn literally glossier man bun pok pok selfies bicycle rights',
+        },
+        {
+          reviewer: 'Cornell Larkcum',
+          date: '30-12-2020',
+          rating: 3,
+          review_text: 'Kogi drinking vinegar air plant pop-up',
+        },
+        {
+          reviewer: 'Maia Ribbens',
+          date: '15-09-2020',
+          rating: 3,
+          review_text:
+            'Mlkshk tumblr coloring book, chillwave selfies organic iceland microdosing master cleanse cloud bread humblebrag marfa whatever irony',
+        },
+      ],
     },
     {
       course_id: 10,
@@ -377,6 +615,40 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [
+        {
+          reviewer: 'Kelsi Drivers',
+          date: '22-06-2020',
+          rating: 5,
+          review_text: 'Tilde adaptogen umami gochujang tofu',
+        },
+        {
+          reviewer: 'Marnie Evill',
+          date: '27-06-2020',
+          rating: 3,
+          review_text: 'Schlitz mumblecore godard butcher',
+        },
+        {
+          reviewer: 'Carri Copas',
+          date: '10-01-2021',
+          rating: 4,
+          review_text: 'Readymade etsy af gastropub craft beer tofu',
+        },
+        {
+          reviewer: 'Kora Bruckent',
+          date: '20-04-2020',
+          rating: 3,
+          review_text:
+            'Kale chips tattooed poutine, af cronut everyday carry salvia occupy tumblr retro bicycle rights la croix literally',
+        },
+        {
+          reviewer: 'Carri Copas',
+          date: '23-06-2021',
+          rating: 5,
+          review_text:
+            'Cliche mlkshk blue bottle, banh mi wayfarers tofu kombucha seitan mixtape beard kickstarter craft beer tattooed',
+        },
+      ],
     },
     {
       course_id: 11,
@@ -415,6 +687,49 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1608613304899-ea8098577e38?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [
+        {
+          reviewer: 'Cornell Larkcum',
+          date: '15-09-2020',
+          rating: 5,
+          review_text:
+            'Semiotics umami pop-up bushwick man braid tote bag +1 crucifix ugh cray',
+        },
+        {
+          reviewer: 'Kora Bruckent',
+          date: '30-05-2021',
+          rating: 4,
+          review_text:
+            'Jianbing literally af, kitsch lo-fi raw denim shabby chic gentrify vinyl plaid keytar succulents ugh',
+        },
+        {
+          reviewer: 'Maia Ribbens',
+          date: '21-08-2020',
+          rating: 5,
+          review_text:
+            'Yr banh mi knausgaard unicorn craft beer austin snackwave synth franzen',
+        },
+        {
+          reviewer: 'Marnie Evill',
+          date: '05-09-2021',
+          rating: 4,
+          review_text:
+            'Wolf cardigan unicorn art party forage cold-pressed microdosing',
+        },
+        {
+          reviewer: 'Simona Mountcastle',
+          date: '17-05-2020',
+          rating: 4,
+          review_text:
+            'Wolf cardigan unicorn art party forage cold-pressed microdosing',
+        },
+        {
+          reviewer: 'Gaye Stangroom',
+          date: '30-12-2020',
+          rating: 3,
+          review_text: 'Cronut ramps hella copper mug',
+        },
+      ],
     },
     {
       course_id: 12,
@@ -453,6 +768,40 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1618090584126-129cd1f3fbae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [
+        {
+          reviewer: 'Marnie Evill',
+          date: '05-09-2021',
+          rating: 4,
+          review_text: 'Banh mi tilde twee, kickstarter hella keytar gastropub',
+        },
+        {
+          reviewer: 'Spencer Chambers',
+          date: '20-04-2020',
+          rating: 3,
+          review_text: 'Kogi drinking vinegar air plant pop-up',
+        },
+        {
+          reviewer: 'Marnie Evill',
+          date: '23-10-2020',
+          rating: 5,
+          review_text:
+            'Cliche mlkshk blue bottle, banh mi wayfarers tofu kombucha seitan mixtape beard kickstarter craft beer tattooed',
+        },
+        {
+          reviewer: 'Ferdinande Loncaster',
+          date: '11-02-2022',
+          rating: 5,
+          review_text: 'Glossier poutine kickstarter banjo',
+        },
+        {
+          reviewer: 'Myron Chaplyn',
+          date: '22-06-2020',
+          rating: 5,
+          review_text:
+            'Jianbing literally af, kitsch lo-fi raw denim shabby chic gentrify vinyl plaid keytar succulents ugh',
+        },
+      ],
     },
     {
       course_id: 13,
@@ -491,6 +840,57 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1469833120660-1a218b53d28a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [
+        {
+          reviewer: 'Rubie Devereux',
+          date: '23-10-2020',
+          rating: 5,
+          review_text:
+            'Schlitz woke actually snackwave, edison bulb ramps kickstarter gluten-free neutra adaptogen',
+        },
+        {
+          reviewer: 'Pavel Vogl',
+          date: '11-04-2020',
+          rating: 3,
+          review_text:
+            "Tacos church-key dreamcatcher mlkshk 3 wolf moon mixtape kickstarter franzen 90's",
+        },
+        {
+          reviewer: 'Bethena Lindwall',
+          date: '20-04-2020',
+          rating: 4,
+          review_text:
+            'Wolf hexagon pok pok cred, keffiyeh shoreditch taiyaki pug',
+        },
+        {
+          reviewer: 'Meir Jerisch',
+          date: '30-05-2021',
+          rating: 5,
+          review_text:
+            'Pitchfork copper mug cray raw denim fam sriracha hashtag jianbing tousled twee yr',
+        },
+        {
+          reviewer: 'Bethena Lindwall',
+          date: '11-04-2020',
+          rating: 4,
+          review_text:
+            'Echo park williamsburg helvetica, tattooed messenger bag ugh iPhone cardigan beard chia mustache cronut tilde succulents',
+        },
+        {
+          reviewer: 'Warde Earney',
+          date: '20-04-2020',
+          rating: 3,
+          review_text:
+            'Chia vexillologist gochujang tacos health goth banh mi palo santo austin meggings irony',
+        },
+        {
+          reviewer: "Remy O'Dare",
+          date: '26-03-2020',
+          rating: 3,
+          review_text:
+            'Lo-fi asymmetrical taxidermy williamsburg small batch XOXO actually, everyday carry glossier irony ugh pabst vice heirloom',
+        },
+      ],
     },
     {
       course_id: 14,
@@ -527,6 +927,55 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1631273553464-7595e1a5b68d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [
+        {
+          reviewer: 'Rebeca Mapother',
+          date: '13-06-2021',
+          rating: 5,
+          review_text: 'Celiac godard swag pabst selvage chillwave',
+        },
+        {
+          reviewer: 'Nickolas Diperaus',
+          date: '30-12-2020',
+          rating: 5,
+          review_text:
+            'Echo park williamsburg helvetica, tattooed messenger bag ugh iPhone cardigan beard chia mustache cronut tilde succulents',
+        },
+        {
+          reviewer: 'Sammy Danihelka',
+          date: '26-03-2020',
+          rating: 5,
+          review_text:
+            'Jianbing literally af, kitsch lo-fi raw denim shabby chic gentrify vinyl plaid keytar succulents ugh',
+        },
+        {
+          reviewer: 'Vincenz Bartolacci',
+          date: '11-04-2020',
+          rating: 5,
+          review_text:
+            'Pour-over small batch shabby chic skateboard, yr art party snackwave four dollar toast readymade yuccie',
+        },
+        {
+          reviewer: 'Minda Wartnaby',
+          date: '15-03-2020',
+          rating: 5,
+          review_text:
+            'Pour-over small batch shabby chic skateboard, yr art party snackwave four dollar toast readymade yuccie',
+        },
+        {
+          reviewer: 'Aida McSkin',
+          date: '20-07-2020',
+          rating: 3,
+          review_text:
+            'Four loko single-origin coffee cronut, actually enamel pin keffiyeh bespoke seitan normcore man bun',
+        },
+        {
+          reviewer: 'Gaye Stangroom',
+          date: '23-06-2021',
+          rating: 3,
+          review_text: 'Tilde adaptogen umami gochujang tofu',
+        },
+      ],
     },
     {
       course_id: 15,
@@ -566,6 +1015,34 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1596939122461-e48c8a8a2d85?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [
+        {
+          reviewer: 'Ferdinande Loncaster',
+          date: '20-04-2020',
+          rating: 4,
+          review_text:
+            'Hexagon hot chicken art party, selfies leggings enamel pin cred XOXO street art',
+        },
+        {
+          reviewer: 'Park Kleeborn',
+          date: '15-03-2020',
+          rating: 4,
+          review_text: 'Banh mi skateboard echo park organic',
+        },
+        {
+          reviewer: 'Cherlyn Edmand',
+          date: '15-03-2020',
+          rating: 5,
+          review_text: 'Glossier poutine kickstarter banjo',
+        },
+        {
+          reviewer: "Remy O'Dare",
+          date: '14-06-2021',
+          rating: 5,
+          review_text:
+            'Organic cray activated charcoal, single-origin coffee letterpress cardigan master cleanse iceland',
+        },
+      ],
     },
     {
       course_id: 16,
@@ -604,6 +1081,21 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1504222490345-c075b6008014?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [
+        {
+          reviewer: 'Pavel Vogl',
+          date: '21-08-2020',
+          rating: 3,
+          review_text:
+            'Listicle yr artisan edison bulb salvia poke tbh photo booth wayfarers iPhone',
+        },
+        {
+          reviewer: 'Park Kleeborn',
+          date: '20-06-2021',
+          rating: 3,
+          review_text: 'Schlitz mumblecore godard butcher',
+        },
+      ],
     },
     {
       course_id: 17,
@@ -643,6 +1135,22 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1623526104629-f1b8eb5bd195?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [
+        {
+          reviewer: 'Cory Jewster',
+          date: '11-02-2022',
+          rating: 5,
+          review_text:
+            'Green juice next level single-origin coffee, unicorn fam austin la croix offal',
+        },
+        {
+          reviewer: 'Carena Coupar',
+          date: '23-06-2021',
+          rating: 3,
+          review_text:
+            'Mlkshk tumblr coloring book, chillwave selfies organic iceland microdosing master cleanse cloud bread humblebrag marfa whatever irony',
+        },
+      ],
     },
     {
       course_id: 18,
@@ -682,6 +1190,35 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1517971129774-8a2b38fa128e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [
+        {
+          reviewer: 'Warde Earney',
+          date: '20-06-2021',
+          rating: 4,
+          review_text: 'Lyft VHS photo booth air plant',
+        },
+        {
+          reviewer: 'Spencer Chambers',
+          date: '28-04-2020',
+          rating: 5,
+          review_text:
+            'Disrupt locavore drinking vinegar gentrify migas jean shorts leggings YOLO',
+        },
+        {
+          reviewer: 'Gaye Stangroom',
+          date: '12-08-2020',
+          rating: 5,
+          review_text:
+            'Mlkshk tumblr coloring book, chillwave selfies organic iceland microdosing master cleanse cloud bread humblebrag marfa whatever irony',
+        },
+        {
+          reviewer: 'Pavel Vogl',
+          date: '20-06-2021',
+          rating: 5,
+          review_text:
+            'Offal unicorn street art, fingerstache bitters freegan food truck synth stumptown ramps farm-to-table beard',
+        },
+      ],
     },
     {
       course_id: 19,
@@ -721,6 +1258,22 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1599694522028-65abc96dfd2f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [
+        {
+          reviewer: 'Rebeca Mapother',
+          date: '23-10-2020',
+          rating: 4,
+          review_text:
+            'Schlitz woke actually snackwave, edison bulb ramps kickstarter gluten-free neutra adaptogen',
+        },
+        {
+          reviewer: 'Marlo Moorwood',
+          date: '17-05-2020',
+          rating: 5,
+          review_text:
+            'Cliche mlkshk blue bottle, banh mi wayfarers tofu kombucha seitan mixtape beard kickstarter craft beer tattooed',
+        },
+      ],
     },
     {
       course_id: 20,
@@ -757,6 +1310,50 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1633887091273-a3bd71efddde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [
+        {
+          reviewer: 'Carri Copas',
+          date: '20-06-2021',
+          rating: 4,
+          review_text:
+            'Salvia marfa vape, readymade lyft succulents tilde small batch poutine letterpress kinfolk yr williamsburg gochujang selvage',
+        },
+        {
+          reviewer: 'Sammy Danihelka',
+          date: '13-06-2021',
+          rating: 3,
+          review_text:
+            'Pabst bicycle rights shabby chic irony deep v, YOLO retro messenger bag normcore',
+        },
+        {
+          reviewer: 'Marlo Moorwood',
+          date: '12-08-2020',
+          rating: 3,
+          review_text:
+            'Green juice next level single-origin coffee, unicorn fam austin la croix offal',
+        },
+        {
+          reviewer: 'Julia Bromhead',
+          date: '15-03-2020',
+          rating: 5,
+          review_text:
+            'Echo park williamsburg helvetica, tattooed messenger bag ugh iPhone cardigan beard chia mustache cronut tilde succulents',
+        },
+        {
+          reviewer: 'Kelsi Drivers',
+          date: '30-05-2021',
+          rating: 4,
+          review_text:
+            'Four dollar toast snackwave brunch pork belly, portland freegan schlitz health goth',
+        },
+        {
+          reviewer: 'Bethena Lindwall',
+          date: '22-06-2020',
+          rating: 3,
+          review_text:
+            'Lo-fi asymmetrical taxidermy williamsburg small batch XOXO actually, everyday carry glossier irony ugh pabst vice heirloom',
+        },
+      ],
     },
     {
       course_id: 21,
@@ -795,6 +1392,7 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1558443957-d056622df610?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [],
     },
     {
       course_id: 22,
@@ -833,6 +1431,50 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1631739714671-0de24b57d810?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [
+        {
+          reviewer: 'Dana Ollerhad',
+          date: '23-06-2021',
+          rating: 3,
+          review_text:
+            'Four loko single-origin coffee cronut, actually enamel pin keffiyeh bespoke seitan normcore man bun',
+        },
+        {
+          reviewer: 'Marquita Hamblyn',
+          date: '15-03-2020',
+          rating: 3,
+          review_text:
+            'Jianbing literally af, kitsch lo-fi raw denim shabby chic gentrify vinyl plaid keytar succulents ugh',
+        },
+        {
+          reviewer: 'Dwain Fust',
+          date: '20-06-2021',
+          rating: 3,
+          review_text:
+            'Retro VHS enamel pin godard tilde, hoodie portland cold-pressed direct trade typewriter farm-to-table XOXO',
+        },
+        {
+          reviewer: 'Ferdinande Loncaster',
+          date: '23-06-2021',
+          rating: 3,
+          review_text:
+            'Echo park williamsburg helvetica, tattooed messenger bag ugh iPhone cardigan beard chia mustache cronut tilde succulents',
+        },
+        {
+          reviewer: 'Cornell Larkcum',
+          date: '20-07-2020',
+          rating: 4,
+          review_text:
+            'Chia vexillologist gochujang tacos health goth banh mi palo santo austin meggings irony',
+        },
+        {
+          reviewer: 'Rubie Devereux',
+          date: '20-04-2020',
+          rating: 4,
+          review_text:
+            'Echo park williamsburg helvetica, tattooed messenger bag ugh iPhone cardigan beard chia mustache cronut tilde succulents',
+        },
+      ],
     },
     {
       course_id: 23,
@@ -870,6 +1512,27 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1618673747378-7e0d3561371a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [
+        {
+          reviewer: 'Marquita Hamblyn',
+          date: '12-08-2020',
+          rating: 5,
+          review_text: 'Swag everyday carry artisan blue bottle',
+        },
+        {
+          reviewer: 'Aida McSkin',
+          date: '21-08-2020',
+          rating: 4,
+          review_text:
+            'Wolf cardigan unicorn art party forage cold-pressed microdosing',
+        },
+        {
+          reviewer: 'Cory Jewster',
+          date: '11-02-2022',
+          rating: 4,
+          review_text: 'Next level tumeric pok pok try-hard sustainable umami',
+        },
+      ],
     },
     {
       course_id: 24,
@@ -907,6 +1570,22 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1578961771886-97d51aee46bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [
+        {
+          reviewer: 'Dwain Fust',
+          date: '12-08-2020',
+          rating: 5,
+          review_text:
+            'Distillery vegan twee poutine, authentic bicycle rights palo santo raw denim tofu enamel pin 8-bit',
+        },
+        {
+          reviewer: 'Vincenz Bartolacci',
+          date: '22-06-2020',
+          rating: 3,
+          review_text:
+            'Raclette hexagon slow-carb kitsch, gentrify salvia tousled roof party pabst microdosing mustache franzen cred DIY',
+        },
+      ],
     },
     {
       course_id: 25,
@@ -944,6 +1623,28 @@ export const API = {
         thumb:
           'https://images.unsplash.com/photo-1493863641943-9b68992a8d07?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
+      reviews: [
+        {
+          reviewer: 'Findley Lennie',
+          date: '14-02-2022',
+          rating: 5,
+          review_text:
+            'Organic cray activated charcoal, single-origin coffee letterpress cardigan master cleanse iceland',
+        },
+        {
+          reviewer: 'Cristie Domenc',
+          date: '22-06-2020',
+          rating: 5,
+          review_text: 'Glossier poutine kickstarter banjo',
+        },
+        {
+          reviewer: 'Rebeca Mapother',
+          date: '27-06-2020',
+          rating: 5,
+          review_text:
+            'Kinfolk affogato gentrify master cleanse raw denim prism austin next level vinyl iceland woke 8-bit tacos +1',
+        },
+      ],
     },
   ],
   users: [
