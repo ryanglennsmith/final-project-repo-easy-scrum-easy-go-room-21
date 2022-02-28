@@ -3,7 +3,15 @@ import React, { useState, useEffect } from 'react';
 import HoverRating from '@components/ReviewRating/review';
 import SuccessAlert from '@components/SuccessAlert/SuccessAlert';
 import { Box } from '@mui/system';
+
 import { useUser } from '@auth0/nextjs-auth0';
+
+import {
+  centerContentCol,
+  courseCardButton,
+  courseCardContentCourseBrief,
+  generalTypo,
+} from 'globalCss';
 export default function AddNewReview({
   reviewData,
   setReviewData,
@@ -44,17 +52,19 @@ export default function AddNewReview({
   }
 
   function makeNewReview() {
-    let dateToday = `${day}-${month}-${year}`;
+
     let today = new Date();
     let day = `${today.getDate() < 10 ? '0' : ''} ${today.getDate()}`;
-    let month = `${today.getMonth() + 1 < 10 ? '0' : ''} ${
+    let month = `${today.getMonth() + 1 < 10 ? '0' : ''}${
       today.getMonth() + 1
     }`;
     let year = today.getFullYear();
+    let dateToday = `${day}-${month}-${year}`;
 
     const newReview = {
-      reviewerName: user.name,
-      // datePosted: new Date(),
+
+      reviewerName: name,
+      datePosted: dateToday,
       ratingGiven: rating,
       reviewText: review,
     };
@@ -75,14 +85,14 @@ export default function AddNewReview({
   }
 
   return (
-    <Container>
-      <Typography>Leave your review </Typography>
-      <Typography>Rate your experience:</Typography>
+
+    <Container sx={centerContentCol}>
+      <Typography sx={generalTypo}>Leave your review: </Typography>
 
       <Box
         component="form"
         sx={{
-          '& .MuiTextField-root': { m: 1, width: '25ch' },
+          '& .MuiTextField-root': { m: 1, width: '60ch' },
         }}
         noValidate
         autoComplete="off"
@@ -132,9 +142,11 @@ export default function AddNewReview({
           />
         </div>
       </Box>
+      <Typography sx={generalTypo}>Rate your experience:</Typography>
 
       <HoverRating setRating={setRating} />
       <Button
+        sx={courseCardButton}
         onClick={(e) => {
           setShowAddReview(false);
           handleSubmit(e);

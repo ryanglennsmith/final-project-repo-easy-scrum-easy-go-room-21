@@ -1,6 +1,7 @@
 import AddNewReview from '@components/AddNewReview/AddNewReview';
 import Review from '@components/Review/Review';
 import { Button, Container } from '@mui/material';
+import { centerContentCol, courseCardButton } from 'globalCss';
 import React, { useState } from 'react';
 import { useUser } from '@auth0/nextjs-auth0';
 
@@ -14,11 +15,12 @@ export default function ReviewSection({ data }) {
   const { user, error, isLoading } = useUser();
 
   return (
-    <Container>
+    <Container sx={centerContentCol}>
       <Review reviews={reviewData} />
 
       {!showAddReview && user && (
-        <Button
+        <Button  sx={courseCardButton}
+
           onClick={() => {
             setShowAddReview(true);
           }}
@@ -27,7 +29,7 @@ export default function ReviewSection({ data }) {
         </Button>
       )}
       {!showAddReview && !user && (
-        <Button
+        <Button sx={courseCardButton}
           onClick={() => {
             setShowAddReview(true);
           }}
