@@ -1,42 +1,132 @@
 import { Button, Container, TextField, Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import HoverRating from '@components/ReviewRating/review';
-
-export default function AddNewReview({ reviewData, setReviewData }) {
+import SuccessAlert from '@components/SuccessAlert/SuccessAlert';
+import { Box } from '@mui/system';
+export default function AddNewReview({
+  reviewData,
+  setReviewData,
+  setShowAddReview,
+}) {
   const [name, setName] = useState('');
   // const [date, setDate] = useState("")
-  const [rating, setRating] = useState(0)
-  // const [text, setText] = useState("")
+  const [rating, setRating] = useState(0);
+  const [review, setReview] = useState('');
+  const [email, setEmail] = useState('');
 
-  // function makeNewReview(){
-  //     const newReview =         {
-  //         reviewerName: name,
-  //         datePosted: date,
-  //         ratingGiven: rating,
-  //         reviewText: text,
-  //       },
+  //  <--This function is for when we switch to databases-->
 
-  // }
+  //   async function sendPostData(postData) {
+  //     console.log("POST DATA HERE", postData);
+  //     const res = await fetch("URL", {
+  //        method: "POST",
+  //        body: JSON.stringify(postData),
+  //        headers: {
+  //           "Content-type": "application/json; charset=UTF-8",
+  //        },
+  //     });
+  //     const data = await res.json();
+  //     console.log(data);
+  //  }
 
- 
-  function handleChange(e) {
+  function submitData() {
+    setReviewData([...reviewData, makeNewReview()]);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    submitData();
+  }
+
+  function makeNewReview() {
+    const newReview = {
+      reviewerName: name,
+      // datePosted: new Date(),
+      ratingGiven: rating,
+      reviewText: review,
+    };
+    return newReview;
+  }
+
+  function handleChangeEmail(e) {
+    setEmail(e.target.value);
+    console.log(e.target.value);
+  }
+  function handleChangeReview(e) {
+    setReview(e.target.value);
+    console.log(e.target.value);
+  }
+  function handleChangeName(e) {
     setName(e.target.value);
-    console.log(rating);
+    console.log(e.target.value);
   }
 
   return (
     <Container>
-    <Typography>Leave your review </Typography>
-    <Typography>Rate your experience:</Typography>
-
-    
-      <TextField
-        onChange={(e) => {
-          handleChange(e);
+      <Typography>Leave your review </Typography>
+      <Typography>Rate your experience:</Typography>
+      <Box
+        component="form"
+        sx={{
+          '& .MuiTextField-root': { m: 1, width: '25ch' },
         }}
-      ></TextField>
+        noValidate
+        autoComplete="off"
+      >
+        <div>
+          <TextField
+            required
+            onChange={(e) => {
+              handleChangeReview(e);
+            }}
+            id="review"
+            label="Write a review"
+            multiline
+            rows={4}
+            variant="filled"
+            type={'text'}
+            inputProps={{ maxLength: 200 }}
+          />
+          <TextField
+            placeholder="Your name"
+            required
+            onChange={(e) => {
+              handleChangeName(e);
+            }}
+            id="reviewer-name"
+            label="Your name"
+            multiline
+            maxRows={4}
+            // value={value}
+            type={'text'}
+            inputProps={{ maxLength: 30 }}
+            variant="filled"
+          />
+          <TextField
+            required
+            onChange={(e) => {
+              handleChangeEmail(e);
+            }}
+            id="reviewer-email"
+            label="Your email"
+            multiline
+            variant="filled"
+            type={'text'}
+            inputProps={{ maxLength: 30 }}
+          />
+        </div>
+      </Box>
+
       <HoverRating setRating={setRating} />
-      <Button></Button>
+      <Button
+        onClick={(e) => {
+          setShowAddReview(false);
+          handleSubmit(e);
+          <SuccessAlert text={'Review successfully submitted'} />;
+        }}
+      >
+        Submit
+      </Button>
     </Container>
   );
 }

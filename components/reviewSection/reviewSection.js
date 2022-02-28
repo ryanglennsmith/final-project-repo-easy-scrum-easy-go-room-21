@@ -14,16 +14,23 @@ export default function ReviewSection({ data }) {
   return (
     <Container>
       <Review reviews={reviewData} />
-      <Button
-        onClick={() => {
-          setShowAddReview(true);
-        }}
-      >
-        Add review
-      </Button>
+
+      {!showAddReview && (
+        <Button
+          onClick={() => {
+            setShowAddReview(true);
+          }}
+        >
+          Add review
+        </Button>
+      )}
 
       {showAddReview && (
-        <AddNewReview reviewData={reviewData} setReviewData={setReviewData} />
+        <AddNewReview
+          reviewData={reviewData}
+          setReviewData={setReviewData}
+          setShowAddReview={setShowAddReview}
+        />
       )}
     </Container>
   );
