@@ -45,7 +45,7 @@ const data = API.courses;
 //gets search input from params of url
 export async function getServerSideProps(context) {
   const homepageSearch = context.query.results;
-  // console.log(context);
+  console.log(context);
   // console.log(text);
   return {
     props: {
@@ -63,12 +63,14 @@ export async function getServerSideProps(context) {
 //else
 // only conduct search when user uses the search bar on explore page
 
-export default function Results() {
+export default function Results({ inputData }) {
   const matchesMd = useMediaQuery('(max-width:913px)');
   const matchesLrg = useMediaQuery('(min-width:913px)');
 
+  // console.log(homepageSearchTerm);
+
   const [input, setInput] = useState('');
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState(inputData);
 
   function handleChange(e) {
     // saves value into the state
@@ -85,10 +87,17 @@ export default function Results() {
     console.log(input);
   }
 
+  // explore page filter
   const searchResult = data.filter((item) =>
     item.course_title.toUpperCase().includes(search.toUpperCase())
   );
 
+  // homepage text search filter
+  // const homepageText = data.filter((item) =>
+  //   item.course_title.toUpperCase().includes(homepageSearchTerm.toUpperCase())
+  // );
+
+  // console.log(homepageText);
   // console.log(searchResult);
 
   return (
@@ -116,7 +125,11 @@ export default function Results() {
         </Button>
       </Box>
       {/* Search section end */}
-      {searchResult.length > 0 && search ? (
+      {search === 'results' ? (
+        <Box sx={aboutSection}>
+          <Typography>Search for item</Typography>
+        </Box>
+      ) : searchResult.length > 0 && search ? (
         <Box sx={aboutSection}>
           <Typography variant="h4">Results for "{search}"</Typography>
           <Typography></Typography>
