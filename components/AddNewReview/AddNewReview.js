@@ -3,7 +3,12 @@ import React, { useState, useEffect } from 'react';
 import HoverRating from '@components/ReviewRating/review';
 import SuccessAlert from '@components/SuccessAlert/SuccessAlert';
 import { Box } from '@mui/system';
-import { centerContentCol, courseCardButton, courseCardContentCourseBrief, generalTypo } from 'globalCss';
+import {
+  centerContentCol,
+  courseCardButton,
+  courseCardContentCourseBrief,
+  generalTypo,
+} from 'globalCss';
 export default function AddNewReview({
   reviewData,
   setReviewData,
@@ -40,14 +45,14 @@ export default function AddNewReview({
   }
 
   function makeNewReview() {
-    
-
     let today = new Date();
-    let day = `${today.getDate() < 10 ? "0" : "" } ${today.getDate()}`;
-    let month =`${(today.getMonth()+1) < 10 ? "0" : ""}${today.getMonth()+1}`;
+    let day = `${today.getDate() < 10 ? '0' : ''} ${today.getDate()}`;
+    let month = `${today.getMonth() + 1 < 10 ? '0' : ''}${
+      today.getMonth() + 1
+    }`;
     let year = today.getFullYear();
-    let dateToday =`${day}-${month}-${year}`
-    
+    let dateToday = `${day}-${month}-${year}`;
+
     const newReview = {
       reviewerName: name,
       datePosted: dateToday,
@@ -73,7 +78,7 @@ export default function AddNewReview({
   return (
     <Container sx={centerContentCol}>
       <Typography sx={generalTypo}>Leave your review: </Typography>
-     
+
       <Box
         component="form"
         sx={{
@@ -96,7 +101,7 @@ export default function AddNewReview({
             type={'text'}
             inputProps={{ maxLength: 200 }}
           />
-          {/* <TextField
+          <TextField
             placeholder="Your name"
             required
             onChange={(e) => {
@@ -122,13 +127,14 @@ export default function AddNewReview({
             variant="filled"
             type={'text'}
             inputProps={{ maxLength: 30 }}
-          /> */}
+          />
         </div>
       </Box>
       <Typography sx={generalTypo}>Rate your experience:</Typography>
-      
+
       <HoverRating setRating={setRating} />
-      <Button sx={courseCardButton}
+      <Button
+        sx={courseCardButton}
         onClick={(e) => {
           setShowAddReview(false);
           handleSubmit(e);
