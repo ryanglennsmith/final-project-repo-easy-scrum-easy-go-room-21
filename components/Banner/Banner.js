@@ -20,9 +20,34 @@ import {
   bannerNavBar,
 } from '../../globalCss.js';
 import NavBar from '@components/navBar/navBar.js';
+import { useState } from 'react';
+import { Router, useRouter } from 'next/router';
+
+// grab input from navbar with useState - DONE
+// use onClick() = > on the button
+// pass the data as props to the "dynamic" [results] page.
+// use get server side props on the results page.
+
+// params = string
 
 export default function Banner() {
   const matches = useMediaQuery('(min-width:700px)');
+  const router = useRouter();
+
+  const [input, setInput] = useState('');
+
+  function handleChange(e) {
+    // grabbing the text input on search bar
+    e.preventDefault();
+    setInput(e.target.value);
+    // console.log(input);
+  }
+
+  function onClick(e) {
+    // pushing the text input value to the url
+    e.preventDefault();
+    router.push(`/search/${input}`);
+  }
 
   return (
     <Box sx={bannerBox}>
@@ -90,6 +115,8 @@ export default function Banner() {
             <TextField
               id="outlined-basic"
               variant="outlined"
+              value={input}
+              onChange={handleChange}
               sx={bannerTextFieldWeb}
             />
           )}
@@ -98,6 +125,8 @@ export default function Banner() {
             <TextField
               id="outlined-basic"
               variant="outlined"
+              value={input}
+              onChange={handleChange}
               sx={{
                 background: '#fff',
                 borderRadius: '6px',
@@ -105,7 +134,7 @@ export default function Banner() {
               }}
             />
           )}
-          <Button variant="contained" sx={bannerButton}>
+          <Button variant="contained" sx={bannerButton} onClick={onClick}>
             Search
           </Button>
         </Stack>
