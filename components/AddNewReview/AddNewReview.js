@@ -24,7 +24,7 @@ export default function AddNewReview({ reviewData, setReviewData }) {
   return (
     <Container>
       <TextField
-        onChange={() => {
+        onChange={(e) => {
           handleChange(e);
         }}
       ></TextField>
