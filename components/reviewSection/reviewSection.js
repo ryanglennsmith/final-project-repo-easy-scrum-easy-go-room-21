@@ -19,8 +19,8 @@ export default function ReviewSection({ data }) {
       <Review reviews={reviewData} />
 
       {!showAddReview && user && (
-        <Button  sx={courseCardButton}
-
+        <Button
+          sx={courseCardButton}
           onClick={() => {
             setShowAddReview(true);
           }}
@@ -29,11 +29,12 @@ export default function ReviewSection({ data }) {
         </Button>
       )}
       {!showAddReview && !user && (
-        <Button sx={courseCardButton}
+        <Button
+          sx={courseCardButton}
           onClick={() => {
             setShowAddReview(true);
           }}
-          disabled="true"
+          disabled={true}
         >
           Log in to add review
         </Button>

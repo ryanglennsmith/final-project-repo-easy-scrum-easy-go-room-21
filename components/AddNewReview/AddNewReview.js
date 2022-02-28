@@ -52,7 +52,6 @@ export default function AddNewReview({
   }
 
   function makeNewReview() {
-
     let today = new Date();
     let day = `${today.getDate() < 10 ? '0' : ''} ${today.getDate()}`;
     let month = `${today.getMonth() + 1 < 10 ? '0' : ''}${
@@ -62,7 +61,6 @@ export default function AddNewReview({
     let dateToday = `${day}-${month}-${year}`;
 
     const newReview = {
-
       reviewerName: name,
       datePosted: dateToday,
       ratingGiven: rating,
@@ -85,7 +83,6 @@ export default function AddNewReview({
   }
 
   return (
-
     <Container sx={centerContentCol}>
       <Typography sx={generalTypo}>Leave your review: </Typography>
 
@@ -113,7 +110,7 @@ export default function AddNewReview({
           />
           <TextField
             placeholder={user.name}
-            disabled="true"
+            disabled={true}
             // required
             onChange={(e) => {
               handleChangeName(e);
@@ -133,7 +130,7 @@ export default function AddNewReview({
               handleChangeEmail(e);
             }}
             id="reviewer-email"
-            disabled="true"
+            disabled={true}
             label={user.email}
             multiline
             variant="filled"

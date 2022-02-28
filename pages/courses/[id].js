@@ -88,6 +88,7 @@ export default function CoursePage({ data }) {
             alt="painting"
             layout="fixed"
             objectFit="contain"
+            priority={true}
           />{' '}
         </Box>
         <Box
@@ -120,6 +121,7 @@ export default function CoursePage({ data }) {
               if (value == 'true') {
                 return (
                   <Typography
+                    key={index}
                     variant="string"
                     sx={{
                       ...generalTypo,
@@ -133,6 +135,7 @@ export default function CoursePage({ data }) {
               } else {
                 return (
                   <Typography
+                    key={index}
                     variant="string"
                     sx={{ ...generalTypo, color: 'gray', fontSize: '12px' }}
                   >
