@@ -3,6 +3,9 @@ import React, { useState, useEffect } from 'react';
 import HoverRating from '@components/ReviewRating/review';
 import SuccessAlert from '@components/SuccessAlert/SuccessAlert';
 import { Box } from '@mui/system';
+
+import { useUser } from '@auth0/nextjs-auth0';
+
 import {
   centerContentCol,
   courseCardButton,
@@ -14,11 +17,15 @@ export default function AddNewReview({
   setReviewData,
   setShowAddReview,
 }) {
-  const [name, setName] = useState('');
+  // const [name, setName] = useState('');
   // const [date, setDate] = useState("")
   const [rating, setRating] = useState(0);
   const [review, setReview] = useState('');
-  const [email, setEmail] = useState('');
+  // const [email, setEmail] = useState('');
+  const { user, error, isLoading } = useUser();
+  console.log('user is: ', user);
+  // setName(user.name);
+  // setEmail(user.email);
 
   //  <--This function is for when we switch to databases-->
 
@@ -45,6 +52,7 @@ export default function AddNewReview({
   }
 
   function makeNewReview() {
+
     let today = new Date();
     let day = `${today.getDate() < 10 ? '0' : ''} ${today.getDate()}`;
     let month = `${today.getMonth() + 1 < 10 ? '0' : ''}${
@@ -54,6 +62,7 @@ export default function AddNewReview({
     let dateToday = `${day}-${month}-${year}`;
 
     const newReview = {
+
       reviewerName: name,
       datePosted: dateToday,
       ratingGiven: rating,
@@ -76,6 +85,7 @@ export default function AddNewReview({
   }
 
   return (
+
     <Container sx={centerContentCol}>
       <Typography sx={generalTypo}>Leave your review: </Typography>
 
@@ -102,13 +112,14 @@ export default function AddNewReview({
             inputProps={{ maxLength: 200 }}
           />
           <TextField
-            placeholder="Your name"
-            required
+            placeholder={user.name}
+            disabled="true"
+            // required
             onChange={(e) => {
               handleChangeName(e);
             }}
             id="reviewer-name"
-            label="Your name"
+            label={user.name}
             multiline
             maxRows={4}
             // value={value}
@@ -117,12 +128,13 @@ export default function AddNewReview({
             variant="filled"
           />
           <TextField
-            required
+            // required
             onChange={(e) => {
               handleChangeEmail(e);
             }}
             id="reviewer-email"
-            label="Your email"
+            disabled="true"
+            label={user.email}
             multiline
             variant="filled"
             type={'text'}
