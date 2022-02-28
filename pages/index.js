@@ -25,7 +25,6 @@ import { API } from 'utils/API.js';
 
 const data = API.courses;
 const theme = createTheme();
-
 export default function Album() {
   return (
     <ThemeProvider theme={theme}>

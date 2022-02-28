@@ -17,6 +17,7 @@ import {
   bannerTypographySubWeb,
   bannerTypographySubMobile,
   bannerButton,
+  bannerNavBar,
 } from '../../globalCss.js';
 import NavBar from '@components/navBar/navBar.js';
 
@@ -25,7 +26,10 @@ export default function Banner() {
 
   return (
     <Box sx={bannerBox}>
-      <NavBar logoLink={'https://i1.lensdump.com/i/reF4Pa.png'} />
+      <NavBar
+        sx={bannerNavBar}
+        logoLink={'https://i1.lensdump.com/i/reF4Pa.png'}
+      />
 
       <Container maxWidth="sd" sx={bannerContainer}>
         {matches && (
@@ -55,9 +59,8 @@ export default function Banner() {
           <Typography
             variant="h5"
             align="center"
-            color="text.secondary"
             paragraph
-            sx={bannerTypographySubWeb}
+            sx={bannerTypographySubMobile}
           >
             Build, monetize, manage, and grow membership sites, courses,
             subscriptions, communities, events, or the digital product of your
@@ -68,9 +71,8 @@ export default function Banner() {
           <Typography
             variant="h5"
             align="center"
-            color="text.secondary"
             paragraph
-            sx={bannerTypographySubMobile}
+            sx={bannerTypographySubWeb}
           >
             Build, monetize, manage, and grow membership sites, courses,
             subscriptions, communities, events, or the digital product of your
