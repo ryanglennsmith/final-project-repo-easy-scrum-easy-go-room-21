@@ -94,17 +94,21 @@ export default function Results() {
         </Button>
       </Box>
       {/* Search section end */}
-      {searchResult && search ? (
+      {searchResult.length > 0 && search ? (
         <Box sx={aboutSection}>
-          <Typography variant="h4">Results for {search}</Typography>
+          <Typography variant="h4">Results for "{search}"</Typography>
           <Typography></Typography>
           {/* search results displayed here as cards */}
           <CourseCard cards={searchResult} />
         </Box>
-      ) : (
+      ) : searchResult.length === 0 && search ? (
         <Box sx={aboutSection}>
           {' '}
-          <Typography>Search results not found</Typography>{' '}
+          <Typography>Search results for "{search}" not found</Typography>{' '}
+        </Box>
+      ) : (
+        <Box sx={aboutSection}>
+          <Typography>Search for item</Typography>
         </Box>
       )}
 
