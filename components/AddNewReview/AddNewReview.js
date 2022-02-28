@@ -39,6 +39,13 @@ export default function AddNewReview({
   }
 
   function makeNewReview() {
+    
+    let dateToday =`${day}-${month}-${year}`
+    let today = new Date();
+    let day = `${today.getDate() < 10 ? "0" : "" } ${today.getDate()}`;
+    let month =`${(today.getMonth() + 1) < 10 ? "0" : ""} ${today.getMonth() + 1}`;
+    let year = today.getFullYear();
+
     const newReview = {
       reviewerName: name,
       // datePosted: new Date(),
@@ -65,6 +72,7 @@ export default function AddNewReview({
     <Container>
       <Typography>Leave your review </Typography>
       <Typography>Rate your experience:</Typography>
+      
       <Box
         component="form"
         sx={{
