@@ -40,15 +40,16 @@ export default function AddNewReview({
 
   function makeNewReview() {
     
-    let dateToday =`${day}-${month}-${year}`
+
     let today = new Date();
     let day = `${today.getDate() < 10 ? "0" : "" } ${today.getDate()}`;
-    let month =`${(today.getMonth() + 1) < 10 ? "0" : ""} ${today.getMonth() + 1}`;
+    let month =`${(today.getMonth()+1) < 10 ? "0" : ""}${today.getMonth()+1}`;
     let year = today.getFullYear();
-
+    let dateToday =`${day}-${month}-${year}`
+    
     const newReview = {
       reviewerName: name,
-      // datePosted: new Date(),
+      datePosted: dateToday,
       ratingGiven: rating,
       reviewText: review,
     };
@@ -95,7 +96,7 @@ export default function AddNewReview({
             type={'text'}
             inputProps={{ maxLength: 200 }}
           />
-          <TextField
+          {/* <TextField
             placeholder="Your name"
             required
             onChange={(e) => {
@@ -121,7 +122,7 @@ export default function AddNewReview({
             variant="filled"
             type={'text'}
             inputProps={{ maxLength: 30 }}
-          />
+          /> */}
         </div>
       </Box>
 
