@@ -1,6 +1,7 @@
 import AddNewReview from '@components/AddNewReview/AddNewReview';
 import Review from '@components/Review/Review';
 import { Button, Container } from '@mui/material';
+import { centerContentCol, courseCardButton } from 'globalCss';
 import React, { useState } from 'react';
 
 // This component holds all of the review section
@@ -12,11 +13,11 @@ export default function ReviewSection({ data }) {
   const [showAddReview, setShowAddReview] = useState(false);
 
   return (
-    <Container>
+    <Container sx={centerContentCol}>
       <Review reviews={reviewData} />
 
       {!showAddReview && (
-        <Button
+        <Button sx={courseCardButton}
           onClick={() => {
             setShowAddReview(true);
           }}

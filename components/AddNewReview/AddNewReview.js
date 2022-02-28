@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import HoverRating from '@components/ReviewRating/review';
 import SuccessAlert from '@components/SuccessAlert/SuccessAlert';
 import { Box } from '@mui/system';
+import { centerContentCol, courseCardButton, courseCardContentCourseBrief, generalTypo } from 'globalCss';
 export default function AddNewReview({
   reviewData,
   setReviewData,
@@ -70,14 +71,13 @@ export default function AddNewReview({
   }
 
   return (
-    <Container>
-      <Typography>Leave your review </Typography>
-      <Typography>Rate your experience:</Typography>
-      
+    <Container sx={centerContentCol}>
+      <Typography sx={generalTypo}>Leave your review: </Typography>
+     
       <Box
         component="form"
         sx={{
-          '& .MuiTextField-root': { m: 1, width: '25ch' },
+          '& .MuiTextField-root': { m: 1, width: '60ch' },
         }}
         noValidate
         autoComplete="off"
@@ -125,9 +125,10 @@ export default function AddNewReview({
           /> */}
         </div>
       </Box>
-
+      <Typography sx={generalTypo}>Rate your experience:</Typography>
+      
       <HoverRating setRating={setRating} />
-      <Button
+      <Button sx={courseCardButton}
         onClick={(e) => {
           setShowAddReview(false);
           handleSubmit(e);
