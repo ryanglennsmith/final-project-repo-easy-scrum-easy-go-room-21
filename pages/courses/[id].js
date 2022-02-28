@@ -21,6 +21,7 @@ import {
   navbarButton,
   navbarSidePageBox,
   profileSearchBar,
+  profileSearchBarInput,
   titleTypo,
 } from 'globalCss';
 
@@ -41,27 +42,26 @@ export default function CoursePage({ data }) {
   const matchesLrg = useMediaQuery('(min-width:913px)');
 
   return (
-    <Box style={{ height: '100vh' }}>
+    <Box style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}>
       {/* Navbar section */}
       <Box sx={navbarSidePageBox}>
         <NavBar logoLink={'https://i.lensdump.com/i/reFewK.png'} />
       </Box>
       {/* Navbar section end*/}
       {/* Search section */}
-      <Box sx={profileSearchBar}>
-        <TextField
-          id="outlined-basic"
-          variant="outlined"
-          sx={{
-            background: '#fff',
-            borderRadius: '6px',
-            width: '60%',
-          }}
-        />
-        <Button variant="contained" sx={navbarButton}>
-          Search
-        </Button>
-      </Box>
+      <div className="wrapProfileSearchBar">
+        <Box sx={profileSearchBar}>
+          <TextField
+            id="outlined-basic"
+            variant="outlined"
+            style={{ padding: 0 }}
+            sx={profileSearchBarInput}
+          />
+          <Button variant="contained" sx={navbarButton}>
+            Search
+          </Button>
+        </Box>
+      </div>
       {/* Search section end */}
       {/* Profile page image/info section */}
       <Box

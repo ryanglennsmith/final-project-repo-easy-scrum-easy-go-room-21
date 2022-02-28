@@ -17,7 +17,6 @@ import {
   bannerTypographySubWeb,
   bannerTypographySubMobile,
   bannerButton,
-  bannerNavBar,
 } from '../../globalCss.js';
 import NavBar from '@components/navBar/navBar.js';
 
@@ -26,10 +25,7 @@ export default function Banner() {
 
   return (
     <Box sx={bannerBox}>
-      <NavBar
-        sx={bannerNavBar}
-        logoLink={'https://i1.lensdump.com/i/reF4Pa.png'}
-      />
+      <NavBar logoLink={'https://i1.lensdump.com/i/reF4Pa.png'} />
 
       <Container maxWidth="sd" sx={bannerContainer}>
         {matches && (

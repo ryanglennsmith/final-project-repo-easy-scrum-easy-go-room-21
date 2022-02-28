@@ -36,3 +36,11 @@ code {
   justify-content: center;
   align-items: center;
 }
+
+/* pages/courses/[id].js CSS */
+.wrapProfileSearchBar {
+  background-color: #eee;
+  height: 100px;
+  display: flex;
+  margin-bottom: 50px;
+}

@@ -43,8 +43,12 @@ export const navbarButton = {
   background: '#FF8957',
   '&:hover': { background: '#FF8957' },
   fontFamily: 'Inter',
-  fontStyle: 'normal',
-  letterSpacing: '0em',
+};
+export const navbarButtonSubpage = {
+  color: '#414141',
+  background: '#ffffff',
+  '&:hover': { background: '#FF8957' },
+  fontFamily: 'Inter',
 };
 
 export const navbarSidePageBox = {
@@ -132,7 +136,6 @@ export const bannerBox = {
   height: '600px',
 };
 
-export const bannerNavBar = {};
 export const bannerContainer = {
   background: 'transparent',
   display: 'flex',
@@ -219,6 +222,7 @@ export const bannerButton = {
   fontSize: '18px',
   fontWeight: '200',
   border: 'none',
+  borderRadius: '10px',
 };
 
 // *******Footer CSS*******
@@ -308,7 +312,14 @@ export const aboutSection = {
 
 export const profileSearchBar = {
   display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'center',
   margin: '4rem 0',
+  width: '1200px',
+  margin: 'auto',
+};
+
+export const profileSearchBarInput = {
+  width: '100%',
+  marginRight: '15px',
+  background: '#fff',
+  padding: 0,
 };
