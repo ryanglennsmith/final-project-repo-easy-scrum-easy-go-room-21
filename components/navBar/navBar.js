@@ -23,7 +23,7 @@ export default function NavBar({ logoLink }) {
   };
   const logoutClick = (e) => {
     e.preventDefault();
-    router.push('api/auth/logout');
+    router.push('/api/auth/logout');
   };
   return (
     <AppBar
