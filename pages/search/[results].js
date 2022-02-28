@@ -31,6 +31,7 @@ import {
 // import api data and map through to create card content
 import { API } from 'utils/API';
 import { useState } from 'react';
+import { createContext } from 'vm';
 
 // from homepage, user input is taken in  and onclick of search button-----> user input is passed to results page  ----> list of results displayed on results page.
 
@@ -40,6 +41,27 @@ import { useState } from 'react';
 const data = API.courses;
 
 // compare input to data.course_title
+
+//gets search input from params of url
+export async function getServerSideProps(context) {
+  const homepageSearch = context.query.results;
+  // console.log(context);
+  // console.log(text);
+  return {
+    props: {
+      inputData: homepageSearch,
+    },
+  };
+}
+//deconstruct data from serverside props
+//use data to filter through API according to input
+//map that result to generate course display cards
+
+//check if props exists // check if props object is empty
+//if props object is not empty
+//use those props to filter the search
+//else
+// only conduct search when user uses the search bar on explore page
 
 export default function Results() {
   const matchesMd = useMediaQuery('(max-width:913px)');
