@@ -24,7 +24,10 @@ import {
   titleTypo,
 } from 'globalCss';
 
-import { API } from 'utils/API';
+import { API } from '../../db/reviewData.js';
+import Review from '@components/Review/Review.js';
+import reviewSection from '@components/reviewSection/reviewSection.js';
+import ReviewSection from '@components/reviewSection/reviewSection.js';
 
 export default function CoursePage({ data }) {
   const course = data;
@@ -111,7 +114,7 @@ export default function CoursePage({ data }) {
             />
             <Typography>{` (${course.rating})`}</Typography>
             {/* number of the comments  */}
-            <Typography>{` (152)`}</Typography>
+            <Typography>{`  ${course.numOfReviews}`}</Typography>
           </Box>
 
           <Box sx={centerContentRow}>
@@ -173,6 +176,9 @@ export default function CoursePage({ data }) {
         <Typography>{course.long_description}</Typography>
       </Box>
       {/* About section end */}
+      {/* Review section */}
+      <ReviewSection data={data.reviews} />
+      {/*Review section */}
       {/*
 ---
 
