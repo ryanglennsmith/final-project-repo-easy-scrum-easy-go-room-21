@@ -1,9 +1,15 @@
 import AddNewReview from '@components/AddNewReview/AddNewReview';
 import Review from '@components/Review/Review';
 import { Button, Container } from '@mui/material';
-import { centerContentCol, courseCardButton } from 'globalCss';
+import {
+  centerContentCol,
+  centerContentRow,
+  courseCardButton,
+  showMoreLessButton,
+} from 'globalCss';
 import React, { useState } from 'react';
 import { useUser } from '@auth0/nextjs-auth0';
+import { Box } from '@mui/system';
 
 // This component holds all of the review section
 // Data is review section of API
@@ -13,11 +19,18 @@ export default function ReviewSection({ data }) {
   // Used useState to set boolean to trigger AddNewReviewSection
   const [showAddReview, setShowAddReview] = useState(false);
   const { user, error, isLoading } = useUser();
+  const [visible, setVisible] = useState(2);
+
+  function showMoreItems() {
+    setVisible((prevValue) => prevValue + 2);
+  }
+
+  function collapseItems() {
+    setVisible(2);
+  }
 
   return (
     <Container sx={centerContentCol}>
-      <Review reviews={reviewData} />
-
       {!showAddReview && user && (
         <Button
           sx={courseCardButton}
@@ -39,6 +52,16 @@ export default function ReviewSection({ data }) {
           Log in to add review
         </Button>
       )}
+      <Review visible={visible} reviews={reviewData} />
+      <Box sx={centerContentRow}>
+        <Button sx={showMoreLessButton} onClick={() => showMoreItems()}>
+          Show more
+        </Button>
+
+        <Button sx={showMoreLessButton} onClick={() => collapseItems()}>
+          Show less
+        </Button>
+      </Box>
 
       {showAddReview && (
         <AddNewReview
