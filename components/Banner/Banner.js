@@ -20,7 +20,7 @@ import {
 } from '../../globalCss.js';
 import NavBar from '@components/navBar/navBar.js';
 import { useState } from 'react';
-import { Router, useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 
 // grab input from navbar with useState - DONE
 // use onClick() = > on the button
