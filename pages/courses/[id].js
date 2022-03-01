@@ -27,8 +27,10 @@ import {
 
 import { API } from 'utils/API';
 import ReviewSection from '@components/reviewSection/reviewSection.js';
+import { useRouter } from 'next/router';
 
 export default function CoursePage({ data }) {
+  const router = useRouter();
   const course = data;
   const days = course.dates_available.map((date) => {
     return Object.keys(date);
@@ -166,7 +168,22 @@ export default function CoursePage({ data }) {
             )}
           </Box>
           <Button sx={navbarButton}>{course.email}</Button>
+          {course.course_tags.map((item, index) => {
+            function onClick(e) {
+              e.preventDefault();
+              router.push(`/search/${item}`);
+            }
+            return (
+              <Box key={index}>
+                <Button onClick={onClick} sx={navbarButton}>
+                  {item}
+                </Button>
+              </Box>
+            );
+          })}
         </Box>{' '}
+        {/* Tag buttons */}
+        {/* Tag buttons ends */}
       </Box>
       {/* Profile page image/info section end*/}
       {/* About section */}
