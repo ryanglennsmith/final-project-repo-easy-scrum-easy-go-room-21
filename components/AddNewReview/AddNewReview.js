@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import HoverRating from '@components/ReviewRating/review';
 import Stack from '@mui/material/Stack';
 import { Box } from '@mui/system';
-
 import { useUser } from '@auth0/nextjs-auth0';
 
 import {
@@ -62,10 +61,10 @@ export default function AddNewReview({
     let dateToday = `${day}-${month}-${year}`;
 
     const newReview = {
-      reviewerName: name,
-      datePosted: dateToday,
-      ratingGiven: rating,
-      reviewText: review,
+      reviewer: user.name,
+      date: dateToday,
+      rating: rating,
+      review_text: review,
     };
     return newReview;
   }
