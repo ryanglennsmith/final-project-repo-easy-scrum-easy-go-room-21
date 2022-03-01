@@ -25,9 +25,7 @@ import {
   titleTypo,
 } from 'globalCss';
 
-import { API } from '../../db/reviewData.js';
-import Review from '@components/Review/Review.js';
-import reviewSection from '@components/reviewSection/reviewSection.js';
+import { API } from 'utils/API';
 import ReviewSection from '@components/reviewSection/reviewSection.js';
 
 export default function CoursePage({ data }) {
@@ -177,7 +175,7 @@ export default function CoursePage({ data }) {
       </Box>
       {/* About section end */}
       {/* Review section */}
-      <ReviewSection data={data.reviews} />
+      <ReviewSection data={course.reviews} />
       {/*Review section */}
       {/*
 ---
