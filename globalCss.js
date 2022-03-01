@@ -2,11 +2,13 @@
 export const centerContentRow = {
   display: 'flex',
   flexDirection: 'row',
+  fontSize: '15px',
 };
 export const centerContentCol = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  padding: '0!important',
 };
 
 // *******NAVBAR CSS*******
@@ -229,13 +231,7 @@ export const bannerButton = {
 export const footerContainerBoxMd = {
   bgcolor: '#555555',
   display: 'flex',
-  justifyContent: 'space-around',
-  flexDirection: 'row',
-  alignContent: 'center',
-  alignItems: 'center',
-  padding: '1rem 4rem',
-  color: '#9A9A9A',
-
+  padding: 0,
   left: '0',
   width: '100%',
   bottom: '110',
@@ -244,13 +240,6 @@ export const footerContainerBoxMd = {
 export const footerContainerBoxLgr = {
   bgcolor: '#555555',
   display: 'flex',
-  justifyContent: 'space-around',
-  flexDirection: 'row',
-  alignContent: 'center',
-  alignItems: 'center',
-  padding: '1rem 4rem',
-  color: '#9A9A9A',
-
   position: 'absolute',
   bottom: '0',
   width: '100%',
@@ -306,8 +295,8 @@ export const generalTypo = {
 export const aboutSection = {
   display: 'flex',
   flexDirection: 'column',
-  margin: '0 auto',
-  width: '70%',
+  margin: '30px auto',
+  width: '1200px',
 };
 
 export const profileSearchBar = {

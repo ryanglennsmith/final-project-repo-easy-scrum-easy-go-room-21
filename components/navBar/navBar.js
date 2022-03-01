@@ -40,7 +40,7 @@ export default function NavBar({ logoLink }) {
         {/* LOGO */}
         <Link href="/">
           <Container sx={navBarContainer} style={{ padding: 0 }}>
-            <img src={logoLink} alt="logo" style={{ maxWidth: '20rem' }}></img>
+            <img src={logoLink} alt="logo" style={{ maxWidth: '200px' }}></img>
           </Container>
         </Link>
 

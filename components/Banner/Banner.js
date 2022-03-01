@@ -50,7 +50,7 @@ export default function Banner() {
 
   return (
     <Box sx={bannerBox}>
-      <NavBar logoLink={'https://i1.lensdump.com/i/reF4Pa.png'} />
+      <NavBar logoLink={'https://i.lensdump.com/i/rLRO3c.png'} />
 
       <Container maxWidth="sd" sx={bannerContainer}>
         {matches && (

@@ -43,7 +43,7 @@ export default function CoursePage({ data }) {
     <Box style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}>
       {/* Navbar section */}
       <Box sx={navbarSidePageBox}>
-        <NavBar logoLink={'https://i.lensdump.com/i/reFewK.png'} />
+        <NavBar logoLink={'https://i1.lensdump.com/i/rLRHNK.png'} />
       </Box>
       {/* Navbar section end*/}
       {/* Search section */}
@@ -67,9 +67,9 @@ export default function CoursePage({ data }) {
           flexGrow: 1,
           display: 'flex',
           flexDirection: 'row',
-          justifyContent: 'center',
+          justifyContent: 'space-between',
           alignItems: 'flex-start',
-          width: '80vw',
+          width: '1200px',
           margin: 'auto',
         }}
       >
@@ -95,8 +95,6 @@ export default function CoursePage({ data }) {
           sx={{
             ...titleTypo,
             marginLeft: '4rem',
-            width: '240px',
-            height: '400px',
           }}
         >
           <Typography sx={titleTypo}>{course.course_title} </Typography>
@@ -126,7 +124,7 @@ export default function CoursePage({ data }) {
                     sx={{
                       ...generalTypo,
                       fontWeight: 'bold',
-                      fontSize: '12px',
+                      fontSize: '15px',
                     }}
                   >
                     {` ${days[index]} `}{' '}
@@ -137,7 +135,7 @@ export default function CoursePage({ data }) {
                   <Typography
                     key={index}
                     variant="string"
-                    sx={{ ...generalTypo, color: 'gray', fontSize: '12px' }}
+                    sx={{ ...generalTypo, color: 'gray', fontSize: '15px' }}
                   >
                     {` ${days[index]} `}{' '}
                   </Typography>
