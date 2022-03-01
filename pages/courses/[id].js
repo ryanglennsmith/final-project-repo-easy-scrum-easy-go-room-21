@@ -6,6 +6,7 @@ import {
   TextField,
   Typography,
   useMediaQuery,
+  Container,
 } from '@mui/material';
 import Footer from '@components/Footer/Footer';
 import NavBar from '@components/navBar/navBar';
@@ -20,12 +21,18 @@ import {
   navbarButton,
   navbarSidePageBox,
   profileSearchBar,
+  profileSearchBarInput,
   titleTypo,
 } from 'globalCss';
 
 import { API } from 'utils/API';
+import ReviewSection from '@components/reviewSection/reviewSection.js';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+
 
 export default function CoursePage({ data }) {
+  const router = useRouter();
   const course = data;
   const days = course.dates_available.map((date) => {
     return Object.keys(date);
@@ -35,29 +42,45 @@ export default function CoursePage({ data }) {
   });
   const matchesMd = useMediaQuery('(max-width:913px)');
   const matchesLrg = useMediaQuery('(min-width:913px)');
+  
+  const [input, setInput] = useState('');
+
+ function handleChange(e) {
+    // grabbing the text input on search bar
+    e.preventDefault();
+    setInput(e.target.value);
+    // console.log(input);
+  }
+  function onClick(e) {
+    // pushing the text input value to the url
+    e.preventDefault();
+    router.push(`/search/${input}`);
+  }
+
 
   return (
-    <Box style={{ height: '100vh' }}>
+    <Box style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}>
       {/* Navbar section */}
       <Box sx={navbarSidePageBox}>
-        <NavBar logoLink={'https://i.lensdump.com/i/reFewK.png'} />
+        <NavBar logoLink={'https://i1.lensdump.com/i/rLRHNK.png'} />
       </Box>
       {/* Navbar section end*/}
       {/* Search section */}
-      <Box sx={profileSearchBar}>
-        <TextField
-          id="outlined-basic"
-          variant="outlined"
-          sx={{
-            background: '#fff',
-            borderRadius: '6px',
-            width: '60%',
-          }}
-        />
-        <Button variant="contained" sx={navbarButton}>
-          Search
-        </Button>
-      </Box>
+      <div className="wrapProfileSearchBar">
+        <Box sx={profileSearchBar}>
+          <TextField
+            id="outlined-basic"
+            variant="outlined"
+            value={input}
+            onChange={handleChange}
+            style={{ padding: 0 }}
+            sx={profileSearchBarInput}
+          />
+          <Button onClick={onClick} variant="contained" sx={navbarButton}>
+            Search
+          </Button>
+        </Box>
+      </div>
       {/* Search section end */}
       {/* Profile page image/info section */}
       <Box
@@ -65,20 +88,36 @@ export default function CoursePage({ data }) {
           flexGrow: 1,
           display: 'flex',
           flexDirection: 'row',
-          justifyContent: 'center',
-          width: '60%',
+          justifyContent: 'space-between',
+          alignItems: 'flex-start',
+          width: '1200px',
           margin: 'auto',
         }}
       >
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            minWidth: '260px',
+            height: '400px',
+            alignItems: 'flex-start',
+          }}
+        >
           <Image
-            src={course.images.thumb}
+            src={course.images.full}
             width="400px"
-            height="260px"
+            height="400px"
             alt="painting"
+            layout="fixed"
+            objectFit="contain"
+            priority={true}
           />{' '}
         </Box>
-        <Box sx={{ ...titleTypo, marginLeft: '4rem' }}>
+        <Box
+          sx={{
+            ...titleTypo,
+            marginLeft: '4rem',
+          }}
+        >
           <Typography sx={titleTypo}>{course.course_title} </Typography>
 
           <Typography sx={nameTypo}> {course.teacher_name}</Typography>
@@ -93,21 +132,33 @@ export default function CoursePage({ data }) {
             />
             <Typography>{` (${course.rating})`}</Typography>
             {/* number of the comments  */}
-            <Typography>{` (152)`}</Typography>
+            <Typography>{`  ${course.numOfReviews}`}</Typography>
           </Box>
 
           <Box sx={centerContentRow}>
             {available.map((value, index) => {
               if (value == 'true') {
                 return (
-                  <Typography sx={{ ...generalTypo, fontWeight: 'bold' }}>
-                    {`|${days[index]} |`}{' '}
+                  <Typography
+                    key={index}
+                    variant="string"
+                    sx={{
+                      ...generalTypo,
+                      fontWeight: 'bold',
+                      fontSize: '15px',
+                    }}
+                  >
+                    {` ${days[index]} `}{' '}
                   </Typography>
                 );
               } else {
                 return (
-                  <Typography sx={{ ...generalTypo, color: 'gray' }}>
-                    {`|${days[index]} |`}{' '}
+                  <Typography
+                    key={index}
+                    variant="string"
+                    sx={{ ...generalTypo, color: 'gray', fontSize: '15px' }}
+                  >
+                    {` ${days[index]} `}{' '}
                   </Typography>
                 );
               }
@@ -145,6 +196,9 @@ export default function CoursePage({ data }) {
         <Typography>{course.long_description}</Typography>
       </Box>
       {/* About section end */}
+      {/* Review section */}
+      <ReviewSection data={course.reviews} />
+      {/*Review section */}
       {/*
 ---
 

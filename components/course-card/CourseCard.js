@@ -17,6 +17,12 @@ import {
   courseCardCardMedia,
   courseCardCardContent,
   courseCardButton,
+  courseCardContentTitle,
+  courseCardContentTeacherName,
+  courseCardContentCourseBrief,
+  courseCardRateAvg,
+  courseCardReviewCount,
+  courseCardActions,
 } from '../../globalCss.js';
 import { Link } from '@mui/material';
 
@@ -26,41 +32,66 @@ import { Link } from '@mui/material';
 export default function CourseCard({ cards }) {
   const matches = useMediaQuery('(min-width:700px)');
   return (
-    <Container sx={courseCardContainer} maxWidth="md">
+    <Container sx={courseCardContainer} maxWidth="lg">
       {/* End hero unit */}
       <Grid container spacing={4}>
         {cards.map((card) => (
-          <Grid item key={card.course_id} xs={12} sm={6} md={6}>
+          <Grid
+            item
+            key={card.course_id}
+            xs={12}
+            sm={6}
+            md={6}
+            lg={4}
+            style={{ paddingTop: '50px' }}
+          >
             <Link
               href={`/courses/${card.course_id}`}
               style={{ textDecoration: 'none' }}
             >
               <Card sx={courseCardCardSection}>
+                {/* courseCardCardMedia from globalCss isn't working for img  */}
                 <CardMedia
                   component="img"
-                  sx={courseCardCardMedia}
-                  image={card.images.full}
-                  alt="random"
+                  sx={
+                    (courseCardCardMedia,
+                    { padding: '20px', borderRadius: '20px', height: '255px' })
+                  }
+                  image={card.images.thumb}
+                  alt={card.teacher_name}
                 />
                 <CardContent sx={courseCardCardContent}>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {card.teacher_name}
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    component="h2"
+                    sx={courseCardContentTitle}
+                  >
+                    {card.course_title}
                   </Typography>
-                  <Typography>{card.course_brief}</Typography>
+
+                  <Typography sx={courseCardContentTeacherName}>
+                    Instructor: {card.teacher_name}
+                  </Typography>
+                  <Typography sx={courseCardContentCourseBrief}>
+                    {card.course_brief}
+                  </Typography>
                 </CardContent>
-                <CardActions>
+                <CardActions sx={courseCardActions}>
                   {/* star-rating add sx */}
                   {/* need to resize for smaller view portr */}
                   <Rating
                     name="read-only"
-                    defaultValue={Number(card.rating)}
-                    precision={0.5}
+                    defaultValue={Number(card.rating).toFixed(1)}
+                    precision={0.1}
                     readOnly
                   />
                   {/* teacher rating as a number add sx margin right */}
-                  <Typography>{`(${card.rating})`}</Typography>
+                  <Typography sx={courseCardRateAvg}>{`${Number(
+                    card.rating
+                  ).toFixed(1)}`}</Typography>
                   {/* number of the comments  */}
-                  <Typography>{`(152)`}</Typography>
+                  <Typography sx={courseCardReviewCount}>{`(152)`}</Typography>
                   {matches && (
                     <Button variant="outlined" sx={courseCardButton}>
                       Contact Me
