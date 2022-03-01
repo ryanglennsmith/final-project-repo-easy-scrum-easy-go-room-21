@@ -14,7 +14,7 @@ import SuccessAlert from '@components/SuccessAlert/SuccessAlert';
 
 // This component holds all of the review section
 // Data is review section of API
-export default function ReviewSection({ data }) {
+export default function ReviewSection({ data, setNumOfReviews, userData }) {
   // Used useState to re-render review section on addition of new review
   const [reviewData, setReviewData] = useState(data);
   // Used useState to set boolean to trigger AddNewReviewSection
@@ -66,10 +66,12 @@ export default function ReviewSection({ data }) {
       </Box>
       {showAddReview && (
         <AddNewReview
+          userData={userData}
           reviewData={reviewData}
           setReviewData={setReviewData}
           setShowAddReview={setShowAddReview}
           setOpen={setOpen}
+          setNumOfReviews={setNumOfReviews}
         />
       )}
       <SuccessAlert open={open} setOpen={setOpen} />;
