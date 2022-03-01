@@ -28,10 +28,12 @@ import {
 import { API } from 'utils/API';
 import ReviewSection from '@components/reviewSection/reviewSection.js';
 import { useRouter } from 'next/router';
-
-
-export default function CoursePage({ data }) {
+import { useUser } from '@auth0/nextjs-auth0';
+export default function CoursePage({ data, users }) {
   const router = useRouter();
+
+  const { user, error, isLoading } = useUser();
+  const userData = users.filter((item) => item.email === user.email);
   const course = data;
   const days = course.dates_available.map((date) => {
     return Object.keys(date);
@@ -41,10 +43,11 @@ export default function CoursePage({ data }) {
   });
   const matchesMd = useMediaQuery('(max-width:913px)');
   const matchesLrg = useMediaQuery('(min-width:913px)');
-  
-  const [input, setInput] = useState('');
 
- function handleChange(e) {
+  const [input, setInput] = useState('');
+  const [numOfReviews, setNumOfReviews] = useState(course.reviews.length);
+
+  function handleChange(e) {
     // grabbing the text input on search bar
     e.preventDefault();
     setInput(e.target.value);
@@ -55,7 +58,6 @@ export default function CoursePage({ data }) {
     e.preventDefault();
     router.push(`/search/${input}`);
   }
-
 
   return (
     <Box style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}>
@@ -125,13 +127,23 @@ export default function CoursePage({ data }) {
           <Box sx={centerContentRow}>
             <Rating
               name="read-only"
-              defaultValue={Number(course.rating)}
+              defaultValue={(
+                course.reviews
+                  .map((review) => review.rating)
+                  .reduce((a, b) => a + b) / course.reviews.length
+              ).toFixed(1)}
               precision={0.5}
               readOnly
             />
-            <Typography>{` (${course.rating})`}</Typography>
+            <Typography>
+              {(
+                course.reviews
+                  .map((review) => review.rating)
+                  .reduce((a, b) => a + b) / course.reviews.length
+              ).toFixed(1)}
+            </Typography>
             {/* number of the comments  */}
-            <Typography>{`  ${course.numOfReviews}`}</Typography>
+            <Typography>{numOfReviews}</Typography>
           </Box>
 
           <Box sx={centerContentRow}>
@@ -211,7 +223,11 @@ export default function CoursePage({ data }) {
       </Box>
       {/* About section end */}
       {/* Review section */}
-      <ReviewSection data={course.reviews} />
+      <ReviewSection
+        data={course.reviews}
+        setNumOfReviews={setNumOfReviews}
+        userData={userData}
+      />
       {/*Review section */}
       {/*
 ---
@@ -263,7 +279,8 @@ export async function getStaticProps({ params }) {
 
   const id = params.id - 1;
   const data = API.courses[id];
-  return { props: { data } };
+  const users = API.users;
+  return { props: { data, users } };
 }
 
 // data to add to dummy json file
