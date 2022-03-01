@@ -1649,7 +1649,7 @@ export const API = {
     {
       course_id: 26,
       teacher_name: 'Jefferson MacWinkle',
-      email: 'dev.yezlee@gmail.com',
+      email: 'dev@eseg.com',
       location: 'Leamington Spa',
       bio_text: "I'm a lumberjack, and I'm okay.",
       long_description:
@@ -1988,7 +1988,7 @@ export const API = {
     {
       first_name: 'Jefferson',
       last_name: 'MacWinkle',
-      email: 'dev.yezlee@gmail.com',
+      email: 'dev@eseg.com',
       id: 41,
     },
   ],

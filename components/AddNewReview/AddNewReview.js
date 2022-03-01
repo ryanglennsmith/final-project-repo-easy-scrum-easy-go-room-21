@@ -62,7 +62,7 @@ export default function AddNewReview({
     let dateToday = `${day}-${month}-${year}`;
 
     const newReview = {
-      reviewer: `${userData.first_name} ${userData.last_name}`,
+      reviewer: `${userData[0].first_name} ${userData[0].last_name}`,
       date: dateToday,
       rating: rating,
       review_text: review,
@@ -106,14 +106,14 @@ export default function AddNewReview({
             inputProps={{ maxLength: 200 }}
           />
           <TextField
-            placeholder={`${userData.first_name} ${userData.last_name}`}
+            placeholder={`${userData[0].first_name} ${userData[0].last_name}`}
             disabled={true}
             // required
             onChange={(e) => {
               handleChangeName(e);
             }}
             id="reviewer-name"
-            label={`${userData.first_name} ${userData.last_name}`}
+            label={`${userData[0].first_name} ${userData[0].last_name}`}
             multiline
             maxRows={4}
             // value={value}

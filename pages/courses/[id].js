@@ -29,11 +29,12 @@ import { API } from 'utils/API';
 import ReviewSection from '@components/reviewSection/reviewSection.js';
 import { useRouter } from 'next/router';
 import { useUser } from '@auth0/nextjs-auth0';
+import { useEffect, useState } from 'react';
 export default function CoursePage({ data, users }) {
   const router = useRouter();
 
   const { user, error, isLoading } = useUser();
-  const userData = users.filter((item) => item.email === user.email);
+  // const userData = users.filter((item) => item.email === user.email);
   const course = data;
   const days = course.dates_available.map((date) => {
     return Object.keys(date);
@@ -46,7 +47,14 @@ export default function CoursePage({ data, users }) {
 
   const [input, setInput] = useState('');
   const [numOfReviews, setNumOfReviews] = useState(course.reviews.length);
-
+  const [userData, setUserData] = useState();
+  // once the user is loaded by Auth0, useEffect will match the user to our db
+  useEffect(() => {
+    if (user) {
+      const whoAmI = users.filter((item) => item.email === user.email);
+      setUserData(whoAmI);
+    }
+  }, [user]);
   function handleChange(e) {
     // grabbing the text input on search bar
     e.preventDefault();
@@ -127,23 +135,30 @@ export default function CoursePage({ data, users }) {
           <Box sx={centerContentRow}>
             <Rating
               name="read-only"
-              defaultValue={(
-                course.reviews
-                  .map((review) => review.rating)
-                  .reduce((a, b) => a + b) / course.reviews.length
-              ).toFixed(1)}
+              defaultValue={
+                course.reviews.length === 0
+                  ? 0
+                  : (
+                      course.reviews
+                        .map((review) => review.rating)
+                        .reduce((a, b) => a + b) / course.reviews.length
+                    ).toFixed(1)
+              }
               precision={0.5}
               readOnly
             />
             <Typography>
-              {(
-                course.reviews
-                  .map((review) => review.rating)
-                  .reduce((a, b) => a + b) / course.reviews.length
-              ).toFixed(1)}
+              {course.reviews.length === 0
+                ? 0
+                : (
+                    course.reviews
+                      .map((review) => review.rating)
+                      .reduce((a, b) => a + b) / course.reviews.length
+                  ).toFixed(1)}
             </Typography>
             {/* number of the comments  */}
-            <Typography>{numOfReviews}</Typography>
+            <Typography>reviews: {numOfReviews}</Typography>{' '}
+            {/* fix the space between the number of reviews and the rating */}
           </Box>
 
           <Box sx={centerContentRow}>
