@@ -10,6 +10,7 @@ import {
 import React, { useState } from 'react';
 import { useUser } from '@auth0/nextjs-auth0';
 import { Box } from '@mui/system';
+import SuccessAlert from '@components/SuccessAlert/SuccessAlert';
 
 // This component holds all of the review section
 // Data is review section of API
@@ -20,6 +21,7 @@ export default function ReviewSection({ data }) {
   const [showAddReview, setShowAddReview] = useState(false);
   const { user, error, isLoading } = useUser();
   const [visible, setVisible] = useState(2);
+  const [open, setOpen] = React.useState(false);
 
   function showMoreItems() {
     setVisible((prevValue) => prevValue + 2);
@@ -62,14 +64,15 @@ export default function ReviewSection({ data }) {
           Show less
         </Button>
       </Box>
-
       {showAddReview && (
         <AddNewReview
           reviewData={reviewData}
           setReviewData={setReviewData}
           setShowAddReview={setShowAddReview}
+          setOpen={setOpen}
         />
       )}
+      <SuccessAlert open={open} setOpen={setOpen} />;
     </Container>
   );
 }

@@ -17,6 +17,7 @@ export default function AddNewReview({
   reviewData,
   setReviewData,
   setShowAddReview,
+  setOpen,
 }) {
   // const [name, setName] = useState('');
   // const [date, setDate] = useState("")
@@ -43,6 +44,9 @@ export default function AddNewReview({
   //     console.log(data);
   //  }
 
+  const handleClick = () => {
+    setOpen(true);
+  };
   function submitData() {
     setReviewData([...reviewData, makeNewReview()]);
   }
@@ -86,7 +90,6 @@ export default function AddNewReview({
   return (
     <Container sx={centerContentCol}>
       <Typography sx={generalTypo}>Leave your review: </Typography>
-
       <Box
         component="form"
         sx={{
@@ -141,19 +144,17 @@ export default function AddNewReview({
         </div>
       </Box>
       <Typography sx={generalTypo}>Rate your experience:</Typography>
-
       <HoverRating setRating={setRating} />
       <Button
         sx={courseCardButton}
         onClick={(e) => {
           setShowAddReview(false);
           handleSubmit(e);
-       
+          handleClick();
         }}
       >
         Submit
       </Button>
-      <SuccessAlert/>
     </Container>
   );
 }
