@@ -1,10 +1,14 @@
 import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 import { API } from 'utils/API';
-export default function UserDashboard({ user, allUsers }) {
+import Link from 'next/link';
+export default function UserDashboard({ user, allUsers, allCourses }) {
   const userData = allUsers.filter((match) => {
     return user.email === match.email;
   });
-
+  const myCourses = allCourses.filter((course) => {
+    return user.email === course.email;
+  });
+  console.log(myCourses);
   return (
     <>
       <div>
@@ -15,7 +19,20 @@ export default function UserDashboard({ user, allUsers }) {
         className="coursesYouTeachComponent"
         style={{ margin: '5px', border: '2px solid hotpink' }}
       >
-        here's a list of the courses you teach
+        <p style={{ fontWeight: 'bold' }}>
+          here's a list of the courses you teach:
+        </p>
+        <ul>
+          {myCourses.map((course) => {
+            return (
+              <li key={course.id}>
+                <Link href={`/courses/${course.course_id}`}>
+                  {course.course_title}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </div>
       <div
         className="courseCRUDComponent"
@@ -53,7 +70,8 @@ export const getServerSideProps = withPageAuthRequired({
     // go get you some data
     // how about all the users?
     const getAllUsers = API.users;
+    const getAllCourses = API.courses;
 
-    return { props: { allUsers: getAllUsers } };
+    return { props: { allUsers: getAllUsers, allCourses: getAllCourses } };
   },
 });
