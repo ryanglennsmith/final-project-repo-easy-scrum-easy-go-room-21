@@ -29,6 +29,7 @@ import { API } from 'utils/API';
 import ReviewSection from '@components/reviewSection/reviewSection.js';
 import { useRouter } from 'next/router';
 
+
 export default function CoursePage({ data }) {
   const router = useRouter();
   const course = data;
@@ -40,6 +41,21 @@ export default function CoursePage({ data }) {
   });
   const matchesMd = useMediaQuery('(max-width:913px)');
   const matchesLrg = useMediaQuery('(min-width:913px)');
+  
+  const [input, setInput] = useState('');
+
+ function handleChange(e) {
+    // grabbing the text input on search bar
+    e.preventDefault();
+    setInput(e.target.value);
+    // console.log(input);
+  }
+  function onClick(e) {
+    // pushing the text input value to the url
+    e.preventDefault();
+    router.push(`/search/${input}`);
+  }
+
 
   return (
     <Box style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}>
@@ -54,10 +70,12 @@ export default function CoursePage({ data }) {
           <TextField
             id="outlined-basic"
             variant="outlined"
+            value={input}
+            onChange={handleChange}
             style={{ padding: 0 }}
             sx={profileSearchBarInput}
           />
-          <Button variant="contained" sx={navbarButton}>
+          <Button onClick={onClick} variant="contained" sx={navbarButton}>
             Search
           </Button>
         </Box>

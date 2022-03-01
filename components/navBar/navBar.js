@@ -57,9 +57,9 @@ export default function NavBar({ logoLink }) {
             </Link>
           )}
 
-          {matches && (
-            <Link color="#fff" underline="none">
-              MENU2
+          {matches && user && (
+            <Link color="#fff" underline="none" href="/users/dashboard">
+              DASHBOARD
             </Link>
           )}
           {!user ? (

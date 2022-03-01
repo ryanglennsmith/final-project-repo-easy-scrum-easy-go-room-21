@@ -1,3 +1,4 @@
+
 export const API = {
   courses: [
     {
@@ -1646,6 +1647,63 @@ export const API = {
         },
       ],
     },
+    {
+      course_id: 26,
+      teacher_name: 'Jefferson MacWinkle',
+      email: 'dev.yezlee@gmail.com',
+      location: 'Leamington Spa',
+      bio_text: "I'm a lumberjack, and I'm okay.",
+      long_description:
+        'As a lifelong lumberjack, I have learned to throw axes at moving targets.',
+      is_online: 'false',
+      is_offline: 'true',
+      image: 'https://images.unsplash.com/photo-1493863641943-9b68992a8d07',
+      course_brief: 'I will teach you to throw axes at moving targets.',
+      course_title: 'Axe Throwing at Moving Targets',
+      course_tags: ['axe', 'weaponry', 'lumberjack'],
+      rating: 4.213,
+      dates_available: [
+        { Sunday: 'true' },
+        { Monday: 'false' },
+        { Tuesday: 'false' },
+        { Wednesday: 'true' },
+        { Thursday: 'true' },
+        { Friday: 'false' },
+        { Saturday: 'false' },
+      ],
+      course_bullets: [
+        'Sustainable cred retro jean shorts vinyl migas mixtape street art chartreuse skateboard cardigan',
+        'Pok pok microdosing offal, brunch vice schlitz paleo helvetica',
+        'Whatever jean shorts williamsburg, pok pok tumblr lyft 8-bit edison bulb kogi man braid air plant',
+      ],
+      images: {
+        full: 'https://images.unsplash.com/photo-1550090598-bbd1e1da5ba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
+        thumb:
+          'https://images.unsplash.com/photo-1493863641943-9b68992a8d07?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+      },
+      reviews: [
+        {
+          reviewer: 'Findley Lennie',
+          date: '14-02-2022',
+          rating: 5,
+          review_text:
+            'Organic cray activated charcoal, single-origin coffee letterpress cardigan master cleanse iceland',
+        },
+        {
+          reviewer: 'Cristie Domenc',
+          date: '22-06-2020',
+          rating: 5,
+          review_text: 'Glossier poutine kickstarter banjo',
+        },
+        {
+          reviewer: 'Rebeca Mapother',
+          date: '27-06-2020',
+          rating: 5,
+          review_text:
+            'Kinfolk affogato gentrify master cleanse raw denim prism austin next level vinyl iceland woke 8-bit tacos +1',
+        },
+      ],
+    },
   ],
   users: [
     {
@@ -1927,6 +1985,12 @@ export const API = {
       email: 'floncastero@smugmug.com',
       phone: '+62-303-977-1231',
       id: 40,
+    },
+    {
+      first_name: 'Jefferson',
+      last_name: 'MacWinkle',
+      email: 'dev.yezlee@gmail.com',
+      id: 41,
     },
   ],
 };
