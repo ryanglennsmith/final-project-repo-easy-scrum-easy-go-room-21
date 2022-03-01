@@ -57,7 +57,7 @@ export default function AddNewReview({
 
   function makeNewReview() {
     let today = new Date();
-    let day = `${today.getDate() < 10 ? '0' : ''} ${today.getDate()}`;
+    let day = `${today.getDate()<10 ? '0':''}${today.getDate()}`;
     let month = `${today.getMonth() + 1 < 10 ? '0' : ''}${
       today.getMonth() + 1
     }`;
