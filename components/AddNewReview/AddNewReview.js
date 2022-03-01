@@ -1,7 +1,7 @@
 import { Button, Container, TextField, Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import HoverRating from '@components/ReviewRating/review';
-import SuccessAlert from '@components/SuccessAlert/SuccessAlert';
+import Stack from '@mui/material/Stack';
 import { Box } from '@mui/system';
 
 import { useUser } from '@auth0/nextjs-auth0';
@@ -12,6 +12,7 @@ import {
   courseCardContentCourseBrief,
   generalTypo,
 } from 'globalCss';
+import SuccessAlert from '@components/SuccessAlert/SuccessAlert';
 export default function AddNewReview({
   reviewData,
   setReviewData,
@@ -147,11 +148,12 @@ export default function AddNewReview({
         onClick={(e) => {
           setShowAddReview(false);
           handleSubmit(e);
-          <SuccessAlert text={'Review successfully submitted'} />;
+       
         }}
       >
         Submit
       </Button>
+      <SuccessAlert/>
     </Container>
   );
 }
