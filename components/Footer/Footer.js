@@ -21,15 +21,17 @@ function Copyright() {
 }
 export default function Footer({ styling }) {
   return (
-    <Box style={{ marginTop: '10rem' }}>
+    <Box style={{ marginTop: '10rem', position: 'relative', width: '100%' }}>
       <Box sx={styling} component="footer">
-        <Box sx={footerBox}>
-          <img
-            src="https://i1.lensdump.com/i/reF4Pa.png"
-            style={{ maxWidth: '20rem' }}
-          ></img>
-        </Box>
-        <Copyright />
+        <div style={{ width: '1200px', height: '100px', margin: '0px auto' }}>
+          <Box sx={footerBox}>
+            <img
+              src="https://i.lensdump.com/i/rLRO3c.png"
+              style={{ maxWidth: '200px' }}
+            ></img>
+          </Box>
+          <Copyright />
+        </div>
       </Box>
     </Box>
   );

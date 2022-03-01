@@ -17,7 +17,7 @@ import {
 
 export default function Review({ reviews }) {
   return (
-    <Container sx={courseCardContainer} maxWidth="md">
+    <Container sx={courseCardContainer} style={{ padding: '10px 0px' }}>
       {/* End hero unit */}
       <Grid container spacing={4}>
         {reviews.map((review, index) => (
