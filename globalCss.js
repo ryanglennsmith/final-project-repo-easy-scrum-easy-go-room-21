@@ -335,3 +335,11 @@ export const profileSearchBarInput = {
   justifyContent: 'center',
   paddingLeft: '10px',
 };
+
+export const showMoreLessButton = {
+  color: '#fff',
+  background: '#FF8957',
+  '&:hover': { background: '#ff763c' },
+  border: 'none',
+  margin: '3rem',
+};

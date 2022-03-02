@@ -1,9 +1,8 @@
 import { Button, Container, TextField, Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import HoverRating from '@components/ReviewRating/review';
-import SuccessAlert from '@components/SuccessAlert/SuccessAlert';
+import Stack from '@mui/material/Stack';
 import { Box } from '@mui/system';
-
 import { useUser } from '@auth0/nextjs-auth0';
 
 import {
@@ -12,10 +11,12 @@ import {
   courseCardContentCourseBrief,
   generalTypo,
 } from 'globalCss';
+import SuccessAlert from '@components/SuccessAlert/SuccessAlert';
 export default function AddNewReview({
   reviewData,
   setReviewData,
   setShowAddReview,
+  setOpen,
 }) {
   // const [name, setName] = useState('');
   // const [date, setDate] = useState("")
@@ -42,6 +43,9 @@ export default function AddNewReview({
   //     console.log(data);
   //  }
 
+  const handleClick = () => {
+    setOpen(true);
+  };
   function submitData() {
     setReviewData([...reviewData, makeNewReview()]);
   }
@@ -53,7 +57,7 @@ export default function AddNewReview({
 
   function makeNewReview() {
     let today = new Date();
-    let day = `${today.getDate() < 10 ? '0' : ''} ${today.getDate()}`;
+    let day = `${today.getDate()<10 ? '0':''}${today.getDate()}`;
     let month = `${today.getMonth() + 1 < 10 ? '0' : ''}${
       today.getMonth() + 1
     }`;
@@ -61,10 +65,10 @@ export default function AddNewReview({
     let dateToday = `${day}-${month}-${year}`;
 
     const newReview = {
-      reviewerName: name,
-      datePosted: dateToday,
-      ratingGiven: rating,
-      reviewText: review,
+      reviewer: user.name,
+      date: dateToday,
+      rating: rating,
+      review_text: review,
     };
     return newReview;
   }
@@ -85,7 +89,6 @@ export default function AddNewReview({
   return (
     <Container sx={centerContentCol}>
       <Typography sx={generalTypo}>Leave your review: </Typography>
-
       <Box
         component="form"
         sx={{
@@ -140,14 +143,13 @@ export default function AddNewReview({
         </div>
       </Box>
       <Typography sx={generalTypo}>Rate your experience:</Typography>
-
       <HoverRating setRating={setRating} />
       <Button
         sx={courseCardButton}
         onClick={(e) => {
           setShowAddReview(false);
           handleSubmit(e);
-          <SuccessAlert text={'Review successfully submitted'} />;
+          handleClick();
         }}
       >
         Submit

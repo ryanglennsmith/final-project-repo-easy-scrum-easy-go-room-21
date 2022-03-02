@@ -88,17 +88,22 @@ export default function Results({ inputData }) {
   }
 
   // explore page filter
-  const searchResult = data.filter((item) =>
-    item.course_title.toUpperCase().includes(search.toUpperCase())
+  const searchResult = data.filter(
+    (item) =>
+      item.course_title.toUpperCase().includes(search.toUpperCase()) ||
+      item.course_tags.includes(search.toLowerCase())
   );
 
-  // homepage text search filter
-  // const homepageText = data.filter((item) =>
-  //   item.course_title.toUpperCase().includes(homepageSearchTerm.toUpperCase())
-  // );
+  // const art = 'art';
+  // carry out an array method that maps over the array data.course_tags
 
-  // console.log(homepageText);
+  // const courseTagsSearch = data.filter((item) =>
+  //   item.course_tags.includes(search)
+  // );
+  // When we capture the value we can could possibly use the OR operator to add the courseTagsSearch to jsx
   // console.log(searchResult);
+
+  // console.log(courseTagsSearch);
 
   return (
     <Box style={{ height: '100vh' }}>

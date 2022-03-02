@@ -30,8 +30,11 @@ import {
 
 import { API } from 'utils/API';
 import ReviewSection from '@components/reviewSection/reviewSection.js';
+import { useRouter } from 'next/router';
+
 
 export default function CoursePage({ data }) {
+  const router = useRouter();
   const course = data;
   const days = course.dates_available.map((date) => {
     return Object.keys(date);
@@ -41,6 +44,21 @@ export default function CoursePage({ data }) {
   });
   const matchesMd = useMediaQuery('(max-width:913px)');
   const matchesLrg = useMediaQuery('(min-width:913px)');
+  
+  const [input, setInput] = useState('');
+
+ function handleChange(e) {
+    // grabbing the text input on search bar
+    e.preventDefault();
+    setInput(e.target.value);
+    // console.log(input);
+  }
+  function onClick(e) {
+    // pushing the text input value to the url
+    e.preventDefault();
+    router.push(`/search/${input}`);
+  }
+
 
   return (
     <Box style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}>
@@ -55,9 +73,17 @@ export default function CoursePage({ data }) {
           <TextField
             id="outlined-basic"
             variant="outlined"
+
             sx={{ ...profileSearchBarInput, height: '40px' }}
           />
           <Button variant="contained" sx={{ ...navbarButton, height: '40px' }}>
+
+            value={input}
+            onChange={handleChange}
+            style={{ padding: 0 }}
+            sx={profileSearchBarInput}
+          />
+          <Button onClick={onClick} variant="contained" sx={navbarButton}>
             Search
           </Button>
         </Box>
@@ -194,8 +220,24 @@ export default function CoursePage({ data }) {
               </Typography>
             )}
           </Box>
-          <Button>Contact me : {course.email}</Button>
+
+          <Button >{course.email}</Button>
+          {course.course_tags.map((item, index) => {
+            function onClick(e) {
+              e.preventDefault();
+              router.push(`/search/${item}`);
+            }
+            return (
+              <Box key={index}>
+                <Button onClick={onClick} sx={navbarButton}>
+                  {item}
+                </Button>
+              </Box>
+            );
+          })}
         </Box>{' '}
+        {/* Tag buttons */}
+        {/* Tag buttons ends */}
       </Box>
       {/* Profile page image/info section end*/}
       {/* About section */}
@@ -215,7 +257,7 @@ export default function CoursePage({ data }) {
       <ReviewSection data={course.reviews} />
       {/*Review section */}
       {/*
----
+
 
 - Profile (title, subtext, rating, name, date, aboutClass, content)
 - Image (image)

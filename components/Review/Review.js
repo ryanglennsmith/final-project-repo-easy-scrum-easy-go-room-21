@@ -15,12 +15,12 @@ import {
   courseCardCardContent,
 } from '../../globalCss.js';
 
-export default function Review({ reviews }) {
+export default function Review({ reviews, visible }) {
   return (
     <Container sx={courseCardContainer} style={{ padding: '10px 0px' }}>
       {/* End hero unit */}
       <Grid container spacing={4}>
-        {reviews.map((review, index) => (
+        {reviews.slice(0, visible).map((review, index) => (
           <Grid item key={index} xs={12} sm={6} md={6}>
             <Card sx={courseCardCardSection}>
               <CardContent sx={courseCardCardContent}>
