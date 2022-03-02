@@ -1,7 +1,7 @@
 import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 import { API } from 'utils/API';
 import Link from 'next/link';
-import { FormControl, InputLabel, Input, TextField, Form } from '@mui/material';
+import UserUpdateForm from '@components/UserUpdateForm/UserUpdateForm';
 export default function UserDashboard({ user, allUsers, allCourses }) {
   const userData = allUsers.filter((match) => {
     return user.email === match.email;
@@ -9,7 +9,7 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
   const myCourses = allCourses.filter((course) => {
     return user.email === course.email;
   });
-  console.log(myCourses);
+
   return (
     <>
       <div>
@@ -27,10 +27,13 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
           {myCourses.map((course) => {
             return (
               <li key={course.id}>
-                <Link href={`/courses/${course.course_id}`}>
+                <Link
+                  key={`course-link-${course.id}`}
+                  href={`/courses/${course.course_id}`}
+                >
                   {course.course_title}
                 </Link>
-                <span>fake link: (edit?)</span>
+                <span key={`course-span-${course.id}`}>fake link: (edit?)</span>
               </li>
             );
           })}
@@ -64,33 +67,13 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
         component: input form w/submit btn: email (matches already with auth0),
         phone, first_name, last_name (create a quick js fn to make new user id
         on new user: users.length + 2)
-        <FormControl
-          sx={{ border: '2px solid lime', width: '400px', height: '500px' }}
-        >
-          {/* <InputLabel htmlFor="user-email">
-            put your email here, dumbass
-          </InputLabel> */}
-          <TextField
-            id="user-email"
-            sx={{
-              border: '1px solid blue',
-              borderRadius: '11px',
-              marginTop: '10px',
-              marginBottom: '10px',
-            }}
-          />
-          {/* <InputLabel htmlFor="user-first-name">first name here</InputLabel> */}
-
-          <TextField
-            id="user-first-name"
-            sx={{
-              border: '1px solid blue',
-              borderRadius: '11px',
-              marginTop: '10px',
-              marginBottom: '10px',
-            }}
-          />
-        </FormControl>
+        <UserUpdateForm
+          email={user.email}
+          firstName={userData[0].first_name}
+          lastName={userData[0].last_name}
+          phone={userData[0].phone}
+          userId={userData[0].id}
+        />
       </div>
     </>
   );

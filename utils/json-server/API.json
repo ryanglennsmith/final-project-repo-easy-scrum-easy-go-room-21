@@ -2270,16 +2270,17 @@
       "id": 40
     },
     {
+      "email": "dev@eseg.com",
       "first_name": "Jefferson",
       "last_name": "MacWinkle",
-      "email": "dev@eseg.com",
+      "phone": "123456",
       "id": 41
     },
     {
       "first_name": "Stephens",
-      "last_name": "Winning",
+      "last_name": "Winnin",
       "email": "stephelelliott@winning.com",
-      "phone": "+62-303-977-2323",
+      "phone": "+62-303-977-223",
       "id": 42
     }
   ]
