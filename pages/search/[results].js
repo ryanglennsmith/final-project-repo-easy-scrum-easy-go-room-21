@@ -85,7 +85,7 @@ export default function Results({ inputData }) {
     e.preventDefault();
     setSearch(input);
     setInput('');
-    console.log(input);
+    // console.log(input);
   }
 
   function onEnter(e) {
