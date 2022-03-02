@@ -138,11 +138,13 @@ export default function CoursePage({ data, users }) {
               defaultValue={
                 course.reviews.length === 0
                   ? 0
-                  : (
-                      course.reviews
-                        .map((review) => review.rating)
-                        .reduce((a, b) => a + b) / course.reviews.length
-                    ).toFixed(1)
+                  : Number(
+                      (
+                        course.reviews
+                          .map((review) => review.rating)
+                          .reduce((a, b) => a + b) / course.reviews.length
+                      ).toFixed(1)
+                    )
               }
               precision={0.5}
               readOnly
@@ -150,11 +152,13 @@ export default function CoursePage({ data, users }) {
             <Typography>
               {course.reviews.length === 0
                 ? 0
-                : (
-                    course.reviews
-                      .map((review) => review.rating)
-                      .reduce((a, b) => a + b) / course.reviews.length
-                  ).toFixed(1)}
+                : Number(
+                    (
+                      course.reviews
+                        .map((review) => review.rating)
+                        .reduce((a, b) => a + b) / course.reviews.length
+                    ).toFixed(1)
+                  )}
             </Typography>
             {/* number of the comments  */}
             <Typography>reviews: {numOfReviews}</Typography>{' '}

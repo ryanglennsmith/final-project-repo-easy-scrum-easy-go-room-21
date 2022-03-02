@@ -1678,7 +1678,7 @@ export const API = {
       images: {
         full: 'https://images.unsplash.com/photo-1550090598-bbd1e1da5ba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
         thumb:
-          'https://images.unsplash.com/photo-1493863641943-9b68992a8d07?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+          'https://images.unsplash.com/photo-1550090598-bbd1e1da5ba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
       reviews: [
         {
