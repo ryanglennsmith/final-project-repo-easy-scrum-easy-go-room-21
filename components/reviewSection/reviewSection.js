@@ -14,7 +14,7 @@ import SuccessAlert from '@components/SuccessAlert/SuccessAlert';
 
 // This component holds all of the review section
 // Data is review section of API
-export default function ReviewSection({ data }) {
+export default function ReviewSection({ data, setNumOfReviews, userData }) {
   // Used useState to re-render review section on addition of new review
   const [reviewData, setReviewData] = useState(data);
   // Used useState to set boolean to trigger AddNewReviewSection
@@ -24,11 +24,13 @@ export default function ReviewSection({ data }) {
   const [open, setOpen] = React.useState(false);
 
   function showMoreItems() {
-    setVisible((prevValue) => prevValue + 2);
+    setVisible(reviewData.length);
+    // setShowAddReview(true);
   }
 
   function collapseItems() {
     setVisible(2);
+    setShowAddReview(false);
   }
 
   return (
@@ -56,23 +58,28 @@ export default function ReviewSection({ data }) {
       )}
       <Review visible={visible} reviews={reviewData} />
       <Box sx={centerContentRow}>
-        <Button sx={showMoreLessButton} onClick={() => showMoreItems()}>
-          Show more
-        </Button>
-
-        <Button sx={showMoreLessButton} onClick={() => collapseItems()}>
-          Show less
-        </Button>
+        {!showAddReview && visible === 2 && reviewData.length > 2 && (
+          <Button sx={showMoreLessButton} onClick={() => showMoreItems()}>
+            Show more
+          </Button>
+        )}
+        {(showAddReview || visible > 2) && reviewData.length > 2 && (
+          <Button sx={showMoreLessButton} onClick={() => collapseItems()}>
+            Show less
+          </Button>
+        )}
       </Box>
-      {showAddReview && (
+      {showAddReview && user && (
         <AddNewReview
+          userData={userData}
           reviewData={reviewData}
           setReviewData={setReviewData}
           setShowAddReview={setShowAddReview}
           setOpen={setOpen}
+          setNumOfReviews={setNumOfReviews}
         />
       )}
-      <SuccessAlert open={open} setOpen={setOpen} />;
+      <SuccessAlert open={open} setOpen={setOpen} />
     </Container>
   );
 }
