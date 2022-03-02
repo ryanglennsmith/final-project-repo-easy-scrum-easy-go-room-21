@@ -246,10 +246,10 @@ export default function CoursePage({ data }) {
         </Box>
       </div>
       {/* About section */}
-      <Box sx={aboutSection}>
+      <Box sx={{ ...aboutSection, borderTop: '1px solid #eee' }}>
         <Typography
           variant="h4"
-          sx={{ fontFamily: 'lato', paddingBottom: '10px' }}
+          sx={{ fontFamily: 'lato', padding: '30px 0 10px 0' }}
         >
           About this class
         </Typography>

@@ -315,7 +315,7 @@ export const ratingTypo = {
 export const aboutSection = {
   display: 'flex',
   flexDirection: 'column',
-  margin: '30px auto',
+  margin: '45px auto',
   width: '1200px',
 };
 
