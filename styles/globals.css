@@ -73,7 +73,7 @@ fieldset {
 }
 
 .containerWrap {
-  height: calc(100% - 375px);
+  min-height: calc(100% - 375px);
 }
 
 .tagsBtnWrap {
