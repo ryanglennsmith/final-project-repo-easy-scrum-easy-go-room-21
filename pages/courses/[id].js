@@ -31,7 +31,7 @@ import {
 import { API } from 'utils/API';
 import ReviewSection from '@components/reviewSection/reviewSection.js';
 import { useRouter } from 'next/router';
-
+import { useState } from 'react';
 
 export default function CoursePage({ data }) {
   const router = useRouter();
@@ -44,10 +44,10 @@ export default function CoursePage({ data }) {
   });
   const matchesMd = useMediaQuery('(max-width:913px)');
   const matchesLrg = useMediaQuery('(min-width:913px)');
-  
+
   const [input, setInput] = useState('');
 
- function handleChange(e) {
+  function handleChange(e) {
     // grabbing the text input on search bar
     e.preventDefault();
     setInput(e.target.value);
@@ -58,7 +58,6 @@ export default function CoursePage({ data }) {
     e.preventDefault();
     router.push(`/search/${input}`);
   }
-
 
   return (
     <Box style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}>
@@ -73,17 +72,14 @@ export default function CoursePage({ data }) {
           <TextField
             id="outlined-basic"
             variant="outlined"
-
+            onChange={handleChange}
             sx={{ ...profileSearchBarInput, height: '40px' }}
           />
-          <Button variant="contained" sx={{ ...navbarButton, height: '40px' }}>
-
-            value={input}
-            onChange={handleChange}
-            style={{ padding: 0 }}
-            sx={profileSearchBarInput}
-          />
-          <Button onClick={onClick} variant="contained" sx={navbarButton}>
+          <Button
+            onClick={onClick}
+            variant="contained"
+            sx={{ ...navbarButton, height: '40px' }}
+          >
             Search
           </Button>
         </Box>
@@ -221,7 +217,7 @@ export default function CoursePage({ data }) {
             )}
           </Box>
 
-          <Button >{course.email}</Button>
+          <Button>{course.email}</Button>
           {course.course_tags.map((item, index) => {
             function onClick(e) {
               e.preventDefault();
