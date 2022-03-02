@@ -33,8 +33,9 @@ import ReviewSection from '@components/reviewSection/reviewSection.js';
 import { useRouter } from 'next/router';
 import { useUser } from '@auth0/nextjs-auth0';
 import { useEffect, useState } from 'react';
-export default function CoursePage({ data, users }) {
+import Header from '@components/Header.js';
 
+export default function CoursePage({ data, users }) {
   const router = useRouter();
 
   const { user, error, isLoading } = useUser();
@@ -76,6 +77,8 @@ export default function CoursePage({ data, users }) {
       router.push(`/search/${input}`);
     }
   }
+
+  const siteTitle = `Weshare `;
 
   return (
     <Box style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}>
@@ -163,8 +166,9 @@ export default function CoursePage({ data, users }) {
               precision={0.5}
               readOnly
             />
-
-            <Typography sx={{ ...ratingTypo, color: '#df9c00', fontWeight: 500 }}>
+            <Typography
+              sx={{ ...ratingTypo, color: '#df9c00', fontWeight: 500 }}
+            >
               {course.reviews.length === 0
                 ? 0
                 : Number(
@@ -176,9 +180,10 @@ export default function CoursePage({ data, users }) {
                   )}
             </Typography>
             {/* number of the comments  */}
-            <Typography sx={{ ...ratingTypo, paddingLeft: '5px' }}>reviews: {numOfReviews}</Typography>{' '}
+            <Typography sx={{ ...ratingTypo, paddingLeft: '5px' }}>
+              reviews: {numOfReviews}
+            </Typography>{' '}
             {/* fix the space between the number of reviews and the rating */}
-
           </Box>
 
           <Box sx={centerContentRow}>
@@ -263,6 +268,7 @@ export default function CoursePage({ data, users }) {
             }
             return (
               <Box key={index}>
+                <Header title={`${course.course_title} | WeShare`}></Header>
                 <Button onClick={onClick} sx={navbarButton}>
                   {item}
                 </Button>

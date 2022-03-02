@@ -13,6 +13,7 @@ import {
 import Footer from '@components/Footer/Footer';
 import NavBar from '@components/navBar/navBar';
 import CourseCard from '@components/course-card/CourseCard';
+import Header from '@components/Header.js';
 
 // Importing CSS
 import {
@@ -112,8 +113,11 @@ export default function Results({ inputData }) {
 
   // console.log(courseTagsSearch);
 
+  const siteTitle = 'WeShare Results - Inspirational work by real Freelancers';
+
   return (
     <Box style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}>
+      <Header title={siteTitle}></Header>
       {/* Navbar section */}
       <Box sx={navbarSidePageBox}>
         <NavBar logoLink={'https://i1.lensdump.com/i/rLRHNK.png'} />
@@ -145,6 +149,7 @@ export default function Results({ inputData }) {
         </Box>
       ) : searchResult.length > 0 && search ? (
         <Box sx={aboutSection}>
+          <Header title={`Search results for ${search} | WeShare `}></Header>
           <Typography variant="h4">Results for "{search}"</Typography>
           <Typography></Typography>
           {/* search results displayed here as cards */}
@@ -152,7 +157,7 @@ export default function Results({ inputData }) {
         </Box>
       ) : searchResult.length === 0 && search ? (
         <Box sx={aboutSection}>
-          {' '}
+          <Header title={`Search results for ${search} | WeShare `}></Header>{' '}
           <Typography>Search results for "{search}" not found</Typography>{' '}
         </Box>
       ) : (
