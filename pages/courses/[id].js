@@ -31,10 +31,14 @@ import {
 import { API } from 'utils/API';
 import ReviewSection from '@components/reviewSection/reviewSection.js';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useUser } from '@auth0/nextjs-auth0';
+import { useEffect, useState } from 'react';
+export default function CoursePage({ data, users }) {
 
-export default function CoursePage({ data }) {
   const router = useRouter();
+
+  const { user, error, isLoading } = useUser();
+  // const userData = users.filter((item) => item.email === user.email);
   const course = data;
   const days = course.dates_available.map((date) => {
     return Object.keys(date);
@@ -44,8 +48,16 @@ export default function CoursePage({ data }) {
   });
   const matchesMd = useMediaQuery('(max-width:913px)');
   const matchesLrg = useMediaQuery('(min-width:913px)');
-
   const [input, setInput] = useState('');
+  const [numOfReviews, setNumOfReviews] = useState(course.reviews.length);
+  const [userData, setUserData] = useState([]);
+  // once the user is loaded by Auth0, useEffect will match the user to our db
+  useEffect(() => {
+    if (user) {
+      const whoAmI = users.filter((item) => item.email === user.email);
+      setUserData(whoAmI);
+    }
+  }, [user]);
 
   function handleChange(e) {
     // grabbing the text input on search bar
@@ -130,17 +142,36 @@ export default function CoursePage({ data }) {
           <Box sx={centerContentRow}>
             <Rating
               name="read-only"
-              defaultValue={Number(course.rating)}
+              defaultValue={
+                course.reviews.length === 0
+                  ? 0
+                  : Number(
+                      (
+                        course.reviews
+                          .map((review) => review.rating)
+                          .reduce((a, b) => a + b) / course.reviews.length
+                      ).toFixed(1)
+                    )
+              }
               precision={0.5}
               readOnly
             />
-            <Typography
-              sx={{ ...ratingTypo, color: '#df9c00', fontWeight: 500 }}
-            >{` ${course.rating}`}</Typography>
+
+            <Typography sx={{ ...ratingTypo, color: '#df9c00', fontWeight: 500 }}>
+              {course.reviews.length === 0
+                ? 0
+                : Number(
+                    (
+                      course.reviews
+                        .map((review) => review.rating)
+                        .reduce((a, b) => a + b) / course.reviews.length
+                    ).toFixed(1)
+                  )}
+            </Typography>
             {/* number of the comments  */}
-            <Typography
-              sx={{ ...ratingTypo, paddingLeft: '5px' }}
-            >{`(${course.numOfReviews})`}</Typography>
+            <Typography sx={{ ...ratingTypo, paddingLeft: '5px' }}>reviews: {numOfReviews}</Typography>{' '}
+            {/* fix the space between the number of reviews and the rating */}
+
           </Box>
 
           <Box sx={centerContentRow}>
@@ -250,7 +281,11 @@ export default function CoursePage({ data }) {
       </Box>
       {/* About section end */}
       {/* Review section */}
-      <ReviewSection data={course.reviews} />
+      <ReviewSection
+        data={course.reviews}
+        setNumOfReviews={setNumOfReviews}
+        userData={userData}
+      />
       {/*Review section */}
       {/*
 
@@ -302,7 +337,8 @@ export async function getStaticProps({ params }) {
 
   const id = params.id - 1;
   const data = API.courses[id];
-  return { props: { data } };
+  const users = API.users;
+  return { props: { data, users } };
 }
 
 // data to add to dummy json file

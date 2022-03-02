@@ -17,16 +17,12 @@ export default function AddNewReview({
   setReviewData,
   setShowAddReview,
   setOpen,
+  setNumOfReviews,
+  userData,
 }) {
-  // const [name, setName] = useState('');
-  // const [date, setDate] = useState("")
   const [rating, setRating] = useState(0);
   const [review, setReview] = useState('');
-  // const [email, setEmail] = useState('');
   const { user, error, isLoading } = useUser();
-  console.log('user is: ', user);
-  // setName(user.name);
-  // setEmail(user.email);
 
   //  <--This function is for when we switch to databases-->
 
@@ -48,6 +44,7 @@ export default function AddNewReview({
   };
   function submitData() {
     setReviewData([...reviewData, makeNewReview()]);
+    setNumOfReviews((prevValue) => prevValue + 1);
   }
 
   function handleSubmit(e) {
@@ -57,7 +54,7 @@ export default function AddNewReview({
 
   function makeNewReview() {
     let today = new Date();
-    let day = `${today.getDate()<10 ? '0':''}${today.getDate()}`;
+    let day = `${today.getDate() < 10 ? '0' : ''}${today.getDate()}`;
     let month = `${today.getMonth() + 1 < 10 ? '0' : ''}${
       today.getMonth() + 1
     }`;
@@ -65,7 +62,7 @@ export default function AddNewReview({
     let dateToday = `${day}-${month}-${year}`;
 
     const newReview = {
-      reviewer: user.name,
+      reviewer: `${userData[0].first_name} ${userData[0].last_name}`,
       date: dateToday,
       rating: rating,
       review_text: review,
@@ -75,15 +72,12 @@ export default function AddNewReview({
 
   function handleChangeEmail(e) {
     setEmail(e.target.value);
-    console.log(e.target.value);
   }
   function handleChangeReview(e) {
     setReview(e.target.value);
-    console.log(e.target.value);
   }
   function handleChangeName(e) {
     setName(e.target.value);
-    console.log(e.target.value);
   }
 
   return (
@@ -112,14 +106,14 @@ export default function AddNewReview({
             inputProps={{ maxLength: 200 }}
           />
           <TextField
-            placeholder={user.name}
+            placeholder={`${userData[0].first_name} ${userData[0].last_name}`}
             disabled={true}
             // required
             onChange={(e) => {
               handleChangeName(e);
             }}
             id="reviewer-name"
-            label={user.name}
+            label={`${userData[0].first_name} ${userData[0].last_name}`}
             multiline
             maxRows={4}
             // value={value}
@@ -157,26 +151,3 @@ export default function AddNewReview({
     </Container>
   );
 }
-
-/*
-    Import and add InputFields for form from MUI
-    Import and add  submit button from MUI 
-
-    - Typography ("Leave your review") done
-    - Typography ("Rate your experience:") done
-    - Rating (changeAble)done
-    - TextField (Large and draggable,placeholderText: "Write a review" )
-    - TextField (Small, placeholderText:"Your name")
-    - TextField (Small, placeholderText: "Your email")
-    - Button (Onclick, createNewReview)
-        - createNewReview (
-            make an object using the following structure {
-            reviewerName: string,
-            datePosted: string,
-            ratingGiven: number,
-            reviewText: string,
-          }
-          and then spread the review data and add the new review to it. 
-        )
-
-*/
