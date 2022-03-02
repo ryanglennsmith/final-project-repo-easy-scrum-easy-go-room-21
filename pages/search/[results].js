@@ -25,6 +25,7 @@ import {
   navbarButton,
   navbarSidePageBox,
   profileSearchBar,
+  profileSearchBarInput,
   titleTypo,
 } from 'globalCss';
 
@@ -106,29 +107,30 @@ export default function Results({ inputData }) {
   // console.log(courseTagsSearch);
 
   return (
-    <Box style={{ height: '100vh' }}>
+    <Box style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}>
       {/* Navbar section */}
       <Box sx={navbarSidePageBox}>
-        <NavBar logoLink={'https://i.lensdump.com/i/reFewK.png'} />
+        <NavBar logoLink={'https://i1.lensdump.com/i/rLRHNK.png'} />
       </Box>
       {/* Navbar section end*/}
       {/* Search section */}
-      <Box sx={profileSearchBar}>
-        <TextField
-          id="outlined-basic"
-          value={input}
-          onChange={handleChange}
-          variant="outlined"
-          sx={{
-            background: '#fff',
-            borderRadius: '6px',
-            width: '60%',
-          }}
-        />
-        <Button variant="contained" sx={navbarButton} onClick={onClick}>
-          Search
-        </Button>
-      </Box>
+      <div className="wrapProfileSearchBar">
+        <Box sx={{ ...profileSearchBar, height: '40px' }}>
+          <TextField
+            id="outlined-basic"
+            variant="outlined"
+            onChange={handleChange}
+            sx={{ ...profileSearchBarInput, height: '40px' }}
+          />
+          <Button
+            onClick={onClick}
+            variant="contained"
+            sx={{ ...navbarButton, height: '40px' }}
+          >
+            Search
+          </Button>
+        </Box>
+      </div>
       {/* Search section end */}
       {search === 'results' ? (
         <Box sx={aboutSection}>
