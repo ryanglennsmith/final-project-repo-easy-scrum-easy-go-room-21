@@ -2,6 +2,7 @@ import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 import { API } from 'utils/API';
 import Link from 'next/link';
 import UserUpdateForm from '@components/UserUpdateForm/UserUpdateForm';
+import AddCourse from '@components/AddCourse/AddCourse';
 export default function UserDashboard({ user, allUsers, allCourses }) {
   const userData = allUsers.filter((match) => {
     return user.email === match.email;
@@ -45,6 +46,12 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
       >
         here's where you can C(R)UD your courses - (the R is separate? comp
         above)
+        <AddCourse
+          email={user.email}
+          teacherName={`${userData[0].first_name} ${userData[0].last_name}`}
+          userId={userData[0].id}
+          courses={allCourses}
+        />
       </div>
       <div
         className="coursesYouTookOrWillTakeComponent"
