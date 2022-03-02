@@ -1,6 +1,7 @@
 import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 import { API } from 'utils/API';
 import Link from 'next/link';
+import { FormControl, InputLabel, Input, TextField, Form } from '@mui/material';
 export default function UserDashboard({ user, allUsers, allCourses }) {
   const userData = allUsers.filter((match) => {
     return user.email === match.email;
@@ -29,6 +30,7 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
                 <Link href={`/courses/${course.course_id}`}>
                   {course.course_title}
                 </Link>
+                <span>fake link: (edit?)</span>
               </li>
             );
           })}
@@ -58,7 +60,37 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
         className="userCRUDComponent"
         style={{ margin: '5px', border: '2px solid hotpink' }}
       >
-        here's where you can update your personal info
+        here's where you can update your personal info what to add to this
+        component: input form w/submit btn: email (matches already with auth0),
+        phone, first_name, last_name (create a quick js fn to make new user id
+        on new user: users.length + 2)
+        <FormControl
+          sx={{ border: '2px solid lime', width: '400px', height: '500px' }}
+        >
+          {/* <InputLabel htmlFor="user-email">
+            put your email here, dumbass
+          </InputLabel> */}
+          <TextField
+            id="user-email"
+            sx={{
+              border: '1px solid blue',
+              borderRadius: '11px',
+              marginTop: '10px',
+              marginBottom: '10px',
+            }}
+          />
+          {/* <InputLabel htmlFor="user-first-name">first name here</InputLabel> */}
+
+          <TextField
+            id="user-first-name"
+            sx={{
+              border: '1px solid blue',
+              borderRadius: '11px',
+              marginTop: '10px',
+              marginBottom: '10px',
+            }}
+          />
+        </FormControl>
       </div>
     </>
   );
@@ -69,8 +101,11 @@ export const getServerSideProps = withPageAuthRequired({
     // use ctx if change to dynamic route?
     // go get you some data
     // how about all the users?
-    const getAllUsers = API.users;
-    const getAllCourses = API.courses;
+
+    const getAllUsersFetch = await fetch('http://localhost:3609/users');
+    const getAllCoursesFetch = await fetch('http://localhost:3609/courses');
+    const getAllUsers = await getAllUsersFetch.json();
+    const getAllCourses = await getAllCoursesFetch.json();
 
     return { props: { allUsers: getAllUsers, allCourses: getAllCourses } };
   },

@@ -3,6 +3,9 @@
 import fs from 'fs';
 
 import { API } from './API.js';
+
+// fs.writeFileSync('./json-server/API.json', JSON.stringify(API));
+
 // *************************
 // 28-02
 // import axios from 'axios';
