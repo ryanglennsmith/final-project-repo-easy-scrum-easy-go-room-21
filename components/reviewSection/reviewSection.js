@@ -25,7 +25,7 @@ export default function ReviewSection({ data, setNumOfReviews, userData }) {
 
   function showMoreItems() {
     setVisible((prevValue) => prevValue + 2);
-    setShowAddReview(true);
+    // setShowAddReview(true);
   }
 
   function collapseItems() {
@@ -58,18 +58,18 @@ export default function ReviewSection({ data, setNumOfReviews, userData }) {
       )}
       <Review visible={visible} reviews={reviewData} />
       <Box sx={centerContentRow}>
-        {!showAddReview && (
+        {!showAddReview && visible === 2 && reviewData.length > 2 && (
           <Button sx={showMoreLessButton} onClick={() => showMoreItems()}>
             Show more
           </Button>
         )}
-        {showAddReview && (
+        {(showAddReview || visible > 2) && reviewData.length > 2 && (
           <Button sx={showMoreLessButton} onClick={() => collapseItems()}>
             Show less
           </Button>
         )}
       </Box>
-      {showAddReview && (
+      {showAddReview && user && (
         <AddNewReview
           userData={userData}
           reviewData={reviewData}

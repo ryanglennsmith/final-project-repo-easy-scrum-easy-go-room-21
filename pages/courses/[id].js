@@ -47,7 +47,7 @@ export default function CoursePage({ data, users }) {
 
   const [input, setInput] = useState('');
   const [numOfReviews, setNumOfReviews] = useState(course.reviews.length);
-  const [userData, setUserData] = useState();
+  const [userData, setUserData] = useState([]);
   // once the user is loaded by Auth0, useEffect will match the user to our db
   useEffect(() => {
     if (user) {
