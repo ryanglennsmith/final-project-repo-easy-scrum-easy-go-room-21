@@ -71,6 +71,12 @@ export default function CoursePage({ data, users }) {
     router.push(`/search/${input}`);
   }
 
+  function onEnter(e) {
+    if (e.key === 'Enter') {
+      router.push(`/search/${input}`);
+    }
+  }
+
   return (
     <Box style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}>
       {/* Navbar section */}
@@ -82,6 +88,7 @@ export default function CoursePage({ data, users }) {
       <div className="wrapProfileSearchBar">
         <Box sx={{ ...profileSearchBar, height: '40px' }}>
           <TextField
+            onKeyDown={onEnter}
             id="outlined-basic"
             variant="outlined"
             onChange={handleChange}

@@ -47,6 +47,11 @@ export default function Banner() {
     e.preventDefault();
     router.push(`/search/${input}`);
   }
+  function onEnter(e) {
+    if (e.key === 'Enter') {
+      router.push(`/search/${input}`);
+    }
+  }
 
   return (
     <Box sx={bannerBox}>
@@ -112,6 +117,7 @@ export default function Banner() {
               id="outlined-basic"
               variant="outlined"
               value={input}
+              onKeyDown={onEnter}
               onChange={handleChange}
               sx={bannerTextFieldWeb}
             />
@@ -122,6 +128,7 @@ export default function Banner() {
               id="outlined-basic"
               variant="outlined"
               value={input}
+              onKeyDown={onEnter}
               onChange={handleChange}
               sx={{
                 background: '#fff',

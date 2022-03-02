@@ -85,9 +85,15 @@ export default function Results({ inputData }) {
     e.preventDefault();
     setSearch(input);
     setInput('');
-    console.log(input);
+    // console.log(input);
   }
 
+  function onEnter(e) {
+    if (e.key === 'Enter') {
+      setSearch(input);
+      setInput('');
+    }
+  }
   // explore page filter
   const searchResult = data.filter(
     (item) =>
@@ -120,6 +126,7 @@ export default function Results({ inputData }) {
             id="outlined-basic"
             variant="outlined"
             onChange={handleChange}
+            onKeyDown={onEnter}
             sx={{ ...profileSearchBarInput, height: '40px' }}
           />
           <Button
