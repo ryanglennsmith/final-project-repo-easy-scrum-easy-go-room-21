@@ -343,3 +343,22 @@ export const showMoreLessButton = {
   border: 'none',
   margin: '3rem',
 };
+
+export const tagsBtn = {
+  background: '#fff',
+  '&:hover': { background: '#eee' },
+  color: '#555',
+  border: '1px solid #ccc',
+  borderRadius: '10px',
+  padding: '5px 12px',
+};
+
+export const contactBtn = {
+  color: '#777',
+  fontSize: '16px',
+  fontFamily: 'Lato',
+  width: '100%',
+  background: '#f7f7f7',
+  border: '1px solid #eee',
+  marginTop: '15px',
+};

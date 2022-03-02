@@ -84,27 +84,6 @@ fieldset {
   display: inline-block;
   padding-right: 4px;
 }
-.tagsBtn {
-  background: #fff;
-  color: #555;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 5px 12px;
-}
-
-.tagsBtn:hover {
-  background: #eee;
-}
-
-.contactBtn {
-  color: #777;
-  font-size: 16px;
-  font-family: 'Lato';
-  width: 100%;
-  background: #f7f7f7;
-  border: 1px solid #eee;
-  margin-top: 15px;
-}
 
 .daysOnlineWrap {
   width: 1200px;

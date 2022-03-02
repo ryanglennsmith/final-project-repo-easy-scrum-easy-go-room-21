@@ -14,7 +14,7 @@ import NavBar from '@components/navBar/navBar';
 import {
   aboutSection,
   centerContentRow,
-  courseCardCardImage,
+  contactBtn,
   daysTypo,
   footerContainerBoxLgr,
   footerContainerBoxMd,
@@ -25,6 +25,7 @@ import {
   profileSearchBar,
   profileSearchBarInput,
   ratingTypo,
+  tagsBtn,
   titleTypo,
 } from 'globalCss';
 
@@ -34,7 +35,6 @@ import { useRouter } from 'next/router';
 import { useUser } from '@auth0/nextjs-auth0';
 import { useEffect, useState } from 'react';
 export default function CoursePage({ data, users }) {
-
   const router = useRouter();
 
   const { user, error, isLoading } = useUser();
@@ -161,8 +161,9 @@ export default function CoursePage({ data, users }) {
               precision={0.5}
               readOnly
             />
-
-            <Typography sx={{ ...ratingTypo, color: '#df9c00', fontWeight: 500 }}>
+            <Typography
+              sx={{ ...ratingTypo, color: '#df9c00', fontWeight: 500 }}
+            >
               {course.reviews.length === 0
                 ? 0
                 : Number(
@@ -174,12 +175,13 @@ export default function CoursePage({ data, users }) {
                   )}
             </Typography>
             {/* number of the comments  */}
-            <Typography sx={{ ...ratingTypo, paddingLeft: '5px' }}>reviews: {numOfReviews}</Typography>{' '}
+            <Typography sx={{ ...ratingTypo, paddingLeft: '5px' }}>
+              reviews: {numOfReviews}
+            </Typography>{' '}
             {/* fix the space between the number of reviews and the rating */}
-
           </Box>
 
-          <Button className="contactBtn" sx={{ display: 'block' }}>
+          <Button sx={{ display: 'block', ...contactBtn }}>
             {course.email}
           </Button>
 
@@ -193,9 +195,8 @@ export default function CoursePage({ data, users }) {
               return (
                 <Box className="tagsBtnContainer" key={index}>
                   <Button
-                    className="tagsBtn"
                     onClick={onClick}
-                    sx={navbarButton}
+                    sx={{ ...navbarButton, ...tagsBtn }}
                   >
                     {item}
                   </Button>
