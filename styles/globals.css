@@ -43,4 +43,27 @@ code {
   height: 100px;
   display: flex;
   margin-bottom: 50px;
+  border-bottom: 1px dashed #ccc;
+}
+
+input {
+  padding: 0 !important;
+}
+
+fieldset {
+  border-style: none !important;
+}
+
+.copyright {
+  display: block;
+  text-align: right;
+}
+
+.footerWrap {
+  width: 1200px;
+  height: 100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
