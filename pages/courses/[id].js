@@ -14,6 +14,8 @@ import NavBar from '@components/navBar/navBar';
 import {
   aboutSection,
   centerContentRow,
+  courseCardCardImage,
+  daysTypo,
   footerContainerBoxLgr,
   footerContainerBoxMd,
   generalTypo,
@@ -22,6 +24,7 @@ import {
   navbarSidePageBox,
   profileSearchBar,
   profileSearchBarInput,
+  ratingTypo,
   titleTypo,
 } from 'globalCss';
 
@@ -48,14 +51,13 @@ export default function CoursePage({ data }) {
       {/* Navbar section end*/}
       {/* Search section */}
       <div className="wrapProfileSearchBar">
-        <Box sx={profileSearchBar}>
+        <Box sx={{ ...profileSearchBar, height: '40px' }}>
           <TextField
             id="outlined-basic"
             variant="outlined"
-            style={{ padding: 0 }}
-            sx={profileSearchBarInput}
+            sx={{ ...profileSearchBarInput, height: '40px' }}
           />
-          <Button variant="contained" sx={navbarButton}>
+          <Button variant="contained" sx={{ ...navbarButton, height: '40px' }}>
             Search
           </Button>
         </Box>
@@ -79,11 +81,12 @@ export default function CoursePage({ data }) {
             minWidth: '260px',
             height: '400px',
             alignItems: 'flex-start',
+            background: '#efefef',
           }}
         >
           <Image
             src={course.images.full}
-            width="400px"
+            width="550px"
             height="400px"
             alt="painting"
             layout="fixed"
@@ -94,7 +97,7 @@ export default function CoursePage({ data }) {
         <Box
           sx={{
             ...titleTypo,
-            marginLeft: '4rem',
+            marginLeft: '30px',
           }}
         >
           <Typography sx={titleTypo}>{course.course_title} </Typography>
@@ -109,9 +112,13 @@ export default function CoursePage({ data }) {
               precision={0.5}
               readOnly
             />
-            <Typography>{` (${course.rating})`}</Typography>
+            <Typography
+              sx={{ ...ratingTypo, color: '#df9c00', fontWeight: 500 }}
+            >{` ${course.rating}`}</Typography>
             {/* number of the comments  */}
-            <Typography>{`  ${course.numOfReviews}`}</Typography>
+            <Typography
+              sx={{ ...ratingTypo, paddingLeft: '5px' }}
+            >{`(${course.numOfReviews})`}</Typography>
           </Box>
 
           <Box sx={centerContentRow}>
@@ -122,9 +129,10 @@ export default function CoursePage({ data }) {
                     key={index}
                     variant="string"
                     sx={{
-                      ...generalTypo,
-                      fontWeight: 'bold',
-                      fontSize: '15px',
+                      ...daysTypo,
+                      background: '#872e2e',
+                      color: '#fff',
+                      fontWeight: '500',
                     }}
                   >
                     {` ${days[index]} `}{' '}
@@ -135,7 +143,7 @@ export default function CoursePage({ data }) {
                   <Typography
                     key={index}
                     variant="string"
-                    sx={{ ...generalTypo, color: 'gray', fontSize: '15px' }}
+                    sx={{ ...daysTypo, background: '#eee' }}
                   >
                     {` ${days[index]} `}{' '}
                   </Typography>
@@ -144,35 +152,63 @@ export default function CoursePage({ data }) {
             })}
           </Box>
 
-          <Box sx={centerContentRow}>
+          <Box sx={{ ...centerContentRow, paddingTop: '10px' }}>
             {course.is_offline === 'true' ? (
-              <Typography sx={{ ...generalTypo, fontWeight: 'bold' }}>
+              <Typography
+                variant="string"
+                sx={{
+                  ...daysTypo,
+                  background: '#48872e',
+                  color: '#fff',
+                  fontWeight: '500',
+                }}
+              >
                 Offline
               </Typography>
             ) : (
-              <Typography sx={{ ...generalTypo, color: 'gray' }}>
+              <Typography
+                variant="string"
+                sx={{ ...daysTypo, background: '#eee' }}
+              >
                 Offline
               </Typography>
-            )}{' '}
-            |{' '}
+            )}
             {course.is_online === 'true' ? (
-              <Typography sx={{ ...generalTypo, fontWeight: 'bold' }}>
+              <Typography
+                variant="string"
+                sx={{
+                  ...daysTypo,
+                  background: '#48872e',
+                  color: '#fff',
+                  fontWeight: '500',
+                }}
+              >
                 Online
               </Typography>
             ) : (
-              <Typography sx={{ ...generalTypo, color: 'gray' }}>
+              <Typography
+                variant="string"
+                sx={{ ...daysTypo, background: '#eee' }}
+              >
                 Online
               </Typography>
             )}
           </Box>
-          <Button sx={navbarButton}>{course.email}</Button>
+          <Button>Contact me : {course.email}</Button>
         </Box>{' '}
       </Box>
       {/* Profile page image/info section end*/}
       {/* About section */}
       <Box sx={aboutSection}>
-        <Typography variant="h3">About this class</Typography>
-        <Typography>{course.long_description}</Typography>
+        <Typography
+          variant="h4"
+          sx={{ fontFamily: 'lato', paddingBottom: '10px' }}
+        >
+          About this class
+        </Typography>
+        <Typography sx={{ ...generalTypo, color: '#444' }}>
+          {course.long_description}
+        </Typography>
       </Box>
       {/* About section end */}
       {/* Review section */}
