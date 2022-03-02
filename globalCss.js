@@ -298,7 +298,7 @@ export const daysTypo = {
   fontSize: '16px',
   fontWeight: '300',
   color: '#555',
-  margin: '3px',
+  marginRight: '5px',
   letterSpacing: 0,
   padding: '0 5px',
   borderRadius: '2px',

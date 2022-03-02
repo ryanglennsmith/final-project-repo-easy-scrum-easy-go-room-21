@@ -123,10 +123,8 @@ export default function CoursePage({ data }) {
           }}
         >
           <Typography sx={titleTypo}>{course.course_title} </Typography>
-
           <Typography sx={nameTypo}> {course.teacher_name}</Typography>
           <Typography sx={generalTypo}> {course.course_brief}</Typography>
-
           <Box sx={centerContentRow}>
             <Rating
               name="read-only"
@@ -143,99 +141,110 @@ export default function CoursePage({ data }) {
             >{`(${course.numOfReviews})`}</Typography>
           </Box>
 
-          <Box sx={centerContentRow}>
-            {available.map((value, index) => {
-              if (value == 'true') {
-                return (
-                  <Typography
-                    key={index}
-                    variant="string"
-                    sx={{
-                      ...daysTypo,
-                      background: '#872e2e',
-                      color: '#fff',
-                      fontWeight: '500',
-                    }}
-                  >
-                    {` ${days[index]} `}{' '}
-                  </Typography>
-                );
-              } else {
-                return (
-                  <Typography
-                    key={index}
-                    variant="string"
-                    sx={{ ...daysTypo, background: '#eee' }}
-                  >
-                    {` ${days[index]} `}{' '}
-                  </Typography>
-                );
+          <Button className="contactBtn" sx={{ display: 'block' }}>
+            {course.email}
+          </Button>
+
+          {/* tags wrap start */}
+          <div className="tagsBtnWrap">
+            {course.course_tags.map((item, index) => {
+              function onClick(e) {
+                e.preventDefault();
+                router.push(`/search/${item}`);
               }
+              return (
+                <Box className="tagsBtnContainer" key={index}>
+                  <Button
+                    className="tagsBtn"
+                    onClick={onClick}
+                    sx={navbarButton}
+                  >
+                    {item}
+                  </Button>
+                </Box>
+              );
             })}
-          </Box>
-
-          <Box sx={{ ...centerContentRow, paddingTop: '10px' }}>
-            {course.is_offline === 'true' ? (
-              <Typography
-                variant="string"
-                sx={{
-                  ...daysTypo,
-                  background: '#48872e',
-                  color: '#fff',
-                  fontWeight: '500',
-                }}
-              >
-                Offline
-              </Typography>
-            ) : (
-              <Typography
-                variant="string"
-                sx={{ ...daysTypo, background: '#eee' }}
-              >
-                Offline
-              </Typography>
-            )}
-            {course.is_online === 'true' ? (
-              <Typography
-                variant="string"
-                sx={{
-                  ...daysTypo,
-                  background: '#48872e',
-                  color: '#fff',
-                  fontWeight: '500',
-                }}
-              >
-                Online
-              </Typography>
-            ) : (
-              <Typography
-                variant="string"
-                sx={{ ...daysTypo, background: '#eee' }}
-              >
-                Online
-              </Typography>
-            )}
-          </Box>
-
-          <Button>{course.email}</Button>
-          {course.course_tags.map((item, index) => {
-            function onClick(e) {
-              e.preventDefault();
-              router.push(`/search/${item}`);
-            }
-            return (
-              <Box key={index}>
-                <Button onClick={onClick} sx={navbarButton}>
-                  {item}
-                </Button>
-              </Box>
-            );
-          })}
+          </div>
+          {/* tags wrap ends */}
         </Box>{' '}
         {/* Tag buttons */}
         {/* Tag buttons ends */}
       </Box>
       {/* Profile page image/info section end*/}
+      <div className="daysOnlineWrap">
+        <Box sx={centerContentRow}>
+          {available.map((value, index) => {
+            if (value == 'true') {
+              return (
+                <Typography
+                  key={index}
+                  variant="string"
+                  sx={{
+                    ...daysTypo,
+                    background: '#872e2e',
+                    color: '#fff',
+                    fontWeight: '500',
+                  }}
+                >
+                  {` ${days[index]} `}{' '}
+                </Typography>
+              );
+            } else {
+              return (
+                <Typography
+                  key={index}
+                  variant="string"
+                  sx={{ ...daysTypo, background: '#eee' }}
+                >
+                  {` ${days[index]} `}{' '}
+                </Typography>
+              );
+            }
+          })}
+        </Box>
+        <Box sx={{ ...centerContentRow, paddingTop: '10px' }}>
+          {course.is_offline === 'true' ? (
+            <Typography
+              variant="string"
+              sx={{
+                ...daysTypo,
+                background: '#48872e',
+                color: '#fff',
+                fontWeight: '500',
+              }}
+            >
+              Offline
+            </Typography>
+          ) : (
+            <Typography
+              variant="string"
+              sx={{ ...daysTypo, background: '#eee' }}
+            >
+              Offline
+            </Typography>
+          )}
+          {course.is_online === 'true' ? (
+            <Typography
+              variant="string"
+              sx={{
+                ...daysTypo,
+                background: '#48872e',
+                color: '#fff',
+                fontWeight: '500',
+              }}
+            >
+              Online
+            </Typography>
+          ) : (
+            <Typography
+              variant="string"
+              sx={{ ...daysTypo, background: '#eee' }}
+            >
+              Online
+            </Typography>
+          )}
+        </Box>
+      </div>
       {/* About section */}
       <Box sx={aboutSection}>
         <Typography
