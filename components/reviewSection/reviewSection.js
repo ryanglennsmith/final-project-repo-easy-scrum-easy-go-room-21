@@ -25,10 +25,12 @@ export default function ReviewSection({ data, setNumOfReviews, userData }) {
 
   function showMoreItems() {
     setVisible((prevValue) => prevValue + 2);
+    // setShowAddReview(true);
   }
 
   function collapseItems() {
     setVisible(2);
+    setShowAddReview(false);
   }
 
   return (
@@ -56,15 +58,18 @@ export default function ReviewSection({ data, setNumOfReviews, userData }) {
       )}
       <Review visible={visible} reviews={reviewData} />
       <Box sx={centerContentRow}>
-        <Button sx={showMoreLessButton} onClick={() => showMoreItems()}>
-          Show more
-        </Button>
-
-        <Button sx={showMoreLessButton} onClick={() => collapseItems()}>
-          Show less
-        </Button>
+        {!showAddReview && visible === 2 && reviewData.length > 2 && (
+          <Button sx={showMoreLessButton} onClick={() => showMoreItems()}>
+            Show more
+          </Button>
+        )}
+        {(showAddReview || visible > 2) && reviewData.length > 2 && (
+          <Button sx={showMoreLessButton} onClick={() => collapseItems()}>
+            Show less
+          </Button>
+        )}
       </Box>
-      {showAddReview && (
+      {showAddReview && user && (
         <AddNewReview
           userData={userData}
           reviewData={reviewData}
@@ -74,7 +79,7 @@ export default function ReviewSection({ data, setNumOfReviews, userData }) {
           setNumOfReviews={setNumOfReviews}
         />
       )}
-      <SuccessAlert open={open} setOpen={setOpen} />;
+      <SuccessAlert open={open} setOpen={setOpen} />
     </Container>
   );
 }
