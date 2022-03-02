@@ -3,6 +3,10 @@ export const centerContentRow = {
   display: 'flex',
   flexDirection: 'row',
   fontSize: '15px',
+  paddingTop: '20px',
+  height: '30px',
+  lineHeight: '30px',
+  alignItems: 'center',
 };
 export const centerContentCol = {
   display: 'flex',
@@ -42,14 +46,8 @@ export const navBarBox = {
 
 export const navbarButton = {
   color: '#fff',
-  background: '#FF8957',
-  '&:hover': { background: '#FF8957' },
-  fontFamily: 'Inter',
-};
-export const navbarButtonSubpage = {
-  color: '#414141',
-  background: '#ffffff',
-  '&:hover': { background: '#FF8957' },
+  background: '#ff7e47',
+  '&:hover': { background: '#ee6024' },
   fontFamily: 'Inter',
 };
 
@@ -154,11 +152,10 @@ export const bannerTypographyWeb = {
   borderRadius: '6px',
   width: '50rem',
   color: '#fff',
-  fontFamily: 'Inter',
+  fontFamily: 'Noto Sans Display',
   fontSize: '60px',
-  fontStyle: 'normal',
   fontWeight: '700',
-  letterSpacing: '0em',
+  letterSpacing: '-0.5px',
   textAlign: 'center',
 };
 
@@ -180,7 +177,7 @@ export const bannerTypographySubWeb = {
   alignSelf: 'center',
   width: '1000px',
   color: '#ddd',
-  fontFamily: 'Inter',
+  fontFamily: 'Noto Sans Display',
   fontSize: '20px',
   fontWeight: '200',
   lineHeight: '24px',
@@ -206,7 +203,10 @@ export const bannerStack = {
 export const bannerTextFieldWeb = {
   background: '#fff',
   width: '30rem',
-  borderRadius: '10px',
+  borderRadius: '5px',
+  display: 'flex',
+  justifyContent: 'center',
+  paddingLeft: '10px',
 };
 
 // Mobile size for the search field
@@ -218,13 +218,13 @@ export const bannerTextFieldMobile = {
 export const bannerButton = {
   marginRight: '5rem',
   color: '#fff',
-  background: '#FF8957',
-  '&:hover': { background: '#ff763c' },
+  background: '#ff7e47',
+  '&:hover': { background: '#ee6024' },
   fontFamily: 'Inter',
   fontSize: '18px',
-  fontWeight: '200',
+  fontWeight: '500',
   border: 'none',
-  borderRadius: '10px',
+  borderRadius: '5px',
 };
 
 // *******Footer CSS*******
@@ -244,9 +244,9 @@ export const footerContainerBoxLgr = {
   bottom: '0',
   width: '100%',
 };
-export const footerBox = { display: 'flex', justifyContent: 'column' };
+export const footerBox = {};
 
-export const footerTypography = { maxWidth: '20rem', color: '#9A9A9A' };
+export const copyrightTypoWrap = { maxWidth: '20rem', color: '#9A9A9A' };
 
 // *******Profile CSS*******
 
@@ -258,6 +258,7 @@ export const titleTypo = {
   lineHeight: '40px',
   letterSpacing: '-1px',
   textAlign: 'left',
+  width: '620px',
 };
 
 export const nameTypo = {
@@ -269,12 +270,12 @@ export const nameTypo = {
   lineHeight: '41.04px',
   letterSpacing: '0em',
   textAlign: 'left',
+  color: '#888',
 };
 
 export const subHeadingTypo = {
   fontFamily: 'Roboto',
   fontSize: '36px',
-  fontStyle: 'normal',
   fontWeight: '700',
   lineHeight: '40px',
   letterSpacing: '0em',
@@ -282,20 +283,39 @@ export const subHeadingTypo = {
 };
 
 export const generalTypo = {
-  fontFamily: 'sans-serif',
+  fontFamily: 'Noto Sans Display',
   fontSize: '16px',
-  fontStyle: 'normal',
   fontWeight: '300',
   lineHeight: '19px',
-  margin: '10px 0 10px 0',
-  letterSpacing: '0rem',
+  letterSpacing: '0.05em',
+  color: '#666',
   textAlign: 'left',
+  lineHeight: '25px',
+};
+
+export const daysTypo = {
+  fontFamily: 'lato',
+  fontSize: '16px',
+  fontWeight: '300',
+  color: '#555',
+  marginRight: '5px',
+  letterSpacing: 0,
+  padding: '0 5px',
+  borderRadius: '2px',
+};
+
+export const ratingTypo = {
+  fontFamily: 'Noto Sans Display',
+  fontSize: '18px',
+  fontWeight: '300',
+  marginLeft: '5px',
+  color: ' #666',
 };
 
 export const aboutSection = {
   display: 'flex',
   flexDirection: 'column',
-  margin: '30px auto',
+  margin: '45px auto',
   width: '1200px',
 };
 
@@ -310,7 +330,10 @@ export const profileSearchBarInput = {
   width: '100%',
   marginRight: '15px',
   background: '#fff',
-  padding: 0,
+  borderRadius: '5px',
+  display: 'flex',
+  justifyContent: 'center',
+  paddingLeft: '10px',
 };
 
 export const showMoreLessButton = {

@@ -82,16 +82,37 @@ export default function CourseCard({ cards }) {
                   {/* need to resize for smaller view portr */}
                   <Rating
                     name="read-only"
-                    defaultValue={Number(card.rating).toFixed(1)}
+                    // defaultValue={Number(card.rating.toFixed(1))}
+                    defaultValue={
+                      card.reviews.length === 0
+                        ? 0
+                        : Number(
+                            (
+                              card.reviews
+                                .map((review) => review.rating)
+                                .reduce((a, b) => a + b) / card.reviews.length
+                            ).toFixed(1)
+                          )
+                    }
                     precision={0.1}
                     readOnly
                   />
                   {/* teacher rating as a number add sx margin right */}
-                  <Typography sx={courseCardRateAvg}>{`${Number(
-                    card.rating
-                  ).toFixed(1)}`}</Typography>
+                  <Typography sx={courseCardRateAvg}>{`${
+                    card.reviews.length === 0
+                      ? 0
+                      : Number(
+                          (
+                            card.reviews
+                              .map((review) => review.rating)
+                              .reduce((a, b) => a + b) / card.reviews.length
+                          ).toFixed(1)
+                        )
+                  }`}</Typography>
                   {/* number of the comments  */}
-                  <Typography sx={courseCardReviewCount}>{`(152)`}</Typography>
+                  <Typography sx={courseCardReviewCount}>
+                    {card.reviews.length}
+                  </Typography>
                   {matches && (
                     <Button variant="outlined" sx={courseCardButton}>
                       Contact Me

@@ -14,6 +14,8 @@ import NavBar from '@components/navBar/navBar';
 import {
   aboutSection,
   centerContentRow,
+  courseCardCardImage,
+  daysTypo,
   footerContainerBoxLgr,
   footerContainerBoxMd,
   generalTypo,
@@ -22,17 +24,21 @@ import {
   navbarSidePageBox,
   profileSearchBar,
   profileSearchBarInput,
+  ratingTypo,
   titleTypo,
 } from 'globalCss';
 
 import { API } from 'utils/API';
 import ReviewSection from '@components/reviewSection/reviewSection.js';
-import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { useUser } from '@auth0/nextjs-auth0';
+import { useEffect, useState } from 'react';
+export default function CoursePage({ data, users }) {
 
-
-export default function CoursePage({ data }) {
   const router = useRouter();
+
+  const { user, error, isLoading } = useUser();
+  // const userData = users.filter((item) => item.email === user.email);
   const course = data;
   const days = course.dates_available.map((date) => {
     return Object.keys(date);
@@ -42,10 +48,18 @@ export default function CoursePage({ data }) {
   });
   const matchesMd = useMediaQuery('(max-width:913px)');
   const matchesLrg = useMediaQuery('(min-width:913px)');
-  
   const [input, setInput] = useState('');
+  const [numOfReviews, setNumOfReviews] = useState(course.reviews.length);
+  const [userData, setUserData] = useState([]);
+  // once the user is loaded by Auth0, useEffect will match the user to our db
+  useEffect(() => {
+    if (user) {
+      const whoAmI = users.filter((item) => item.email === user.email);
+      setUserData(whoAmI);
+    }
+  }, [user]);
 
- function handleChange(e) {
+  function handleChange(e) {
     // grabbing the text input on search bar
     e.preventDefault();
     setInput(e.target.value);
@@ -57,6 +71,11 @@ export default function CoursePage({ data }) {
     router.push(`/search/${input}`);
   }
 
+  function onEnter(e) {
+    if (e.key === 'Enter') {
+      router.push(`/search/${input}`);
+    }
+  }
 
   return (
     <Box style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}>
@@ -67,16 +86,19 @@ export default function CoursePage({ data }) {
       {/* Navbar section end*/}
       {/* Search section */}
       <div className="wrapProfileSearchBar">
-        <Box sx={profileSearchBar}>
+        <Box sx={{ ...profileSearchBar, height: '40px' }}>
           <TextField
+            onKeyDown={onEnter}
             id="outlined-basic"
             variant="outlined"
-            value={input}
             onChange={handleChange}
-            style={{ padding: 0 }}
-            sx={profileSearchBarInput}
+            sx={{ ...profileSearchBarInput, height: '40px' }}
           />
-          <Button onClick={onClick} variant="contained" sx={navbarButton}>
+          <Button
+            onClick={onClick}
+            variant="contained"
+            sx={{ ...navbarButton, height: '40px' }}
+          >
             Search
           </Button>
         </Box>
@@ -100,11 +122,12 @@ export default function CoursePage({ data }) {
             minWidth: '260px',
             height: '400px',
             alignItems: 'flex-start',
+            background: '#efefef',
           }}
         >
           <Image
             src={course.images.full}
-            width="400px"
+            width="550px"
             height="400px"
             alt="painting"
             layout="fixed"
@@ -115,92 +138,173 @@ export default function CoursePage({ data }) {
         <Box
           sx={{
             ...titleTypo,
-            marginLeft: '4rem',
+            marginLeft: '30px',
           }}
         >
           <Typography sx={titleTypo}>{course.course_title} </Typography>
-
           <Typography sx={nameTypo}> {course.teacher_name}</Typography>
           <Typography sx={generalTypo}> {course.course_brief}</Typography>
-
           <Box sx={centerContentRow}>
             <Rating
               name="read-only"
-              defaultValue={Number(course.rating)}
+              defaultValue={
+                course.reviews.length === 0
+                  ? 0
+                  : Number(
+                      (
+                        course.reviews
+                          .map((review) => review.rating)
+                          .reduce((a, b) => a + b) / course.reviews.length
+                      ).toFixed(1)
+                    )
+              }
               precision={0.5}
               readOnly
             />
-            <Typography>{` (${course.rating})`}</Typography>
+
+            <Typography sx={{ ...ratingTypo, color: '#df9c00', fontWeight: 500 }}>
+              {course.reviews.length === 0
+                ? 0
+                : Number(
+                    (
+                      course.reviews
+                        .map((review) => review.rating)
+                        .reduce((a, b) => a + b) / course.reviews.length
+                    ).toFixed(1)
+                  )}
+            </Typography>
             {/* number of the comments  */}
-            <Typography>{`  ${course.numOfReviews}`}</Typography>
+            <Typography sx={{ ...ratingTypo, paddingLeft: '5px' }}>reviews: {numOfReviews}</Typography>{' '}
+            {/* fix the space between the number of reviews and the rating */}
+
           </Box>
 
-          <Box sx={centerContentRow}>
-            {available.map((value, index) => {
-              if (value == 'true') {
-                return (
-                  <Typography
-                    key={index}
-                    variant="string"
-                    sx={{
-                      ...generalTypo,
-                      fontWeight: 'bold',
-                      fontSize: '15px',
-                    }}
-                  >
-                    {` ${days[index]} `}{' '}
-                  </Typography>
-                );
-              } else {
-                return (
-                  <Typography
-                    key={index}
-                    variant="string"
-                    sx={{ ...generalTypo, color: 'gray', fontSize: '15px' }}
-                  >
-                    {` ${days[index]} `}{' '}
-                  </Typography>
-                );
+          <Button className="contactBtn" sx={{ display: 'block' }}>
+            {course.email}
+          </Button>
+
+          {/* tags wrap start */}
+          <div className="tagsBtnWrap">
+            {course.course_tags.map((item, index) => {
+              function onClick(e) {
+                e.preventDefault();
+                router.push(`/search/${item}`);
               }
+              return (
+                <Box className="tagsBtnContainer" key={index}>
+                  <Button
+                    className="tagsBtn"
+                    onClick={onClick}
+                    sx={navbarButton}
+                  >
+                    {item}
+                  </Button>
+                </Box>
+              );
             })}
-          </Box>
-
-          <Box sx={centerContentRow}>
-            {course.is_offline === 'true' ? (
-              <Typography sx={{ ...generalTypo, fontWeight: 'bold' }}>
-                Offline
-              </Typography>
-            ) : (
-              <Typography sx={{ ...generalTypo, color: 'gray' }}>
-                Offline
-              </Typography>
-            )}{' '}
-            |{' '}
-            {course.is_online === 'true' ? (
-              <Typography sx={{ ...generalTypo, fontWeight: 'bold' }}>
-                Online
-              </Typography>
-            ) : (
-              <Typography sx={{ ...generalTypo, color: 'gray' }}>
-                Online
-              </Typography>
-            )}
-          </Box>
-          <Button sx={navbarButton}>{course.email}</Button>
+          </div>
+          {/* tags wrap ends */}
         </Box>{' '}
+        {/* Tag buttons */}
+        {/* Tag buttons ends */}
       </Box>
       {/* Profile page image/info section end*/}
+      <div className="daysOnlineWrap">
+        <Box sx={centerContentRow}>
+          {available.map((value, index) => {
+            if (value == 'true') {
+              return (
+                <Typography
+                  key={index}
+                  variant="string"
+                  sx={{
+                    ...daysTypo,
+                    background: '#872e2e',
+                    color: '#fff',
+                    fontWeight: '500',
+                  }}
+                >
+                  {` ${days[index]} `}{' '}
+                </Typography>
+              );
+            } else {
+              return (
+                <Typography
+                  key={index}
+                  variant="string"
+                  sx={{ ...daysTypo, background: '#eee' }}
+                >
+                  {` ${days[index]} `}{' '}
+                </Typography>
+              );
+            }
+          })}
+        </Box>
+        <Box sx={{ ...centerContentRow, paddingTop: '10px' }}>
+          {course.is_offline === 'true' ? (
+            <Typography
+              variant="string"
+              sx={{
+                ...daysTypo,
+                background: '#48872e',
+                color: '#fff',
+                fontWeight: '500',
+              }}
+            >
+              Offline
+            </Typography>
+          ) : (
+            <Typography
+              variant="string"
+              sx={{ ...daysTypo, background: '#eee' }}
+            >
+              Offline
+            </Typography>
+          )}
+          {course.is_online === 'true' ? (
+            <Typography
+              variant="string"
+              sx={{
+                ...daysTypo,
+                background: '#48872e',
+                color: '#fff',
+                fontWeight: '500',
+              }}
+            >
+              Online
+            </Typography>
+          ) : (
+            <Typography
+              variant="string"
+              sx={{ ...daysTypo, background: '#eee' }}
+            >
+              Online
+            </Typography>
+          )}
+        </Box>
+      </div>
       {/* About section */}
-      <Box sx={aboutSection}>
-        <Typography variant="h3">About this class</Typography>
-        <Typography>{course.long_description}</Typography>
+      <Box sx={{ ...aboutSection, borderTop: '1px solid #eee' }}>
+        <Typography
+          variant="h4"
+          sx={{ fontFamily: 'lato', padding: '30px 0 10px 0' }}
+        >
+          About this class
+        </Typography>
+        <Typography sx={{ ...generalTypo, color: '#444' }}>
+          {course.long_description}
+        </Typography>
       </Box>
       {/* About section end */}
       {/* Review section */}
-      <ReviewSection data={course.reviews} />
+      <ReviewSection
+        data={course.reviews}
+        setNumOfReviews={setNumOfReviews}
+        userData={userData}
+      />
       {/*Review section */}
       {/*
----
+
 
 - Profile (title, subtext, rating, name, date, aboutClass, content)
 - Image (image)
@@ -249,7 +353,8 @@ export async function getStaticProps({ params }) {
 
   const id = params.id - 1;
   const data = API.courses[id];
-  return { props: { data } };
+  const users = API.users;
+  return { props: { data, users } };
 }
 
 // data to add to dummy json file
