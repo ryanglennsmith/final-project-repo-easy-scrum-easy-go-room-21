@@ -3,6 +3,8 @@ import { API } from 'utils/API';
 import Link from 'next/link';
 import UserUpdateForm from '@components/UserUpdateForm/UserUpdateForm';
 import AddCourse from '@components/AddCourse/AddCourse';
+import { useState } from 'react';
+import { Button } from '@mui/material';
 export default function UserDashboard({ user, allUsers, allCourses }) {
   const userData = allUsers.filter((match) => {
     return user.email === match.email;
@@ -10,7 +12,9 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
   const myCourses = allCourses.filter((course) => {
     return user.email === course.email;
   });
-
+  const [createNew, setCreateNew] = useState(false);
+  const [editOld, setEditOld] = useState(false);
+  const [courseToEdit, setCourseToEdit] = useState();
   return (
     <>
       <div>
@@ -27,14 +31,22 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
         <ul>
           {myCourses.map((course) => {
             return (
-              <li key={course.id}>
+              <li key={course.course_id}>
                 <Link
                   key={`course-link-${course.id}`}
                   href={`/courses/${course.course_id}`}
                 >
                   {course.course_title}
                 </Link>
-                <span key={`course-span-${course.id}`}>fake link: (edit?)</span>
+                <Button
+                  onClick={() => {
+                    setEditOld(!editOld);
+                    setCreateNew(false);
+                    setCourseToEdit(course);
+                  }}
+                >
+                  Edit Course
+                </Button>
               </li>
             );
           })}
@@ -44,14 +56,40 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
         className="courseCRUDComponent"
         style={{ margin: '5px', border: '2px solid hotpink' }}
       >
+        {' '}
+        <Button
+          onClick={() => {
+            setCreateNew(!createNew);
+            setCourseToEdit({});
+            setEditOld(false);
+          }}
+        >
+          Create New Course
+        </Button>
         here's where you can C(R)UD your courses - (the R is separate? comp
         above)
-        <AddCourse
-          email={user.email}
-          teacherName={`${userData[0].first_name} ${userData[0].last_name}`}
-          userId={userData[0].id}
-          courses={allCourses}
-        />
+        {createNew && (
+          <AddCourse
+            createNew={createNew}
+            editOld={editOld}
+            courseToEdit={courseToEdit}
+            email={user.email}
+            teacherName={`${userData[0].first_name} ${userData[0].last_name}`}
+            userId={userData[0].id}
+            courses={allCourses}
+          />
+        )}
+        {editOld && (
+          <AddCourse
+            createNew={createNew}
+            editOld={editOld}
+            courseToEdit={courseToEdit}
+            email={user.email}
+            teacherName={`${userData[0].first_name} ${userData[0].last_name}`}
+            userId={userData[0].id}
+            courses={allCourses}
+          />
+        )}
       </div>
       <div
         className="coursesYouTookOrWillTakeComponent"
