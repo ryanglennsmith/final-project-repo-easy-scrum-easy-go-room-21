@@ -34,6 +34,9 @@ import ReviewSection from '@components/reviewSection/reviewSection.js';
 import { useRouter } from 'next/router';
 import { useUser } from '@auth0/nextjs-auth0';
 import { useEffect, useState } from 'react';
+import Header from '@components/Header/Header.js';
+
+
 export default function CoursePage({ data, users }) {
   const router = useRouter();
 
@@ -76,6 +79,8 @@ export default function CoursePage({ data, users }) {
       router.push(`/search/${input}`);
     }
   }
+
+  const siteTitle = `Weshare `;
 
   return (
     <Box style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}>
@@ -203,8 +208,71 @@ export default function CoursePage({ data, users }) {
                 </Box>
               );
             })}
+
+          </Box>
+
+          <Box sx={{ ...centerContentRow, paddingTop: '10px' }}>
+            {course.is_offline === 'true' ? (
+              <Typography
+                variant="string"
+                sx={{
+                  ...daysTypo,
+                  background: '#48872e',
+                  color: '#fff',
+                  fontWeight: '500',
+                }}
+              >
+                Offline
+              </Typography>
+            ) : (
+              <Typography
+                variant="string"
+                sx={{ ...daysTypo, background: '#eee' }}
+              >
+                Offline
+              </Typography>
+            )}
+            {course.is_online === 'true' ? (
+              <Typography
+                variant="string"
+                sx={{
+                  ...daysTypo,
+                  background: '#48872e',
+                  color: '#fff',
+                  fontWeight: '500',
+                }}
+              >
+                Online
+              </Typography>
+            ) : (
+              <Typography
+                variant="string"
+                sx={{ ...daysTypo, background: '#eee' }}
+              >
+                Online
+              </Typography>
+            )}
+          </Box>
+
+          <Button>{course.email}</Button>
+          {course.course_tags.map((item, index) => {
+            function onClick(e) {
+              e.preventDefault();
+              router.push(`/search/${item}`);
+            }
+            return (
+              <Box key={index}>
+                <Header title={`${course.course_title} | WeShare`}></Header>
+                <Button onClick={onClick} sx={navbarButton}>
+                  {item}
+                </Button>
+              </Box>
+            );
+          })}
+
           </div>
           {/* tags wrap ends */}
+
         </Box>{' '}
         {/* Tag buttons */}
         {/* Tag buttons ends */}

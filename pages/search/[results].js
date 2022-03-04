@@ -13,6 +13,7 @@ import {
 import Footer from '@components/Footer/Footer';
 import NavBar from '@components/navBar/navBar';
 import CourseCard from '@components/course-card/CourseCard';
+import Header from '@components/Header/Header.js';
 
 // Importing CSS
 import {
@@ -112,7 +113,66 @@ export default function Results({ inputData }) {
 
   // console.log(courseTagsSearch);
 
+  const siteTitle = 'WeShare Results - Inspirational work by real Freelancers';
+
   return (
+
+    <Box style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}>
+      <Header title={siteTitle}></Header>
+      {/* Navbar section */}
+      <Box sx={navbarSidePageBox}>
+        <NavBar logoLink={'https://i1.lensdump.com/i/rLRHNK.png'} />
+      </Box>
+      {/* Navbar section end*/}
+      {/* Search section */}
+      <div className="wrapProfileSearchBar">
+        <Box sx={{ ...profileSearchBar, height: '40px' }}>
+          <TextField
+            id="outlined-basic"
+            variant="outlined"
+            onChange={handleChange}
+            onKeyDown={onEnter}
+            sx={{ ...profileSearchBarInput, height: '40px' }}
+          />
+          <Button
+            onClick={onClick}
+            variant="contained"
+            sx={{ ...navbarButton, height: '40px' }}
+          >
+            Search
+          </Button>
+        </Box>
+      </div>
+      {/* Search section end */}
+      {search === 'results' ? (
+        <Box sx={aboutSection}>
+          <Typography>Search for item</Typography>
+        </Box>
+      ) : searchResult.length > 0 && search ? (
+        <Box sx={aboutSection}>
+          <Header title={`Search results for ${search} | WeShare `}></Header>
+          <Typography variant="h4">Results for "{search}"</Typography>
+          <Typography></Typography>
+          {/* search results displayed here as cards */}
+          <CourseCard cards={searchResult} />
+        </Box>
+      ) : searchResult.length === 0 && search ? (
+        <Box sx={aboutSection}>
+          <Header title={`Search results for ${search} | WeShare `}></Header>{' '}
+          <Typography>Search results for "{search}" not found</Typography>{' '}
+        </Box>
+      ) : (
+        <Box sx={aboutSection}>
+          <Typography>Search for item</Typography>
+        </Box>
+      )}
+
+      {/* When the screen width reaches atleast 913px, then this css takes place. */}
+      {matchesLrg && <Footer styling={footerContainerBoxLgr} />}
+      {/* When the screen width reaches at most 913px, then this css takes place. */}
+      {matchesMd && <Footer styling={footerContainerBoxMd} />}
+    </Box>
+
     <div className="wrap">
       <Box style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}>
         {/* Navbar section */}
