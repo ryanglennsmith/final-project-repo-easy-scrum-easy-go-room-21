@@ -22,7 +22,7 @@ import CourseCard from '../components/course-card/CourseCard.js';
 import Banner from '@components/Banner/Banner.js';
 import Footer from '@components/Footer/Footer.js';
 import { API } from 'utils/API.js';
-import Header from '@components/Header.js';
+import Header from '@components/Header/Header.js';
 
 const data = API.courses;
 const theme = createTheme();

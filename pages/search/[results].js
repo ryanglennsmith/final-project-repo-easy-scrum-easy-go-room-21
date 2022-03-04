@@ -13,7 +13,7 @@ import {
 import Footer from '@components/Footer/Footer';
 import NavBar from '@components/navBar/navBar';
 import CourseCard from '@components/course-card/CourseCard';
-import Header from '@components/Header.js';
+import Header from '@components/Header/Header.js';
 
 // Importing CSS
 import {

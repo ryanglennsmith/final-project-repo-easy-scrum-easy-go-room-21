@@ -33,7 +33,7 @@ import ReviewSection from '@components/reviewSection/reviewSection.js';
 import { useRouter } from 'next/router';
 import { useUser } from '@auth0/nextjs-auth0';
 import { useEffect, useState } from 'react';
-import Header from '@components/Header.js';
+import Header from '@components/Header/Header.js';
 
 export default function CoursePage({ data, users }) {
   const router = useRouter();
