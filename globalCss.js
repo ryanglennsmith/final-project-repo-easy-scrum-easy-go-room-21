@@ -71,7 +71,7 @@ export const courseCardCardMedia = {};
 
 export const courseCardCardContent = {
   flexGrow: 1,
-  paddingTop: '10px',
+  padding: '10px 20px!important',
 };
 
 export const courseCardContentTitle = {
@@ -89,7 +89,7 @@ export const courseCardContentTeacherName = {
   fontWeight: '300',
   fontSize: '18px',
   textAlign: 'right',
-  color: '#bbb',
+  color: '#aaa',
   marginBottom: '10px',
 };
 export const courseCardContentCourseBrief = {
@@ -98,6 +98,11 @@ export const courseCardContentCourseBrief = {
   fontSize: '16px',
   color: '#666',
   marginBottom: '10px',
+  display: '-webkit-box',
+  WebkitLineClamp: 2,
+  WebkitBoxOrient: 'vertical',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
 };
 
 export const courseCardActions = {
@@ -117,11 +122,13 @@ export const courseCardReviewCount = {
   fontSize: '15px',
   fontWeight: '400',
   color: '#666',
+  marginLeft: '0!important',
+  marginRight: '30px',
 };
 export const courseCardButton = {
   color: '#fff',
   background: '#FF8957',
-  '&:hover': { background: '#ff763c' },
+  '&:hover': { background: '#ff763c', border: 'none' },
   border: 'none',
 };
 
@@ -176,11 +183,12 @@ export const bannerTypographySubWeb = {
   justifyContent: 'center',
   alignSelf: 'center',
   width: '1000px',
-  color: '#ddd',
+  color: '#eee',
   fontFamily: 'Noto Sans Display',
-  fontSize: '20px',
+  fontSize: '23px',
   fontWeight: '200',
-  lineHeight: '24px',
+  lineHeight: '30px',
+  textShadow: '2px 2px 4px #000',
 };
 
 // Mobile size for sub header

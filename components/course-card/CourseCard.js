@@ -71,7 +71,7 @@ export default function CourseCard({ cards }) {
                   </Typography>
 
                   <Typography sx={courseCardContentTeacherName}>
-                    Instructor: {card.teacher_name}
+                    {card.teacher_name}
                   </Typography>
                   <Typography sx={courseCardContentCourseBrief}>
                     {card.course_brief}
@@ -110,12 +110,12 @@ export default function CourseCard({ cards }) {
                         )
                   }`}</Typography>
                   {/* number of the comments  */}
-                  <Typography sx={courseCardReviewCount}>
-                    {card.reviews.length}
+                  <Typography sx={{ ...courseCardReviewCount }}>
+                    ({card.reviews.length})
                   </Typography>
                   {matches && (
                     <Button variant="outlined" sx={courseCardButton}>
-                      Contact Me
+                      More Info
                     </Button>
                   )}
                 </CardActions>
