@@ -27,6 +27,7 @@ import {
   ratingTypo,
   tagsBtn,
   titleTypo,
+  showMoreLessButton,
 } from 'globalCss';
 
 import { API } from 'utils/API';
@@ -181,8 +182,9 @@ export default function CoursePage({ data, users }) {
             {/* fix the space between the number of reviews and the rating */}
           </Box>
 
+          {/* <Button sx={{...showMoreLessButton}}>Contact me</Button> */}
           <Button sx={{ display: 'block', ...contactBtn }}>
-            {course.email}
+            {/* {course.email} */} contact me
           </Button>
 
           {/* tags wrap start */}
@@ -211,6 +213,7 @@ export default function CoursePage({ data, users }) {
       </Box>
       {/* Profile page image/info section end*/}
       <div className="daysOnlineWrap">
+      <Typography>Days available:</Typography>
         <Box sx={centerContentRow}>
           {available.map((value, index) => {
             if (value == 'true') {
@@ -220,7 +223,7 @@ export default function CoursePage({ data, users }) {
                   variant="string"
                   sx={{
                     ...daysTypo,
-                    background: '#872e2e',
+                    background: '#48872e',
                     color: '#fff',
                     fontWeight: '500',
                   }}
@@ -241,6 +244,7 @@ export default function CoursePage({ data, users }) {
             }
           })}
         </Box>
+        <Typography>How is the course delivered:</Typography>
         <Box sx={{ ...centerContentRow, paddingTop: '10px' }}>
           {course.is_offline === 'true' ? (
             <Typography
@@ -252,14 +256,14 @@ export default function CoursePage({ data, users }) {
                 fontWeight: '500',
               }}
             >
-              Offline
+              In-person
             </Typography>
           ) : (
             <Typography
               variant="string"
               sx={{ ...daysTypo, background: '#eee' }}
             >
-              Offline
+              In-person
             </Typography>
           )}
           {course.is_online === 'true' ? (
@@ -272,14 +276,14 @@ export default function CoursePage({ data, users }) {
                 fontWeight: '500',
               }}
             >
-              Online
+              Remote
             </Typography>
           ) : (
             <Typography
               variant="string"
               sx={{ ...daysTypo, background: '#eee' }}
             >
-              Online
+              Remote
             </Typography>
           )}
         </Box>
@@ -290,7 +294,19 @@ export default function CoursePage({ data, users }) {
           variant="h4"
           sx={{ fontFamily: 'lato', padding: '30px 0 10px 0' }}
         >
-          About this class
+          Why Learn With {course.teacher_name} ?
+        </Typography>
+        <Typography sx={{ ...generalTypo, color: '#444' }}>
+          {course.bio_text}
+        </Typography>
+      </Box>
+
+      <Box sx={{ ...aboutSection, borderTop: '1px solid #eee' }}>
+        <Typography
+          variant="h4"
+          sx={{ fontFamily: 'lato', padding: '30px 0 10px 0' }}
+        >
+          About {course.course_title}
         </Typography>
         <Typography sx={{ ...generalTypo, color: '#444' }}>
           {course.long_description}
