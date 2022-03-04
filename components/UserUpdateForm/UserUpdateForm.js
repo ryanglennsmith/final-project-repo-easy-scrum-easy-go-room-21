@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { TextField, Button } from '@mui/material';
 
-const UserUpdateForm = ({ email, firstName, lastName, phone, userId }) => {
+const UserUpdateForm = ({
+  email,
+  firstName,
+  lastName,
+  phone,
+  userId,
+  createNew,
+  setNewUserSuccess,
+}) => {
   const [sendUpdate, setSendUpdate] = useState(false);
   const [update, setUpdate] = useState({
     email: email,
@@ -9,29 +17,50 @@ const UserUpdateForm = ({ email, firstName, lastName, phone, userId }) => {
     last_name: lastName,
     phone: phone,
   });
+
   console.log('update: ', update, 'updateReady: ', sendUpdate);
+  console.log('createNew: ', createNew);
+
   const handleSubmit = () => {
     // if validated? ->
     setSendUpdate(true);
   };
+
   useEffect(() => {
     if (sendUpdate) {
       const sendIt = async () => {
+        let url;
+        let req;
         console.log('update inside sendIt: ', update);
-        const res = await fetch(`http://localhost:3609/users/${userId}`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(update),
-        });
-
+        if (createNew) {
+          url = `http://localhost:3609/users`;
+          req = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(update),
+          };
+        } else if (!createNew) {
+          url = `http://localhost:3609/users/${userId}`;
+          req = {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(update),
+          };
+        }
+        const res = await fetch(url, req);
         const data = await res.json();
         console.log('result of post is: ', data);
+        if (data.email === email) {
+          setNewUserSuccess(true);
+        }
       };
       sendIt();
     }
   }, [sendUpdate]);
   return (
     <>
+      {createNew && <>enter your user info</>}
+
       <TextField
         id="user-email"
         defaultValue={email}

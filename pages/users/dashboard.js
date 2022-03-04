@@ -118,6 +118,7 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
           lastName={userData[0].last_name}
           phone={userData[0].phone}
           userId={userData[0].id}
+          createNew={false}
         />
       </div>
     </>
