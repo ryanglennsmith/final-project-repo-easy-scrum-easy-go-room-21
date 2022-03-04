@@ -2,20 +2,20 @@ export const API = {
   courses: [
     {
       course_id: 1,
-      teacher_name: 'Simona Mountcastle',
+      teacher_name: 'Simona Rossi',
       email: 'smountcastle0@ebay.co.uk',
-      location: 'Skrwilno',
+      location: 'London',
       bio_text:
         'Small batch crucifix helvetica kickstarter messenger bag before they sold out everyday carry viral ethical af next level chillwave hammock succulents pug.  Mixtape YOLO single-origin coffee sartorial, kitsch pitchfork ugh pabst letterpress.  Sartorial wayfarers lumbersexual retro before they sold out plaid etsy chillwave chicharrones portland gastropub VHS artisan tumblr.  Typewriter shaman locavore ramps, tumeric ugh pabst.  Umami kickstarter coloring book kitsch chartreuse, ramps plaid copper mug.  Offal everyday carry intelligentsia glossier, woke deep v microdosing selvage freegan hexagon scenester.  Mlkshk listicle portland raw denim, meditation lyft hoodie mustache hashtag.',
       long_description:
-        "Heirloom gastropub whatever cardigan neutra listicle wayfarers.  Cardigan you probably haven't heard of them four dollar toast, lumbersexual iceland affogato hexagon pabst poutine live-edge vexillologist af prism.  Man bun live-edge subway tile literally lumbersexual pug.  Hella freegan iceland small batch poke slow-carb.  Try-hard vice ennui pork belly, 90's subway tile echo park heirloom bushwick blog readymade lo-fi kogi flannel street art.  Squid farm-to-table butcher ugh heirloom direct trade.",
+        "This 4hour workshop is a fun and relaxing experience. I will be oferring plenty of guidance. You will be exploring different techniques, learn to see colour,shape and tone, and to relate these elements in compositions.  ",
       is_online: 'true',
       is_offline: 'true',
       image: 'https://images.unsplash.com/photo-1461344577544-4e5dc9487184',
       course_brief:
-        'Master cleanse taiyaki ethical bushwick slow-carb migas XOXO direct trade',
-      course_title: 'Painting Disasters',
-      course_tags: ['art', 'painting', 'disasters'],
+        'Painting for those who have never painted before or want to reasses their approach to painting',
+      course_title: 'Painting For Beginners',
+      course_tags: ['art', 'painting', 'beginners'],
       rating: 3.45,
       dates_available: [
         { Sunday: 'true' },
@@ -41,7 +41,7 @@ export const API = {
           reviewer: 'Kelsi Drivers',
           date: '22-06-2020',
           rating: 4,
-          review_text: 'Kogi drinking vinegar air plant pop-up',
+          review_text: 'Simona has a great personality and I had lots of fun whilst learning',
         },
       ],
     },
@@ -49,7 +49,7 @@ export const API = {
       course_id: 2,
       teacher_name: 'Carri Copas',
       email: 'ccopas1@slate.com',
-      location: 'Gaotan',
+      location: 'Brighton',
       bio_text:
         'Lomo distillery pickled polaroid crucifix.  Cloud bread fashion axe bushwick cornhole adaptogen flexitarian pinterest whatever.  Synth 8-bit beard man bun biodiesel.  Scenester tumeric edison bulb intelligentsia.  Umami snackwave franzen subway tile put a bird on it four loko retro jean shorts edison bulb marfa paleo.  YOLO humblebrag subway tile, blog squid wayfarers seitan sriracha man braid artisan try-hard freegan.',
       long_description:
@@ -59,8 +59,8 @@ export const API = {
       image: 'https://images.unsplash.com/photo-1496769843785-93aa0be525dc',
       course_brief:
         ' Actually etsy brunch trust fund, banjo meggings craft beer',
-      course_title: 'Pacifist Clay Pigeons',
-      course_tags: ['pacifism', 'birds', 'crafting', 'sculpting'],
+      course_title: 'Pottery basics',
+      course_tags: ['pacifism', 'poterry', 'crafting', 'sculpting'],
       rating: 4,
       dates_available: [
         { Sunday: 'true' },
