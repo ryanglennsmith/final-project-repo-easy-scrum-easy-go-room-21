@@ -9,6 +9,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Rating from '@mui/material/Rating';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import Box from '@mui/material/Box';
+import { useRouter } from 'next/router';
 
 // Importing CSS
 import {
@@ -23,6 +25,8 @@ import {
   courseCardRateAvg,
   courseCardReviewCount,
   courseCardActions,
+  navbarButton,
+  tagsBtn,
 } from '../../globalCss.js';
 import { Link } from '@mui/material';
 
@@ -31,6 +35,7 @@ import { Link } from '@mui/material';
 //pass mock data as prop
 export default function CourseCard({ cards }) {
   const matches = useMediaQuery('(min-width:700px)');
+  const router = useRouter();
   return (
     <Container sx={courseCardContainer} maxWidth="lg">
       {/* End hero unit */}
@@ -51,6 +56,28 @@ export default function CourseCard({ cards }) {
             >
               <Card sx={courseCardCardSection}>
                 {/* courseCardCardMedia from globalCss isn't working for img  */}
+                <CardActions>
+                  <div className="tagsBtnWrap">
+                    {card.course_tags.map((item, index) => {
+                      function onClick(e) {
+                        e.preventDefault();
+                        router.push(`/search/${item}`);
+                      }
+
+                      return (
+                        <Box className="tagsBtnContainer" key={index}>
+                          <Button
+                            onClick={onClick}
+                            sx={{ ...navbarButton, ...tagsBtn }}
+                          >
+                            {item}
+                          </Button>
+                        </Box>
+                      );
+                    })}
+                  </div>
+                </CardActions>
+
                 <CardMedia
                   component="img"
                   sx={

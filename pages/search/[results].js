@@ -13,6 +13,7 @@ import {
 import Footer from '@components/Footer/Footer';
 import NavBar from '@components/navBar/navBar';
 import CourseCard from '@components/course-card/CourseCard';
+import Header from '@components/Header/Header.js';
 
 // Importing CSS
 import {
@@ -112,9 +113,12 @@ export default function Results({ inputData }) {
 
   // console.log(courseTagsSearch);
 
+  const siteTitle = 'WeShare Results - Inspirational work by real Freelancers';
+
   return (
     <div className="wrap">
       <Box style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}>
+        <Header title={siteTitle}></Header>
         {/* Navbar section */}
 
         <div className="topWrap">
@@ -129,7 +133,7 @@ export default function Results({ inputData }) {
                 id="outlined-basic"
                 variant="outlined"
                 onChange={handleChange}
-onKeyDown={onEnter}
+                onKeyDown={onEnter}
                 sx={{ ...profileSearchBarInput, height: '40px' }}
               />
               <Button
@@ -150,6 +154,10 @@ onKeyDown={onEnter}
             </Box>
           ) : searchResult.length > 0 && search ? (
             <Box sx={aboutSection}>
+              <Header
+                title={`Search results for ${search} | WeShare `}
+              ></Header>
+
               <Typography variant="h4">Results for "{search}"</Typography>
               <Typography></Typography>
               {/* search results displayed here as cards */}
@@ -157,10 +165,10 @@ onKeyDown={onEnter}
             </Box>
           ) : searchResult.length === 0 && search ? (
             <Box sx={aboutSection}>
-              {' '}
-              <Typography>
-                Search results for "{search}" not found
-              </Typography>{' '}
+              <Header
+                title={`Search results for ${search} | WeShare `}
+              ></Header>{' '}
+              <Typography>Search results for "{search}" not found</Typography>{' '}
             </Box>
           ) : (
             <Box sx={aboutSection}>
@@ -175,6 +183,5 @@ onKeyDown={onEnter}
         {matchesMd && <Footer styling={footerContainerBoxMd} />}
       </Box>
     </div>
-
   );
 }
