@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TextField, Button, Checkbox } from '@mui/material';
+import { TextField, Button, Checkbox, Box } from '@mui/material';
 
 const AddCourse = ({
   email,
@@ -102,7 +102,7 @@ const AddCourse = ({
     setNewCourse({ ...newCourse, [field]: event.target.value });
   };
   return (
-    <>
+    <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
       <TextField
         onChange={(e) => {
           fieldChange(e, 'course_title');
@@ -146,6 +146,66 @@ const AddCourse = ({
         defaultValue={newCourse.location}
         id="new-course-location"
         label="location"
+        sx={{
+          margin: '10px 0 10px 0',
+          padding: '15px',
+        }}
+      />
+      <TextField
+        onChange={(e) => fieldChange(e, 'image')}
+        id="new-course-image"
+        required={true}
+        defaultValue={newCourse.image}
+        label="course image url"
+        sx={{
+          margin: '10px 0 10px 0',
+          padding: '15px',
+        }}
+      />{' '}
+      <TextField
+        onChange={(e) => fieldChange(e, 'course_brief')}
+        required={true}
+        defaultValue={newCourse.course_brief}
+        id="new-course-brief"
+        label="summary of the course"
+        sx={{
+          margin: '10px 0 10px 0',
+          padding: '15px',
+        }}
+      />
+      <TextField
+        onChange={(e) =>
+          setNewCourse({
+            ...newCourse,
+            course_tags: e.target.value.split(', '),
+          })
+        }
+        defaultValue={
+          Object.keys(courseToEdit).length > 0
+            ? newCourse.course_tags.join(', ')
+            : ''
+        }
+        id="new-course-tags"
+        label="comma separated list of course tags"
+        sx={{
+          margin: '10px 0 10px 0',
+          padding: '15px',
+        }}
+      />
+      <TextField
+        onChange={(e) =>
+          setNewCourse({
+            ...newCourse,
+            course_bullets: e.target.value.split('. '),
+          })
+        }
+        defaultValue={
+          Object.keys(courseToEdit).length > 0
+            ? newCourse.course_bullets.join('. ')
+            : ''
+        }
+        id="new-course-bullets"
+        label="course bullets"
         sx={{
           margin: '10px 0 10px 0',
           padding: '15px',
@@ -270,66 +330,6 @@ const AddCourse = ({
           ])
         }
       />
-      <TextField
-        onChange={(e) => fieldChange(e, 'image')}
-        id="new-course-image"
-        required={true}
-        defaultValue={newCourse.image}
-        label="course image url"
-        sx={{
-          margin: '10px 0 10px 0',
-          padding: '15px',
-        }}
-      />{' '}
-      <TextField
-        onChange={(e) => fieldChange(e, 'course_brief')}
-        required={true}
-        defaultValue={newCourse.course_brief}
-        id="new-course-brief"
-        label="summary of the course"
-        sx={{
-          margin: '10px 0 10px 0',
-          padding: '15px',
-        }}
-      />
-      <TextField
-        onChange={(e) =>
-          setNewCourse({
-            ...newCourse,
-            course_tags: e.target.value.split(', '),
-          })
-        }
-        defaultValue={
-          Object.keys(courseToEdit).length > 0
-            ? newCourse.course_tags.join(', ')
-            : ''
-        }
-        id="new-course-tags"
-        label="comma separated list of course tags"
-        sx={{
-          margin: '10px 0 10px 0',
-          padding: '15px',
-        }}
-      />
-      <TextField
-        onChange={(e) =>
-          setNewCourse({
-            ...newCourse,
-            course_bullets: e.target.value.split('. '),
-          })
-        }
-        defaultValue={
-          Object.keys(courseToEdit).length > 0
-            ? newCourse.course_bullets.join('. ')
-            : ''
-        }
-        id="new-course-bullets"
-        label="course bullets"
-        sx={{
-          margin: '10px 0 10px 0',
-          padding: '15px',
-        }}
-      />
       {!Object.values(requiredFields).includes(false) ? (
         <Button onClick={handleSubmit}>Submit</Button>
       ) : (
@@ -337,7 +337,7 @@ const AddCourse = ({
           Submit
         </Button>
       )}
-    </>
+    </Box>
   );
 };
 
