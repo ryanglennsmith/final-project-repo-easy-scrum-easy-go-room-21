@@ -7,7 +7,7 @@ body {
     'Noto Sans Display', sans-serif, 'Rhodium Libre', serif;
 }
 body {
-  min-height: 100vh;
+  height: 100%;
   min-height: -webkit-fill-available;
   overflow-x: hidden;
 }
@@ -66,4 +66,26 @@ fieldset {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.wrap {
+  min-height: 100vh;
+}
+
+.containerWrap {
+  min-height: calc(100% - 375px);
+}
+
+.tagsBtnWrap {
+  display: flex;
+  padding-top: 10px;
+}
+.tagsBtnContainer {
+  display: inline-block;
+  padding-right: 4px;
+}
+
+.daysOnlineWrap {
+  width: 1200px;
+  margin: 0 auto;
 }

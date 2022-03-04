@@ -1,6 +1,10 @@
 import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 import { API } from 'utils/API';
 import Link from 'next/link';
+import UserUpdateForm from '@components/UserUpdateForm/UserUpdateForm';
+import AddCourse from '@components/AddCourse/AddCourse';
+import { useState } from 'react';
+import { Button } from '@mui/material';
 export default function UserDashboard({ user, allUsers, allCourses }) {
   const userData = allUsers.filter((match) => {
     return user.email === match.email;
@@ -8,7 +12,9 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
   const myCourses = allCourses.filter((course) => {
     return user.email === course.email;
   });
-  console.log(myCourses);
+  const [createNew, setCreateNew] = useState(false);
+  const [editOld, setEditOld] = useState(false);
+  const [courseToEdit, setCourseToEdit] = useState();
   return (
     <>
       <div>
@@ -25,10 +31,22 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
         <ul>
           {myCourses.map((course) => {
             return (
-              <li key={course.id}>
-                <Link href={`/courses/${course.course_id}`}>
+              <li key={course.course_id}>
+                <Link
+                  key={`course-link-${course.id}`}
+                  href={`/courses/${course.course_id}`}
+                >
                   {course.course_title}
                 </Link>
+                <Button
+                  onClick={() => {
+                    setEditOld(!editOld);
+                    setCreateNew(false);
+                    setCourseToEdit(course);
+                  }}
+                >
+                  Edit Course
+                </Button>
               </li>
             );
           })}
@@ -38,8 +56,40 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
         className="courseCRUDComponent"
         style={{ margin: '5px', border: '2px solid hotpink' }}
       >
+        {' '}
+        <Button
+          onClick={() => {
+            setCreateNew(!createNew);
+            setCourseToEdit({});
+            setEditOld(false);
+          }}
+        >
+          Create New Course
+        </Button>
         here's where you can C(R)UD your courses - (the R is separate? comp
         above)
+        {createNew && (
+          <AddCourse
+            createNew={createNew}
+            editOld={editOld}
+            courseToEdit={courseToEdit}
+            email={user.email}
+            teacherName={`${userData[0].first_name} ${userData[0].last_name}`}
+            userId={userData[0].id}
+            courses={allCourses}
+          />
+        )}
+        {editOld && (
+          <AddCourse
+            createNew={createNew}
+            editOld={editOld}
+            courseToEdit={courseToEdit}
+            email={user.email}
+            teacherName={`${userData[0].first_name} ${userData[0].last_name}`}
+            userId={userData[0].id}
+            courses={allCourses}
+          />
+        )}
       </div>
       <div
         className="coursesYouTookOrWillTakeComponent"
@@ -58,7 +108,17 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
         className="userCRUDComponent"
         style={{ margin: '5px', border: '2px solid hotpink' }}
       >
-        here's where you can update your personal info
+        here's where you can update your personal info what to add to this
+        component: input form w/submit btn: email (matches already with auth0),
+        phone, first_name, last_name (create a quick js fn to make new user id
+        on new user: users.length + 2)
+        <UserUpdateForm
+          email={user.email}
+          firstName={userData[0].first_name}
+          lastName={userData[0].last_name}
+          phone={userData[0].phone}
+          userId={userData[0].id}
+        />
       </div>
     </>
   );
@@ -69,8 +129,11 @@ export const getServerSideProps = withPageAuthRequired({
     // use ctx if change to dynamic route?
     // go get you some data
     // how about all the users?
-    const getAllUsers = API.users;
-    const getAllCourses = API.courses;
+
+    const getAllUsersFetch = await fetch('http://localhost:3609/users');
+    const getAllCoursesFetch = await fetch('http://localhost:3609/courses');
+    const getAllUsers = await getAllUsersFetch.json();
+    const getAllCourses = await getAllCoursesFetch.json();
 
     return { props: { allUsers: getAllUsers, allCourses: getAllCourses } };
   },

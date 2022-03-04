@@ -24,7 +24,7 @@ export default function ReviewSection({ data, setNumOfReviews, userData }) {
   const [open, setOpen] = React.useState(false);
 
   function showMoreItems() {
-    setVisible((prevValue) => prevValue + 2);
+    setVisible(reviewData.length);
     // setShowAddReview(true);
   }
 

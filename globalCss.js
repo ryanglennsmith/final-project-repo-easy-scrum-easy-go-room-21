@@ -298,7 +298,7 @@ export const daysTypo = {
   fontSize: '16px',
   fontWeight: '300',
   color: '#555',
-  margin: '3px',
+  marginRight: '5px',
   letterSpacing: 0,
   padding: '0 5px',
   borderRadius: '2px',
@@ -315,7 +315,7 @@ export const ratingTypo = {
 export const aboutSection = {
   display: 'flex',
   flexDirection: 'column',
-  margin: '30px auto',
+  margin: '45px auto',
   width: '1200px',
 };
 
@@ -342,4 +342,23 @@ export const showMoreLessButton = {
   '&:hover': { background: '#ff763c' },
   border: 'none',
   margin: '3rem',
+};
+
+export const tagsBtn = {
+  background: '#fff',
+  '&:hover': { background: '#eee' },
+  color: '#555',
+  border: '1px solid #ccc',
+  borderRadius: '10px',
+  padding: '5px 12px',
+};
+
+export const contactBtn = {
+  color: '#777',
+  fontSize: '16px',
+  fontFamily: 'Lato',
+  width: '100%',
+  background: '#f7f7f7',
+  border: '1px solid #eee',
+  marginTop: '15px',
 };

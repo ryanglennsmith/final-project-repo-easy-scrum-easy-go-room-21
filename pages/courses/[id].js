@@ -14,7 +14,7 @@ import NavBar from '@components/navBar/navBar';
 import {
   aboutSection,
   centerContentRow,
-  courseCardCardImage,
+  contactBtn,
   daysTypo,
   footerContainerBoxLgr,
   footerContainerBoxMd,
@@ -25,6 +25,7 @@ import {
   profileSearchBar,
   profileSearchBarInput,
   ratingTypo,
+  tagsBtn,
   titleTypo,
 } from 'globalCss';
 
@@ -34,6 +35,7 @@ import { useRouter } from 'next/router';
 import { useUser } from '@auth0/nextjs-auth0';
 import { useEffect, useState } from 'react';
 import Header from '@components/Header/Header.js';
+
 
 export default function CoursePage({ data, users }) {
   const router = useRouter();
@@ -145,10 +147,8 @@ export default function CoursePage({ data, users }) {
           }}
         >
           <Typography sx={titleTypo}>{course.course_title} </Typography>
-
           <Typography sx={nameTypo}> {course.teacher_name}</Typography>
           <Typography sx={generalTypo}> {course.course_brief}</Typography>
-
           <Box sx={centerContentRow}>
             <Rating
               name="read-only"
@@ -186,35 +186,29 @@ export default function CoursePage({ data, users }) {
             {/* fix the space between the number of reviews and the rating */}
           </Box>
 
-          <Box sx={centerContentRow}>
-            {available.map((value, index) => {
-              if (value == 'true') {
-                return (
-                  <Typography
-                    key={index}
-                    variant="string"
-                    sx={{
-                      ...daysTypo,
-                      background: '#872e2e',
-                      color: '#fff',
-                      fontWeight: '500',
-                    }}
-                  >
-                    {` ${days[index]} `}{' '}
-                  </Typography>
-                );
-              } else {
-                return (
-                  <Typography
-                    key={index}
-                    variant="string"
-                    sx={{ ...daysTypo, background: '#eee' }}
-                  >
-                    {` ${days[index]} `}{' '}
-                  </Typography>
-                );
+          <Button sx={{ display: 'block', ...contactBtn }}>
+            {course.email}
+          </Button>
+
+          {/* tags wrap start */}
+          <div className="tagsBtnWrap">
+            {course.course_tags.map((item, index) => {
+              function onClick(e) {
+                e.preventDefault();
+                router.push(`/search/${item}`);
               }
+              return (
+                <Box className="tagsBtnContainer" key={index}>
+                  <Button
+                    onClick={onClick}
+                    sx={{ ...navbarButton, ...tagsBtn }}
+                  >
+                    {item}
+                  </Button>
+                </Box>
+              );
             })}
+
           </Box>
 
           <Box sx={{ ...centerContentRow, paddingTop: '10px' }}>
@@ -275,16 +269,94 @@ export default function CoursePage({ data, users }) {
               </Box>
             );
           })}
+
+          </div>
+          {/* tags wrap ends */}
+
         </Box>{' '}
         {/* Tag buttons */}
         {/* Tag buttons ends */}
       </Box>
       {/* Profile page image/info section end*/}
+      <div className="daysOnlineWrap">
+        <Box sx={centerContentRow}>
+          {available.map((value, index) => {
+            if (value == 'true') {
+              return (
+                <Typography
+                  key={index}
+                  variant="string"
+                  sx={{
+                    ...daysTypo,
+                    background: '#872e2e',
+                    color: '#fff',
+                    fontWeight: '500',
+                  }}
+                >
+                  {` ${days[index]} `}{' '}
+                </Typography>
+              );
+            } else {
+              return (
+                <Typography
+                  key={index}
+                  variant="string"
+                  sx={{ ...daysTypo, background: '#eee' }}
+                >
+                  {` ${days[index]} `}{' '}
+                </Typography>
+              );
+            }
+          })}
+        </Box>
+        <Box sx={{ ...centerContentRow, paddingTop: '10px' }}>
+          {course.is_offline === 'true' ? (
+            <Typography
+              variant="string"
+              sx={{
+                ...daysTypo,
+                background: '#48872e',
+                color: '#fff',
+                fontWeight: '500',
+              }}
+            >
+              Offline
+            </Typography>
+          ) : (
+            <Typography
+              variant="string"
+              sx={{ ...daysTypo, background: '#eee' }}
+            >
+              Offline
+            </Typography>
+          )}
+          {course.is_online === 'true' ? (
+            <Typography
+              variant="string"
+              sx={{
+                ...daysTypo,
+                background: '#48872e',
+                color: '#fff',
+                fontWeight: '500',
+              }}
+            >
+              Online
+            </Typography>
+          ) : (
+            <Typography
+              variant="string"
+              sx={{ ...daysTypo, background: '#eee' }}
+            >
+              Online
+            </Typography>
+          )}
+        </Box>
+      </div>
       {/* About section */}
-      <Box sx={aboutSection}>
+      <Box sx={{ ...aboutSection, borderTop: '1px solid #eee' }}>
         <Typography
           variant="h4"
-          sx={{ fontFamily: 'lato', paddingBottom: '10px' }}
+          sx={{ fontFamily: 'lato', padding: '30px 0 10px 0' }}
         >
           About this class
         </Typography>

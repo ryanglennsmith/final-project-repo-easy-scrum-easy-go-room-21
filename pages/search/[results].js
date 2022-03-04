@@ -116,6 +116,7 @@ export default function Results({ inputData }) {
   const siteTitle = 'WeShare Results - Inspirational work by real Freelancers';
 
   return (
+
     <Box style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}>
       <Header title={siteTitle}></Header>
       {/* Navbar section */}
@@ -171,5 +172,69 @@ export default function Results({ inputData }) {
       {/* When the screen width reaches at most 913px, then this css takes place. */}
       {matchesMd && <Footer styling={footerContainerBoxMd} />}
     </Box>
+
+    <div className="wrap">
+      <Box style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}>
+        {/* Navbar section */}
+
+        <div className="topWrap">
+          <Box sx={navbarSidePageBox}>
+            <NavBar logoLink={'https://i1.lensdump.com/i/rLRHNK.png'} />
+          </Box>
+          {/* Navbar section end*/}
+          {/* Search section */}
+          <div className="wrapProfileSearchBar">
+            <Box sx={{ ...profileSearchBar, height: '40px' }}>
+              <TextField
+                id="outlined-basic"
+                variant="outlined"
+                onChange={handleChange}
+onKeyDown={onEnter}
+                sx={{ ...profileSearchBarInput, height: '40px' }}
+              />
+              <Button
+                onClick={onClick}
+                variant="contained"
+                sx={{ ...navbarButton, height: '40px' }}
+              >
+                Search
+              </Button>
+            </Box>
+          </div>
+        </div>
+        {/* Search section end */}
+        <div className="containerWrap">
+          {search === 'results' ? (
+            <Box sx={aboutSection}>
+              <Typography>Search for item</Typography>
+            </Box>
+          ) : searchResult.length > 0 && search ? (
+            <Box sx={aboutSection}>
+              <Typography variant="h4">Results for "{search}"</Typography>
+              <Typography></Typography>
+              {/* search results displayed here as cards */}
+              <CourseCard cards={searchResult} />
+            </Box>
+          ) : searchResult.length === 0 && search ? (
+            <Box sx={aboutSection}>
+              {' '}
+              <Typography>
+                Search results for "{search}" not found
+              </Typography>{' '}
+            </Box>
+          ) : (
+            <Box sx={aboutSection}>
+              <Typography>Search for item</Typography>
+            </Box>
+          )}
+        </div>
+
+        {/* When the screen width reaches atleast 913px, then this css takes place. */}
+        {matchesLrg && <Footer styling={footerContainerBoxLgr} />}
+        {/* When the screen width reaches at most 913px, then this css takes place. */}
+        {matchesMd && <Footer styling={footerContainerBoxMd} />}
+      </Box>
+    </div>
+
   );
 }
