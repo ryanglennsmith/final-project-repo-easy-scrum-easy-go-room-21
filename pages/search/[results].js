@@ -32,7 +32,7 @@ import {
 
 // import api data and map through to create card content
 import { API } from 'utils/API';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { createContext } from 'vm';
 
 // from homepage, user input is taken in  and onclick of search button-----> user input is passed to results page  ----> list of results displayed on results page.
@@ -40,18 +40,22 @@ import { createContext } from 'vm';
 //note to self: search bar components on both pages will operate in different ways. The search component on results page WILL NOT redirect users to another page to display results whereas it will on the homepage.
 
 //connect search button so that when it is pressed, we are redirected to the results page(which then would display course cards related to user input)
-const data = API.courses;
+// const data = API.courses;
 
 // compare input to data.course_title
 
 //gets search input from params of url
 export async function getServerSideProps(context) {
-  const homepageSearch = context.query.results;
+  const homepageSearch = await context.query.results;
   console.log(context);
+
+  const api = await fetch(`http://localhost:3609/courses`);
+  const data = JSON.stringify(api);
   // console.log(text);
   return {
     props: {
       inputData: homepageSearch,
+      apiData: data,
     },
   };
 }
@@ -65,7 +69,7 @@ export async function getServerSideProps(context) {
 //else
 // only conduct search when user uses the search bar on explore page
 
-export default function Results({ inputData }) {
+export default function Results({ inputData, apiData }) {
   const matchesMd = useMediaQuery('(max-width:913px)');
   const matchesLrg = useMediaQuery('(min-width:913px)');
 
@@ -73,6 +77,7 @@ export default function Results({ inputData }) {
 
   const [input, setInput] = useState('');
   const [search, setSearch] = useState(inputData);
+  const [searchTerm, setSearchTerm] = useState([]);
 
   function handleChange(e) {
     // saves value into the state
@@ -96,22 +101,27 @@ export default function Results({ inputData }) {
     }
   }
   // explore page filter
-  const searchResult = data.filter(
-    (item) =>
-      item.course_title.toUpperCase().includes(search.toUpperCase()) ||
-      item.course_tags.includes(search.toLowerCase())
-  );
-
-  // const art = 'art';
-  // carry out an array method that maps over the array data.course_tags
-
-  // const courseTagsSearch = data.filter((item) =>
-  //   item.course_tags.includes(search)
+  // const searchResult = data.filter(
+  //   (item) =>
+  //     item.course_title.toUpperCase().includes(search.toUpperCase()) ||
+  //     item.course_tags.includes(search.toLowerCase())
   // );
-  // When we capture the value we can could possibly use the OR operator to add the courseTagsSearch to jsx
-  // console.log(searchResult);
 
-  // console.log(courseTagsSearch);
+  // useEffect
+  useEffect(() => {
+    async function getData() {
+      const response = await fetch(apiData);
+
+      const searchResult = response.filter(
+        (item) =>
+          item.course_title.toUpperCase().includes(search.toUpperCase()) ||
+          item.course_tags.includes(search.toLowerCase())
+      );
+
+      return searchResult;
+    }
+    getData();
+  }, []);
 
   const siteTitle = 'WeShare Results - Inspirational work by real Freelancers';
 
