@@ -209,50 +209,6 @@ export default function CoursePage({ data, users }) {
             })}
           </div>
 
-          <Box sx={{ ...centerContentRow, paddingTop: '10px' }}>
-            {course.is_offline === 'true' ? (
-              <Typography
-                variant="string"
-                sx={{
-                  ...daysTypo,
-                  background: '#48872e',
-                  color: '#fff',
-                  fontWeight: '500',
-                }}
-              >
-                Offline
-              </Typography>
-            ) : (
-              <Typography
-                variant="string"
-                sx={{ ...daysTypo, background: '#eee' }}
-              >
-                Offline
-              </Typography>
-            )}
-            {course.is_online === 'true' ? (
-              <Typography
-                variant="string"
-                sx={{
-                  ...daysTypo,
-                  background: '#48872e',
-                  color: '#fff',
-                  fontWeight: '500',
-                }}
-              >
-                Online
-              </Typography>
-            ) : (
-              <Typography
-                variant="string"
-                sx={{ ...daysTypo, background: '#eee' }}
-              >
-                Online
-              </Typography>
-            )}
-          </Box>
-
-          <Button>{course.email}</Button>
           {/* {course.course_tags.map((item, index) => {
             function onClick(e) {
               e.preventDefault();
