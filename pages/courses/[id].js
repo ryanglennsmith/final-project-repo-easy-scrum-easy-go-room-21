@@ -36,7 +36,6 @@ import { useUser } from '@auth0/nextjs-auth0';
 import { useEffect, useState } from 'react';
 import Header from '@components/Header/Header.js';
 
-
 export default function CoursePage({ data, users }) {
   const router = useRouter();
 
@@ -208,8 +207,7 @@ export default function CoursePage({ data, users }) {
                 </Box>
               );
             })}
-
-          </Box>
+          </div>
 
           <Box sx={{ ...centerContentRow, paddingTop: '10px' }}>
             {course.is_offline === 'true' ? (
@@ -255,7 +253,7 @@ export default function CoursePage({ data, users }) {
           </Box>
 
           <Button>{course.email}</Button>
-          {course.course_tags.map((item, index) => {
+          {/* {course.course_tags.map((item, index) => {
             function onClick(e) {
               e.preventDefault();
               router.push(`/search/${item}`);
@@ -268,11 +266,10 @@ export default function CoursePage({ data, users }) {
                 </Button>
               </Box>
             );
-          })}
+          })} */}
 
-          </div>
+          {/* </div> */}
           {/* tags wrap ends */}
-
         </Box>{' '}
         {/* Tag buttons */}
         {/* Tag buttons ends */}
