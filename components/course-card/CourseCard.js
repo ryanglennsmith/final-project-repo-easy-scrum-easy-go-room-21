@@ -56,27 +56,6 @@ export default function CourseCard({ cards }) {
             >
               <Card sx={courseCardCardSection}>
                 {/* courseCardCardMedia from globalCss isn't working for img  */}
-                <CardActions>
-                  <div className="tagsBtnWrap">
-                    {card.course_tags.map((item, index) => {
-                      function onClick(e) {
-                        e.preventDefault();
-                        router.push(`/search/${item}`);
-                      }
-
-                      return (
-                        <Box className="tagsBtnContainer" key={index}>
-                          <Button
-                            onClick={onClick}
-                            sx={{ ...navbarButton, ...tagsBtn }}
-                          >
-                            {item}
-                          </Button>
-                        </Box>
-                      );
-                    })}
-                  </div>
-                </CardActions>
 
                 <CardMedia
                   component="img"
@@ -87,6 +66,34 @@ export default function CourseCard({ cards }) {
                   image={card.images.thumb}
                   alt={card.teacher_name}
                 />
+
+                {/* tags   */}
+                <CardActions>
+                  <div className=" displayInlineBlock ">
+                    {card.course_tags.map((item, index) => {
+                      function onClick(e) {
+                        e.preventDefault();
+                        router.push(`/search/${item}`);
+                      }
+
+                      return (
+                        <Box className="tagsBtnContainer" key={index}>
+                          <Button
+                            onClick={onClick}
+                            sx={{
+                              ...navbarButton,
+                              ...tagsBtn,
+                              fontSize: '10px',
+                            }}
+                          >
+                            {item}
+                          </Button>
+                        </Box>
+                      );
+                    })}
+                  </div>
+                </CardActions>
+
                 <CardContent sx={courseCardCardContent}>
                   <Typography
                     gutterBottom
