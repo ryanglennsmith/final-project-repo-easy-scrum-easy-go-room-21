@@ -2,17 +2,54 @@ import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 // import Link from 'next/link';
 import UserUpdateForm from '@components/UserUpdateForm/UserUpdateForm';
 import AddCourse from '@components/AddCourse/AddCourse';
-import { useState } from 'react';
-import { Button, Container, Grid, Card, Box, Link } from '@mui/material';
+import { useEffect, useState } from 'react';
+import {
+  Button,
+  Container,
+  Grid,
+  Card,
+  Box,
+  Link,
+  Typography,
+} from '@mui/material';
 import {
   footerContainerBoxLgr,
   courseCardCardSection,
   courseCardButton,
   navbarSidePageBox,
+  titleTypo,
+  generalTypo,
+  subHeadingTypo,
+  subHeadingTypoProfile,
 } from 'globalCss';
 import Footer from '@components/Footer/Footer';
 import NavBar from '@components/navBar/navBar';
+
 export default function UserDashboard({ user, allUsers, allCourses }) {
+  const [greeting, setGreeting] = useState('Welcome back ');
+  function getTimeResponse() {
+    const date = new Date();
+    const hour = date.getHours();
+
+    console.log(hour);
+
+    if (hour < 12) {
+      return 'Good morning ';
+    }
+    if (hour >= 12 && hour < 18) {
+      return 'Good afternoon ';
+    }
+    if (hour >= 18) {
+      return 'Good evening ';
+    } else {
+      return 'Welcome back ';
+    }
+  }
+
+  useEffect(() => {
+    setGreeting(getTimeResponse());
+  }, []);
+
   const userData = allUsers.filter((match) => {
     return user.email === match.email;
   });
@@ -23,6 +60,35 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
   const [editOld, setEditOld] = useState(false);
   const [courseToEdit, setCourseToEdit] = useState('');
   const [updateProfile, setUpdateProfile] = useState(false);
+  const [deleteCourse, setDeleteCourse] = useState(false);
+  const [courseId, setCourseId] = useState('');
+
+  function handleDeleteClick(id) {
+    setCourseId(Number(id));
+    setDeleteCourse(true);
+  }
+
+  useEffect(() => {
+    async function deleteCourseFunc() {
+      // if statement stops the function from looping on reload
+      if (deleteCourse) {
+        const id = Number(courseId);
+
+        const req = {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json' },
+        };
+        const url = `http://localhost:3609/courses/${id}`;
+        const res = await fetch(url, req);
+        const data = await res.json();
+        console.log('data sent: ', data);
+        setDeleteCourse(false);
+        setCourseId('');
+        window.location.reload();
+      }
+    }
+    deleteCourseFunc();
+  }, [courseId]);
   return (
     <>
       <Box style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}>
@@ -33,7 +99,9 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
         {/* Navbar section end*/}
 
         <Container>
-          <p>Hello, {userData[0].first_name}</p>
+          <Typography sx={titleTypo}>
+            {greeting} {userData[0].first_name}
+          </Typography>
           <Grid container spacing={4}>
             {/* <Grid item>
               <Card sx={{ ...courseCardCardSection }} xs={12}>
@@ -77,34 +145,74 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
             </Grid>
             <Grid item xs={6}>
               <Card sx={{ ...courseCardCardSection, minHeight: '600px' }}>
-                <p style={{ fontWeight: 'bold' }}>
-                  here's a list of the courses you teach:
-                </p>
-                <ul>
+                <Typography
+                  sx={{
+                    ...subHeadingTypoProfile,
+
+                    alignSelf: 'flex-start',
+                  }}
+                >
+                  Courses you teach:
+                </Typography>
+                <ul
+                  style={{
+                    minWidth: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    alignContent: 'space-between',
+                    flexWrap: 'wrap',
+                  }}
+                >
                   {myCourses.map((course) => {
                     return (
-                      <li key={course.course_id}>
+                      <li
+                        key={course.course_id}
+                        style={{
+                          minWidth: '100%',
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignContent: 'space-between',
+                          marginTop: '10px',
+                        }}
+                      >
                         <Link
                           sx={{
+                            ...generalTypo,
                             textDecoration: 'none',
                             color: 'black',
                           }}
                           key={`course-link-${course.id}`}
                           href={`/courses/${course.course_id}`}
                         >
-                          {course.course_title}
+                          {course.course_title.length > 35
+                            ? `${course.course_title
+                                .split('')
+                                .splice(0, 25)
+                                .join('')}...`
+                            : `${course.course_title}`}
                         </Link>
-                        <Button
-                          sx={{ ...courseCardButton, marginX: '15px' }}
-                          onClick={() => {
-                            setEditOld(!editOld);
-                            setCreateNew(false);
-                            setCourseToEdit(course);
-                            setUpdateProfile(false);
-                          }}
-                        >
-                          Edit Course
-                        </Button>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+                          <Button
+                            sx={{ ...courseCardButton }}
+                            onClick={() => {
+                              setEditOld(!editOld);
+                              setCreateNew(false);
+                              setCourseToEdit(course);
+                              setUpdateProfile(false);
+                            }}
+                          >
+                            Edit Course
+                          </Button>
+                          <Button
+                            onClick={() => {
+                              handleDeleteClick(course.id);
+                            }}
+                            sx={{ ...courseCardButton, margin: '0 25px' }}
+                          >
+                            X
+                          </Button>
+                        </Box>
                       </li>
                     );
                   })}
@@ -116,7 +224,11 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
                 {' '}
                 {updateProfile && (
                   <>
-                    <p>Update your user profile here</p>
+                    <Typography
+                      sx={{ ...subHeadingTypoProfile, marginBottom: '10px' }}
+                    >
+                      Update your user profile here:
+                    </Typography>
                     <UserUpdateForm
                       email={user.email}
                       firstName={userData[0].first_name}
@@ -129,7 +241,9 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
                 )}
                 {createNew && (
                   <>
-                    <p>create a new course</p>
+                    <Typography sx={subHeadingTypoProfile}>
+                      Create a new course here:
+                    </Typography>
                     <AddCourse
                       createNew={createNew}
                       editOld={editOld}
@@ -142,15 +256,22 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
                   </>
                 )}
                 {editOld && (
-                  <AddCourse
-                    createNew={createNew}
-                    editOld={editOld}
-                    courseToEdit={courseToEdit}
-                    email={user.email}
-                    teacherName={`${userData[0].first_name} ${userData[0].last_name}`}
-                    userId={userData[0].id}
-                    courses={allCourses}
-                  />
+                  <>
+                    <Typography
+                      sx={{ ...subHeadingTypoProfile, marginBottom: '10px' }}
+                    >
+                      Edit your course here:
+                    </Typography>
+                    <AddCourse
+                      createNew={createNew}
+                      editOld={editOld}
+                      courseToEdit={courseToEdit}
+                      email={user.email}
+                      teacherName={`${userData[0].first_name} ${userData[0].last_name}`}
+                      userId={userData[0].id}
+                      courses={allCourses}
+                    />
+                  </>
                 )}
               </Card>
             </Grid>
