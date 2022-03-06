@@ -239,7 +239,7 @@ const AddCourse = ({
         <Typography
           sx={{ ...generalTypo, alignSelf: 'flex-start', marginX: '15px' }}
         >
-          Indicate if your course available online or offline:
+          Indicate which days your course takes place:
         </Typography>
         <Box
           sx={{
