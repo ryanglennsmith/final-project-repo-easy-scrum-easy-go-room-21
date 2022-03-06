@@ -40,7 +40,7 @@ import { createContext } from 'vm';
 //note to self: search bar components on both pages will operate in different ways. The search component on results page WILL NOT redirect users to another page to display results whereas it will on the homepage.
 
 //connect search button so that when it is pressed, we are redirected to the results page(which then would display course cards related to user input)
-// const data = API.courses;
+const data = API.courses;
 
 // compare input to data.course_title
 
@@ -50,7 +50,7 @@ export async function getServerSideProps(context) {
   console.log(context);
 
   const api = await fetch(`http://localhost:3609/courses`);
-  const data = JSON.stringify(api);
+  const data = await api.json();
   // console.log(text);
   return {
     props: {
@@ -77,7 +77,7 @@ export default function Results({ inputData, apiData }) {
 
   const [input, setInput] = useState('');
   const [search, setSearch] = useState(inputData);
-  const [searchTerm, setSearchTerm] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   function handleChange(e) {
     // saves value into the state
@@ -101,27 +101,27 @@ export default function Results({ inputData, apiData }) {
     }
   }
   // explore page filter
-  // const searchResult = data.filter(
-  //   (item) =>
-  //     item.course_title.toUpperCase().includes(search.toUpperCase()) ||
-  //     item.course_tags.includes(search.toLowerCase())
-  // );
+  const searchResult = data.filter(
+    (item) =>
+      item.course_title.toUpperCase().includes(search.toUpperCase()) ||
+      item.course_tags.includes(search.toLowerCase())
+  );
 
   // useEffect
-  useEffect(() => {
-    async function getData() {
-      const response = await fetch(apiData);
+  // useEffect(() => {
+  //   async function getData() {
+  //     const response = await fetch(apiData);
 
-      const searchResult = response.filter(
-        (item) =>
-          item.course_title.toUpperCase().includes(search.toUpperCase()) ||
-          item.course_tags.includes(search.toLowerCase())
-      );
+  //     const searchResult = response.filter(
+  //       (item) =>
+  //         item.course_title.toUpperCase().includes(search.toUpperCase()) ||
+  //         item.course_tags.includes(search.toLowerCase())
+  //     );
 
-      return searchResult;
-    }
-    getData();
-  }, []);
+  //     return searchResult;
+  //   }
+  //   getData();
+  // }, []);
 
   const siteTitle = 'WeShare Results - Inspirational work by real Freelancers';
 
@@ -171,7 +171,7 @@ export default function Results({ inputData, apiData }) {
               <Typography variant="h4">Results for "{search}"</Typography>
               <Typography></Typography>
               {/* search results displayed here as cards */}
-              <CourseCard cards={searchResult} />
+              <CourseCard cards={searchResult} setSearch={setSearch} />
             </Box>
           ) : searchResult.length === 0 && search ? (
             <Box sx={aboutSection}>

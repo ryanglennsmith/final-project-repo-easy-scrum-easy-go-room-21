@@ -33,7 +33,7 @@ import { Link } from '@mui/material';
 //plan -  fetch data from ryan's mock api
 
 //pass mock data as prop
-export default function CourseCard({ cards }) {
+export default function CourseCard({ cards, setSearch }) {
   const matches = useMediaQuery('(min-width:700px)');
   const router = useRouter();
   return (
@@ -61,6 +61,11 @@ export default function CourseCard({ cards }) {
                     {card.course_tags.map((item, index) => {
                       function onClick(e) {
                         e.preventDefault();
+                        if (setSearch === '') {
+                          console.log('yes');
+                        } else {
+                          setSearch(item);
+                        }
                         router.push(`/search/${item}`);
                       }
 
