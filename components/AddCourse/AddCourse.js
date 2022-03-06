@@ -3,6 +3,7 @@ import { TextField, Button, Checkbox, Box, Typography } from '@mui/material';
 import {
   centerBoxContent,
   courseCardButton,
+  generalTypo,
   profileTextfields,
 } from 'globalCss';
 
@@ -212,6 +213,11 @@ const AddCourse = ({
       {/* Container for checkboxes and submission button */}
       <Box sx={centerBoxContent}>
         {/* Start of online/offline check boxes */}
+        <Typography
+          sx={{ ...generalTypo, alignSelf: 'flex-start', marginX: '15px' }}
+        >
+          Indicate if your course available online or offline:
+        </Typography>
         <Box>
           <Checkbox
             defaultChecked={newCourse.is_online === 'true'}
@@ -230,6 +236,11 @@ const AddCourse = ({
         </Box>
         {/* End of online/offline check boxes */}
         {/* Start of days of the week check boxes */}
+        <Typography
+          sx={{ ...generalTypo, alignSelf: 'flex-start', marginX: '15px' }}
+        >
+          Indicate if your course available online or offline:
+        </Typography>
         <Box
           sx={{
             display: 'flex',
