@@ -192,7 +192,13 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
                                 .join('')}...`
                             : `${course.course_title}`}
                         </Link>
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+                        <Box
+                          sx={{
+                            display: 'flex',
+                            flexWrap: 'wrap',
+                            margin: '0 25px',
+                          }}
+                        >
                           <Button
                             sx={{ ...courseCardButton }}
                             onClick={() => {
@@ -204,14 +210,14 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
                           >
                             Edit Course
                           </Button>
-                          <Button
+                          {/* <Button
                             onClick={() => {
                               handleDeleteClick(course.id);
                             }}
                             sx={{ ...courseCardButton, margin: '0 25px' }}
                           >
                             X
-                          </Button>
+                          </Button> */}
                         </Box>
                       </li>
                     );
