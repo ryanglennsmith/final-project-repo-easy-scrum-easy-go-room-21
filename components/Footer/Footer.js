@@ -12,7 +12,7 @@ function Copyright() {
       sx={{ ...copyrightTypoWrap }}
     >
       <span className="copyright">Copyright © 2022.</span>
-      <span className="copyright">WeShare All rights reserverd.</span>
+      <span className="copyright">WeShare All rights reserved.</span>
     </Typography>
   );
 }

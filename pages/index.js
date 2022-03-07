@@ -76,7 +76,7 @@ export default function Album() {
 
         <Banner />
         {/* course card starts*/}
-        <CourseCard cards={data} />
+        <CourseCard cards={data} setSearch={''} />
         {/* course card ends*/}
       </main>
       <Footer styling={footerContainerBoxMd} />
