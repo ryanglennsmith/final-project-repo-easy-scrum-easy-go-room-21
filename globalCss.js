@@ -15,6 +15,14 @@ export const centerContentCol = {
   padding: '0!important',
 };
 
+// Uses margin "0 auto" instead
+export const centerBoxContent = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  margin: '0 auto',
+};
+
 // *******NAVBAR CSS*******
 export const navBarApp = {
   width: '100%',
@@ -369,4 +377,18 @@ export const contactBtn = {
   background: '#f7f7f7',
   border: '1px solid #eee',
   marginTop: '15px',
+};
+
+export const subHeadingTypoProfile = {
+  fontFamily: 'Roboto',
+  fontSize: '32px',
+  fontWeight: '700',
+  lineHeight: '40px',
+  letterSpacing: '0em',
+  textAlign: 'left',
+};
+
+export const profileTextfields = {
+  margin: '10px 0 10px 0',
+  padding: '15px',
 };
