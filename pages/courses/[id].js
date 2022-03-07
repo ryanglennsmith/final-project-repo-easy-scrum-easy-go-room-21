@@ -28,6 +28,7 @@ import {
   tagsBtn,
   titleTypo,
   showMoreLessButton,
+  aboutSectionType,
 } from 'globalCss';
 
 import { API } from 'utils/API';
@@ -219,100 +220,117 @@ export default function CoursePage({ data, users }) {
       </Box>
       {/* Profile page image/info section end*/}
       <div className="daysOnlineWrap">
-      <Typography>Days available:</Typography>
-        <Box sx={centerContentRow}>
-          {available.map((value, index) => {
-            if (value == 'true') {
-              return (
-                <Typography
-                  key={index}
-                  variant="string"
-                  sx={{
-                    ...daysTypo,
-                    background: '#48872e',
-                    color: '#fff',
-                    fontWeight: '500',
-                  }}
-                >
-                  {` ${days[index]} `}{' '}
-                </Typography>
-              );
-            } else {
-              return (
-                <Typography
-                  key={index}
-                  variant="string"
-                  sx={{ ...daysTypo, background: '#eee' }}
-                >
-                  {` ${days[index]} `}{' '}
-                </Typography>
-              );
-            }
-          })}
-        </Box>
-        <Typography>How is the course delivered:</Typography>
-        <Box sx={{ ...centerContentRow, paddingTop: '10px' }}>
-          {course.is_offline === 'true' ? (
+        <div className="subPageContentWrap">
+          <p className="subPageSubTitle">Days available</p>
+          <Box sx={{ ...centerContentRow }}>
+            {available.map((value, index) => {
+              if (value == 'true') {
+                return (
+                  <Typography
+                    key={index}
+                    variant="string"
+                    sx={{
+                      ...daysTypo,
+                      background: '#333',
+                      color: '#fff',
+                      fontWeight: '500',
+                    }}
+                  >
+                    {` ${days[index]} `}{' '}
+                  </Typography>
+                );
+              } else {
+                return (
+                  <Typography
+                    key={index}
+                    variant="string"
+                    sx={{ ...daysTypo, background: '#eee' }}
+                  >
+                    {` ${days[index]} `}{' '}
+                  </Typography>
+                );
+              }
+            })}
+          </Box>
+        </div>
+        <div className="subPageContentWrap">
+          <p className="subPageSubTitle">How is the course delivered</p>
+          <Box sx={{ ...centerContentRow }}>
+            {course.is_offline === 'true' ? (
+              <Typography
+                variant="string"
+                sx={{
+                  ...daysTypo,
+                  background: '#333',
+                  color: '#fff',
+                  fontWeight: '500',
+                }}
+              >
+                In-person
+              </Typography>
+            ) : (
+              <Typography
+                variant="string"
+                sx={{ ...daysTypo, background: '#eee' }}
+              >
+                In-person
+              </Typography>
+            )}
+            {course.is_online === 'true' ? (
+              <Typography
+                variant="string"
+                sx={{
+                  ...daysTypo,
+                  background: '#333',
+                  color: '#fff',
+                  fontWeight: '500',
+                }}
+              >
+                Remote
+              </Typography>
+            ) : (
+              <Typography
+                variant="string"
+                sx={{ ...daysTypo, background: '#eee' }}
+              >
+                Remote
+              </Typography>
+            )}
+          </Box>
+        </div>
+        <div className="subPageContentWrap">
+          <p className="subPageSubTitle">Loation</p>
+          <Box sx={{ ...centerContentRow }}>
             <Typography
               variant="string"
               sx={{
                 ...daysTypo,
-                background: '#48872e',
-                color: '#fff',
-                fontWeight: '500',
+                fontWeight: 600,
+                fontSize: '20px',
+                color: '#333',
               }}
             >
-              In-person
+              {course.location}
             </Typography>
-          ) : (
-            <Typography
-              variant="string"
-              sx={{ ...daysTypo, background: '#eee' }}
-            >
-              In-person
-            </Typography>
-          )}
-          {course.is_online === 'true' ? (
-            <Typography
-              variant="string"
-              sx={{
-                ...daysTypo,
-                background: '#48872e',
-                color: '#fff',
-                fontWeight: '500',
-              }}
-            >
-              Remote
-            </Typography>
-          ) : (
-            <Typography
-              variant="string"
-              sx={{ ...daysTypo, background: '#eee' }}
-            >
-              Remote
-            </Typography>
-          )}
-        </Box>
+          </Box>
+        </div>
       </div>
       {/* About section */}
-      <Box sx={{ ...aboutSection, borderTop: '1px solid #eee' }}>
-        <Typography
-          variant="h4"
-          sx={{ fontFamily: 'lato', padding: '30px 0 10px 0' }}
-        >
-          Why Learn With {course.teacher_name} ?
+      <Box
+        className="aboutSectionBox"
+        sx={{ ...aboutSection, borderTop: '1px solid #eee' }}
+      >
+        <Typography variant="h4" sx={aboutSectionType}>
+          Why Learn With{' '}
+          <span className="spanTagNameColor">{course.teacher_name}</span> ?
         </Typography>
         <Typography sx={{ ...generalTypo, color: '#444' }}>
           {course.bio_text}
         </Typography>
       </Box>
-
       <Box sx={{ ...aboutSection, borderTop: '1px solid #eee' }}>
-        <Typography
-          variant="h4"
-          sx={{ fontFamily: 'lato', padding: '30px 0 10px 0' }}
-        >
-          About {course.course_title}
+        <Typography variant="h4" sx={aboutSectionType}>
+          About <span className="spanTagNameColor">{course.course_title}</span>
         </Typography>
         <Typography sx={{ ...generalTypo, color: '#444' }}>
           {course.long_description}
@@ -321,6 +339,7 @@ export default function CoursePage({ data, users }) {
       {/* About section end */}
       {/* Review section */}
       <ReviewSection
+        className="reviewSectionComponent"
         data={course.reviews}
         setNumOfReviews={setNumOfReviews}
         userData={userData}

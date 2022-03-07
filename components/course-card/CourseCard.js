@@ -27,6 +27,7 @@ import {
   courseCardActions,
   navbarButton,
   tagsBtn,
+  tagsBtnMainpage,
 } from '../../globalCss.js';
 import { Link } from '@mui/material';
 
@@ -68,7 +69,7 @@ export default function CourseCard({ cards, setSearch }) {
                 />
 
                 {/* tags   */}
-                <CardActions>
+                <CardActions sx={{ padding: 0, width: '325px' }}>
                   <div className=" displayInlineBlock ">
                     {card.course_tags.map((item, index) => {
                       function onClick(e) {
@@ -86,8 +87,7 @@ export default function CourseCard({ cards, setSearch }) {
                           <Button
                             onClick={onClick}
                             sx={{
-                              ...navbarButton,
-                              ...tagsBtn,
+                              ...tagsBtnMainpage,
                               fontSize: '10px',
                             }}
                           >
@@ -104,15 +104,22 @@ export default function CourseCard({ cards, setSearch }) {
                     gutterBottom
                     variant="h5"
                     component="h2"
+                    className="courseCardContentTitle"
                     sx={courseCardContentTitle}
                   >
                     {card.course_title}
                   </Typography>
 
-                  <Typography sx={courseCardContentTeacherName}>
+                  <Typography
+                    className="courseCardContentTeacherName"
+                    sx={courseCardContentTeacherName}
+                  >
                     {card.teacher_name}
                   </Typography>
-                  <Typography sx={courseCardContentCourseBrief}>
+                  <Typography
+                    className="courseCardContentCourseBrief"
+                    sx={courseCardContentCourseBrief}
+                  >
                     {card.course_brief}
                   </Typography>
                 </CardContent>
@@ -149,7 +156,10 @@ export default function CourseCard({ cards, setSearch }) {
                         )
                   }`}</Typography>
                   {/* number of the comments  */}
-                  <Typography sx={{ ...courseCardReviewCount }}>
+                  <Typography
+                    className="courseCardReviewCount"
+                    sx={{ ...courseCardReviewCount }}
+                  >
                     ({card.reviews.length})
                   </Typography>
                   {matches && (
