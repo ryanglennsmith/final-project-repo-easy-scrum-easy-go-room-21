@@ -17,6 +17,14 @@ export const centerContentCol = {
   padding: '0!important',
 };
 
+// Uses margin "0 auto" instead
+export const centerBoxContent = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  margin: '0 auto',
+};
+
 // *******NAVBAR CSS*******
 export const navBarApp = {
   width: '100%',
@@ -389,8 +397,25 @@ export const contactBtn = {
   marginTop: '15px',
 };
 
+
 // reviewSection.js
 
 export const addReviewBtn = {};
 export const fontLato = { fontFamily: 'Lato' };
 export const fontRoboto = { fontFamily: 'Roboto' };
+
+//   Profile Page
+export const subHeadingTypoProfile = {
+  fontFamily: 'Roboto',
+  fontSize: '32px',
+  fontWeight: '700',
+  lineHeight: '40px',
+  letterSpacing: '0em',
+  textAlign: 'left',
+};
+
+export const profileTextfields = {
+  margin: '10px 0 10px 0',
+  padding: '15px',
+};
+

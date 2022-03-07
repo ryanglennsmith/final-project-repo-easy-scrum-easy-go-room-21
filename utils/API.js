@@ -60,7 +60,7 @@ export const API = {
       course_brief:
         ' Actually etsy brunch trust fund, banjo meggings craft beer',
       course_title: 'Pottery basics',
-      course_tags: ['pacifism', 'poterry', 'crafting', 'sculpting'],
+      course_tags: ['pottery', 'crafting', 'sculpting'],
       rating: 4,
       dates_available: [
         { Sunday: 'true' },
@@ -86,9 +86,9 @@ export const API = {
     },
     {
       course_id: 3,
-      teacher_name: 'Spencer Chambers',
+      teacher_name: 'Jasmine Chambers',
       email: 'schambers2@nationalgeographic.com',
-      location: 'Golovchino',
+      location: 'Birmigham',
       bio_text:
         "Sriracha poke organic four loko locavore, aesthetic raclette tattooed letterpress vinyl.  Whatever you probably haven't heard of them schlitz small batch 8-bit.  Vaporware locavore PBR&B DIY.  Copper mug twee deep v, tumeric banjo messenger bag asymmetrical DIY fingerstache hexagon.",
       long_description:
@@ -98,8 +98,8 @@ export const API = {
       image: 'https://images.unsplash.com/photo-1614644147798-f8c0fc9da7f6',
       course_brief:
         ' Crucifix poutine YOLO, godard beard roof party plaid thundercats tacos kitsch shabby chic street art',
-      course_title: 'Parapsychology and Psychokenesis',
-      course_tags: ['thinking', 'psychology', 'supernatural', 'science'],
+      course_title: 'Candlemaking',
+      course_tags: ['candle', 'wax', 'beginners'],
       rating: 4.63,
       dates_available: [
         { Sunday: 'true' },
@@ -177,7 +177,7 @@ export const API = {
       image: 'https://images.unsplash.com/photo-1493106641515-6b5631de4bb9',
       course_brief:
         ' Flannel kale chips tumblr organic irony sustainable fixie YOLO lyft master cleanse cloud bread vaporware aesthetic tilde',
-      course_title: 'Smoking Pottery: Making Planters for Herbs',
+      course_title: 'Pottery: Making Planters for Herbs',
       course_tags: ['crafting', 'pottery', 'gardening'],
       rating: 3.94,
       dates_available: [
@@ -250,7 +250,7 @@ export const API = {
       course_id: 5,
       teacher_name: 'Glenda Kasparski',
       email: 'gkasparski4@time.com',
-      location: 'Sevan',
+      location: 'Liverpool',
       bio_text:
         "Drinking vinegar 3 wolf moon street art mustache tote bag man bun church-key ethical copper mug health goth hell of you probably haven't heard of them tilde hexagon.  Flexitarian tumeric master cleanse, hoodie bitters la croix subway tile 8-bit try-hard.  Post-ironic meditation chambray drinking vinegar cardigan readymade chicharrones.  Man bun tilde ethical taxidermy activated charcoal.  Next level bitters taiyaki kitsch mumblecore, bespoke glossier williamsburg bicycle rights air plant edison bulb.  Bespoke williamsburg tumblr raclette enamel pin live-edge occupy pinterest umami tofu bushwick lyft.  Artisan poutine before they sold out squid.",
       long_description:
@@ -261,8 +261,8 @@ export const API = {
       course_brief:
         ' Food truck cornhole put a bird on it kickstarter letterpress, flexitarian pinterest pork belly mixtape',
       course_title:
-        'Never Get Bored: I Will Teach You How to Change Careers Every Week',
-      course_tags: ['thinking', 'business'],
+        'The business of candles',
+      course_tags: ['thinking', 'business','candles'],
       rating: 3.1763,
       dates_available: [
         { Sunday: 'false' },
@@ -289,7 +289,7 @@ export const API = {
       course_id: 6,
       teacher_name: 'Kora Bruckent',
       email: 'kbruckent5@seesaa.net',
-      location: 'Kulia Village',
+      location: 'Bristol',
       bio_text:
         'Art party umami jean shorts squid vexillologist cronut, palo santo ennui subway tile chicharrones bitters.  Intelligentsia four loko next level kickstarter.  Hot chicken green juice artisan hammock ethical church-key enamel pin glossier lomo tofu everyday carry tumblr 3 wolf moon pabst meggings.  Mlkshk flannel vegan, banh mi cloud bread butcher raw denim bicycle rights semiotics waistcoat pok pok.  Shoreditch pork belly twee hot chicken tousled craft beer cronut iPhone migas, small batch mustache.  Gentrify food truck 3 wolf moon small batch, lyft normcore glossier man braid leggings humblebrag.  Banh mi shoreditch listicle enamel pin, thundercats hot chicken health goth intelligentsia bespoke.',
       long_description:
@@ -299,8 +299,8 @@ export const API = {
       image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04',
       course_brief:
         ' Hella blog roof party marfa cornhole banjo, plaid put a bird on it leggings meggings ramps air plant yuccie brunch wolf',
-      course_title: 'A Course in Klingon Dialects',
-      course_tags: ['language', 'thinking', 'science'],
+      course_title: 'Jewelery Design',
+      course_tags: ['jewelery', 'design', 'science'],
       rating: 3.1293,
       dates_available: [
         { Sunday: 'true' },
@@ -356,7 +356,7 @@ export const API = {
       course_id: 7,
       teacher_name: 'Nickolas Diperaus',
       email: 'ndiperaus6@live.com',
-      location: 'Kuanfeu',
+      location: 'Glasgow',
       bio_text:
         'Unicorn ennui chartreuse shabby chic green juice direct trade tattooed seitan, pickled authentic hell of ethical man braid kinfolk heirloom.  Cold-pressed raw denim asymmetrical pug truffaut kogi, 3 wolf moon listicle stumptown deep v.  Distillery mlkshk chillwave, helvetica aesthetic lomo deep v hashtag small batch four dollar toast street art kickstarter occupy.  Enamel pin slow-carb pug iceland.',
       long_description:
@@ -437,7 +437,7 @@ export const API = {
       course_id: 8,
       teacher_name: 'Mada Cosely',
       email: 'mcosely7@examiner.com',
-      location: 'Ōtsu-shi',
+      location: 'Endiburgh',
       bio_text:
         'Whatever iceland +1, master cleanse kombucha butcher four dollar toast slow-carb.  Leggings franzen pour-over DIY, slow-carb bushwick VHS vexillologist green juice butcher flexitarian twee drinking vinegar.  Poutine try-hard shabby chic, organic air plant activated charcoal lo-fi unicorn scenester cloud bread health goth meggings.  Swag vexillologist irony meditation.  Austin hoodie knausgaard vice palo santo tousled.  Pabst cardigan thundercats lumbersexual mixtape beard godard biodiesel raw denim try-hard subway tile readymade next level fixie.',
       long_description:
@@ -516,7 +516,7 @@ export const API = {
       course_id: 9,
       teacher_name: 'Marquita Hamblyn',
       email: 'mhamblyn8@google.ca',
-      location: 'Izra‘',
+      location: 'Leeds‘',
       bio_text:
         'Kinfolk iceland cray raclette trust fund pour-over activated charcoal letterpress lomo quinoa.  Pitchfork vinyl lomo austin gluten-free celiac.  Swag prism adaptogen neutra.  Portland pork belly pok pok butcher, fam woke ramps messenger bag snackwave green juice af hell of helvetica succulents letterpress.',
       long_description:
@@ -583,7 +583,7 @@ export const API = {
       course_id: 10,
       teacher_name: 'Sammy Danihelka',
       email: 'sdanihelka9@gmpg.org',
-      location: 'Chiţcani',
+      location: 'London',
       bio_text:
         'Retro raclette ennui put a bird on it chillwave blog twee aesthetic cold-pressed stumptown tacos.  Cred shoreditch viral PBR&B cliche single-origin coffee normcore, food truck pok pok literally tacos squid keffiyeh twee godard.  Sartorial gochujang pork belly skateboard godard, biodiesel succulents.  Banjo pitchfork mlkshk keffiyeh live-edge crucifix tbh ramps ethical wolf humblebrag next level polaroid.  Blue bottle bespoke brooklyn fam truffaut gluten-free pour-over.',
       long_description:
@@ -654,7 +654,7 @@ export const API = {
       course_id: 11,
       teacher_name: 'Maia Ribbens',
       email: 'mribbensa@moonfruit.com',
-      location: 'Lenchwe Le Tau',
+      location: 'Manchester',
       bio_text:
         'Banh mi quinoa truffaut butcher.  Deep v meditation street art, cardigan tumeric biodiesel shoreditch brooklyn sriracha twee air plant narwhal.  Readymade pour-over coloring book meh squid, vegan church-key quinoa 8-bit.  Distillery hoodie mustache humblebrag vaporware austin crucifix aesthetic shaman taxidermy.',
       long_description:
@@ -735,7 +735,7 @@ export const API = {
       course_id: 12,
       teacher_name: 'Marlo Moorwood',
       email: 'mmoorwoodb@nih.gov',
-      location: 'Anguera',
+      location: 'Liverpool',
       bio_text:
         'Post-ironic hell of chia la croix.  Semiotics yuccie 3 wolf moon, bespoke typewriter vape vegan disrupt.  Ennui migas bitters semiotics skateboard put a bird on it shaman.  Tote bag sriracha messenger bag austin jean shorts man braid celiac put a bird on it williamsburg tumblr mlkshk readymade locavore umami offal.  Edison bulb four dollar toast kogi subway tile, flexitarian cronut skateboard shaman fanny pack chillwave polaroid.  Crucifix activated charcoal fingerstache letterpress, godard cloud bread flexitarian ennui listicle YOLO chicharrones waistcoat dreamcatcher.  Art party selvage thundercats, austin tilde pok pok taxidermy deep v put a bird on it.',
       long_description:
@@ -807,27 +807,41 @@ export const API = {
       course_id: 13,
       teacher_name: 'Myron Chaplyn',
       email: 'mchaplync@printfriendly.com',
-      location: 'Anjozorobe',
+
+      location: 'London',
       bio_text:
-        'Man braid typewriter tousled pabst affogato pork belly small batch authentic tacos shoreditch narwhal lomo copper mug.  Waistcoat neutra man bun fanny pack woke bespoke 3 wolf moon occupy sriracha.  Art party microdosing pour-over meditation snackwave master cleanse banjo portland.  Jean shorts flexitarian taiyaki, single-origin coffee cronut meh bushwick meggings schlitz.  Master cleanse artisan photo booth swag pop-up cliche.  Letterpress meditation disrupt hell of retro.  Venmo meh taiyaki, forage yr selfies DIY vinyl chicharrones iceland knausgaard hoodie.',
+        'I used to sew in the war. This is where I picked up most of my skills',
       long_description:
-        'Iceland prism cloud bread tacos.  Tacos cornhole cray gastropub humblebrag cronut.  +1 bitters pop-up church-key retro cronut blue bottle chillwave unicorn.  Cronut keffiyeh enamel pin, gluten-free kombucha ennui hella vape.  Air plant franzen trust fund helvetica vinyl pug.  Hella hoodie portland sustainable, keytar fam banjo pickled try-hard normcore poke post-ironic lyft drinking vinegar copper mug.  Hexagon chicharrones hammock, drinking vinegar gluten-free truffaut semiotics vape celiac pinterest twee.',
+        "This course will show you how to sew like a pro. I'll take you through from the basics to the harder concepts.",
       is_online: 'true',
       is_offline: 'true',
       image: 'https://images.unsplash.com/photo-1469833120660-1a218b53d28a',
-      course_brief:
-        ' Unicorn marfa cronut, keffiyeh normcore polaroid brunch chicharrones iPhone squid poke DIY YOLO',
-      course_title: 'Sew a Tea Bag for 200',
+      course_brief: ' This course teaches you how to sew from beginner to pro.',
+      course_title: 'Sew like a pro',
       course_tags: ['crafting', 'fabric', 'sewing'],
       rating: 4.1530000000000005,
       dates_available: [
-        { Sunday: 'true' },
-        { Monday: 'false' },
-        { Tuesday: 'true' },
-        { Wednesday: 'true' },
-        { Thursday: 'false' },
-        { Friday: 'false' },
-        { Saturday: 'true' },
+        {
+          Sunday: 'true',
+        },
+        {
+          Monday: 'false',
+        },
+        {
+          Tuesday: 'true',
+        },
+        {
+          Wednesday: 'true',
+        },
+        {
+          Thursday: 'false',
+        },
+        {
+          Friday: 'false',
+        },
+        {
+          Saturday: 'true',
+        },
       ],
       course_bullets: [
         '',
@@ -845,50 +859,46 @@ export const API = {
           reviewer: 'Rubie Devereux',
           date: '23-10-2020',
           rating: 5,
-          review_text:
-            'Schlitz woke actually snackwave, edison bulb ramps kickstarter gluten-free neutra adaptogen',
+          review_text: 'I had no clue sewing could be so fun',
         },
         {
           reviewer: 'Pavel Vogl',
           date: '11-04-2020',
           rating: 3,
-          review_text:
-            "Tacos church-key dreamcatcher mlkshk 3 wolf moon mixtape kickstarter franzen 90's",
+          review_text: 'I stuck myself with a needle so many times!',
         },
         {
           reviewer: 'Bethena Lindwall',
           date: '20-04-2020',
           rating: 4,
-          review_text:
-            'Wolf hexagon pok pok cred, keffiyeh shoreditch taiyaki pug',
+          review_text: 'This was a fairly fun skill to learn',
         },
         {
           reviewer: 'Meir Jerisch',
           date: '30-05-2021',
           rating: 5,
-          review_text:
-            'Pitchfork copper mug cray raw denim fam sriracha hashtag jianbing tousled twee yr',
+          review_text: 'Myron was really flexible',
         },
         {
           reviewer: 'Bethena Lindwall',
           date: '11-04-2020',
           rating: 4,
           review_text:
-            'Echo park williamsburg helvetica, tattooed messenger bag ugh iPhone cardigan beard chia mustache cronut tilde succulents',
+            "I wasn't sure if this course was for me, but Myron made me realise that anyone can be a pro",
         },
         {
           reviewer: 'Warde Earney',
           date: '20-04-2020',
           rating: 3,
           review_text:
-            'Chia vexillologist gochujang tacos health goth banh mi palo santo austin meggings irony',
+            'The course was a little too informal for me, but Myron was welcoming',
         },
         {
           reviewer: "Remy O'Dare",
           date: '26-03-2020',
           rating: 3,
           review_text:
-            'Lo-fi asymmetrical taxidermy williamsburg small batch XOXO actually, everyday carry glossier irony ugh pabst vice heirloom',
+            'I had a nice time but would have preferred more info on colour theory',
         },
       ],
     },
@@ -896,26 +906,40 @@ export const API = {
       course_id: 14,
       teacher_name: 'Tessi Langhor',
       email: 'tlanghord@storify.com',
-      location: 'San Miguel del Padrón',
+      location: 'London',
       bio_text:
-        "Distillery la croix mustache, poutine bushwick lo-fi tumeric +1 irony 8-bit mumblecore thundercats.  Flexitarian bitters vexillologist DIY next level yr fam mumblecore VHS typewriter irony blog.  You probably haven't heard of them intelligentsia ramps master cleanse pitchfork fanny pack selfies biodiesel DIY trust fund.  Edison bulb tumeric brunch copper mug portland adaptogen.  90's yuccie humblebrag helvetica ramps hot chicken, skateboard scenester lyft.  Quinoa yuccie mixtape disrupt echo park, messenger bag blog post-ironic cornhole prism cloud bread flexitarian celiac 3 wolf moon street art.  Plaid whatever austin pork belly.",
+        'I have been making bead necklaces for my family all of my life',
       long_description:
-        'Tousled la croix intelligentsia, seitan meh gentrify bicycle rights poutine.  Glossier letterpress organic disrupt microdosing hashtag leggings street art 3 wolf moon neutra freegan slow-carb.  Dreamcatcher hammock art party, flannel kogi gentrify kombucha VHS tofu.  Master cleanse sustainable semiotics pour-over, tacos humblebrag small batch marfa typewriter before they sold out kogi.',
+        'This course features a lot of content on beads. In particular, we will go into bead materials, where you can get beads, colour theory, and most importantly, which type of string to use.',
       is_online: 'true',
       is_offline: 'true',
       image: 'https://images.unsplash.com/photo-1631273553464-7595e1a5b68d',
-      course_brief: ' Hot chicken mumblecore hashtag mlkshk brooklyn',
-      course_title: 'Beads',
+      course_brief: 'Making the best bead necklaces together',
+      course_title: 'Make the best bead necklaces',
       course_tags: ['crafting', 'jewelry'],
       rating: 3.7093,
       dates_available: [
-        { Sunday: 'true' },
-        { Monday: 'false' },
-        { Tuesday: 'false' },
-        { Wednesday: 'false' },
-        { Thursday: 'false' },
-        { Friday: 'false' },
-        { Saturday: 'false' },
+        {
+          Sunday: 'true',
+        },
+        {
+          Monday: 'false',
+        },
+        {
+          Tuesday: 'false',
+        },
+        {
+          Wednesday: 'false',
+        },
+        {
+          Thursday: 'false',
+        },
+        {
+          Friday: 'false',
+        },
+        {
+          Saturday: 'false',
+        },
       ],
       course_bullets: [
         'Banjo man braid retro adaptogen leggings poutine',
@@ -932,48 +956,48 @@ export const API = {
           reviewer: 'Rebeca Mapother',
           date: '13-06-2021',
           rating: 5,
-          review_text: 'Celiac godard swag pabst selvage chillwave',
+          review_text: 'Who knew bead necklace making could be so fun?!',
         },
         {
           reviewer: 'Nickolas Diperaus',
           date: '30-12-2020',
           rating: 5,
           review_text:
-            'Echo park williamsburg helvetica, tattooed messenger bag ugh iPhone cardigan beard chia mustache cronut tilde succulents',
+            'I took this class with my girlfriend, a great way to spend christmas',
         },
         {
           reviewer: 'Sammy Danihelka',
           date: '26-03-2020',
           rating: 5,
           review_text:
-            'Jianbing literally af, kitsch lo-fi raw denim shabby chic gentrify vinyl plaid keytar succulents ugh',
+            'Tessi was really welcoming, I will be taking the class again',
         },
         {
           reviewer: 'Vincenz Bartolacci',
           date: '11-04-2020',
           rating: 5,
           review_text:
-            'Pour-over small batch shabby chic skateboard, yr art party snackwave four dollar toast readymade yuccie',
+            'I was struggling to find the correct beads. Tessi was kind enough to email back with clear instructions on how to get them!',
         },
         {
           reviewer: 'Minda Wartnaby',
           date: '15-03-2020',
           rating: 5,
-          review_text:
-            'Pour-over small batch shabby chic skateboard, yr art party snackwave four dollar toast readymade yuccie',
+          review_text: 'I made bead necklaces for all of my family',
         },
         {
           reviewer: 'Aida McSkin',
           date: '20-07-2020',
           rating: 3,
           review_text:
-            'Four loko single-origin coffee cronut, actually enamel pin keffiyeh bespoke seitan normcore man bun',
+            "I cut myself on a bead. I probably wouldn't take the class again",
         },
         {
           reviewer: 'Gaye Stangroom',
           date: '23-06-2021',
           rating: 3,
-          review_text: 'Tilde adaptogen umami gochujang tofu',
+          review_text:
+            'Tessi was a bit too critical of my colour choices... Burlywood is a valid colour to want! ',
         },
       ],
     },
@@ -981,27 +1005,41 @@ export const API = {
       course_id: 15,
       teacher_name: 'Marnie Evill',
       email: 'meville@sciencedaily.com',
-      location: 'Ciudad Sandino',
+      location: 'Bristol',
       bio_text:
-        'Kogi plaid banh mi mumblecore cray literally truffaut tacos edison bulb put a bird on it selfies banjo ethical.  Mlkshk enamel pin austin, letterpress intelligentsia ramps post-ironic tbh unicorn 3 wolf moon bespoke roof party pitchfork af vaporware.  Williamsburg ennui taxidermy, hammock bitters banjo church-key.  Waistcoat marfa shoreditch cray palo santo, messenger bag iPhone activated charcoal knausgaard authentic retro raclette.  Cornhole XOXO lo-fi dreamcatcher activated charcoal hella venmo.  Twee roof party letterpress pour-over gentrify locavore squid meditation vaporware crucifix try-hard.  Pork belly synth YOLO, listicle wayfarers bitters tattooed chartreuse glossier selvage affogato banh mi everyday carry shabby chic master cleanse.',
+        'I have been making 19th century bloomers for the last 30 years. My mother taught me, and she was taught by hers.',
       long_description:
-        'Blue bottle narwhal cold-pressed street art single-origin coffee butcher.  Authentic farm-to-table hella, thundercats hammock poutine microdosing fashion axe iPhone crucifix blog schlitz next level YOLO lomo.  Adaptogen food truck everyday carry knausgaard, messenger bag cred twee selfies pour-over beard mlkshk.  Listicle umami master cleanse synth ennui cold-pressed photo booth tilde blog banh mi knausgaard food truck try-hard swag shoreditch.',
+        "This is a tough class to take. To begin with, we will cover the 19th-century history. This is done to gain a greater perspective for the bloomers. Next, we will cover the role bloomers will play in today's society. From there, we will delve into the materials required before finally crafting our bloomers. ",
       is_online: 'true',
       is_offline: 'false',
       image: 'https://images.unsplash.com/photo-1596939122461-e48c8a8a2d85',
       course_brief:
-        ' Coloring book pitchfork everyday carry, cardigan taiyaki butcher ethical brunch woke',
+        ' This is the greatest way to learn how to craft 19th-century bloomers',
       course_title: 'DIY 19th Century Style Bloomers',
       course_tags: ['crafting', 'sewing', 'fabric'],
       rating: 3.3263,
       dates_available: [
-        { Sunday: 'false' },
-        { Monday: 'true' },
-        { Tuesday: 'false' },
-        { Wednesday: 'false' },
-        { Thursday: 'true' },
-        { Friday: 'true' },
-        { Saturday: 'true' },
+        {
+          Sunday: 'false',
+        },
+        {
+          Monday: 'true',
+        },
+        {
+          Tuesday: 'false',
+        },
+        {
+          Wednesday: 'false',
+        },
+        {
+          Thursday: 'true',
+        },
+        {
+          Friday: 'true',
+        },
+        {
+          Saturday: 'true',
+        },
       ],
       course_bullets: [
         'Post-ironic skateboard art party fixie glossier cray vice craft beer snackwave intelligentsia vaporware',
@@ -1021,26 +1059,28 @@ export const API = {
           date: '20-04-2020',
           rating: 4,
           review_text:
-            'Hexagon hot chicken art party, selfies leggings enamel pin cred XOXO street art',
+            'Marnie had me order some expensive materials, but it was worth it',
         },
         {
           reviewer: 'Park Kleeborn',
           date: '15-03-2020',
           rating: 4,
-          review_text: 'Banh mi skateboard echo park organic',
+          review_text:
+            'I had some issues finding the time required to make my bloomer, but the class itself was pretty good',
         },
         {
           reviewer: 'Cherlyn Edmand',
           date: '15-03-2020',
           rating: 5,
-          review_text: 'Glossier poutine kickstarter banjo',
+          review_text:
+            'I did this to help improve my cosplays. 100% the greatest class on here',
         },
         {
           reviewer: "Remy O'Dare",
           date: '14-06-2021',
           rating: 5,
           review_text:
-            'Organic cray activated charcoal, single-origin coffee letterpress cardigan master cleanse iceland',
+            'I came for the bloomers, but I stayed for how they make me feel',
         },
       ],
     },
@@ -1649,7 +1689,7 @@ export const API = {
     {
       course_id: 26,
       teacher_name: 'Jefferson MacWinkle',
-      email: 'dev@eseg.com',
+      email: 'dev.yezlee@gmail.com',
       location: 'Leamington Spa',
       bio_text: "I'm a lumberjack, and I'm okay.",
       long_description:
@@ -1678,7 +1718,7 @@ export const API = {
       images: {
         full: 'https://images.unsplash.com/photo-1550090598-bbd1e1da5ba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80',
         thumb:
-          'https://images.unsplash.com/photo-1550090598-bbd1e1da5ba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+          'https://images.unsplash.com/photo-1493863641943-9b68992a8d07?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
       },
       reviews: [
         {
@@ -1988,7 +2028,7 @@ export const API = {
     {
       first_name: 'Jefferson',
       last_name: 'MacWinkle',
-      email: 'dev@eseg.com',
+      email: 'dev.yezlee@gmail.com',
       id: 41,
     },
   ],

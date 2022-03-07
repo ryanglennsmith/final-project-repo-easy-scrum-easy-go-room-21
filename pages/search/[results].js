@@ -32,44 +32,34 @@ import {
 
 // import api data and map through to create card content
 import { API } from 'utils/API';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { createContext } from 'vm';
 
-// from homepage, user input is taken in  and onclick of search button-----> user input is passed to results page  ----> list of results displayed on results page.
-
-//note to self: search bar components on both pages will operate in different ways. The search component on results page WILL NOT redirect users to another page to display results whereas it will on the homepage.
-
-//connect search button so that when it is pressed, we are redirected to the results page(which then would display course cards related to user input)
-const data = API.courses;
-
-// compare input to data.course_title
+// const data = API.courses;
 
 //gets search input from params of url
 export async function getServerSideProps(context) {
-  const homepageSearch = context.query.results;
-  console.log(context);
+  const homepageSearch = await context.query.results;
+  // console.log(context);
+
+  const api = await fetch(`http://localhost:3609/courses`);
+  const data = await api.json();
   // console.log(text);
   return {
     props: {
       inputData: homepageSearch,
+      apiData: data,
     },
   };
 }
-//deconstruct data from serverside props
-//use data to filter through API according to input
-//map that result to generate course display cards
 
-//check if props exists // check if props object is empty
-//if props object is not empty
-//use those props to filter the search
-//else
-// only conduct search when user uses the search bar on explore page
-
-export default function Results({ inputData }) {
+export default function Results({ inputData, apiData }) {
   const matchesMd = useMediaQuery('(max-width:913px)');
   const matchesLrg = useMediaQuery('(min-width:913px)');
 
-  // console.log(homepageSearchTerm);
+  const data = apiData;
+
+  console.log(`Data`, data);
 
   const [input, setInput] = useState('');
   const [search, setSearch] = useState(inputData);
@@ -101,17 +91,6 @@ export default function Results({ inputData }) {
       item.course_title.toUpperCase().includes(search.toUpperCase()) ||
       item.course_tags.includes(search.toLowerCase())
   );
-
-  // const art = 'art';
-  // carry out an array method that maps over the array data.course_tags
-
-  // const courseTagsSearch = data.filter((item) =>
-  //   item.course_tags.includes(search)
-  // );
-  // When we capture the value we can could possibly use the OR operator to add the courseTagsSearch to jsx
-  // console.log(searchResult);
-
-  // console.log(courseTagsSearch);
 
   const siteTitle = 'WeShare Results - Inspirational work by real Freelancers';
 
@@ -161,7 +140,7 @@ export default function Results({ inputData }) {
               <Typography variant="h4">Results for "{search}"</Typography>
               <Typography></Typography>
               {/* search results displayed here as cards */}
-              <CourseCard cards={searchResult} />
+              <CourseCard cards={searchResult} setSearch={setSearch} />
             </Box>
           ) : searchResult.length === 0 && search ? (
             <Box sx={aboutSection}>

@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { TextField, Button, Checkbox } from '@mui/material';
+import { TextField, Button, Checkbox, Box, Typography } from '@mui/material';
+import {
+  centerBoxContent,
+  courseCardButton,
+  generalTypo,
+  profileTextfields,
+} from 'globalCss';
 
 const AddCourse = ({
   email,
@@ -31,7 +37,15 @@ const AddCourse = ({
     image: courseToEdit.image ? true : false,
     location: courseToEdit.location ? true : false,
   });
-
+  const daysOfWeek = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+  ];
   const handleSubmit = () => {
     // if validated? ->
     setSendCourse(true);
@@ -89,6 +103,7 @@ const AddCourse = ({
         const res = await fetch(url, req);
         const data = await res.json();
         console.log('data sent: ', data);
+        window.location.reload();
       };
       sendIt();
     }
@@ -102,71 +117,224 @@ const AddCourse = ({
     setNewCourse({ ...newCourse, [field]: event.target.value });
   };
   return (
-    <>
-      <TextField
-        onChange={(e) => {
-          fieldChange(e, 'course_title');
-        }}
-        required={true}
-        defaultValue={newCourse.course_title}
-        id="new-course-name"
-        label="course title"
-        sx={{
-          margin: '10px 0 10px 0',
-          padding: '15px',
-        }}
-      />
-      <TextField
-        onChange={(e) => fieldChange(e, 'bio_text')}
-        multiline={true}
-        required={true}
-        defaultValue={newCourse.bio_text}
-        id="new-course-bio-text"
-        label="your bio"
-        sx={{
-          margin: '10px 0 10px 0',
-          padding: '15px',
-        }}
-      />
-      <TextField
-        onChange={(e) => fieldChange(e, 'long_description')}
-        multiline={true}
-        required={true}
-        defaultValue={newCourse.long_description}
-        id="new-course-long-desc"
-        label="describe the course"
-        sx={{
-          margin: '10px 0 10px 0',
-          padding: '15px',
-        }}
-      />
-      <TextField
-        onChange={(e) => fieldChange(e, 'location')}
-        required={true}
-        defaultValue={newCourse.location}
-        id="new-course-location"
-        label="location"
-        sx={{
-          margin: '10px 0 10px 0',
-          padding: '15px',
-        }}
-      />
-      <Checkbox
-        defaultChecked={newCourse.is_online === 'true'}
-        onChange={(e) =>
-          setNewCourse({ ...newCourse, is_online: e.target.checked })
-        }
-      />{' '}
-      Online?
-      <Checkbox
-        defaultChecked={newCourse.is_offline === 'true'}
-        onChange={(e) =>
-          setNewCourse({ ...newCourse, is_offline: e.target.checked })
-        }
-      />{' '}
-      Offline? <br /> <br />
-      {/* loop this, idiot */}
-      Monday?
+    <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+      {/* Container for text fields */}
+      <Box>
+        {/* Start of course title */}
+        <TextField
+          onChange={(e) => {
+            fieldChange(e, 'course_title');
+          }}
+          required={true}
+          defaultValue={newCourse.course_title}
+          id="new-course-name"
+          label="course title"
+          sx={profileTextfields}
+          inputProps={{ maxLength: 100 }}
+        />
+        {/* End of course title */}
+        {/* Start of bio text */}
+        <TextField
+          onChange={(e) => fieldChange(e, 'bio_text')}
+          multiline={true}
+          required={true}
+          defaultValue={newCourse.bio_text}
+          id="new-course-bio-text"
+          label="your bio"
+          sx={profileTextfields}
+          inputProps={{ maxLength: 200 }}
+        />
+        {/* End of bio text */}
+        {/* Start of long description */}
+        <TextField
+          onChange={(e) => fieldChange(e, 'long_description')}
+          multiline={true}
+          required={true}
+          defaultValue={newCourse.long_description}
+          id="new-course-long-desc"
+          label="describe the course"
+          sx={profileTextfields}
+          inputProps={{ maxLength: 500 }}
+        />
+        {/* End of long description */}
+        {/* Start of location text */}
+        <TextField
+          onChange={(e) => fieldChange(e, 'location')}
+          required={true}
+          defaultValue={newCourse.location}
+          id="new-course-location"
+          label="location"
+          sx={profileTextfields}
+          inputProps={{ maxLength: 50 }}
+        />
+        {/* End of location text */}
+        {/* Start of image url */}
+        <TextField
+          onChange={(e) => fieldChange(e, 'image')}
+          id="new-course-image"
+          required={true}
+          defaultValue={newCourse.image}
+          label="course image url"
+          sx={profileTextfields}
+          inputProps={{ maxLength: 120 }}
+        />
+        {/* End of image url */}
+        {/* Start of course brief */}
+        <TextField
+          onChange={(e) => fieldChange(e, 'course_brief')}
+          required={true}
+          defaultValue={newCourse.course_brief}
+          id="new-course-brief"
+          label="summary of the course"
+          sx={profileTextfields}
+          inputProps={{ maxLength: 300 }}
+        />
+        {/* End of course brief */}
+        {/* Start of course tags */}
+        <TextField
+          onChange={(e) =>
+            setNewCourse({
+              ...newCourse,
+              course_tags: e.target.value.split(', '),
+            })
+          }
+          defaultValue={
+            Object.keys(courseToEdit).length > 0
+              ? newCourse.course_tags.join(', ')
+              : ''
+          }
+          id="new-course-tags"
+          label="comma separated list of course tags"
+          sx={profileTextfields}
+          inputProps={{ maxLength: 120 }}
+        />
+        {/* End of course tags */}
+      </Box>
+      {/* Container for checkboxes and submission button */}
+      <Box sx={centerBoxContent}>
+        {/* Start of online/offline check boxes */}
+        <Typography
+          sx={{ ...generalTypo, alignSelf: 'flex-start', marginX: '15px' }}
+        >
+          Indicate if your course available online or offline:
+        </Typography>
+        <Box>
+          <Checkbox
+            defaultChecked={newCourse.is_online === 'true'}
+            onChange={(e) =>
+              setNewCourse({ ...newCourse, is_online: e.target.checked })
+            }
+          />{' '}
+          Online?
+          <Checkbox
+            defaultChecked={newCourse.is_offline === 'true'}
+            onChange={(e) =>
+              setNewCourse({ ...newCourse, is_offline: e.target.checked })
+            }
+          />{' '}
+          Offline? <br /> <br />
+        </Box>
+        {/* End of online/offline check boxes */}
+        {/* Start of days of the week check boxes */}
+        <Typography
+          sx={{ ...generalTypo, alignSelf: 'flex-start', marginX: '15px' }}
+        >
+          Indicate which days your course takes place:
+        </Typography>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+          }}
+        >
+          {daysOfWeek.map((day, index) => {
+            return (
+              <Box sx={{ display: 'flex', marginX: '5px' }}>
+                <Typography sx={{ display: 'flex', alignItems: 'center' }}>
+                  {day}
+                </Typography>
+                <Checkbox
+                  defaultChecked={
+                    Object.keys(courseToEdit).length > 0
+                      ? Object.values(newCourse.dates_available[index])[0] ===
+                        'true'
+                      : false
+                  }
+                  onChange={(e) =>
+                    setWeekdays([
+                      ...weekdays.slice(0, index + 1),
+                      { Monday: String(e.target.checked) },
+                      ...weekdays.slice(index + 2),
+                    ])
+                  }
+                />{' '}
+              </Box>
+            );
+          })}
+        </Box>
+
+        {/* End of days of the week check boxes */}
+
+        {/* Start of submission buttons */}
+        {/* Container for submission buttons */}
+        <Box>
+          {!Object.values(requiredFields).includes(false) ? (
+            <Button
+              sx={{ ...courseCardButton, marginRight: '15px' }}
+              onClick={handleSubmit}
+            >
+              Submit
+            </Button>
+          ) : (
+            <Button
+              sx={{ ...courseCardButton, marginRight: '15px' }}
+              disabled={true}
+              onClick={handleSubmit}
+            >
+              Submit
+            </Button>
+          )}
+        </Box>
+        {/* End of submission buttons */}
+      </Box>
+    </Box>
+  );
+};
+
+export default AddCourse;
+
+/* data to bring in/send in POST: 
+course_id: (take last course id and add 1)
+teacher_name: teacherName
+email: email
+course_title:
+bio_text:
+long_description:
+is_online?
+is_offline?
+dates: [{s: bool}, {m: bool} ...]
+image: images: {thumb: (url + ), full: (url + )}
+course_brief:
+course_tags:
+course_bullets:
+
+// location? 
+reviews: [(empty arr)]
+*/
+
+// create new course -> POST to /courses/ with this component
+// press a button to create new course -> setMakeNew(true)
+// set CRUD function to POST
+// edit course -> PUT to /courses/id with this component
+// press a button to edit course -> setEdit(true) & pull course info into default values
+// set CRUD function to PUT
+
+// Old days of the week checkboxes
+
+{
+  /* Monday?
       <Checkbox
         defaultChecked={
           Object.keys(courseToEdit).length > 0
@@ -269,49 +437,13 @@ const AddCourse = ({
             ...weekdays.slice(1),
           ])
         }
-      />
-      <TextField
-        onChange={(e) => fieldChange(e, 'image')}
-        id="new-course-image"
-        required={true}
-        defaultValue={newCourse.image}
-        label="course image url"
-        sx={{
-          margin: '10px 0 10px 0',
-          padding: '15px',
-        }}
-      />{' '}
-      <TextField
-        onChange={(e) => fieldChange(e, 'course_brief')}
-        required={true}
-        defaultValue={newCourse.course_brief}
-        id="new-course-brief"
-        label="summary of the course"
-        sx={{
-          margin: '10px 0 10px 0',
-          padding: '15px',
-        }}
-      />
-      <TextField
-        onChange={(e) =>
-          setNewCourse({
-            ...newCourse,
-            course_tags: e.target.value.split(', '),
-          })
-        }
-        defaultValue={
-          Object.keys(courseToEdit).length > 0
-            ? newCourse.course_tags.join(', ')
-            : ''
-        }
-        id="new-course-tags"
-        label="comma separated list of course tags"
-        sx={{
-          margin: '10px 0 10px 0',
-          padding: '15px',
-        }}
-      />
-      <TextField
+      /> */
+}
+
+// Course bullet points
+
+{
+  /* <TextField
         onChange={(e) =>
           setNewCourse({
             ...newCourse,
@@ -329,42 +461,5 @@ const AddCourse = ({
           margin: '10px 0 10px 0',
           padding: '15px',
         }}
-      />
-      {!Object.values(requiredFields).includes(false) ? (
-        <Button onClick={handleSubmit}>Submit</Button>
-      ) : (
-        <Button disabled={true} onClick={handleSubmit}>
-          Submit
-        </Button>
-      )}
-    </>
-  );
-};
-
-export default AddCourse;
-
-/* data to bring in/send in POST: 
-course_id: (take last course id and add 1)
-teacher_name: teacherName
-email: email
-course_title:
-bio_text:
-long_description:
-is_online?
-is_offline?
-dates: [{s: bool}, {m: bool} ...]
-image: images: {thumb: (url + ), full: (url + )}
-course_brief:
-course_tags:
-course_bullets:
-
-// location? 
-reviews: [(empty arr)]
-*/
-
-// create new course -> POST to /courses/ with this component
-// press a button to create new course -> setMakeNew(true)
-// set CRUD function to POST
-// edit course -> PUT to /courses/id with this component
-// press a button to edit course -> setEdit(true) & pull course info into default values
-// set CRUD function to PUT
+      /> */
+}
