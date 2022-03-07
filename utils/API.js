@@ -60,7 +60,7 @@ export const API = {
       course_brief:
         ' Actually etsy brunch trust fund, banjo meggings craft beer',
       course_title: 'Pottery basics',
-      course_tags: ['pacifism', 'poterry', 'crafting', 'sculpting'],
+      course_tags: ['pottery', 'crafting', 'sculpting'],
       rating: 4,
       dates_available: [
         { Sunday: 'true' },
@@ -86,9 +86,9 @@ export const API = {
     },
     {
       course_id: 3,
-      teacher_name: 'Spencer Chambers',
+      teacher_name: 'Jasmine Chambers',
       email: 'schambers2@nationalgeographic.com',
-      location: 'Golovchino',
+      location: 'Birmigham',
       bio_text:
         "Sriracha poke organic four loko locavore, aesthetic raclette tattooed letterpress vinyl.  Whatever you probably haven't heard of them schlitz small batch 8-bit.  Vaporware locavore PBR&B DIY.  Copper mug twee deep v, tumeric banjo messenger bag asymmetrical DIY fingerstache hexagon.",
       long_description:
@@ -98,8 +98,8 @@ export const API = {
       image: 'https://images.unsplash.com/photo-1614644147798-f8c0fc9da7f6',
       course_brief:
         ' Crucifix poutine YOLO, godard beard roof party plaid thundercats tacos kitsch shabby chic street art',
-      course_title: 'Parapsychology and Psychokenesis',
-      course_tags: ['thinking', 'psychology', 'supernatural', 'science'],
+      course_title: 'Candlemaking',
+      course_tags: ['candle', 'wax', 'beginners'],
       rating: 4.63,
       dates_available: [
         { Sunday: 'true' },
@@ -177,7 +177,7 @@ export const API = {
       image: 'https://images.unsplash.com/photo-1493106641515-6b5631de4bb9',
       course_brief:
         ' Flannel kale chips tumblr organic irony sustainable fixie YOLO lyft master cleanse cloud bread vaporware aesthetic tilde',
-      course_title: 'Smoking Pottery: Making Planters for Herbs',
+      course_title: 'Pottery: Making Planters for Herbs',
       course_tags: ['crafting', 'pottery', 'gardening'],
       rating: 3.94,
       dates_available: [
@@ -250,7 +250,7 @@ export const API = {
       course_id: 5,
       teacher_name: 'Glenda Kasparski',
       email: 'gkasparski4@time.com',
-      location: 'Sevan',
+      location: 'Liverpool',
       bio_text:
         "Drinking vinegar 3 wolf moon street art mustache tote bag man bun church-key ethical copper mug health goth hell of you probably haven't heard of them tilde hexagon.  Flexitarian tumeric master cleanse, hoodie bitters la croix subway tile 8-bit try-hard.  Post-ironic meditation chambray drinking vinegar cardigan readymade chicharrones.  Man bun tilde ethical taxidermy activated charcoal.  Next level bitters taiyaki kitsch mumblecore, bespoke glossier williamsburg bicycle rights air plant edison bulb.  Bespoke williamsburg tumblr raclette enamel pin live-edge occupy pinterest umami tofu bushwick lyft.  Artisan poutine before they sold out squid.",
       long_description:
@@ -261,8 +261,8 @@ export const API = {
       course_brief:
         ' Food truck cornhole put a bird on it kickstarter letterpress, flexitarian pinterest pork belly mixtape',
       course_title:
-        'Never Get Bored: I Will Teach You How to Change Careers Every Week',
-      course_tags: ['thinking', 'business'],
+        'The business of candles',
+      course_tags: ['thinking', 'business','candles'],
       rating: 3.1763,
       dates_available: [
         { Sunday: 'false' },
@@ -289,7 +289,7 @@ export const API = {
       course_id: 6,
       teacher_name: 'Kora Bruckent',
       email: 'kbruckent5@seesaa.net',
-      location: 'Kulia Village',
+      location: 'Bristol',
       bio_text:
         'Art party umami jean shorts squid vexillologist cronut, palo santo ennui subway tile chicharrones bitters.  Intelligentsia four loko next level kickstarter.  Hot chicken green juice artisan hammock ethical church-key enamel pin glossier lomo tofu everyday carry tumblr 3 wolf moon pabst meggings.  Mlkshk flannel vegan, banh mi cloud bread butcher raw denim bicycle rights semiotics waistcoat pok pok.  Shoreditch pork belly twee hot chicken tousled craft beer cronut iPhone migas, small batch mustache.  Gentrify food truck 3 wolf moon small batch, lyft normcore glossier man braid leggings humblebrag.  Banh mi shoreditch listicle enamel pin, thundercats hot chicken health goth intelligentsia bespoke.',
       long_description:
@@ -299,8 +299,8 @@ export const API = {
       image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04',
       course_brief:
         ' Hella blog roof party marfa cornhole banjo, plaid put a bird on it leggings meggings ramps air plant yuccie brunch wolf',
-      course_title: 'A Course in Klingon Dialects',
-      course_tags: ['language', 'thinking', 'science'],
+      course_title: 'Jewelery Design',
+      course_tags: ['jewelery', 'design', 'science'],
       rating: 3.1293,
       dates_available: [
         { Sunday: 'true' },
@@ -356,7 +356,7 @@ export const API = {
       course_id: 7,
       teacher_name: 'Nickolas Diperaus',
       email: 'ndiperaus6@live.com',
-      location: 'Kuanfeu',
+      location: 'Glasgow',
       bio_text:
         'Unicorn ennui chartreuse shabby chic green juice direct trade tattooed seitan, pickled authentic hell of ethical man braid kinfolk heirloom.  Cold-pressed raw denim asymmetrical pug truffaut kogi, 3 wolf moon listicle stumptown deep v.  Distillery mlkshk chillwave, helvetica aesthetic lomo deep v hashtag small batch four dollar toast street art kickstarter occupy.  Enamel pin slow-carb pug iceland.',
       long_description:
@@ -437,7 +437,7 @@ export const API = {
       course_id: 8,
       teacher_name: 'Mada Cosely',
       email: 'mcosely7@examiner.com',
-      location: 'Ōtsu-shi',
+      location: 'Endiburgh',
       bio_text:
         'Whatever iceland +1, master cleanse kombucha butcher four dollar toast slow-carb.  Leggings franzen pour-over DIY, slow-carb bushwick VHS vexillologist green juice butcher flexitarian twee drinking vinegar.  Poutine try-hard shabby chic, organic air plant activated charcoal lo-fi unicorn scenester cloud bread health goth meggings.  Swag vexillologist irony meditation.  Austin hoodie knausgaard vice palo santo tousled.  Pabst cardigan thundercats lumbersexual mixtape beard godard biodiesel raw denim try-hard subway tile readymade next level fixie.',
       long_description:
@@ -516,7 +516,7 @@ export const API = {
       course_id: 9,
       teacher_name: 'Marquita Hamblyn',
       email: 'mhamblyn8@google.ca',
-      location: 'Izra‘',
+      location: 'Leeds‘',
       bio_text:
         'Kinfolk iceland cray raclette trust fund pour-over activated charcoal letterpress lomo quinoa.  Pitchfork vinyl lomo austin gluten-free celiac.  Swag prism adaptogen neutra.  Portland pork belly pok pok butcher, fam woke ramps messenger bag snackwave green juice af hell of helvetica succulents letterpress.',
       long_description:
@@ -583,7 +583,7 @@ export const API = {
       course_id: 10,
       teacher_name: 'Sammy Danihelka',
       email: 'sdanihelka9@gmpg.org',
-      location: 'Chiţcani',
+      location: 'London',
       bio_text:
         'Retro raclette ennui put a bird on it chillwave blog twee aesthetic cold-pressed stumptown tacos.  Cred shoreditch viral PBR&B cliche single-origin coffee normcore, food truck pok pok literally tacos squid keffiyeh twee godard.  Sartorial gochujang pork belly skateboard godard, biodiesel succulents.  Banjo pitchfork mlkshk keffiyeh live-edge crucifix tbh ramps ethical wolf humblebrag next level polaroid.  Blue bottle bespoke brooklyn fam truffaut gluten-free pour-over.',
       long_description:
@@ -654,7 +654,7 @@ export const API = {
       course_id: 11,
       teacher_name: 'Maia Ribbens',
       email: 'mribbensa@moonfruit.com',
-      location: 'Lenchwe Le Tau',
+      location: 'Manchester',
       bio_text:
         'Banh mi quinoa truffaut butcher.  Deep v meditation street art, cardigan tumeric biodiesel shoreditch brooklyn sriracha twee air plant narwhal.  Readymade pour-over coloring book meh squid, vegan church-key quinoa 8-bit.  Distillery hoodie mustache humblebrag vaporware austin crucifix aesthetic shaman taxidermy.',
       long_description:
@@ -735,7 +735,7 @@ export const API = {
       course_id: 12,
       teacher_name: 'Marlo Moorwood',
       email: 'mmoorwoodb@nih.gov',
-      location: 'Anguera',
+      location: 'Liverpool',
       bio_text:
         'Post-ironic hell of chia la croix.  Semiotics yuccie 3 wolf moon, bespoke typewriter vape vegan disrupt.  Ennui migas bitters semiotics skateboard put a bird on it shaman.  Tote bag sriracha messenger bag austin jean shorts man braid celiac put a bird on it williamsburg tumblr mlkshk readymade locavore umami offal.  Edison bulb four dollar toast kogi subway tile, flexitarian cronut skateboard shaman fanny pack chillwave polaroid.  Crucifix activated charcoal fingerstache letterpress, godard cloud bread flexitarian ennui listicle YOLO chicharrones waistcoat dreamcatcher.  Art party selvage thundercats, austin tilde pok pok taxidermy deep v put a bird on it.',
       long_description:
@@ -807,7 +807,7 @@ export const API = {
       course_id: 13,
       teacher_name: 'Myron Chaplyn',
       email: 'mchaplync@printfriendly.com',
-      location: 'Anjozorobe',
+      location: 'London',
       bio_text:
         'Man braid typewriter tousled pabst affogato pork belly small batch authentic tacos shoreditch narwhal lomo copper mug.  Waistcoat neutra man bun fanny pack woke bespoke 3 wolf moon occupy sriracha.  Art party microdosing pour-over meditation snackwave master cleanse banjo portland.  Jean shorts flexitarian taiyaki, single-origin coffee cronut meh bushwick meggings schlitz.  Master cleanse artisan photo booth swag pop-up cliche.  Letterpress meditation disrupt hell of retro.  Venmo meh taiyaki, forage yr selfies DIY vinyl chicharrones iceland knausgaard hoodie.',
       long_description:
