@@ -14,10 +14,8 @@ import UserUpdateForm from '@components/UserUpdateForm/UserUpdateForm.js';
 
 import Header from '@components/Header/Header.js';
 
-
 // const data = API.courses;
 const theme = createTheme();
-
 
 export async function getServerSideProps() {
   const data = await fetch('http://localhost:3609/courses');
@@ -52,7 +50,7 @@ export default function Album({ data }) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-  <Header title={siteTitle}></Header>
+      <Header title={siteTitle}></Header>
       {user && (
         <Dialog open={open}>
           <UserUpdateForm
@@ -62,14 +60,6 @@ export default function Album({ data }) {
           />
         </Dialog>
       )}
-
-
-export default function Album() {
-  return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      
-
 
       <main>
         {/* Hero unit */}
