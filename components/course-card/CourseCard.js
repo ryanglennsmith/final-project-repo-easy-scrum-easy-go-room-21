@@ -9,6 +9,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Rating from '@mui/material/Rating';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import Box from '@mui/material/Box';
+import { useRouter } from 'next/router';
 
 // Importing CSS
 import {
@@ -23,6 +25,8 @@ import {
   courseCardRateAvg,
   courseCardReviewCount,
   courseCardActions,
+  navbarButton,
+  tagsBtn,
 } from '../../globalCss.js';
 import { Link } from '@mui/material';
 
@@ -31,6 +35,7 @@ import { Link } from '@mui/material';
 //pass mock data as prop
 export default function CourseCard({ cards }) {
   const matches = useMediaQuery('(min-width:700px)');
+  const router = useRouter();
   return (
     <Container sx={courseCardContainer} maxWidth="lg">
       {/* End hero unit */}
@@ -51,6 +56,7 @@ export default function CourseCard({ cards }) {
             >
               <Card sx={courseCardCardSection}>
                 {/* courseCardCardMedia from globalCss isn't working for img  */}
+
                 <CardMedia
                   component="img"
                   sx={
@@ -60,6 +66,34 @@ export default function CourseCard({ cards }) {
                   image={card.images.thumb}
                   alt={card.teacher_name}
                 />
+
+                {/* tags   */}
+                <CardActions>
+                  <div className=" displayInlineBlock ">
+                    {card.course_tags.map((item, index) => {
+                      function onClick(e) {
+                        e.preventDefault();
+                        router.push(`/search/${item}`);
+                      }
+
+                      return (
+                        <Box className="tagsBtnContainer" key={index}>
+                          <Button
+                            onClick={onClick}
+                            sx={{
+                              ...navbarButton,
+                              ...tagsBtn,
+                              fontSize: '10px',
+                            }}
+                          >
+                            {item}
+                          </Button>
+                        </Box>
+                      );
+                    })}
+                  </div>
+                </CardActions>
+
                 <CardContent sx={courseCardCardContent}>
                   <Typography
                     gutterBottom
@@ -71,7 +105,7 @@ export default function CourseCard({ cards }) {
                   </Typography>
 
                   <Typography sx={courseCardContentTeacherName}>
-                    Instructor: {card.teacher_name}
+                    {card.teacher_name}
                   </Typography>
                   <Typography sx={courseCardContentCourseBrief}>
                     {card.course_brief}
@@ -110,12 +144,12 @@ export default function CourseCard({ cards }) {
                         )
                   }`}</Typography>
                   {/* number of the comments  */}
-                  <Typography sx={courseCardReviewCount}>
-                    {card.reviews.length}
+                  <Typography sx={{ ...courseCardReviewCount }}>
+                    ({card.reviews.length})
                   </Typography>
                   {matches && (
                     <Button variant="outlined" sx={courseCardButton}>
-                      Contact Me
+                      More Info
                     </Button>
                   )}
                 </CardActions>

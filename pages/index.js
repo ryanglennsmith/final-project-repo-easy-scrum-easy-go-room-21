@@ -8,11 +8,16 @@ import CourseCard from '../components/course-card/CourseCard.js';
 import Banner from '@components/Banner/Banner.js';
 import Footer from '@components/Footer/Footer.js';
 import { API } from 'utils/API.js';
+
 import { useUser } from '@auth0/nextjs-auth0';
 import UserUpdateForm from '@components/UserUpdateForm/UserUpdateForm.js';
 
+import Header from '@components/Header/Header.js';
+
+
 // const data = API.courses;
 const theme = createTheme();
+
 
 export async function getServerSideProps() {
   const data = await fetch('http://localhost:3609/courses');
@@ -42,10 +47,12 @@ export default function Album({ data }) {
       }
     }
   });
+  const siteTitle = 'WeShare - Online Skills Exchange Marketplace ';
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+  <Header title={siteTitle}></Header>
       {user && (
         <Dialog open={open}>
           <UserUpdateForm
@@ -55,6 +62,14 @@ export default function Album({ data }) {
           />
         </Dialog>
       )}
+
+
+export default function Album() {
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      
+
 
       <main>
         {/* Hero unit */}
