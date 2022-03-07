@@ -19,21 +19,25 @@ const theme = createTheme();
 
 export async function getServerSideProps() {
   const data = await fetch('http://localhost:3609/courses');
+  const userData = await fetch(`http://localhost:3609/users`);
+  const users = await userData.json();
   const courses = await data.json();
-  return { props: { data: courses } };
+  console.log(`User data:`, users);
+
+  return { props: { data: courses, usersData: users } };
 }
 
-export default function Album({ data }) {
+export default function Album({ data, usersData }) {
   const { user, error, isLoading } = useUser();
   const [open, setOpen] = useState(false);
   const [newUserSuccess, setNewUserSuccess] = useState(false);
-  console.log('newUserSuccess: ', newUserSuccess);
-
+  // console.log('newUserSuccess: ', newUserSuccess);
+  // console.log(`User data:`, usersData);
   useEffect(() => {
     if (!isLoading) {
       if (user) {
         if (
-          data.filter((course) => {
+          usersData.filter((course) => {
             return user.email === course.email;
           }).length === 0
         ) {
