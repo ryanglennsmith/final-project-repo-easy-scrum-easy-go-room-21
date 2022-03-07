@@ -1,9 +1,11 @@
+import ReviewSection from '@components/reviewSection/reviewSection';
+
 // *******General CSS*******
 export const centerContentRow = {
   display: 'flex',
   flexDirection: 'row',
   fontSize: '15px',
-  paddingTop: '20px',
+  paddingTop: '15px',
   height: '30px',
   lineHeight: '30px',
   alignItems: 'center',
@@ -48,7 +50,7 @@ export const navbarButton = {
   color: '#fff',
   background: '#ff7e47',
   '&:hover': { background: '#ee6024' },
-  fontFamily: 'Inter',
+  fontFamily: 'lato',
 };
 
 export const navbarSidePageBox = {
@@ -71,7 +73,7 @@ export const courseCardCardMedia = {};
 
 export const courseCardCardContent = {
   flexGrow: 1,
-  padding: '10px 20px!important',
+  padding: '20px!important',
 };
 
 export const courseCardContentTitle = {
@@ -93,10 +95,10 @@ export const courseCardContentTeacherName = {
   marginBottom: '10px',
 };
 export const courseCardContentCourseBrief = {
-  fontFamily: 'Noto Sans Display',
-  fontWeight: '400',
+  fontFamily: 'Roboto',
+  fontWeight: '300',
   fontSize: '16px',
-  color: '#666',
+  color: '#555',
   marginBottom: '10px',
   display: '-webkit-box',
   WebkitLineClamp: 2,
@@ -112,18 +114,18 @@ export const courseCardActions = {
 };
 
 export const courseCardRateAvg = {
-  fontFamily: 'Noto Sans Display',
+  fontFamily: 'Roboto',
   fontSize: '18px',
   fontWeight: '400',
   color: '#faaf00',
 };
 export const courseCardReviewCount = {
-  fontFamily: 'Noto Sans Display',
+  fontFamily: 'Roboto',
   fontSize: '15px',
   fontWeight: '400',
   color: '#666',
   marginLeft: '0!important',
-  marginRight: '30px',
+  marginRight: '40px',
 };
 export const courseCardButton = {
   color: '#fff',
@@ -159,7 +161,7 @@ export const bannerTypographyWeb = {
   borderRadius: '6px',
   width: '50rem',
   color: '#fff',
-  fontFamily: 'Noto Sans Display',
+  fontFamily: 'Roboto',
   fontSize: '60px',
   fontWeight: '700',
   letterSpacing: '-0.5px',
@@ -184,7 +186,7 @@ export const bannerTypographySubWeb = {
   alignSelf: 'center',
   width: '1000px',
   color: '#eee',
-  fontFamily: 'Noto Sans Display',
+  fontFamily: 'Roboto',
   fontSize: '23px',
   fontWeight: '200',
   lineHeight: '30px',
@@ -228,7 +230,7 @@ export const bannerButton = {
   color: '#fff',
   background: '#ff7e47',
   '&:hover': { background: '#ee6024' },
-  fontFamily: 'Inter',
+  fontFamily: 'lato',
   fontSize: '18px',
   fontWeight: '500',
   border: 'none',
@@ -271,7 +273,7 @@ export const titleTypo = {
 
 export const nameTypo = {
   fontFamily: 'Rhodium Libre',
-  margin: '10px 0 10px 0',
+  margin: '20px 0 15px 0',
   fontSize: '25px',
   fontStyle: 'normal',
   fontWeight: '400',
@@ -291,21 +293,20 @@ export const subHeadingTypo = {
 };
 
 export const generalTypo = {
-  fontFamily: 'Noto Sans Display',
-  fontSize: '16px',
+  fontFamily: 'Roboto',
+  fontSize: '18px',
   fontWeight: '300',
-  lineHeight: '19px',
-  letterSpacing: '0.05em',
-  color: '#666',
+  letterSpacing: '0.02em',
+  color: '#555',
   textAlign: 'left',
-  lineHeight: '25px',
+  lineHeight: '30px',
 };
 
 export const daysTypo = {
   fontFamily: 'lato',
   fontSize: '16px',
   fontWeight: '300',
-  color: '#555',
+  color: '#aaa',
   marginRight: '5px',
   letterSpacing: 0,
   padding: '0 5px',
@@ -313,7 +314,7 @@ export const daysTypo = {
 };
 
 export const ratingTypo = {
-  fontFamily: 'Noto Sans Display',
+  fontFamily: 'Roboto',
   fontSize: '18px',
   fontWeight: '300',
   marginLeft: '5px',
@@ -323,8 +324,15 @@ export const ratingTypo = {
 export const aboutSection = {
   display: 'flex',
   flexDirection: 'column',
-  margin: '45px auto',
+  margin: '65px auto',
   width: '1200px',
+};
+
+export const aboutSectionType = {
+  fontFamily: 'lato',
+  fontWeight: 400,
+  padding: '50px 0 20px 0',
+  color: '#333',
 };
 
 export const profileSearchBar = {
@@ -356,9 +364,19 @@ export const tagsBtn = {
   background: '#fff',
   '&:hover': { background: '#eee' },
   color: '#555',
+  fontFamily: 'Lato',
   border: '1px solid #ccc',
-  borderRadius: '10px',
+  borderRadius: '1px',
   padding: '5px 12px',
+};
+export const tagsBtnMainpage = {
+  background: '#fff',
+  '&:hover': { background: '#eee' },
+  color: '#555',
+  fontFamily: 'Lato',
+  border: '1px solid #ccc',
+  borderRadius: '1px',
+  padding: '1px 3px',
 };
 
 export const contactBtn = {
@@ -370,3 +388,9 @@ export const contactBtn = {
   border: '1px solid #eee',
   marginTop: '15px',
 };
+
+// reviewSection.js
+
+export const addReviewBtn = {};
+export const fontLato = { fontFamily: 'Lato' };
+export const fontRoboto = { fontFamily: 'Roboto' };

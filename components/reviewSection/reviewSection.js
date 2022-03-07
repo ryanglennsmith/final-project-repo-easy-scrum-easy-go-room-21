@@ -1,7 +1,8 @@
 import AddNewReview from '@components/AddNewReview/AddNewReview';
 import Review from '@components/Review/Review';
-import { Button, Container } from '@mui/material';
+import { Button, Container, Alert } from '@mui/material';
 import {
+  addReviewBtn,
   centerContentCol,
   centerContentRow,
   courseCardButton,
@@ -35,27 +36,35 @@ export default function ReviewSection({ data, setNumOfReviews, userData }) {
 
   return (
     <Container sx={centerContentCol}>
-      {!showAddReview && user && (
-        <Button
-          sx={courseCardButton}
-          onClick={() => {
-            setShowAddReview(true);
-          }}
-        >
-          Add review
-        </Button>
-      )}
-      {!showAddReview && !user && (
-        <Button
-          sx={courseCardButton}
-          onClick={() => {
-            setShowAddReview(true);
-          }}
-          disabled={true}
-        >
-          Log in to add review
-        </Button>
-      )}
+      <div className="wrapAddreviewBtn">
+        {!showAddReview && (
+          <Button
+            sx={addReviewBtn}
+            onClick={() => {
+              if (!user) {
+                alert('Please Log in to add review');
+              } else {
+                setShowAddReview(true);
+              }
+            }}
+          >
+            Add review
+          </Button>
+        )}
+      </div>
+      {/* <div className="wrapAddreviewBtn">
+        {!showAddReview && user && (
+          <Button
+            sx={addReviewBtn}
+            onClick={() => {
+              setShowAddReview(true);
+            }}
+          >
+            Add review
+          </Button>
+        )}
+        {!showAddReview && !user && <p> Log in to add review</p>}
+      </div> */}
       <Review visible={visible} reviews={reviewData} />
       <Box sx={centerContentRow}>
         {!showAddReview && visible === 2 && reviewData.length > 2 && (
