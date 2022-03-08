@@ -22,7 +22,7 @@ export async function getServerSideProps() {
   const userData = await fetch(`http://localhost:3609/users`);
   const users = await userData.json();
   const courses = await data.json();
-  console.log(`User data:`, users);
+  // console.log(`User data:`, users);
 
   return { props: { data: courses, usersData: users } };
 }

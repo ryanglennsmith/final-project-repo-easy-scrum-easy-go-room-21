@@ -21,13 +21,23 @@
 //   });
 // });
 
-context('Search page', () => {
+context('Home page', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/search/cooking');
+    cy.visit('http://localhost:3000/');
   });
-  it('should takes us to home page, when we click on the WeShare logo', () => {
-    cy.get('img[src*="https://i.lensdump.com/i/rLRO3c.png"]').click();
-    cy.url().should('include', '/');
+  // it('should takes us to home page, when we click on the WeShare logo', () => {
+  //   cy.get('img[src*="https://i.lensdump.com/i/rLRO3c.png"]').click();
+  //   cy.url().should('include', '/');
+  // });
+
+  it('Call to action header: text includes "Find The Perfect {Tutor}"', () => {
+    cy.get('h1').contains('Find The Perfect {Tutor}');
+  });
+
+  it('Call to action text: text includes ', () => {
+    cy.get('p').contains(
+      'Build, monetize, manage, and grow membership sites, courses, subscriptions, communities, events, or the digital product of your dreams'
+    );
   });
 });
 
@@ -39,4 +49,3 @@ context('Search page', () => {
 //         cy.get('element').contains('text');
 //       });
 //     });
-

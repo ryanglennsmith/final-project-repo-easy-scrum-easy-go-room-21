@@ -31,7 +31,7 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
     const date = new Date();
     const hour = date.getHours();
 
-    console.log(hour);
+    // console.log(hour);
 
     if (hour < 12) {
       return 'Good morning, ';
@@ -81,7 +81,7 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
         const url = `http://localhost:3609/courses/${id}`;
         const res = await fetch(url, req);
         const data = await res.json();
-        console.log('data sent: ', data);
+        // console.log('data sent: ', data);
         setDeleteCourse(false);
         setCourseId('');
         window.location.reload();
