@@ -44,6 +44,7 @@ export default function NavBar({ logoLink }) {
           <MUILink>
             <Container sx={navBarContainer} style={{ padding: 0 }}>
               <img
+                id="image-logo"
                 src={logoLink}
                 alt="logo"
                 style={{ maxWidth: '200px' }}
