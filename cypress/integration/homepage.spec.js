@@ -12,10 +12,10 @@
 
 context('page name', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/');
+    cy.visit('http://localhost:3000/search/cooking');
   });
   it('should takes us to home page, when we click on the WeShare logo', () => {
-    cy.get('img[href*="/"]').click({ multiple: pass });
+    cy.get('img[src*="https://i.lensdump.com/i/rLRO3c.png"]').click();
 
     cy.url().should('include', '/');
   });
