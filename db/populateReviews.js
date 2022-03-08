@@ -10,26 +10,51 @@ const dbUsers = await prisma.user.findMany();
 const dbCourses = await prisma.course.findMany();
 //console.log('dbCourses :', dbCourses);
 
-const test = API.courses.map((course) => {
-  const result = course.reviews.filter((item) => {
-    return item.length > 0;
+// loop through each course in API ->
+// reviews are array within each course
+// loop through reviews array to return each:
+// review date
+// review rating
+// review text
+// check off all above
+// we need to find reviewer id -> match that against
+// data already populated in DB: User
+// check off this
+
+// we need to find course id -> match that against
+// data already populated in DB: Review
+// if reviews array in courses is empty
+// eliminate that array from the search
+
+// else return all the reviews that have data
+
+// return only courses with non-empty review arrays
+const allReviews = API.courses
+  .filter((course) => {
+    return course.reviews.length > 0;
+  })
+  .map((course) => {
+    return { [course.course_title]: course.reviews };
   });
-  // .map((review) => {
-  //   return {
-  //     course_id: dbCourses.find((item) => {
-  //       return item.course_title === course.course_title;
-  //     }).course_id,
+// console.log(allReviews);
 
-  //     reviewer_id: dbUsers.find((user) => {
-  //       return `${user.first_name} ${user.last_name}` === review.reviewer;
-  //     }).id,
+const test = API.courses.map((course) => {
+  const result = course.reviews.map((review) => {
+    return {
+      course_id: dbCourses.find((item) => {
+        return item.course_title === course.course_title;
+      }).course_id,
 
-  //     date: review.date,
-  //     review_rating: review.rating,
-  //     review_text: review.review_text,
-  //   };
-  // });
-  return result;
+      reviewer_id: dbUsers.find((user) => {
+        return `${user.first_name} ${user.last_name}` === review.reviewer;
+      }).id,
+
+      date: review.date,
+      review_rating: review.rating,
+      review_text: review.review_text,
+    };
+  });
+  return result[0];
 });
 
 console.log(' test : ', test);
