@@ -49,7 +49,7 @@ model Review {
   course_id     Int
   review_text   String
   review_rating Decimal
-  date          DateTime
+  date          String
 
   @@map("reviews")
 }
