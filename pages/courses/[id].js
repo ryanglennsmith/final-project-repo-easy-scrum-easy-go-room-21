@@ -259,7 +259,10 @@ export default function CoursePage({ data, users }) {
             })}
           </Box>
         </div>
-        <div className="subPageContentWrap">
+        <div
+          className="subPageContentWrap"
+          data-cy="course-tutor-delivery-available"
+        >
           <p className="subPageSubTitle">How is the course delivered</p>
           <Box sx={{ ...centerContentRow }}>
             {course.is_offline === 'true' ? (

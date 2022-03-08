@@ -64,22 +64,22 @@ context('Course page', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/courses/1');
   });
-  it('should takes us to home page, when we click on the WeShare logo', () => {
+  it('Should takes us to home page, when we click on the WeShare logo', () => {
     cy.get('img[src*="https://i.lensdump.com/i/rLRO3c.png"]').click();
 
     cy.url().should('include', '/');
   });
-  it('should load the courses full image ', () => {
+  it('Should load the courses full image ', () => {
     cy.get('[data-cy="course-image-full"]').should('be.visible');
   });
-  it('should load the courses title ', () => {
+  it('Should load the courses title ', () => {
     cy.get('[data-cy="course-tutor-intro"]').contains('Painting For Beginners');
   });
 
-  it("should load the courses tutor's name", () => {
+  it("Should load the courses tutor's name", () => {
     cy.get('[data-cy="course-tutor-intro"]').contains('Simona Rossi');
   });
-  it('should load the courses short description', () => {
+  it('Should load the courses short description', () => {
     cy.get('[data-cy="course-tutor-intro"]').contains(
       'Painting for those who have never painted before or want to reasses their approach to painting'
     );
@@ -92,14 +92,107 @@ context('Course page', () => {
     const tags = ['art', 'painting', 'beginners'];
     // prettier-ignore
     tags.forEach((item, index)=>{
+          cy.visit("http://localhost:3000/courses/1");
           cy.get(`[data-cy="course-tutor-tags"] > :nth-child(${index +1}) > .MuiButton-root`).click()
-          cy.url().should(`include`, `/search/${item}`).go("back");
+          cy.url().should(`include`, `/search/${item}`)
+          
 
       })
-    it('Should display the label of "Days available" and the days should be highlighted darker if available', () => {
-      cy.get('[data-cy="course-tutor-days-available"] > .subPageSubTitle')
+  });
+  it('Should display the label of "Days available"', () => {
+    cy.get('[data-cy="course-tutor-days-available"] > .subPageSubTitle')
+      .should('be.visible')
+      .contains('Days available');
+  });
+  it('Should display the days of the week and days should be highlighted darker if available', () => {
+    const daysOfTheWeek = [
+      { day: 'Sunday', available: true },
+      { day: 'Monday', available: true },
+      { day: 'Tuesday', available: true },
+      { day: 'Wednesday', available: false },
+      { day: 'Thursday', available: true },
+      { day: 'Friday', available: false },
+      { day: 'Saturday', available: false },
+    ];
+    // Stable
+    daysOfTheWeek.forEach((dayObject, index) => {
+      cy.get(
+        `[data-cy="course-tutor-days-available"] > .MuiBox-root > :nth-child(${
+          index + 1
+        })`
+      )
         .should('be.visible')
-        .contains('Days available');
+        .contains(`${dayObject.day}`);
     });
   });
+  // This test is not stable (due to days available being open to change)
+  // Only good if the days available are known/won't change
+  it('Should display the days of the week and days should be highlighted darker if available', () => {
+    const daysOfTheWeek = [
+      { day: 'Sunday', available: true },
+      { day: 'Monday', available: true },
+      { day: 'Tuesday', available: true },
+      { day: 'Wednesday', available: false },
+      { day: 'Thursday', available: true },
+      { day: 'Friday', available: false },
+      { day: 'Saturday', available: false },
+    ];
+    daysOfTheWeek.forEach((dayObject, index) => {
+      cy.get(
+        `[data-cy="course-tutor-days-available"] > .MuiBox-root > :nth-child(${
+          index + 1
+        })`
+      )
+        .should('be.visible')
+        .contains(`${dayObject.day}`);
+      if (dayObject.available === true) {
+        cy.should('have.css', 'background-color', 'rgb(51, 51, 51)');
+      } else {
+        cy.should('have.css', 'background-color', 'rgb(238, 238, 238)');
+      }
+    });
+  });
+  it('Should display the label of "How is the course delivered"', () => {
+    cy.get('[data-cy="course-tutor-delivery-available"] > .subPageSubTitle')
+      .should('be.visible')
+      .contains('How is the course delivered');
+  });
+  it('Should display the two methods of course delivery', () => {
+    const courseDelivery = [
+      { text: 'In-person', available: true },
+      { text: 'Remote', available: true },
+    ];
+    // Stable
+    courseDelivery.forEach((deliveryObject, index) => {
+      cy.get(
+        `[data-cy="course-tutor-delivery-available"] > .MuiBox-root > :nth-child(${
+          index + 1
+        })`
+      )
+        .should('be.visible')
+        .contains(`${deliveryObject.text}`);
+    });
+  }),
+    it('Should display the two methods of course delivery', () => {
+      // This test is not stable (due to course delivery being open to change)
+      // Only good if the days available are known/won't change
+      const courseDelivery = [
+        { text: 'In-person', available: true },
+        { text: 'Remote', available: true },
+      ];
+      courseDelivery.forEach((deliveryObject, index) => {
+        cy.get(
+          `[data-cy="course-tutor-delivery-available"] > .MuiBox-root > :nth-child(${
+            index + 1
+          })`
+        )
+          .should('be.visible')
+          .contains(`${deliveryObject.text}`);
+        if (deliveryObject.available === true) {
+          cy.should('have.css', 'background-color', 'rgb(51, 51, 51)');
+        } else {
+          cy.should('have.css', 'background-color', 'rgb(238, 238, 238)');
+        }
+      });
+    });
 });
