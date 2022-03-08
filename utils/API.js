@@ -125,21 +125,21 @@ export const API = {
         {
           reviewer: 'Tessi Langhor',
           date: '26-03-2020',
-          rating: 3,
+          rating: 3.5,
           review_text:
             'Lo-fi asymmetrical taxidermy williamsburg small batch XOXO actually, everyday carry glossier irony ugh pabst vice heirloom',
         },
         {
           reviewer: 'Nickolas Diperaus',
           date: '28-04-2020',
-          rating: 4,
+          rating: 4.5,
           review_text:
             'Forage bitters la croix, pabst vexillologist truffaut whatever pug dreamcatcher 3 wolf moon air plant venmo squid kinfolk slow-carb',
         },
         {
           reviewer: 'Blaire Derwin',
           date: '23-10-2020',
-          rating: 4,
+          rating: 4.5,
           review_text:
             'Occupy slow-carb try-hard tilde williamsburg kogi snackwave',
         },
@@ -152,7 +152,7 @@ export const API = {
         {
           reviewer: 'Park Kleeborn',
           date: '15-09-2020',
-          rating: 4,
+          rating: 4.5,
           review_text: 'Banh mi skateboard echo park organic',
         },
         {
