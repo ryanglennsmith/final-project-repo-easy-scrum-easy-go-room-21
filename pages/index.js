@@ -13,17 +13,37 @@ import { useUser } from '@auth0/nextjs-auth0';
 import UserUpdateForm from '@components/UserUpdateForm/UserUpdateForm.js';
 
 import { PrismaClient } from '@prisma/client';
+import { wouldYouUnpackThatForMe } from '../db/getAllData.js';
 
 import Header from '@components/Header/Header.js';
-import { coursesMap, usersMap } from '../db/getAllData.js';
 // const data = API.courses;
 const theme = createTheme();
 const prisma = new PrismaClient();
 export async function getServerSideProps() {
+  const prismaCall = async () => {
+    const dbCourses = await prisma.user.findMany({
+      include: {
+        Course: {
+          include: {
+            Review: true,
+          },
+        },
+      },
+    });
+    return dbCourses;
+  };
+
+  const bigDbData = await prismaCall()
+    .catch((e) => {
+      throw e;
+    })
+    .finally(async () => {
+      await prisma.$disconnect();
+    });
   // const data = await fetch('http://localhost:3609/courses');
   // const userData = await fetch(`http://localhost:3609/users`);
+  const [coursesMap, usersMap] = wouldYouUnpackThatForMe(bigDbData);
   console.log(usersMap);
-
   return { props: { data: coursesMap, usersData: usersMap } };
 }
 
