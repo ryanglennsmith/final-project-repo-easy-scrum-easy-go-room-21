@@ -1,6 +1,6 @@
 import AddNewReview from '@components/AddNewReview/AddNewReview';
 import Review from '@components/Review/Review';
-import { Button, Container, Alert } from '@mui/material';
+import { Button, Container, Alert, Typography } from '@mui/material';
 import {
   addReviewBtn,
   centerContentCol,
