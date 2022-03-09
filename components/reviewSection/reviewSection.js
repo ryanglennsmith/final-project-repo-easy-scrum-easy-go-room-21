@@ -39,7 +39,7 @@ export default function ReviewSection({ data, setNumOfReviews, userData }) {
       <div className="wrapAddreviewBtn">
         {!showAddReview && (
           <Button
-            sx={addReviewBtn}
+            sx={courseCardButton}
             onClick={() => {
               if (!user) {
                 alert('Please Log in to add review');
@@ -47,6 +47,7 @@ export default function ReviewSection({ data, setNumOfReviews, userData }) {
                 setShowAddReview(true);
               }
             }}
+            data-cy="course-review-add-review-button"
           >
             Add review
           </Button>
@@ -68,7 +69,11 @@ export default function ReviewSection({ data, setNumOfReviews, userData }) {
       <Review visible={visible} reviews={reviewData} />
       <Box sx={centerContentRow}>
         {!showAddReview && visible === 2 && reviewData.length > 2 && (
-          <Button sx={showMoreLessButton} onClick={() => showMoreItems()}>
+          <Button
+            sx={showMoreLessButton}
+            onClick={() => showMoreItems()}
+            data-cy="course-review-show-more-button"
+          >
             Show more
           </Button>
         )}
