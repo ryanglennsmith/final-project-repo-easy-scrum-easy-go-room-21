@@ -95,7 +95,6 @@ context('Course page', () => {
           cy.visit("http://localhost:3000/courses/1");
           cy.get(`[data-cy="course-tutor-tags"] > :nth-child(${index +1}) > .MuiButton-root`).click()
           cy.url().should(`include`, `/search/${item}`)
-          
 
       })
   });
@@ -172,27 +171,196 @@ context('Course page', () => {
         .should('be.visible')
         .contains(`${deliveryObject.text}`);
     });
-  }),
-    it('Should display the two methods of course delivery', () => {
-      // This test is not stable (due to course delivery being open to change)
-      // Only good if the days available are known/won't change
-      const courseDelivery = [
-        { text: 'In-person', available: true },
-        { text: 'Remote', available: true },
-      ];
-      courseDelivery.forEach((deliveryObject, index) => {
-        cy.get(
-          `[data-cy="course-tutor-delivery-available"] > .MuiBox-root > :nth-child(${
-            index + 1
-          })`
-        )
-          .should('be.visible')
-          .contains(`${deliveryObject.text}`);
-        if (deliveryObject.available === true) {
-          cy.should('have.css', 'background-color', 'rgb(51, 51, 51)');
-        } else {
-          cy.should('have.css', 'background-color', 'rgb(238, 238, 238)');
-        }
-      });
+  });
+  it('Should display the two methods of course delivery', () => {
+    // This test is not stable (due to course delivery being open to change)
+    // Only good if the days available are known/won't change
+    const courseDelivery = [
+      { text: 'In-person', available: true },
+      { text: 'Remote', available: true },
+    ];
+    courseDelivery.forEach((deliveryObject, index) => {
+      cy.get(
+        `[data-cy="course-tutor-delivery-available"] > .MuiBox-root > :nth-child(${
+          index + 1
+        })`
+      )
+        .should('be.visible')
+        .contains(`${deliveryObject.text}`);
+      if (deliveryObject.available === true) {
+        cy.should('have.css', 'background-color', 'rgb(51, 51, 51)');
+      } else {
+        cy.should('have.css', 'background-color', 'rgb(238, 238, 238)');
+      }
     });
+  });
+
+  // Sign in test, should be placed last in testing.
+  it('Should take us to the Auth0 Sign in page', () => {
+    cy.get('.navbar-buttons > .MuiButton-root').click();
+  });
+
+  it('Should type in text in the input and then click the search button', () => {
+    cy.get(`.MuiFormControl-root`)
+      .type(`cooking`)
+      .get(`.wrapProfileSearchBar > .MuiBox-root > .MuiButton-root`)
+      .click()
+      .url(`includes`, `http://localhost:3000/search/cooking`);
+  });
+  // prettier - ignore;
+  it(`Should test that the footer has text and an img inside of it`, () => {
+    cy.get(`.footerWrap`)
+      .contains('Copyright © 2022.')
+      .get(`.MuiTypography-body2 > :nth-child(2)`)
+      .contains('WeShare All rights reserved.')
+      .get(`.MuiTypography-root > img`)
+      .click()
+      .url()
+      .should('include', '/');
+  });
+  it(`Should find display 'Why Learn With' and the name should be 'Simona Rossi' with CSS of {fontFamily: 'lato',
+  fontWeight: 400,
+  padding: '50px 0 20px 0',
+  color: '#333'} `, () => {
+    cy.get(`.aboutSectionBox > .MuiTypography-h4`)
+      .contains(`Why Learn With`)
+      .should('have.css', 'font-family', 'lato')
+      .and('have.css', 'font-weight', '400')
+      .and('have.css', 'padding', '50px 0px 20px')
+      .and('have.css', 'color', 'rgb(51, 51, 51)');
+
+    // cy.get(`.aboutSectionBox > .MuiTypography-h4 > .spanTagNameColor`).contains(`${expectedInfo.name}`)
+  });
+  it(`Should find display next to 'Why Learn With' the name 'Simona Rossi' with CSS of {font-weight: 600;
+    color: rgb(0, 141, 62);}  `, () => {
+    const expectedInfo = {
+      name: 'Simona Rossi',
+      text: 'Small batch crucifix helvetica kickstarter messenger bag before they sold out everyday carry viral ethical af next level chillwave hammock succulents pug. Mixtape YOLO single-origin coffee sartorial, kitsch pitchfork ugh pabst letterpress. Sartorial wayfarers lumbersexual retro before they sold out plaid etsy chillwave chicharrones portland gastropub VHS artisan tumblr. Typewriter shaman locavore ramps, tumeric ugh pabst. Umami kickstarter coloring book kitsch chartreuse, ramps plaid copper mug. Offal everyday carry intelligentsia glossier, woke deep v microdosing selvage freegan hexagon scenester. Mlkshk listicle portland raw denim, meditation lyft hoodie mustache hashtag.',
+    };
+    cy.get(`.aboutSectionBox > .MuiTypography-h4 > .spanTagNameColor`)
+      .contains(`${expectedInfo.name}`)
+      .should('have.css', 'font-weight', '600')
+      .and('have.css', 'color', 'rgb(0, 141, 62)');
+  });
+  it(`Should text matching the expected info in the 'why learn with' section with CSS of {  fontFamily: 'Roboto',
+  fontSize: '18px',
+  fontWeight: '300',
+  letterSpacing: '0.36px',
+  color: 'rgb(68, 68, 68)',
+  textAlign: 'left',
+  lineHeight: '30px',}  `, () => {
+    const expectedInfo = {
+      name: 'Simona Rossi',
+      text: 'Small batch crucifix helvetica kickstarter messenger bag before they sold out everyday carry viral ethical af next level chillwave hammock succulents pug. Mixtape YOLO single-origin coffee sartorial, kitsch pitchfork ugh pabst letterpress. Sartorial wayfarers lumbersexual retro before they sold out plaid etsy chillwave chicharrones portland gastropub VHS artisan tumblr. Typewriter shaman locavore ramps, tumeric ugh pabst. Umami kickstarter coloring book kitsch chartreuse, ramps plaid copper mug. Offal everyday carry intelligentsia glossier, woke deep v microdosing selvage freegan hexagon scenester. Mlkshk listicle portland raw denim, meditation lyft hoodie mustache hashtag.',
+    };
+    cy.get(`.aboutSectionBox > .MuiTypography-body1`)
+      .contains(`${expectedInfo.text}`)
+      .should('have.css', 'font-size', '18px')
+      .and('have.css', 'font-weight', '300')
+      .and('have.css', 'letter-spacing', '0.36px')
+      .and('have.css', 'color', 'rgb(68, 68, 68)')
+      .and('have.css', 'text-align', 'left')
+      .and('have.css', 'line-height', '30px');
+  });
+  it(`Should find display 'About' and the name should be 'Simona Rossi' with CSS of {fontFamily: 'lato',
+  fontWeight: 400,
+  padding: '50px 0 20px 0',
+  color: '#333'} `, () => {
+    cy.get(`:nth-child(6) > .MuiTypography-h4`)
+      .contains(`About`)
+      .should('have.css', 'font-family', 'lato')
+      .and('have.css', 'font-weight', '400')
+      .and('have.css', 'padding', '50px 0px 20px')
+      .and('have.css', 'color', 'rgb(51, 51, 51)');
+
+    // cy.get(`.aboutSectionBox > .MuiTypography-h4 > .spanTagNameColor`).contains(`${expectedInfo.name}`)
+  });
+  it(`Should find display next to 'Why Learn With' the name 'Simona Rossi' with CSS of {font-weight: 600;
+    color: rgb(0, 141, 62);}  `, () => {
+    const expectedInfo = {
+      course: 'Painting For Beginners',
+    };
+    cy.get(`:nth-child(6) > .MuiTypography-h4`)
+      .contains(`${expectedInfo.course}`)
+      .should('have.css', 'font-weight', '600')
+      .and('have.css', 'color', 'rgb(0, 141, 62)');
+  });
+  it(`Should text matching the expected info in the 'why learn with' section with CSS of {  fontFamily: 'Roboto',
+  fontSize: '18px',
+  fontWeight: '300',
+  letterSpacing: '0.36px',
+  color: 'rgb(68, 68, 68)',
+  textAlign: 'left',
+  lineHeight: '30px',}  `, () => {
+    const expectedInfo = {
+      text: 'This 4hour workshop is a fun and relaxing experience. I will be oferring plenty of guidance. You will be exploring different techniques, learn to see colour,shape and tone, and to relate these elements in compositions.',
+    };
+    cy.get(`:nth-child(6) > .MuiTypography-body1`)
+      .contains(`${expectedInfo.text}`)
+      .should('have.css', 'font-size', '18px')
+      .and('have.css', 'font-weight', '300')
+      .and('have.css', 'letter-spacing', '0.36px')
+      .and('have.css', 'color', 'rgb(68, 68, 68)')
+      .and('have.css', 'text-align', 'left')
+      .and('have.css', 'line-height', '30px');
+  });
+
+  it(`Should display an 'ADD REVIEW' button that is clickable and has the css of {'color', 'rgb(255, 255, 255)',
+   'background', 'rgb(255, 137, 87) none repeat scroll 0% 0% / auto padding-box border-box'},
+   'border', '0px none rgb(255, 255, 255)',
+   'Hover:', 'background', 'rgb(255, 137, 87) none repeat scroll 0% 0% / auto padding-box border-box',
+   'color', 'rgb(255, 255, 255)',
+   'border', '0px none rgb(255, 255, 255)'`, () => {
+    const expectedInfo = {
+      text: 'ADD REVIEW',
+    };
+    cy.visit('http://localhost:3000/courses/6');
+    cy.get(`[data-cy="course-review-add-review-button"]`)
+      // .contains(`${expectedInfo.text}`)
+      // .should('have.css', 'font-weight', '500')
+      .should('have.css', 'color', 'rgb(255, 255, 255)')
+      .and(
+        'have.css',
+        'background',
+        'rgb(255, 137, 87) none repeat scroll 0% 0% / auto padding-box border-box'
+      )
+      .and('have.css', 'border', '0px none rgb(255, 255, 255)')
+      .trigger('onmouseover')
+      .and(
+        'have.css',
+        'background',
+        'rgb(255, 137, 87) none repeat scroll 0% 0% / auto padding-box border-box'
+      )
+      .and('have.css', 'color', 'rgb(255, 255, 255)')
+      .and('have.css', 'border', '0px none rgb(255, 255, 255)');
+  });
+  it(`Should display an 'SHOW MORE' button that is clickable and has the css of {'color', 'rgb(255, 255, 255)',
+  'background', 'rgb(255, 137, 87) none repeat scroll 0% 0% / auto padding-box border-box'},
+  'border', '0px none rgb(255, 255, 255)',
+  'Hover:', 'background', 'rgb(255, 137, 87) none repeat scroll 0% 0% / auto padding-box border-box',
+  'color', 'rgb(255, 255, 255)',
+  'border', '0px none rgb(255, 255, 255)'`, () => {
+    const expectedInfo = {
+      text: 'SHOW MORE',
+    };
+    cy.visit('http://localhost:3000/courses/6');
+    cy.get(`[data-cy="course-review-show-more-button"]`)
+      // .contains(`${expectedInfo.text}`)
+      // .should('have.css', 'font-weight', '500')
+      .should('have.css', 'color', 'rgb(255, 255, 255)')
+      .and(
+        'have.css',
+        'background',
+        'rgb(255, 137, 87) none repeat scroll 0% 0% / auto padding-box border-box'
+      )
+      .and('have.css', 'border', '0px none rgb(255, 255, 255)')
+      .trigger('onmouseover')
+      .and(
+        'have.css',
+        'background',
+        'rgb(255, 137, 87) none repeat scroll 0% 0% / auto padding-box border-box'
+      )
+      .and('have.css', 'color', 'rgb(255, 255, 255)')
+      .and('have.css', 'border', '0px none rgb(255, 255, 255)');
+  });
 });
