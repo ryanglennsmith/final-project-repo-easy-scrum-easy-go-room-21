@@ -43,7 +43,7 @@ export async function getServerSideProps() {
   // const data = await fetch('http://localhost:3609/courses');
   // const userData = await fetch(`http://localhost:3609/users`);
   const [coursesMap, usersMap] = wouldYouUnpackThatForMe(bigDbData);
-  console.log(usersMap);
+  // console.log(usersMap);
   return { props: { data: coursesMap, usersData: usersMap } };
 }
 
