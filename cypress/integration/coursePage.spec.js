@@ -103,15 +103,15 @@ context('Course page', () => {
       .should('be.visible')
       .contains('Days available');
   });
-  it('Should display the days of the week and days should be highlighted darker if available', () => {
+  it('Should display the days of the week and days and if visible it should pass ', () => {
     const daysOfTheWeek = [
-      { day: 'Sunday', available: true },
-      { day: 'Monday', available: true },
-      { day: 'Tuesday', available: true },
-      { day: 'Wednesday', available: false },
-      { day: 'Thursday', available: true },
-      { day: 'Friday', available: false },
-      { day: 'Saturday', available: false },
+      { day: 'Sunday' },
+      { day: 'Monday' },
+      { day: 'Tuesday' },
+      { day: 'Wednesday' },
+      { day: 'Thursday' },
+      { day: 'Friday' },
+      { day: 'Saturday' },
     ];
     // Stable
     daysOfTheWeek.forEach((dayObject, index) => {
