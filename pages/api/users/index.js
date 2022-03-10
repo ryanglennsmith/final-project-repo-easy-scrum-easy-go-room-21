@@ -25,7 +25,7 @@ export default async function handler(req, res) {
       await prisma.$disconnect();
     });
 
-  const [coursesMap] = wouldYouUnpackThatForMe(bigDbData);
+  const [usersMap] = wouldYouUnpackThatForMe(bigDbData);
 
-  res.status(200).json(coursesMap);
+  res.status(200).json(usersMap);
 }
