@@ -49,7 +49,7 @@ const UserUpdateForm = ({
             body: JSON.stringify(update),
           };
         } else if (!createNew) {
-          url = `http://localhost:3609/users/${userId}`;
+          url = `http://localhost:3000/api/users/${userId}`;
           req = {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
