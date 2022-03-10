@@ -28,8 +28,8 @@ export const wouldYouUnpackThatForMe = (bigDbData) => {
         location: thing.Course[0].location,
         bio_text: thing.bio_text,
         long_description: thing.Course[0].long_description,
-        is_online: String(thing.Course[0].is_remote),
-        is_offline: String(thing.Course[0].is_inperson),
+        is_online: thing.Course[0].is_remote,
+        is_offline: thing.Course[0].is_inperson,
         images: {
           full: `${thing.Course[0].image_url}?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80`,
           thumb: `${thing.Course[0].image_url}?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80`,

@@ -32,20 +32,6 @@ export default async function handler(req, res) {
         await prisma.$disconnect();
       });
     res.status(200).json({ dataSent: data, doDbMsg: doDb });
-  } else if (req.method === 'PUT') {
-    const data = {
-      teacher_id: req.body.teacher_id,
-      location: req.body.location,
-      is_remote: req.body.is_online,
-      is_inperson: req.body.is_offline,
-      datesAvailable: req.body.dates_available,
-      course_brief: req.body.course_brief,
-      course_title: req.body.course_title,
-      course_tags: req.body.course_tags,
-      image_url: req.body.image,
-      long_description: req.body.long_description,
-    };
-    console.log(data);
   } else {
     const prismaCall = async () => {
       const dbCourses = await prisma.user.findMany({

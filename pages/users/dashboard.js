@@ -33,7 +33,7 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
     const date = new Date();
     const hour = date.getHours();
 
-    console.log(hour);
+    // console.log(hour);
 
     if (hour < 12) {
       return 'Good morning, ';
@@ -55,15 +55,17 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
   const userData = allUsers.filter((match) => {
     return user.email === match.email;
   });
+  // console.log('userData[0].id: ', userData[0].id);
   const myCourses = allCourses.filter((course) => {
-    return user.email === course.email;
+    // console.log('course: ', course);
+    return userData[0].email === course.email;
   });
   const [createNew, setCreateNew] = useState(true);
   const [editOld, setEditOld] = useState(false);
   const [courseToEdit, setCourseToEdit] = useState('');
   const [updateProfile, setUpdateProfile] = useState(false);
   const [deleteCourse, setDeleteCourse] = useState(false);
-  const [courseId, setCourseId] = useState('');
+  const [courseId, setCourseId] = useState();
 
   function handleDeleteClick(id) {
     setCourseId(Number(id));
@@ -83,7 +85,7 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
         const url = `http://localhost:3609/courses/${id}`;
         const res = await fetch(url, req);
         const data = await res.json();
-        console.log('data sent: ', data);
+        // console.log('data sent: ', data);
         setDeleteCourse(false);
         setCourseId('');
         window.location.reload();

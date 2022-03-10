@@ -17,6 +17,8 @@ const AddCourse = ({
   courseToEdit,
 }) => {
   const [newCourse, setNewCourse] = useState(courseToEdit);
+  console.log('courseToEdit: ', courseToEdit);
+  console.log('newCourse', newCourse);
   const [sendCourse, setSendCourse] = useState(false);
   // const [weekdays, setWeekdays] = useState([
   //   { Sunday: 'false' },
@@ -102,7 +104,7 @@ const AddCourse = ({
             body: JSON.stringify(body),
             headers: { 'Content-Type': 'application/json' },
           };
-          url = `http://localhost:3609/courses/${newCourse.id}`;
+          url = `http://localhost:3000/api/courses/${newCourse.course_id}`;
         }
         const res = await fetch(url, req);
         const data = await res.json();
@@ -224,14 +226,14 @@ const AddCourse = ({
         </Typography>
         <Box>
           <Checkbox
-            defaultChecked={newCourse.is_online === 'true'}
+            defaultChecked={newCourse.is_online === true}
             onChange={(e) =>
               setNewCourse({ ...newCourse, is_online: e.target.checked })
             }
           />{' '}
           Online?
           <Checkbox
-            defaultChecked={newCourse.is_offline === 'true'}
+            defaultChecked={newCourse.is_offline === true}
             onChange={(e) =>
               setNewCourse({ ...newCourse, is_offline: e.target.checked })
             }
