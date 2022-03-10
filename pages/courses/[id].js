@@ -155,7 +155,7 @@ export default function CoursePage({ data, users }) {
     }
   }
 
-  const siteTitle = `Weshare `;
+  const siteTitle = `WeShare `;
 
   return (
     <Box style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}>
@@ -417,6 +417,7 @@ export default function CoursePage({ data, users }) {
         data={course.reviews}
         setNumOfReviews={setNumOfReviews}
         userData={userData}
+        courseId={course.course_id}
       />
       {/*Review section */}
       {/*

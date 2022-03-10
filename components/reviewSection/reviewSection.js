@@ -8,27 +8,54 @@ import {
   courseCardButton,
   showMoreLessButton,
 } from 'globalCss';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useUser } from '@auth0/nextjs-auth0';
 import { Box } from '@mui/system';
 import SuccessAlert from '@components/SuccessAlert/SuccessAlert';
 
 // This component holds all of the review section
 // Data is review section of API
-export default function ReviewSection({ data, setNumOfReviews, userData }) {
+export default function ReviewSection({
+  data,
+  setNumOfReviews,
+  userData,
+  courseId,
+}) {
   // Used useState to re-render review section on addition of new review
   const [reviewData, setReviewData] = useState(data);
   // Used useState to set boolean to trigger AddNewReviewSection
   const [showAddReview, setShowAddReview] = useState(false);
+  const [sendReview, setSendReview] = useState(false);
   const { user, error, isLoading } = useUser();
   const [visible, setVisible] = useState(2);
   const [open, setOpen] = React.useState(false);
-
+  const [newReview, setNewReview] = useState();
   function showMoreItems() {
     setVisible(reviewData.length);
     // setShowAddReview(true);
   }
+  useEffect(() => {
+    if (sendReview) {
+      // send to API
+      const fetchFunction = async () => {
+        const body = {
+          date: newReview.date,
+          review_rating: newReview.rating,
+          review_text: newReview.review_text,
+          reviewer_id: newReview.reviewer_id,
+          course_id: courseId,
+        };
 
+        const res = await fetch('http://localhost:3000/api/reviews', {
+          method: 'POST',
+          body: JSON.stringify(body), // let's make the body disappear
+          headers: { 'Content-Type': 'application/json' },
+        });
+      };
+      fetchFunction();
+    }
+    setSendReview(false);
+  }, [sendReview]);
   function collapseItems() {
     setVisible(2);
     setShowAddReview(false);
@@ -84,8 +111,11 @@ export default function ReviewSection({ data, setNumOfReviews, userData }) {
           reviewData={reviewData}
           setReviewData={setReviewData}
           setShowAddReview={setShowAddReview}
+          setSendReview={setSendReview}
           setOpen={setOpen}
           setNumOfReviews={setNumOfReviews}
+          sendReview={sendReview}
+          setNewReview={setNewReview}
         />
       )}
       <SuccessAlert open={open} setOpen={setOpen} />
