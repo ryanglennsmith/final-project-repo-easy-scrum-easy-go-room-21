@@ -14,11 +14,11 @@ import UserUpdateForm from '@components/UserUpdateForm/UserUpdateForm.js';
 
 import { PrismaClient } from '@prisma/client';
 import { wouldYouUnpackThatForMe } from '../db/getAllData.js';
+const prisma = new PrismaClient();
 
 import Header from '@components/Header/Header.js';
 // const data = API.courses;
 const theme = createTheme();
-const prisma = new PrismaClient();
 export async function getServerSideProps() {
   const prismaCall = async () => {
     const dbCourses = await prisma.user.findMany({
