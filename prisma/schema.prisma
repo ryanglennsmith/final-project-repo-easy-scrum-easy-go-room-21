@@ -42,10 +42,10 @@ model Course {
 }
 
 model Review {
-  review_id     Int      @id @default(autoincrement())
-  reviewer      User     @relation(name: "reviewer_id", references: [id], fields: [reviewer_id])
+  review_id     Int    @id @default(autoincrement())
+  reviewer      User   @relation(name: "reviewer_id", references: [id], fields: [reviewer_id])
   reviewer_id   Int
-  course        Course   @relation(name: "course_id", references: [course_id], fields: [course_id])
+  course        Course @relation(name: "course_id", references: [course_id], fields: [course_id])
   course_id     Int
   review_text   String
   review_rating Int
