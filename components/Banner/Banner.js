@@ -40,13 +40,14 @@ const dynamicTextArray = [
   'Become Batman',
 ];
 
-const dynamicText =
+const dynamicTextRandom =
   dynamicTextArray[Math.floor(Math.random() * dynamicTextArray.length)];
 export default function Banner() {
   const matches = useMediaQuery('(min-width:700px)');
   const router = useRouter();
 
   const [input, setInput] = useState('');
+  const [dynamicText, setDynamicText] = useState('');
 
   function handleChange(e) {
     // grabbing the text input on search bar
@@ -79,14 +80,20 @@ export default function Banner() {
             gutterBottom
             sx={bannerTypographyWeb}
           >
-            <Typewriter
-              onInit={(typewriter) => {
-                typewriter
-                  .typeString(`I Want To Learn How To {${dynamicText}}`)
-                  .pauseFor(2500)
-                  .start();
-              }}
-            />
+            <span>
+              {'I Want to Learn How To'}
+
+              <Typewriter
+                onInit={(typewriter) => {
+                  typewriter
+                    .typeString(`{${dynamicTextRandom}}`)
+                    .pauseFor(2500)
+                    // .typeString(`I Want To Learn How To {${dynamicText}}`)
+
+                    .start();
+                }}
+              />
+            </span>
           </Typography>
         )}
         {!matches && (
