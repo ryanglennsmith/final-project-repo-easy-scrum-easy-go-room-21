@@ -14,30 +14,29 @@ export const wouldYouUnpackThatForMe = (bigDbData) => {
     'Thursday',
     'Friday',
     'Saturday',
-    'Sunday',
   ];
   const coursesMap = bigDbData
     .filter((item) => {
       return item.Course.length > 0;
     })
-    .map((thing) => {
+    .map((item) => {
       return {
-        course_id: thing.Course[0].course_id,
-        teacher_name: `${thing.first_name} ${thing.last_name}`,
-        email: thing.email,
-        location: thing.Course[0].location,
-        bio_text: thing.bio_text,
-        long_description: thing.Course[0].long_description,
-        is_online: thing.Course[0].is_remote,
-        is_offline: thing.Course[0].is_inperson,
+        course_id: item.Course[0].course_id,
+        teacher_name: `${item.first_name} ${item.last_name}`,
+        email: item.email,
+        location: item.Course[0].location,
+        bio_text: item.bio_text,
+        long_description: item.Course[0].long_description,
+        is_online: String(item.Course[0].is_remote),
+        is_offline: String(item.Course[0].is_inperson),
         images: {
-          full: `${thing.Course[0].image_url}?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80`,
-          thumb: `${thing.Course[0].image_url}?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80`,
+          full: `${item.Course[0].image_url}?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80`,
+          thumb: `${item.Course[0].image_url}?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80`,
         },
-        course_brief: thing.Course[0].course_brief,
-        course_title: thing.Course[0].course_title,
-        course_tags: thing.Course[0].course_tags,
-        reviews: thing.Course[0].Review.map((review) => {
+        course_brief: item.Course[0].course_brief,
+        course_title: item.Course[0].course_title,
+        course_tags: item.Course[0].course_tags,
+        reviews: item.Course[0].Review.map((review) => {
           return {
             reviewer:
               bigDbData.find((user) => review.reviewer_id === user.id)
@@ -50,7 +49,7 @@ export const wouldYouUnpackThatForMe = (bigDbData) => {
             rating: review.review_rating,
           };
         }),
-        dates_available: thing.Course[0].dates_available.map((bool, index) => {
+        dates_available: item.Course[0].dates_available.map((bool, index) => {
           return { [dates[index]]: String(bool) };
         }),
       };
