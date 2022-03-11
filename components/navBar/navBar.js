@@ -62,14 +62,6 @@ export default function NavBar({ logoLink }) {
             </Link>
           )}
 
-          {matches && (
-            <Link href="/search/results" data-cy="explore-link" passHref>
-              <MUILink color="#fff" underline="none">
-                EXPLORE
-              </MUILink>
-            </Link>
-          )}
-
           {matches && user && (
             <Link href="/users/dashboard" passHref>
               <MUILink color="#fff" underline="none">

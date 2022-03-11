@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import { Box } from '@mui/system';
 import { Input, TextField } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
-
+import TypeAnimation from 'react-type-animation';
 // CSS
 import {
   bannerBox,
@@ -29,6 +29,17 @@ import { useRouter } from 'next/router';
 
 // params = string
 
+const dynamicTextArray = [
+  'Paint',
+  'Cook',
+  'Crochet',
+  'Knitt',
+  'Speak Mandarin',
+  'Make Money',
+  'Become Batman',
+];
+const dynamicText =
+  dynamicTextArray[Math.floor(Math.random() * dynamicTextArray.length)];
 export default function Banner() {
   const matches = useMediaQuery('(min-width:700px)');
   const router = useRouter();
@@ -66,7 +77,13 @@ export default function Banner() {
             gutterBottom
             sx={bannerTypographyWeb}
           >
-            {`Find The Perfect {Tutor}`}
+            <div style={{ width: '30em' }}>
+              <TypeAnimation
+                cursor={true}
+                sequence={[`I Want To Learn How To {${dynamicText}}`, 1000, '']}
+                repeat={Infinity}
+              />
+            </div>
           </Typography>
         )}
         {!matches && (
@@ -77,7 +94,7 @@ export default function Banner() {
             gutterBottom
             sx={bannerTypographyMobile}
           >
-            {`Find The Perfect {Tutor}`}
+            {`I Want To Learn How To {${dynamicText}}`}
           </Typography>
         )}
 
@@ -88,9 +105,9 @@ export default function Banner() {
             paragraph
             sx={bannerTypographySubMobile}
           >
-            Build, monetize, manage, and grow membership sites, courses,
-            subscriptions, communities, events, or the digital product of your
-            dreams
+            Here at WeShare, we believe that everyone has something to learn and
+            something to teach. Thus, this platform offers our users the
+            opportunity to exchange skills on a class-for-class basis.
           </Typography>
         )}
         {matches && (
@@ -100,9 +117,9 @@ export default function Banner() {
             paragraph
             sx={bannerTypographySubWeb}
           >
-            Build, monetize, manage, and grow membership sites, courses,
-            subscriptions, communities, events, or the digital product of your
-            dreams
+            Here at WeShare, we believe that everyone has something to learn and
+            something to teach. Thus, this platform offers our users the
+            opportunity to exchange skills on a class-for-class basis.
           </Typography>
         )}
         <Stack
