@@ -107,14 +107,18 @@ const AddCourse = ({
             body: JSON.stringify(body),
             headers: { 'Content-Type': 'application/json' },
           };
-          url = `http://localhost:3000/api/courses`;
+          url =
+            `${process.env.LOCALHOST}/api/courses` ||
+            'https://servicestack.netlify.app/api/courses';
         } else if (editOld) {
           req = {
             method: 'PUT',
             body: JSON.stringify(body),
             headers: { 'Content-Type': 'application/json' },
           };
-          url = `http://localhost:3000/api/courses/${newCourse.course_id}`;
+          url =
+            `${process.env.LOCALHOST}/api/courses${newCourse.course_id}` ||
+            `https://servicestack.netlify.app/api/courses/${newCourse.course_id}`
         }
         const res = await fetch(url, req);
         const data = await res.json();

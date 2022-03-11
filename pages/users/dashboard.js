@@ -71,7 +71,7 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
     setCourseId(Number(id));
     setDeleteCourse(true);
   }
-
+  /* THIS IS NOT IN USE:
   useEffect(() => {
     async function deleteCourseFunc() {
       // if statement stops the function from looping on reload
@@ -92,7 +92,8 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
       }
     }
     deleteCourseFunc();
-  }, [courseId]);
+  }, [courseId]); 
+  */
   return (
     <>
       <Box style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}>

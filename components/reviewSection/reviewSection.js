@@ -45,8 +45,10 @@ export default function ReviewSection({
           reviewer_id: newReview.reviewer_id,
           course_id: courseId,
         };
-
-        const res = await fetch('http://localhost:3000/api/reviews', {
+        const url =
+          `${process.env.LOCALHOST}/api/reviews` ||
+          `https://servicestack.netlify.app/api/reviews`;
+        const res = await fetch(url, {
           method: 'POST',
           body: JSON.stringify(body), // let's make the body disappear
           headers: { 'Content-Type': 'application/json' },
