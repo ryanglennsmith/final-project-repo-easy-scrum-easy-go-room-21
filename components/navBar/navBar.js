@@ -1,8 +1,10 @@
-import { AppBar, Button, Toolbar, Container, Link, Box } from '@mui/material';
+import { AppBar, Button, Toolbar, Container, Box } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { useUser } from '@auth0/nextjs-auth0';
+import Link from 'next/link';
+import { Link as MUILink } from '@mui/material';
 
 // Importing CSS
 import {
@@ -38,28 +40,41 @@ export default function NavBar({ logoLink }) {
         {/* when screen goes to small screen width switches 100*/}
 
         {/* LOGO */}
-        <Link href="/">
-          <Container sx={navBarContainer} style={{ padding: 0 }}>
-            <img src={logoLink} alt="logo" style={{ maxWidth: '200px' }}></img>
-          </Container>
+        <Link href="/" passHref>
+          <MUILink>
+            <Container sx={navBarContainer} style={{ padding: 0 }}>
+              <img
+                id="image-logo"
+                src={logoLink}
+                alt="logo"
+                style={{ maxWidth: '200px' }}
+              ></img>
+            </Container>
+          </MUILink>
         </Link>
 
         <Box className="navbar-buttons" sx={navBarBox}>
           {matches && (
-            <Link color="#fff" underline="none">
-              ABOUT
+            <Link href="/" passHref>
+              <MUILink color="#fff" underline="none">
+                ABOUT
+              </MUILink>
             </Link>
           )}
 
           {matches && (
-            <Link href="/search/results" color="#fff" underline="none">
-              EXPLORE
+            <Link href="/search/results" data-cy="explore-link" passHref>
+              <MUILink color="#fff" underline="none">
+                EXPLORE
+              </MUILink>
             </Link>
           )}
 
           {matches && user && (
-            <Link color="#fff" underline="none" href="/users/dashboard">
-              DASHBOARD
+            <Link href="/users/dashboard" passHref>
+              <MUILink color="#fff" underline="none">
+                DASHBOARD
+              </MUILink>
             </Link>
           )}
           {!user ? (

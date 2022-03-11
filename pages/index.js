@@ -33,6 +33,7 @@ export async function getServerSideProps() {
     return dbCourses;
   };
 
+
   const bigDbData = await prismaCall()
     .catch((e) => {
       throw e;

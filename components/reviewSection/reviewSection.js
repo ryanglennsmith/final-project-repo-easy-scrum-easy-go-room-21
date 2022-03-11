@@ -1,6 +1,6 @@
 import AddNewReview from '@components/AddNewReview/AddNewReview';
 import Review from '@components/Review/Review';
-import { Button, Container, Alert } from '@mui/material';
+import { Button, Container, Alert, Typography } from '@mui/material';
 import {
   addReviewBtn,
   centerContentCol,
@@ -66,7 +66,7 @@ export default function ReviewSection({
       <div className="wrapAddreviewBtn">
         {!showAddReview && (
           <Button
-            sx={addReviewBtn}
+            sx={courseCardButton}
             onClick={() => {
               if (!user) {
                 alert('Please Log in to add review');
@@ -74,6 +74,7 @@ export default function ReviewSection({
                 setShowAddReview(true);
               }
             }}
+            data-cy="course-review-add-review-button"
           >
             Add review
           </Button>
@@ -95,7 +96,11 @@ export default function ReviewSection({
       <Review visible={visible} reviews={reviewData} />
       <Box sx={centerContentRow}>
         {!showAddReview && visible === 2 && reviewData.length > 2 && (
-          <Button sx={showMoreLessButton} onClick={() => showMoreItems()}>
+          <Button
+            sx={showMoreLessButton}
+            onClick={() => showMoreItems()}
+            data-cy="course-review-show-more-button"
+          >
             Show more
           </Button>
         )}
