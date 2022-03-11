@@ -13,6 +13,8 @@ import {
   courseCardContainer,
   courseCardCardSection,
   courseCardCardContent,
+  fontLato,
+  fontRoboto,
 } from '../../globalCss.js';
 
 export default function Review({ reviews, visible }) {
@@ -21,19 +23,48 @@ export default function Review({ reviews, visible }) {
       {/* End hero unit */}
       <Grid container spacing={4}>
         {reviews.slice(0, visible).map((review, index) => (
-          <Grid item key={index} xs={12} sm={6} md={6}>
+          <Grid className="testGrid" item key={index} xs={12} sm={6} md={6}>
             <Card sx={courseCardCardSection}>
-              <CardContent sx={courseCardCardContent}>
-                <Typography gutterBottom variant="h5" component="h2">
+              <CardContent
+                className="testCardContent"
+                sx={{ ...courseCardCardContent, width: '90%' }}
+              >
+                <Typography
+                  className="testReviewer"
+                  gutterBottom
+                  variant="h5"
+                  component="h2"
+                  sx={{ ...fontLato, color: '#333' }}
+                >
                   {review.reviewer}
                 </Typography>
-                <Typography>{review.date}</Typography>
-                <Typography>{review.review_text}</Typography>
+                <Typography
+                  className="testReviewDate"
+                  sx={{ ...fontLato, color: '#999' }}
+                >
+                  {review.date}
+                </Typography>
+                <Typography
+                  className="testReviewText"
+                  sx={{
+                    ...fontRoboto,
+                    paddingTop: '10px',
+                    color: '#555',
+                    fontSize: '16px',
+                    fontWeight: '300',
+                  }}
+                >
+                  {review.review_text}
+                </Typography>
               </CardContent>
-              <CardActions>
+              <CardActions
+                className="testRatingCardActions"
+                sx={{ paddingBottom: '20px' }}
+              >
                 {/* star-rating add sx */}
                 {/* need to resize for smaller view portr */}
                 <Rating
+                  className="testRating"
                   name="read-only"
                   defaultValue={Number(review.rating)}
                   precision={0.5}

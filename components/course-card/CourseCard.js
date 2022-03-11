@@ -9,6 +9,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Rating from '@mui/material/Rating';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import Box from '@mui/material/Box';
+import { useRouter } from 'next/router';
 
 // Importing CSS
 import {
@@ -23,14 +25,18 @@ import {
   courseCardRateAvg,
   courseCardReviewCount,
   courseCardActions,
+  navbarButton,
+  tagsBtn,
+  tagsBtnMainpage,
 } from '../../globalCss.js';
 import { Link } from '@mui/material';
 
 //plan -  fetch data from ryan's mock api
 
 //pass mock data as prop
-export default function CourseCard({ cards }) {
+export default function CourseCard({ cards, setSearch }) {
   const matches = useMediaQuery('(min-width:700px)');
+  const router = useRouter();
   return (
     <Container sx={courseCardContainer} maxWidth="lg">
       {/* End hero unit */}
@@ -51,6 +57,7 @@ export default function CourseCard({ cards }) {
             >
               <Card sx={courseCardCardSection}>
                 {/* courseCardCardMedia from globalCss isn't working for img  */}
+
                 <CardMedia
                   component="img"
                   sx={
@@ -60,20 +67,62 @@ export default function CourseCard({ cards }) {
                   image={card.images.thumb}
                   alt={card.teacher_name}
                 />
+
+                {/* tags   */}
+                <CardActions sx={{ padding: 0, width: '325px' }}>
+                  <div
+                    className=" displayInlineBlock "
+                    data-cy="course-tutor-tags"
+                  >
+                    {card.course_tags.map((item, index) => {
+                      function onClick(e) {
+                        e.preventDefault();
+                        if (setSearch === '') {
+                          console.log('yes');
+                        } else {
+                          setSearch(item);
+                        }
+                        router.push(`/search/${item}`);
+                      }
+
+                      return (
+                        <Box className="tagsBtnContainer" key={index}>
+                          <Button
+                            onClick={onClick}
+                            sx={{
+                              ...tagsBtnMainpage,
+                              fontSize: '10px',
+                            }}
+                          >
+                            {item}
+                          </Button>
+                        </Box>
+                      );
+                    })}
+                  </div>
+                </CardActions>
+
                 <CardContent sx={courseCardCardContent}>
                   <Typography
                     gutterBottom
                     variant="h5"
                     component="h2"
+                    className="courseCardContentTitle"
                     sx={courseCardContentTitle}
                   >
                     {card.course_title}
                   </Typography>
 
-                  <Typography sx={courseCardContentTeacherName}>
-                    Instructor: {card.teacher_name}
+                  <Typography
+                    className="courseCardContentTeacherName"
+                    sx={courseCardContentTeacherName}
+                  >
+                    {card.teacher_name}
                   </Typography>
-                  <Typography sx={courseCardContentCourseBrief}>
+                  <Typography
+                    className="courseCardContentCourseBrief"
+                    sx={courseCardContentCourseBrief}
+                  >
                     {card.course_brief}
                   </Typography>
                 </CardContent>
@@ -110,12 +159,15 @@ export default function CourseCard({ cards }) {
                         )
                   }`}</Typography>
                   {/* number of the comments  */}
-                  <Typography sx={courseCardReviewCount}>
-                    {card.reviews.length}
+                  <Typography
+                    className="courseCardReviewCount"
+                    sx={{ ...courseCardReviewCount }}
+                  >
+                    ({card.reviews.length})
                   </Typography>
                   {matches && (
                     <Button variant="outlined" sx={courseCardButton}>
-                      Contact Me
+                      More Info
                     </Button>
                   )}
                 </CardActions>

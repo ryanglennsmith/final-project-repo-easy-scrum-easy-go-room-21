@@ -1,10 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans+Display:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Rhodium+Libre&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans+Display:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Rhodium+Libre&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: sans-serif, 'Lato', sans-serif, 'Noto Sans', sans-serif,
-    'Noto Sans Display', sans-serif, 'Rhodium Libre', serif;
+
+  font-family: 'Lato', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Noto Sans Display', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Rhodium Libre', serif;
+  font-family: 'Roboto', sans-serif;
 }
 body {
   height: 100%;
@@ -88,4 +94,33 @@ fieldset {
 .daysOnlineWrap {
   width: 1200px;
   margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  border-top: 1px solid #eee;
+  margin-top: 10px;
+  padding-top: 40px;
+}
+
+.displayInlineBlock {
+  display: inline-block;
+}
+
+.subPageSubTitle {
+  font-size: 20px;
+  font-family: 'lato';
+  margin: 0;
+  border-left: 4px solid #ff8957;
+  padding-left: 9px;
+  height: 18px;
+  line-height: 16px;
+}
+
+.subPageContentWrap {
+  padding-top: 15px;
+  padding-right: 100px;
+}
+
+.spanTagNameColor {
+  font-weight: 600;
+  color: #008d3e;
 }
