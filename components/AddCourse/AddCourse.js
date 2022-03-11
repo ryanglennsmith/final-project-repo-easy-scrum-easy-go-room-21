@@ -48,19 +48,24 @@ const AddCourse = ({
     location: courseToEdit.location ? true : false,
   });
   const daysOfWeek = [
+    'Sunday',
     'Monday',
     'Tuesday',
     'Wednesday',
     'Thursday',
     'Friday',
     'Saturday',
-    'Sunday',
   ];
   const handleSubmit = () => {
     // if validated? ->
     setSendCourse(true);
   };
   // console.log(courses[0]);
+  console.log("newCourse.is_online === 'true'", newCourse.is_online === true);
+  console.log(
+    "newCourse.is_offline === 'true',",
+    newCourse.is_offline === true
+  );
   useEffect(() => {
     if (sendCourse) {
       const body = {
@@ -84,10 +89,15 @@ const AddCourse = ({
         }, // send one image url
         dates_available: weekdays, // convert to array [t,f,t,f ...]
         is_online:
-          newCourse.is_online === undefined ? false : newCourse.is_online,
+          newCourse.is_online === undefined
+            ? false
+            : newCourse.is_online === true,
         is_offline:
-          newCourse.is_offline === undefined ? false : newCourse.is_offline,
+          newCourse.is_offline === undefined
+            ? false
+            : newCourse.is_offline === true,
       };
+
       const sendIt = async () => {
         let req;
         let url;
@@ -97,14 +107,18 @@ const AddCourse = ({
             body: JSON.stringify(body),
             headers: { 'Content-Type': 'application/json' },
           };
-          url = `http://localhost:3000/api/courses`;
+          url =
+            `${process.env.LOCALHOST}/api/courses` ||
+            'https://servicestack.netlify.app/api/courses';
         } else if (editOld) {
           req = {
             method: 'PUT',
             body: JSON.stringify(body),
             headers: { 'Content-Type': 'application/json' },
           };
-          url = `http://localhost:3000/api/courses/${newCourse.course_id}`;
+          url =
+            `${process.env.LOCALHOST}/api/courses${newCourse.course_id}` ||
+            `https://servicestack.netlify.app/api/courses/${newCourse.course_id}`
         }
         const res = await fetch(url, req);
         const data = await res.json();
@@ -265,16 +279,16 @@ const AddCourse = ({
                   defaultChecked={
                     Object.keys(courseToEdit).length > 0
                       ? Object.values(newCourse.dates_available[index])[0] ===
-                        true
+                        'true'
                       : false
                   }
-                  onChange={(e) =>
+                  onChange={(e) => {
                     setWeekdays([
-                      ...weekdays.slice(0, index + 1),
+                      ...weekdays.slice(0, index),
                       e.target.checked,
-                      ...weekdays.slice(index + 2),
-                    ])
-                  }
+                      ...weekdays.slice(index + 1),
+                    ]);
+                  }}
                 />{' '}
               </Box>
             );

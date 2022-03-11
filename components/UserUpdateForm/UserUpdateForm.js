@@ -42,14 +42,18 @@ const UserUpdateForm = ({
         let req;
         console.log('update inside sendIt: ', update);
         if (createNew) {
-          url = `http://localhost:3000/api/users`;
+          url =
+            `${process.env.LOCALHOST}/api/users` ||
+            'https://servicestack.netlify.app/api/users';
           req = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(update),
           };
         } else if (!createNew) {
-          url = `http://localhost:3000/api/users/${userId}`;
+          url =
+            `${process.env.LOCALHOST}/api/users/${userId}` ||
+            `https://servicestack.netlify.app/api/courses/${userId}`;
           req = {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
