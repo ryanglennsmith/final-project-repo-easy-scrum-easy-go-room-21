@@ -1,4 +1,7 @@
-import { Box, Link, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
+
+import Link from 'next/link';
+import { Link as MUILink } from '@mui/material';
 
 // Footer CSS
 import { copyrightTypoWrap, footerBox } from '../../globalCss.js';
@@ -23,10 +26,12 @@ export default function Footer({ styling }) {
         <div className="footerWrap">
           <Box sx={footerBox}>
             <Link href="/">
-              <img
-                src="https://i.lensdump.com/i/rLRO3c.png"
-                style={{ maxWidth: '200px' }}
-              ></img>
+              <MUILink>
+                <img
+                  src="https://i.lensdump.com/i/rLRO3c.png"
+                  style={{ maxWidth: '200px' }}
+                ></img>
+              </MUILink>
             </Link>
           </Box>
           <Copyright />

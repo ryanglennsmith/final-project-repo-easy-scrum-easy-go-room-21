@@ -59,7 +59,7 @@ export default function Results({ inputData, apiData }) {
 
   const data = apiData;
 
-  console.log(`Data`, data);
+  // console.log(`Data`, data);
 
   const [input, setInput] = useState('');
   const [search, setSearch] = useState(inputData);

@@ -70,7 +70,10 @@ export default function CourseCard({ cards, setSearch }) {
 
                 {/* tags   */}
                 <CardActions sx={{ padding: 0, width: '325px' }}>
-                  <div className=" displayInlineBlock ">
+                  <div
+                    className=" displayInlineBlock "
+                    data-cy="course-tutor-tags"
+                  >
                     {card.course_tags.map((item, index) => {
                       function onClick(e) {
                         e.preventDefault();

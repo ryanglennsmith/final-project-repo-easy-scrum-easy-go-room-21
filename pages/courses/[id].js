@@ -139,6 +139,7 @@ export default function CoursePage({ data, users }) {
             layout="fixed"
             objectFit="contain"
             priority={true}
+            data-cy="course-image-full"
           />{' '}
         </Box>
         <Box
@@ -146,6 +147,7 @@ export default function CoursePage({ data, users }) {
             ...titleTypo,
             marginLeft: '30px',
           }}
+          data-cy="course-tutor-intro"
         >
           <Typography sx={titleTypo}>{course.course_title} </Typography>
           <Typography sx={nameTypo}> {course.teacher_name}</Typography>
@@ -166,6 +168,7 @@ export default function CoursePage({ data, users }) {
               }
               precision={0.5}
               readOnly
+              data-cy="course-rating"
             />
             <Typography
               sx={{ ...ratingTypo, color: '#df9c00', fontWeight: 500 }}
@@ -193,7 +196,7 @@ export default function CoursePage({ data, users }) {
           </Button>
 
           {/* tags wrap start */}
-          <div className="tagsBtnWrap">
+          <div className="tagsBtnWrap" data-cy="course-tutor-tags">
             {course.course_tags.map((item, index) => {
               function onClick(e) {
                 e.preventDefault();
@@ -220,7 +223,10 @@ export default function CoursePage({ data, users }) {
       </Box>
       {/* Profile page image/info section end*/}
       <div className="daysOnlineWrap">
-        <div className="subPageContentWrap">
+        <div
+          className="subPageContentWrap"
+          data-cy="course-tutor-days-available"
+        >
           <p className="subPageSubTitle">Days available</p>
           <Box sx={{ ...centerContentRow }}>
             {available.map((value, index) => {
@@ -253,7 +259,10 @@ export default function CoursePage({ data, users }) {
             })}
           </Box>
         </div>
-        <div className="subPageContentWrap">
+        <div
+          className="subPageContentWrap"
+          data-cy="course-tutor-delivery-available"
+        >
           <p className="subPageSubTitle">How is the course delivered</p>
           <Box sx={{ ...centerContentRow }}>
             {course.is_offline === 'true' ? (
