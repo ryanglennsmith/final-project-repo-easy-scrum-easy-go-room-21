@@ -88,13 +88,6 @@ export default function AddNewReview({
 
   return (
     <Container sx={centerContentCol}>
-      <Button
-        onClick={() => {
-          setSendReview(true);
-        }}
-      >
-        Random button
-      </Button>
       <Typography sx={generalTypo}>Leave your review: </Typography>
       <Box
         component="form"
