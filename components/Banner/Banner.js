@@ -80,10 +80,11 @@ export default function Banner() {
             sx={bannerTypographyWeb}
           >
             <Typewriter
-              options={{
-                strings: [`I Want To Learn How To {${dynamicText}}`],
-                autoStart: true,
-                loop: false,
+              onInit={(typewriter) => {
+                typewriter
+                  .typeString(`I Want To Learn How To {${dynamicText}}`)
+                  .pauseFor(2500)
+                  .start();
               }}
             />
           </Typography>
