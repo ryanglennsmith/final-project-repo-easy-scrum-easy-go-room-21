@@ -12,19 +12,40 @@ import { API } from 'utils/API.js';
 import { useUser } from '@auth0/nextjs-auth0';
 import UserUpdateForm from '@components/UserUpdateForm/UserUpdateForm.js';
 
-import Header from '@components/Header/Header.js';
+import { PrismaClient } from '@prisma/client';
+import { wouldYouUnpackThatForMe } from '../db/getAllData.js';
+const prisma = new PrismaClient();
 
+import Header from '@components/Header/Header.js';
 // const data = API.courses;
 const theme = createTheme();
-
 export async function getServerSideProps() {
-  const data = await fetch('http://localhost:3609/courses');
-  const userData = await fetch(`http://localhost:3609/users`);
-  const users = await userData.json();
-  const courses = await data.json();
-  // console.log(`User data:`, users);
+  const prismaCall = async () => {
+    const dbCourses = await prisma.user.findMany({
+      include: {
+        Course: {
+          include: {
+            Review: true,
+          },
+        },
+      },
+    });
+    return dbCourses;
+  };
 
-  return { props: { data: courses, usersData: users } };
+
+  const bigDbData = await prismaCall()
+    .catch((e) => {
+      throw e;
+    })
+    .finally(async () => {
+      await prisma.$disconnect();
+    });
+  // const data = await fetch('http://localhost:3609/courses');
+  // const userData = await fetch(`http://localhost:3609/users`);
+  const [coursesMap, usersMap] = wouldYouUnpackThatForMe(bigDbData);
+  // console.log(usersMap);
+  return { props: { data: coursesMap, usersData: usersMap } };
 }
 
 export default function Album({ data, usersData }) {

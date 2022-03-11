@@ -24,7 +24,9 @@ import {
 } from 'globalCss';
 import Footer from '@components/Footer/Footer';
 import NavBar from '@components/navBar/navBar';
-
+import { PrismaClient } from '@prisma/client';
+import { wouldYouUnpackThatForMe } from '../../db/getAllData.js';
+const prisma = new PrismaClient();
 export default function UserDashboard({ user, allUsers, allCourses }) {
   const [greeting, setGreeting] = useState('Welcome back ');
   function getTimeResponse() {
@@ -53,15 +55,17 @@ export default function UserDashboard({ user, allUsers, allCourses }) {
   const userData = allUsers.filter((match) => {
     return user.email === match.email;
   });
+  // console.log('userData[0].id: ', userData[0].id);
   const myCourses = allCourses.filter((course) => {
-    return user.email === course.email;
+    // console.log('course: ', course);
+    return userData[0].email === course.email;
   });
   const [createNew, setCreateNew] = useState(true);
   const [editOld, setEditOld] = useState(false);
   const [courseToEdit, setCourseToEdit] = useState('');
   const [updateProfile, setUpdateProfile] = useState(false);
   const [deleteCourse, setDeleteCourse] = useState(false);
-  const [courseId, setCourseId] = useState('');
+  const [courseId, setCourseId] = useState();
 
   function handleDeleteClick(id) {
     setCourseId(Number(id));
@@ -294,13 +298,35 @@ export const getServerSideProps = withPageAuthRequired({
     // use ctx if change to dynamic route?
     // go get you some data
     // how about all the users?
+    const prismaCall = async () => {
+      const dbCourses = await prisma.user.findMany({
+        include: {
+          Course: {
+            include: {
+              Review: true,
+            },
+          },
+        },
+      });
+      return dbCourses;
+    };
 
-    const getAllUsersFetch = await fetch('http://localhost:3609/users');
-    const getAllCoursesFetch = await fetch('http://localhost:3609/courses');
-    const getAllUsers = await getAllUsersFetch.json();
-    const getAllCourses = await getAllCoursesFetch.json();
+    const bigDbData = await prismaCall()
+      .catch((e) => {
+        throw e;
+      })
+      .finally(async () => {
+        await prisma.$disconnect();
+      });
+    // const data = await fetch('http://localhost:3609/courses');
+    // const userData = await fetch(`http://localhost:3609/users`);
+    const [coursesMap, usersMap] = wouldYouUnpackThatForMe(bigDbData);
+    // const getAllUsersFetch = await fetch('http://localhost:3609/users');
+    // const getAllCoursesFetch = await fetch('http://localhost:3609/courses');
+    // const getAllUsers = await getAllUsersFetch.json();
+    // const getAllCourses = await getAllCoursesFetch.json();
 
-    return { props: { allUsers: getAllUsers, allCourses: getAllCourses } };
+    return { props: { allUsers: usersMap, allCourses: coursesMap } };
   },
 });
 

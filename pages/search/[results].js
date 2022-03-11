@@ -18,32 +18,51 @@ import Header from '@components/Header/Header.js';
 // Importing CSS
 import {
   aboutSection,
-  centerContentRow,
   footerContainerBoxLgr,
   footerContainerBoxMd,
-  generalTypo,
-  nameTypo,
   navbarButton,
   navbarSidePageBox,
   profileSearchBar,
   profileSearchBarInput,
-  titleTypo,
 } from 'globalCss';
 
 // import api data and map through to create card content
-import { API } from 'utils/API';
 import { useState, useEffect, useRef } from 'react';
-import { createContext } from 'vm';
+import { PrismaClient } from '@prisma/client';
+import { wouldYouUnpackThatForMe } from '../../db/getAllData.js';
+
+const prisma = new PrismaClient();
 
 // const data = API.courses;
 
 //gets search input from params of url
 export async function getServerSideProps(context) {
+  const prismaCall = async () => {
+    const dbCourses = await prisma.user.findMany({
+      include: {
+        Course: {
+          include: {
+            Review: true,
+          },
+        },
+      },
+    });
+    return dbCourses;
+  };
+
+  const bigDbData = await prismaCall()
+    .catch((e) => {
+      throw e;
+    })
+    .finally(async () => {
+      await prisma.$disconnect();
+    });
+  const [coursesMap] = wouldYouUnpackThatForMe(bigDbData);
+
   const homepageSearch = await context.query.results;
   // console.log(context);
 
-  const api = await fetch(`http://localhost:3609/courses`);
-  const data = await api.json();
+  const data = coursesMap;
   // console.log(text);
   return {
     props: {

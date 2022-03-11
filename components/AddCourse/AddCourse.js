@@ -17,18 +17,28 @@ const AddCourse = ({
   courseToEdit,
 }) => {
   const [newCourse, setNewCourse] = useState(courseToEdit);
-
+  console.log('courseToEdit: ', courseToEdit);
+  console.log('newCourse', newCourse);
   const [sendCourse, setSendCourse] = useState(false);
+  // const [weekdays, setWeekdays] = useState([
+  //   { Sunday: 'false' },
+  //   { Monday: 'false' },
+  //   { Tuesday: 'false' },
+  //   { Wednesday: 'false' },
+  //   { Thursday: 'false' },
+  //   { Friday: 'false' },
+  //   { Saturday: 'false' },
+  // ]);
   const [weekdays, setWeekdays] = useState([
-    { Sunday: 'false' },
-    { Monday: 'false' },
-    { Tuesday: 'false' },
-    { Wednesday: 'false' },
-    { Thursday: 'false' },
-    { Friday: 'false' },
-    { Saturday: 'false' },
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
   ]);
-
+  // console.log(weekdays);
   const [requiredFields, setRequiredFields] = useState({
     course_title: courseToEdit.course_title ? true : false,
     bio_text: courseToEdit.bio_text ? true : false,
@@ -50,18 +60,18 @@ const AddCourse = ({
     // if validated? ->
     setSendCourse(true);
   };
-  console.log(courses[0]);
+  // console.log(courses[0]);
   useEffect(() => {
     if (sendCourse) {
       const body = {
         ...newCourse,
-        id: courses.length + 1,
+        id: courses.length + 1, // this goes away
         course_id: courseToEdit.course_id
           ? courseToEdit.course_id
-          : courses.length + 1,
-        teacher_name: teacherName,
-        email: email,
-        reviews: [],
+          : courses.length + 1, // this goes away
+        teacher_id: userId, //this becomes teacher_id (user id)
+        email: email, // this goes away
+        reviews: [], // this goes away
         images: {
           full:
             'https://' +
@@ -71,16 +81,12 @@ const AddCourse = ({
             'https://' +
             newCourse.image +
             '?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-        },
-        dates_available: weekdays,
+        }, // send one image url
+        dates_available: weekdays, // convert to array [t,f,t,f ...]
         is_online:
-          newCourse.is_online === undefined
-            ? 'false'
-            : String(newCourse.is_online),
+          newCourse.is_online === undefined ? false : newCourse.is_online,
         is_offline:
-          newCourse.is_offline === undefined
-            ? 'false'
-            : String(newCourse.is_offline),
+          newCourse.is_offline === undefined ? false : newCourse.is_offline,
       };
       const sendIt = async () => {
         let req;
@@ -91,18 +97,18 @@ const AddCourse = ({
             body: JSON.stringify(body),
             headers: { 'Content-Type': 'application/json' },
           };
-          url = `http://localhost:3609/courses`;
+          url = `http://localhost:3000/api/courses`;
         } else if (editOld) {
           req = {
             method: 'PUT',
             body: JSON.stringify(body),
             headers: { 'Content-Type': 'application/json' },
           };
-          url = `http://localhost:3609/courses/${newCourse.id}`;
+          url = `http://localhost:3000/api/courses/${newCourse.course_id}`;
         }
         const res = await fetch(url, req);
         const data = await res.json();
-        console.log('data sent: ', data);
+        // console.log('data sent: ', data);
         window.location.reload();
       };
       sendIt();
@@ -220,14 +226,14 @@ const AddCourse = ({
         </Typography>
         <Box>
           <Checkbox
-            defaultChecked={newCourse.is_online === 'true'}
+            defaultChecked={newCourse.is_online === true}
             onChange={(e) =>
               setNewCourse({ ...newCourse, is_online: e.target.checked })
             }
           />{' '}
           Online?
           <Checkbox
-            defaultChecked={newCourse.is_offline === 'true'}
+            defaultChecked={newCourse.is_offline === true}
             onChange={(e) =>
               setNewCourse({ ...newCourse, is_offline: e.target.checked })
             }
@@ -259,13 +265,13 @@ const AddCourse = ({
                   defaultChecked={
                     Object.keys(courseToEdit).length > 0
                       ? Object.values(newCourse.dates_available[index])[0] ===
-                        'true'
+                        true
                       : false
                   }
                   onChange={(e) =>
                     setWeekdays([
                       ...weekdays.slice(0, index + 1),
-                      { Monday: String(e.target.checked) },
+                      e.target.checked,
                       ...weekdays.slice(index + 2),
                     ])
                   }

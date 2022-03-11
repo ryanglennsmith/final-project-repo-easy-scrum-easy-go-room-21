@@ -10,39 +10,46 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Users {
-  id         Int       @id @default(autoincrement())
+model User {
+  id         Int      @id @default(autoincrement())
   first_name String
   last_name  String
-  phone      String
-  email      String    @unique
-  bio_text   String
-  Courses    Courses[] @relation("teacher_id")
-  Reviews    Reviews[] @relation("reviewer_id")
+  phone      String?
+  email      String   @unique
+  bio_text   String?
+  Course     Course[] @relation("teacher_id")
+  Review     Review[] @relation("reviewer_id")
+
+  @@map("users")
 }
 
-model Courses {
-  course_id       Int       @id @default(autoincrement())
-  teacher         Users     @relation(name: "teacher_id", references: [id], fields: [teacher_id])
-  teacher_id      Int
-  location        String
-  is_remote       Boolean
-  is_inperson     Boolean
-  dates_available Boolean[]
-  course_brief    String
-  course_title    String
-  course_tags     String[]
-  image_url       String
-  Reviews         Reviews[] @relation("course_id")
+model Course {
+  course_id        Int       @id @default(autoincrement())
+  teacher          User      @relation(name: "teacher_id", references: [id], fields: [teacher_id])
+  teacher_id       Int
+  location         String
+  is_remote        Boolean
+  is_inperson      Boolean
+  dates_available  Boolean[]
+  course_brief     String
+  course_title     String
+  course_tags      String[]
+  image_url        String
+  Review           Review[]  @relation("course_id")
+  long_description String
+
+  @@map("courses")
 }
 
-model Reviews {
-  review_id     Int      @id @default(autoincrement())
-  reviewer      Users    @relation(name: "reviewer_id", references: [id], fields: [reviewer_id])
+model Review {
+  review_id     Int    @id @default(autoincrement())
+  reviewer      User   @relation(name: "reviewer_id", references: [id], fields: [reviewer_id])
   reviewer_id   Int
-  course        Courses  @relation(name: "course_id", references: [course_id], fields: [course_id])
+  course        Course @relation(name: "course_id", references: [course_id], fields: [course_id])
   course_id     Int
   review_text   String
   review_rating Int
-  date          DateTime
+  date          String
+
+  @@map("reviews")
 }

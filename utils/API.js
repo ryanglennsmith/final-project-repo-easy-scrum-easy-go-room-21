@@ -8,7 +8,7 @@ export const API = {
       bio_text:
         'Small batch crucifix helvetica kickstarter messenger bag before they sold out everyday carry viral ethical af next level chillwave hammock succulents pug.  Mixtape YOLO single-origin coffee sartorial, kitsch pitchfork ugh pabst letterpress.  Sartorial wayfarers lumbersexual retro before they sold out plaid etsy chillwave chicharrones portland gastropub VHS artisan tumblr.  Typewriter shaman locavore ramps, tumeric ugh pabst.  Umami kickstarter coloring book kitsch chartreuse, ramps plaid copper mug.  Offal everyday carry intelligentsia glossier, woke deep v microdosing selvage freegan hexagon scenester.  Mlkshk listicle portland raw denim, meditation lyft hoodie mustache hashtag.',
       long_description:
-        "This 4hour workshop is a fun and relaxing experience. I will be oferring plenty of guidance. You will be exploring different techniques, learn to see colour,shape and tone, and to relate these elements in compositions.  ",
+        'This 4hour workshop is a fun and relaxing experience. I will be oferring plenty of guidance. You will be exploring different techniques, learn to see colour,shape and tone, and to relate these elements in compositions.  ',
       is_online: 'true',
       is_offline: 'true',
       image: 'https://images.unsplash.com/photo-1461344577544-4e5dc9487184',
@@ -41,7 +41,8 @@ export const API = {
           reviewer: 'Kelsi Drivers',
           date: '22-06-2020',
           rating: 4,
-          review_text: 'Simona has a great personality and I had lots of fun whilst learning',
+          review_text:
+            'Simona has a great personality and I had lots of fun whilst learning',
         },
       ],
     },
@@ -124,21 +125,21 @@ export const API = {
         {
           reviewer: 'Tessi Langhor',
           date: '26-03-2020',
-          rating: 3,
+          rating: 3.5,
           review_text:
             'Lo-fi asymmetrical taxidermy williamsburg small batch XOXO actually, everyday carry glossier irony ugh pabst vice heirloom',
         },
         {
           reviewer: 'Nickolas Diperaus',
           date: '28-04-2020',
-          rating: 4,
+          rating: 4.5,
           review_text:
             'Forage bitters la croix, pabst vexillologist truffaut whatever pug dreamcatcher 3 wolf moon air plant venmo squid kinfolk slow-carb',
         },
         {
           reviewer: 'Blaire Derwin',
           date: '23-10-2020',
-          rating: 4,
+          rating: 4.5,
           review_text:
             'Occupy slow-carb try-hard tilde williamsburg kogi snackwave',
         },
@@ -151,7 +152,7 @@ export const API = {
         {
           reviewer: 'Park Kleeborn',
           date: '15-09-2020',
-          rating: 4,
+          rating: 4.5,
           review_text: 'Banh mi skateboard echo park organic',
         },
         {
@@ -260,9 +261,8 @@ export const API = {
       image: 'https://images.unsplash.com/photo-1573496358961-3c82861ab8f4',
       course_brief:
         ' Food truck cornhole put a bird on it kickstarter letterpress, flexitarian pinterest pork belly mixtape',
-      course_title:
-        'The business of candles',
-      course_tags: ['thinking', 'business','candles'],
+      course_title: 'The business of candles',
+      course_tags: ['thinking', 'business', 'candles'],
       rating: 3.1763,
       dates_available: [
         { Sunday: 'false' },
@@ -1689,7 +1689,7 @@ export const API = {
     {
       course_id: 26,
       teacher_name: 'Jefferson MacWinkle',
-      email: 'dev.yezlee@gmail.com',
+      email: 'dev@eseg.com',
       location: 'Leamington Spa',
       bio_text: "I'm a lumberjack, and I'm okay.",
       long_description:
@@ -2028,7 +2028,7 @@ export const API = {
     {
       first_name: 'Jefferson',
       last_name: 'MacWinkle',
-      email: 'dev.yezlee@gmail.com',
+      email: 'dev@eseg.com',
       id: 41,
     },
   ],

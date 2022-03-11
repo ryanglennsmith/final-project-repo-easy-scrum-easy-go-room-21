@@ -42,14 +42,14 @@ const UserUpdateForm = ({
         let req;
         console.log('update inside sendIt: ', update);
         if (createNew) {
-          url = `http://localhost:3609/users`;
+          url = `http://localhost:3000/api/users`;
           req = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(update),
           };
         } else if (!createNew) {
-          url = `http://localhost:3609/users/${userId}`;
+          url = `http://localhost:3000/api/users/${userId}`;
           req = {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },

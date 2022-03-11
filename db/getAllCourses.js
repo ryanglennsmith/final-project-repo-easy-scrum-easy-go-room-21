@@ -3,8 +3,8 @@ const { PrismaClient } = pkg;
 const prisma = new PrismaClient();
 
 async function main() {
-  const users = await prisma.user.findMany();
-  console.log(users);
+  const courses = await prisma.course.findMany();
+  console.log(courses);
 }
 main()
   .catch((e) => {

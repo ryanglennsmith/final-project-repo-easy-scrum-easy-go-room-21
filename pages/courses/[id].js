@@ -37,6 +37,81 @@ import { useRouter } from 'next/router';
 import { useUser } from '@auth0/nextjs-auth0';
 import { useEffect, useState } from 'react';
 import Header from '@components/Header/Header.js';
+import { PrismaClient } from '@prisma/client';
+import { wouldYouUnpackThatForMe } from '../../db/getAllData.js';
+const prisma = new PrismaClient();
+
+export async function getStaticPaths() {
+  // call a fetch to all the courses
+  // map all courses by id
+  // const res = await fetch('http://localhost:3000/api/courses');
+  // const data = await res.json();
+  const prismaCall = async () => {
+    const dbCourses = await prisma.user.findMany({
+      include: {
+        Course: {
+          include: {
+            Review: true,
+          },
+        },
+      },
+    });
+    return dbCourses;
+  };
+
+  const bigDbData = await prismaCall()
+    .catch((e) => {
+      throw e;
+    })
+    .finally(async () => {
+      await prisma.$disconnect();
+    });
+  const [coursesMap, usersMap] = wouldYouUnpackThatForMe(bigDbData);
+  // data.courses
+  const paths = coursesMap.map((course) => {
+    const id = String(course.course_id);
+    return {
+      params: {
+        id: id,
+      },
+    };
+  });
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+export async function getStaticProps({ params }) {
+  // const res = await fetch(`http://localhost:3000/api/courses/${params.id}`);
+  // const data = await res.json();
+  const prismaCall = async () => {
+    const dbCourses = await prisma.user.findMany({
+      include: {
+        Course: {
+          include: {
+            Review: true,
+          },
+        },
+      },
+    });
+    return dbCourses;
+  };
+
+  const bigDbData = await prismaCall()
+    .catch((e) => {
+      throw e;
+    })
+    .finally(async () => {
+      await prisma.$disconnect();
+    });
+  const [coursesMap, usersMap] = wouldYouUnpackThatForMe(bigDbData);
+
+  const id = Number(params.id);
+  const data = coursesMap.find((course) => course.course_id === id);
+  const users = usersMap;
+  return { props: { data, users } };
+}
 
 export default function CoursePage({ data, users }) {
   const router = useRouter();
@@ -67,7 +142,6 @@ export default function CoursePage({ data, users }) {
     // grabbing the text input on search bar
     e.preventDefault();
     setInput(e.target.value);
-    // console.log(input);
   }
   function onClick(e) {
     // pushing the text input value to the url
@@ -81,7 +155,7 @@ export default function CoursePage({ data, users }) {
     }
   }
 
-  const siteTitle = `Weshare `;
+  const siteTitle = `WeShare `;
 
   return (
     <Box style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}>
@@ -308,7 +382,7 @@ export default function CoursePage({ data, users }) {
           </Box>
         </div>
         <div className="subPageContentWrap">
-          <p className="subPageSubTitle">Loation</p>
+          <p className="subPageSubTitle">Location</p>
           <Box sx={{ ...centerContentRow }}>
             <Typography
               variant="string"
@@ -352,6 +426,7 @@ export default function CoursePage({ data, users }) {
         data={course.reviews}
         setNumOfReviews={setNumOfReviews}
         userData={userData}
+        courseId={course.course_id}
       />
       {/*Review section */}
       {/*
@@ -370,74 +445,3 @@ export default function CoursePage({ data, users }) {
     </Box>
   );
 }
-
-// export async function getServerSideProps(ctx) {
-//   const number = ctx.params;
-//   console.log('id:', number);
-//   return { props: { id: number } };
-// }
-
-export async function getStaticPaths() {
-  // call a fetch to all the courses
-  // map all courses by id
-  // const res = await fetch('http://localhost:3000/api/courses');
-  // const data = await res.json();
-  const data = API;
-  // data.courses
-  const paths = data.courses.map((course) => {
-    const id = String(course.course_id);
-    return {
-      params: {
-        id: id,
-      },
-    };
-  });
-
-  return {
-    paths,
-    fallback: false,
-  };
-}
-export async function getStaticProps({ params }) {
-  // const res = await fetch(`http://localhost:3000/api/courses/${params.id}`);
-  // const data = await res.json();
-
-  const id = params.id - 1;
-  const data = API.courses[id];
-  const users = API.users;
-  return { props: { data, users } };
-}
-
-// data to add to dummy json file
-// course_title:
-// rating:
-// dates_available: {Sunday: false, Monday: true, Tuesday: false, Wednesday: true, Thursday: true, Friday: false, Saturday: true}
-
-// const fakeData = {
-//   course_id: 1,
-//   teacher_name: 'Simona Mountcastle',
-//   email: 'smountcastle0@ebay.co.uk',
-//   location: 'Skrwilno',
-//   bio_text:
-//     'Small batch crucifix helvetica kickstarter messenger bag before they sold out everyday carry viral ethical af next level chillwave hammock succulents pug.  Mixtape YOLO single-origin coffee sartorial, kitsch pitchfork ugh pabst letterpress.  Sartorial wayfarers lumbersexual retro before they sold out plaid etsy chillwave chicharrones portland gastropub VHS artisan tumblr.  Typewriter shaman locavore ramps, tumeric ugh pabst.  Umami kickstarter coloring book kitsch chartreuse, ramps plaid copper mug.  Offal everyday carry intelligentsia glossier, woke deep v microdosing selvage freegan hexagon scenester.  Mlkshk listicle portland raw denim, meditation lyft hoodie mustache hashtag.',
-//   long_description:
-//     "Heirloom gastropub whatever cardigan neutra listicle wayfarers.  Cardigan you probably haven't heard of them four dollar toast, lumbersexual iceland affogato hexagon pabst poutine live-edge vexillologist af prism.  Man bun live-edge subway tile literally lumbersexual pug.  Hella freegan iceland small batch poke slow-carb.  Try-hard vice ennui pork belly, 90's subway tile echo park heirloom bushwick blog readymade lo-fi kogi flannel street art.  Squid farm-to-table butcher ugh heirloom direct trade.",
-//   is_online: 'true',
-//   is_offline: 'false',
-//   image: 'https://images.unsplash.com/photo-1461344577544-4e5dc9487184',
-//   course_brief:
-//     'Master cleanse taiyaki ethical bushwick slow-carb migas XOXO direct trade',
-//   course_title: 'Painting for idiots',
-//   rating: 3.2,
-//   dates_available: [
-//     {
-//       Sunday: false,
-//     },
-//     { Monday: true },
-//     { Tuesday: false },
-//     { Wednesday: true },
-//     { Thursday: true },
-//     { Friday: false },
-//     { Saturday: true },
-//   ],
-// };
