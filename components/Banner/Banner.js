@@ -5,7 +5,8 @@ import Button from '@mui/material/Button';
 import { Box } from '@mui/system';
 import { Input, TextField } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import TypeAnimation from 'react-type-animation';
+import Typewriter from 'typewriter-effect';
+
 // CSS
 import {
   bannerBox,
@@ -78,15 +79,13 @@ export default function Banner() {
             gutterBottom
             sx={bannerTypographyWeb}
           >
-            <div style={{ width: '40em' }}>
-              <TypeAnimation
-                cursor={true}
-                sequence={[`I Want To Learn How To {${dynamicText}}`, 500]}
-                repeat={2}
-                // this wrapper might cause issues since it overrides mui varient property
-                wrapper="h3"
-              />
-            </div>
+            <Typewriter
+              options={{
+                strings: [`I Want To Learn How To {${dynamicText}}`],
+                autoStart: true,
+                loop: false,
+              }}
+            />
           </Typography>
         )}
         {!matches && (
