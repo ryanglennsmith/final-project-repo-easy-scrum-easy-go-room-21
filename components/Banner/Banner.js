@@ -38,6 +38,7 @@ const dynamicTextArray = [
   'Make Money',
   'Become Batman',
 ];
+
 const dynamicText =
   dynamicTextArray[Math.floor(Math.random() * dynamicTextArray.length)];
 export default function Banner() {
@@ -77,11 +78,13 @@ export default function Banner() {
             gutterBottom
             sx={bannerTypographyWeb}
           >
-            <div style={{ width: '30em' }}>
+            <div style={{ width: '40em' }}>
               <TypeAnimation
                 cursor={true}
-                sequence={[`I Want To Learn How To {${dynamicText}}`, 1000, '']}
-                repeat={Infinity}
+                sequence={[`I Want To Learn How To {${dynamicText}}`, 500]}
+                repeat={2}
+                // this wrapper might cause issues since it overrides mui varient property
+                wrapper="h3"
               />
             </div>
           </Typography>
