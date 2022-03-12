@@ -3,7 +3,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Dialog } from '@mui/material';
 import { footerContainerBoxMd } from 'globalCss.js';
-import CourseCard from '../components/course-card/CourseCard.js';
+import CourseCard from '../components/CourseCard/CourseCard.js';
 
 import Banner from '@components/Banner/Banner.js';
 import Footer from '@components/Footer/Footer.js';
@@ -32,7 +32,6 @@ export async function getServerSideProps() {
     });
     return dbCourses;
   };
-
 
   const bigDbData = await prismaCall()
     .catch((e) => {

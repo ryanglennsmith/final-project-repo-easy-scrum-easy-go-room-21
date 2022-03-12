@@ -17,8 +17,6 @@ const AddCourse = ({
   courseToEdit,
 }) => {
   const [newCourse, setNewCourse] = useState(courseToEdit);
-  console.log('courseToEdit: ', courseToEdit);
-  console.log('newCourse', newCourse);
   const [sendCourse, setSendCourse] = useState(false);
   // const [weekdays, setWeekdays] = useState([
   //   { Sunday: 'false' },
@@ -38,10 +36,9 @@ const AddCourse = ({
     false,
     false,
   ]);
-  // console.log(weekdays);
   const [requiredFields, setRequiredFields] = useState({
     course_title: courseToEdit.course_title ? true : false,
-    bio_text: courseToEdit.bio_text ? true : false,
+    // bio_text: courseToEdit.bio_text ? true : false,
     course_brief: courseToEdit.course_brief ? true : false,
     long_description: courseToEdit.long_description ? true : false,
     image: courseToEdit.image ? true : false,
@@ -60,12 +57,7 @@ const AddCourse = ({
     // if validated? ->
     setSendCourse(true);
   };
-  // console.log(courses[0]);
-  console.log("newCourse.is_online === 'true'", newCourse.is_online === true);
-  console.log(
-    "newCourse.is_offline === 'true',",
-    newCourse.is_offline === true
-  );
+
   useEffect(() => {
     if (sendCourse) {
       const body = {
@@ -108,7 +100,7 @@ const AddCourse = ({
             headers: { 'Content-Type': 'application/json' },
           };
           url =
-            `${process.env.LOCALHOST}/api/courses` ||
+            `${process.env.NEXT_PUBLIC_LOCALHOST}/api/courses` ||
             'https://servicestack.netlify.app/api/courses';
         } else if (editOld) {
           req = {
@@ -117,12 +109,11 @@ const AddCourse = ({
             headers: { 'Content-Type': 'application/json' },
           };
           url =
-            `${process.env.LOCALHOST}/api/courses${newCourse.course_id}` ||
-            `https://servicestack.netlify.app/api/courses/${newCourse.course_id}`
+            `${process.env.NEXT_PUBLIC_LOCALHOST}/api/courses${newCourse.course_id}` ||
+            `https://servicestack.netlify.app/api/courses/${newCourse.course_id}`;
         }
         const res = await fetch(url, req);
         const data = await res.json();
-        // console.log('data sent: ', data);
         window.location.reload();
       };
       sendIt();
@@ -154,7 +145,7 @@ const AddCourse = ({
         />
         {/* End of course title */}
         {/* Start of bio text */}
-        <TextField
+        {/* <TextField
           onChange={(e) => fieldChange(e, 'bio_text')}
           multiline={true}
           required={true}
@@ -163,7 +154,7 @@ const AddCourse = ({
           label="your bio"
           sx={profileTextfields}
           inputProps={{ maxLength: 200 }}
-        />
+        /> */}
         {/* End of bio text */}
         {/* Start of long description */}
         <TextField

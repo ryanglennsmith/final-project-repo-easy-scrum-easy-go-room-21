@@ -37,16 +37,18 @@ export default function ReviewSection({
   useEffect(() => {
     if (sendReview) {
       // send to API
+      const body = {
+        date: newReview.date,
+        review_rating: newReview.rating,
+        rating: newReview.rating,
+        review_text: newReview.review_text,
+        reviewer_id: newReview.reviewer_id,
+        reviewer: `${userData[0].first_name} ${userData[0].last_name}`,
+        course_id: courseId,
+      };
       const fetchFunction = async () => {
-        const body = {
-          date: newReview.date,
-          review_rating: newReview.rating,
-          review_text: newReview.review_text,
-          reviewer_id: newReview.reviewer_id,
-          course_id: courseId,
-        };
         const url =
-          `${process.env.LOCALHOST}/api/reviews` ||
+          `${process.env.NEXT_PUBLIC_LOCALHOST}/api/reviews` ||
           `https://servicestack.netlify.app/api/reviews`;
         const res = await fetch(url, {
           method: 'POST',
@@ -55,6 +57,7 @@ export default function ReviewSection({
         });
       };
       fetchFunction();
+      setReviewData([...reviewData, body]);
     }
     setSendReview(false);
   }, [sendReview]);
