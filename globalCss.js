@@ -1,4 +1,4 @@
-import ReviewSection from '@components/reviewSection/reviewSection';
+import ReviewSection from '@components/ReviewSection/ReviewSection';
 
 // *******General CSS*******
 export const centerContentRow = {
@@ -397,7 +397,6 @@ export const contactBtn = {
   marginTop: '15px',
 };
 
-
 // reviewSection.js
 
 export const addReviewBtn = {};
@@ -418,4 +417,3 @@ export const profileTextfields = {
   margin: '10px 0 10px 0',
   padding: '15px',
 };
-

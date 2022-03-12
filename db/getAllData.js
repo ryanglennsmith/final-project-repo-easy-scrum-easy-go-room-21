@@ -67,7 +67,7 @@ export const wouldYouUnpackThatForMe = (bigDbData) => {
 // from the DB into the shape that the orig functions
 // would expect to see it.
 // the prisma script that sends data to this function
-// is a little more sophisticated than the one that
+// is just a little more sophisticated than the one that
 // pulls all the data in the world up above
 // see dashboard.js:52-68
 export const justUnpackThatALittle = (courseData) => {

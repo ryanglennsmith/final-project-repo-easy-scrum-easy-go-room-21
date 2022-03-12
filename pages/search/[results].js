@@ -11,8 +11,8 @@ import {
 
 //import navBar, course-card and footer from components folder
 import Footer from '@components/Footer/Footer';
-import NavBar from '@components/navBar/navBar';
-import CourseCard from '@components/course-card/CourseCard';
+import NavBar from '@components/NavBar/NavBar';
+import CourseCard from '@components/CourseCard/CourseCard';
 import Header from '@components/Header/Header.js';
 
 // Importing CSS

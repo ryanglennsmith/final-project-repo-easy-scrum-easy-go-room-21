@@ -9,7 +9,7 @@ import {
   Container,
 } from '@mui/material';
 import Footer from '@components/Footer/Footer';
-import NavBar from '@components/navBar/navBar';
+import NavBar from '@components/NavBar/NavBar';
 // Importing CSS
 import {
   aboutSection,
@@ -32,7 +32,7 @@ import {
 } from 'globalCss';
 
 import { API } from 'utils/API';
-import ReviewSection from '@components/reviewSection/reviewSection.js';
+import ReviewSection from '@components/ReviewSection/ReviewSection.js';
 import { useRouter } from 'next/router';
 import { useUser } from '@auth0/nextjs-auth0';
 import { useEffect, useState } from 'react';

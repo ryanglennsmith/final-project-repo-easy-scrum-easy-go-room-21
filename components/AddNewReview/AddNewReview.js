@@ -1,6 +1,6 @@
 import { Button, Container, TextField, Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
-import HoverRating from '@components/ReviewRating/review';
+import HoverRating from '@components/ReviewRating/ReviewRating';
 import Stack from '@mui/material/Stack';
 import { Box } from '@mui/system';
 import { useUser } from '@auth0/nextjs-auth0';

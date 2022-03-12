@@ -18,7 +18,7 @@ import {
   bannerTypographySubMobile,
   bannerButton,
 } from '../../globalCss.js';
-import NavBar from '@components/navBar/navBar.js';
+import NavBar from '@components/NavBar/NavBar.js';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 

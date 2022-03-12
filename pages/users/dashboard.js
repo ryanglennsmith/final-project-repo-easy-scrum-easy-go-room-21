@@ -23,7 +23,7 @@ import {
   subHeadingTypoProfile,
 } from 'globalCss';
 import Footer from '@components/Footer/Footer';
-import NavBar from '@components/navBar/navBar';
+import NavBar from '@components/NavBar/NavBar';
 import { PrismaClient } from '@prisma/client';
 import {
   wouldYouUnpackThatForMe,
