@@ -46,7 +46,7 @@ export default function ReviewSection({
           course_id: courseId,
         };
         const url =
-          `${process.env.LOCALHOST}/api/reviews` ||
+          `${process.env.NEXT_PUBLIC_LOCALHOST}/api/reviews` ||
           `https://servicestack.netlify.app/api/reviews`;
         const res = await fetch(url, {
           method: 'POST',

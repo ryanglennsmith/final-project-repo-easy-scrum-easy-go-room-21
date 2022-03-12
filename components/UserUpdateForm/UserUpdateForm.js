@@ -27,9 +27,6 @@ const UserUpdateForm = ({
     phone: phone,
   });
 
-  console.log('update: ', update, 'updateReady: ', sendUpdate);
-  console.log('createNew: ', createNew);
-
   const handleSubmit = () => {
     // if validated? ->
     setSendUpdate(true);
@@ -43,7 +40,7 @@ const UserUpdateForm = ({
         console.log('update inside sendIt: ', update);
         if (createNew) {
           url =
-            `${process.env.LOCALHOST}/api/users` ||
+            `${process.env.NEXT_PUBLIC_LOCALHOST}/api/users` ||
             'https://servicestack.netlify.app/api/users';
           req = {
             method: 'POST',
@@ -52,7 +49,7 @@ const UserUpdateForm = ({
           };
         } else if (!createNew) {
           url =
-            `${process.env.LOCALHOST}/api/users/${userId}` ||
+            `${process.env.NEXT_PUBLIC_LOCALHOST}/api/users/${userId}` ||
             `https://servicestack.netlify.app/api/courses/${userId}`;
           req = {
             method: 'PUT',

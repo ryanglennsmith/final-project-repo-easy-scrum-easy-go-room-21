@@ -31,7 +31,7 @@ export default async function handler(req, res) {
       .finally(async () => {
         await prisma.$disconnect();
       });
-    res.status(200).json({ dataSent: data, doDbMsg: doDb });
+    res.status(200).json({ doDbMsg: doDb });
   } else {
     const prismaCall = async () => {
       const dbCourses = await prisma.user.findMany({
