@@ -22,7 +22,9 @@ export default async function handler(req, res) {
       .finally(async () => {
         await prisma.$disconnect();
       });
-    res.status(200).json({ email: req.body.email });
+    res
+      .status(200)
+      .json({ email: req.body.email, message: 'VICTORY IS OURS!' });
   } else {
     const prismaCall = async () => {
       const dbCourses = await prisma.user.findMany({
