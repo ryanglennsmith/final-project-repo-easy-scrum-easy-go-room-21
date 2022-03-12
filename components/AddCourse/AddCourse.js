@@ -38,7 +38,7 @@ const AddCourse = ({
   ]);
   const [requiredFields, setRequiredFields] = useState({
     course_title: courseToEdit.course_title ? true : false,
-    bio_text: courseToEdit.bio_text ? true : false,
+    // bio_text: courseToEdit.bio_text ? true : false,
     course_brief: courseToEdit.course_brief ? true : false,
     long_description: courseToEdit.long_description ? true : false,
     image: courseToEdit.image ? true : false,
@@ -145,7 +145,7 @@ const AddCourse = ({
         />
         {/* End of course title */}
         {/* Start of bio text */}
-        <TextField
+        {/* <TextField
           onChange={(e) => fieldChange(e, 'bio_text')}
           multiline={true}
           required={true}
@@ -154,7 +154,7 @@ const AddCourse = ({
           label="your bio"
           sx={profileTextfields}
           inputProps={{ maxLength: 200 }}
-        />
+        /> */}
         {/* End of bio text */}
         {/* Start of long description */}
         <TextField
