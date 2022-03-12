@@ -1,41 +1,96 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
+import { useState, useEffect } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-import NavBar from '../components/navBar/navBar.js';
+import { Dialog } from '@mui/material';
 import { footerContainerBoxMd } from 'globalCss.js';
-import CourseCard from '../components/course-card/CourseCard.js';
+import CourseCard from '../components/CourseCard/CourseCard.js';
 
 import Banner from '@components/Banner/Banner.js';
 import Footer from '@components/Footer/Footer.js';
 import { API } from 'utils/API.js';
 
-const data = API.courses;
+import { useUser } from '@auth0/nextjs-auth0';
+import UserUpdateForm from '@components/UserUpdateForm/UserUpdateForm.js';
+
+import { PrismaClient } from '@prisma/client';
+import { wouldYouUnpackThatForMe } from '../db/getAllData.js';
+const prisma = new PrismaClient();
+
+import Header from '@components/Header/Header.js';
+// const data = API.courses;
 const theme = createTheme();
-export default function Album() {
+export async function getServerSideProps() {
+  const prismaCall = async () => {
+    const dbCourses = await prisma.user.findMany({
+      include: {
+        Course: {
+          include: {
+            Review: true,
+          },
+        },
+      },
+    });
+    return dbCourses;
+  };
+
+  const bigDbData = await prismaCall()
+    .catch((e) => {
+      throw e;
+    })
+    .finally(async () => {
+      await prisma.$disconnect();
+    });
+  // const data = await fetch('http://localhost:3609/courses');
+  // const userData = await fetch(`http://localhost:3609/users`);
+  const [coursesMap, usersMap] = wouldYouUnpackThatForMe(bigDbData);
+  // console.log(usersMap);
+  return { props: { data: coursesMap, usersData: usersMap } };
+}
+
+export default function Album({ data, usersData }) {
+  const { user, error, isLoading } = useUser();
+  const [open, setOpen] = useState(false);
+  const [newUserSuccess, setNewUserSuccess] = useState(false);
+  // console.log('newUserSuccess: ', newUserSuccess);
+  // console.log(`User data:`, usersData);
+  useEffect(() => {
+    if (!isLoading) {
+      if (user) {
+        if (
+          usersData.filter((course) => {
+            return user.email === course.email;
+          }).length === 0
+        ) {
+          setOpen(true);
+        }
+      }
+      if (newUserSuccess) {
+        setOpen(false);
+      }
+    }
+  });
+  const siteTitle = 'WeShare - Online Skills Exchange Marketplace ';
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <Header title={siteTitle}></Header>
+      {user && (
+        <Dialog open={open}>
+          <UserUpdateForm
+            email={user.email}
+            createNew={true}
+            setNewUserSuccess={setNewUserSuccess}
+          />
+        </Dialog>
+      )}
 
       <main>
         {/* Hero unit */}
 
         <Banner />
         {/* course card starts*/}
-        <CourseCard cards={data} />
+        <CourseCard cards={data} setSearch={''} />
         {/* course card ends*/}
       </main>
       <Footer styling={footerContainerBoxMd} />

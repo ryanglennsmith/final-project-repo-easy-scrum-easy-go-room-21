@@ -11,64 +11,74 @@ import {
 
 //import navBar, course-card and footer from components folder
 import Footer from '@components/Footer/Footer';
-import NavBar from '@components/navBar/navBar';
-import CourseCard from '@components/course-card/CourseCard';
+import NavBar from '@components/NavBar/NavBar';
+import CourseCard from '@components/CourseCard/CourseCard';
+import Header from '@components/Header/Header.js';
 
 // Importing CSS
 import {
   aboutSection,
-  centerContentRow,
   footerContainerBoxLgr,
   footerContainerBoxMd,
-  generalTypo,
-  nameTypo,
   navbarButton,
   navbarSidePageBox,
   profileSearchBar,
   profileSearchBarInput,
-  titleTypo,
 } from 'globalCss';
 
 // import api data and map through to create card content
-import { API } from 'utils/API';
-import { useState } from 'react';
-import { createContext } from 'vm';
+import { useState, useEffect, useRef } from 'react';
+import { PrismaClient } from '@prisma/client';
+import { wouldYouUnpackThatForMe } from '../../db/getAllData.js';
 
-// from homepage, user input is taken in  and onclick of search button-----> user input is passed to results page  ----> list of results displayed on results page.
+const prisma = new PrismaClient();
 
-//note to self: search bar components on both pages will operate in different ways. The search component on results page WILL NOT redirect users to another page to display results whereas it will on the homepage.
-
-//connect search button so that when it is pressed, we are redirected to the results page(which then would display course cards related to user input)
-const data = API.courses;
-
-// compare input to data.course_title
+// const data = API.courses;
 
 //gets search input from params of url
 export async function getServerSideProps(context) {
-  const homepageSearch = context.query.results;
-  console.log(context);
+  const prismaCall = async () => {
+    const dbCourses = await prisma.user.findMany({
+      include: {
+        Course: {
+          include: {
+            Review: true,
+          },
+        },
+      },
+    });
+    return dbCourses;
+  };
+
+  const bigDbData = await prismaCall()
+    .catch((e) => {
+      throw e;
+    })
+    .finally(async () => {
+      await prisma.$disconnect();
+    });
+  const [coursesMap] = wouldYouUnpackThatForMe(bigDbData);
+
+  const homepageSearch = await context.query.results;
+  // console.log(context);
+
+  const data = coursesMap;
   // console.log(text);
   return {
     props: {
       inputData: homepageSearch,
+      apiData: data,
     },
   };
 }
-//deconstruct data from serverside props
-//use data to filter through API according to input
-//map that result to generate course display cards
 
-//check if props exists // check if props object is empty
-//if props object is not empty
-//use those props to filter the search
-//else
-// only conduct search when user uses the search bar on explore page
-
-export default function Results({ inputData }) {
+export default function Results({ inputData, apiData }) {
   const matchesMd = useMediaQuery('(max-width:913px)');
   const matchesLrg = useMediaQuery('(min-width:913px)');
 
-  // console.log(homepageSearchTerm);
+  const data = apiData;
+
+  // console.log(`Data`, data);
 
   const [input, setInput] = useState('');
   const [search, setSearch] = useState(inputData);
@@ -101,20 +111,12 @@ export default function Results({ inputData }) {
       item.course_tags.includes(search.toLowerCase())
   );
 
-  // const art = 'art';
-  // carry out an array method that maps over the array data.course_tags
-
-  // const courseTagsSearch = data.filter((item) =>
-  //   item.course_tags.includes(search)
-  // );
-  // When we capture the value we can could possibly use the OR operator to add the courseTagsSearch to jsx
-  // console.log(searchResult);
-
-  // console.log(courseTagsSearch);
+  const siteTitle = 'WeShare Results - Inspirational work by real Freelancers';
 
   return (
     <div className="wrap">
       <Box style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}>
+        <Header title={siteTitle}></Header>
         {/* Navbar section */}
 
         <div className="topWrap">
@@ -129,7 +131,7 @@ export default function Results({ inputData }) {
                 id="outlined-basic"
                 variant="outlined"
                 onChange={handleChange}
-onKeyDown={onEnter}
+                onKeyDown={onEnter}
                 sx={{ ...profileSearchBarInput, height: '40px' }}
               />
               <Button
@@ -150,17 +152,21 @@ onKeyDown={onEnter}
             </Box>
           ) : searchResult.length > 0 && search ? (
             <Box sx={aboutSection}>
+              <Header
+                title={`Search results for ${search} | WeShare `}
+              ></Header>
+
               <Typography variant="h4">Results for "{search}"</Typography>
               <Typography></Typography>
               {/* search results displayed here as cards */}
-              <CourseCard cards={searchResult} />
+              <CourseCard cards={searchResult} setSearch={setSearch} />
             </Box>
           ) : searchResult.length === 0 && search ? (
             <Box sx={aboutSection}>
-              {' '}
-              <Typography>
-                Search results for "{search}" not found
-              </Typography>{' '}
+              <Header
+                title={`Search results for ${search} | WeShare `}
+              ></Header>{' '}
+              <Typography>Search results for "{search}" not found</Typography>{' '}
             </Box>
           ) : (
             <Box sx={aboutSection}>
@@ -175,6 +181,5 @@ onKeyDown={onEnter}
         {matchesMd && <Footer styling={footerContainerBoxMd} />}
       </Box>
     </div>
-
   );
 }

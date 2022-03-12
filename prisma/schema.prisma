@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         Int      @id @default(autoincrement())
+  first_name String
+  last_name  String
+  phone      String?
+  email      String   @unique
+  bio_text   String?
+  Course     Course[] @relation("teacher_id")
+  Review     Review[] @relation("reviewer_id")
+
+  @@map("users")
+}
+
+model Course {
+  course_id        Int       @id @default(autoincrement())
+  teacher          User      @relation(name: "teacher_id", references: [id], fields: [teacher_id])
+  teacher_id       Int
+  location         String
+  is_remote        Boolean
+  is_inperson      Boolean
+  dates_available  Boolean[]
+  course_brief     String
+  course_title     String
+  course_tags      String[]
+  image_url        String
+  Review           Review[]  @relation("course_id")
+  long_description String
+
+  @@map("courses")
+}
+
+model Review {
+  review_id     Int    @id @default(autoincrement())
+  reviewer      User   @relation(name: "reviewer_id", references: [id], fields: [reviewer_id])
+  reviewer_id   Int
+  course        Course @relation(name: "course_id", references: [course_id], fields: [course_id])
+  course_id     Int
+  review_text   String
+  review_rating Int
+  date          String
+
+  @@map("reviews")
+}

@@ -1,6 +1,6 @@
 import { Button, Container, TextField, Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
-import HoverRating from '@components/ReviewRating/review';
+import HoverRating from '@components/ReviewRating/ReviewRating';
 import Stack from '@mui/material/Stack';
 import { Box } from '@mui/system';
 import { useUser } from '@auth0/nextjs-auth0';
@@ -19,6 +19,10 @@ export default function AddNewReview({
   setOpen,
   setNumOfReviews,
   userData,
+  setSendReview,
+  sendReview,
+  setNewReview,
+  setNewRating,
 }) {
   const [rating, setRating] = useState(0);
   const [review, setReview] = useState('');
@@ -43,8 +47,9 @@ export default function AddNewReview({
     setOpen(true);
   };
   function submitData() {
-    setReviewData([...reviewData, makeNewReview()]);
-    setNumOfReviews((prevValue) => prevValue + 1);
+    // setReviewData([...reviewData, makeNewReview()]);
+    // setNumOfReviews((prevValue) => prevValue + 1);
+    makeNewReview();
   }
 
   function handleSubmit(e) {
@@ -62,12 +67,13 @@ export default function AddNewReview({
     let dateToday = `${day}-${month}-${year}`;
 
     const newReview = {
-      reviewer: `${userData[0].first_name} ${userData[0].last_name}`,
+      // reviewer: `${userData[0].first_name} ${userData[0].last_name}`,
+      reviewer_id: userData[0].id,
       date: dateToday,
       rating: rating,
       review_text: review,
     };
-    return newReview;
+    setNewReview(newReview);
   }
 
   function handleChangeEmail(e) {
@@ -141,9 +147,10 @@ export default function AddNewReview({
       <Button
         sx={courseCardButton}
         onClick={(e) => {
-          setShowAddReview(false);
           handleSubmit(e);
           handleClick();
+          setSendReview(true);
+          setShowAddReview(false);
         }}
       >
         Submit
