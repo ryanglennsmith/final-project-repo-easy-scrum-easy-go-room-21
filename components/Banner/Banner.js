@@ -31,13 +31,13 @@ import { useRouter } from 'next/router';
 // params = string
 
 const dynamicTextArray = [
-  'Paint',
-  'Cook',
-  'Crochet',
-  'Knitt',
-  'Speak Mandarin',
-  'Make Money',
-  'Become Batman',
+  '{Paint}',
+  '{Cook}',
+  '{Crochet}',
+  '{Knitt}',
+  '{Speak Mandarin}',
+  '{Make Money}',
+  '{Become Batman}',
 ];
 
 const dynamicTextRandom =
@@ -47,7 +47,6 @@ export default function Banner() {
   const router = useRouter();
 
   const [input, setInput] = useState('');
-  const [dynamicText, setDynamicText] = useState('');
 
   function handleChange(e) {
     // grabbing the text input on search bar
@@ -81,17 +80,16 @@ export default function Banner() {
             sx={bannerTypographyWeb}
           >
             <span>
-              {'I Want to Learn How To'}
+              {'I Want to Learn How to'}
 
               <Typewriter
-                onInit={(typewriter) => {
-                  typewriter
-                    .typeString(`{${dynamicTextRandom}}`)
-                    .pauseFor(2500)
-                    // .typeString(`I Want To Learn How To {${dynamicText}}`)
-
-                    .start();
+                options={{
+                  strings: dynamicTextArray,
+                  autoStart: true,
+                  loop: true,
+                  pauseFor: 2000,
                 }}
+                // .typeString(`I Want To Learn How To {${dynamicText}}`)
               />
             </span>
           </Typography>
@@ -104,7 +102,7 @@ export default function Banner() {
             gutterBottom
             sx={bannerTypographyMobile}
           >
-            {`I Want To Learn How To {${dynamicText}}`}
+            {`I Want To Learn How To {${dynamicTextRandom}}`}
           </Typography>
         )}
 
