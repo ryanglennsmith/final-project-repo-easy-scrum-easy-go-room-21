@@ -34,10 +34,10 @@ const dynamicTextArray = [
   '{Paint}',
   '{Cook}',
   '{Crochet}',
-  '{Knitt}',
   '{Speak Mandarin}',
-  '{Make Money}',
-  '{Become Batman}',
+  '{Craft Jewelry}',
+  '{Play Guitar}',
+  '{Knit}',
 ];
 
 const dynamicTextRandom =
@@ -80,7 +80,7 @@ export default function Banner() {
             sx={bannerTypographyWeb}
           >
             <span>
-              {'I Want to Learn How to'}
+              {'I Want to Learn to'}
 
               <Typewriter
                 options={{
@@ -114,8 +114,8 @@ export default function Banner() {
             sx={bannerTypographySubMobile}
           >
             Here at WeShare, we believe that everyone has something to learn and
-            something to teach. Thus, this platform offers our users the
-            opportunity to exchange skills on a class-for-class basis.
+            something to teach. Our platform offers users the opportunity to
+            exchange skills on a class-for-class basis.
           </Typography>
         )}
         {matches && (
@@ -126,8 +126,8 @@ export default function Banner() {
             sx={bannerTypographySubWeb}
           >
             Here at WeShare, we believe that everyone has something to learn and
-            something to teach. Thus, this platform offers our users the
-            opportunity to exchange skills on a class-for-class basis.
+            something to teach. Our platform offers users the opportunity to
+            exchange skills on a class-for-class basis.
           </Typography>
         )}
         <Stack
