@@ -5,10 +5,15 @@ const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    console.log(req.body);
     const prismaCall = async () => {
       const createReview = await prisma.review.create({
-        data: req.body,
+        data: {
+          date: req.body.date,
+          review_rating: req.body.review_rating,
+          review_text: req.body.review_text,
+          reviewer_id: req.body.reviewer_id,
+          course_id: req.body.course_id,
+        },
       });
       return createReview;
     };

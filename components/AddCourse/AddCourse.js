@@ -18,8 +18,6 @@ const AddCourse = ({
   courseToEdit,
 }) => {
   const [newCourse, setNewCourse] = useState(courseToEdit);
-  console.log('courseToEdit: ', courseToEdit);
-  console.log('newCourse', newCourse);
   const [sendCourse, setSendCourse] = useState(false);
   // const [weekdays, setWeekdays] = useState([
   //   { Sunday: 'false' },
@@ -39,29 +37,28 @@ const AddCourse = ({
     false,
     false,
   ]);
-  // console.log(weekdays);
   const [requiredFields, setRequiredFields] = useState({
     course_title: courseToEdit.course_title ? true : false,
-    bio_text: courseToEdit.bio_text ? true : false,
+    // bio_text: courseToEdit.bio_text ? true : false,
     course_brief: courseToEdit.course_brief ? true : false,
     long_description: courseToEdit.long_description ? true : false,
     image: courseToEdit.image ? true : false,
     location: courseToEdit.location ? true : false,
   });
   const daysOfWeek = [
+    'Sunday',
     'Monday',
     'Tuesday',
     'Wednesday',
     'Thursday',
     'Friday',
     'Saturday',
-    'Sunday',
   ];
   const handleSubmit = () => {
     // if validated? ->
     setSendCourse(true);
   };
-  // console.log(courses[0]);
+
   useEffect(() => {
     if (sendCourse) {
       const body = {
@@ -85,10 +82,15 @@ const AddCourse = ({
         }, // send one image url
         dates_available: weekdays, // convert to array [t,f,t,f ...]
         is_online:
-          newCourse.is_online === undefined ? false : newCourse.is_online,
+          newCourse.is_online === undefined
+            ? false
+            : newCourse.is_online === true,
         is_offline:
-          newCourse.is_offline === undefined ? false : newCourse.is_offline,
+          newCourse.is_offline === undefined
+            ? false
+            : newCourse.is_offline === true,
       };
+
       const sendIt = async () => {
         let req;
         let url;
@@ -98,18 +100,21 @@ const AddCourse = ({
             body: JSON.stringify(body),
             headers: { 'Content-Type': 'application/json' },
           };
-          url = `http://localhost:3000/api/courses`;
+          url =
+            `${process.env.NEXT_PUBLIC_LOCALHOST}/api/courses` ||
+            'https://servicestack.netlify.app/api/courses';
         } else if (editOld) {
           req = {
             method: 'PUT',
             body: JSON.stringify(body),
             headers: { 'Content-Type': 'application/json' },
           };
-          url = `http://localhost:3000/api/courses/${newCourse.course_id}`;
+          url =
+            `${process.env.NEXT_PUBLIC_LOCALHOST}/api/courses${newCourse.course_id}` ||
+            `https://servicestack.netlify.app/api/courses/${newCourse.course_id}`;
         }
         const res = await fetch(url, req);
         const data = await res.json();
-        // console.log('data sent: ', data);
         window.location.reload();
       };
       sendIt();
@@ -145,9 +150,8 @@ const AddCourse = ({
         />
         {/* End of course title */}
         {/* Start of bio text */}
-        <TextField
-          variant="filled"
-          className="profileTextfields"
+
+        {/* <TextField
           onChange={(e) => fieldChange(e, 'bio_text')}
           multiline={true}
           required={true}
@@ -156,7 +160,7 @@ const AddCourse = ({
           label="your bio"
           sx={profileTextfields}
           inputProps={{ maxLength: 200 }}
-        />
+        /> */}
         {/* End of bio text */}
         {/* Start of long description */}
         <TextField
@@ -263,7 +267,7 @@ const AddCourse = ({
           className="addCourseComponentBoxWrap"
           sx={{ centerBoxContent, ...addCourseComponentBoxWrap }}
         >
-          <Typography
+                      <Typography
             sx={{ ...generalTypo, alignSelf: 'flex-start', marginX: '15px' }}
           >
             Indicate which days your course takes place:
@@ -276,31 +280,31 @@ const AddCourse = ({
               justifyContent: 'center',
             }}
           >
-            {daysOfWeek.map((day, index) => {
-              return (
-                <Box sx={{ display: 'flex', marginX: '5px' }}>
-                  <Typography sx={{ display: 'flex', alignItems: 'center' }}>
-                    {day}
-                  </Typography>
-                  <Checkbox
-                    defaultChecked={
-                      Object.keys(courseToEdit).length > 0
-                        ? Object.values(newCourse.dates_available[index])[0] ===
-                          true
-                        : false
-                    }
-                    onChange={(e) =>
-                      setWeekdays([
-                        ...weekdays.slice(0, index + 1),
-                        e.target.checked,
-                        ...weekdays.slice(index + 2),
-                      ])
-                    }
-                  />{' '}
-                </Box>
-              );
-            })}
-          </Box>
+          {daysOfWeek.map((day, index) => {
+            return (
+              <Box sx={{ display: 'flex', marginX: '5px' }}>
+                <Typography sx={{ display: 'flex', alignItems: 'center' }}>
+                  {day}
+                </Typography>
+                <Checkbox
+                  defaultChecked={
+                    Object.keys(courseToEdit).length > 0
+                      ? Object.values(newCourse.dates_available[index])[0] ===
+                        'true'
+                      : false
+                  }
+                  onChange={(e) => {
+                    setWeekdays([
+                      ...weekdays.slice(0, index),
+                      e.target.checked,
+                      ...weekdays.slice(index + 1),
+                    ]);
+                  }}
+                />{' '}
+              </Box>
+            );
+          })}
+
         </Box>
 
         {/* End of days of the week check boxes */}

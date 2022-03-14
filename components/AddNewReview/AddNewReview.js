@@ -1,6 +1,6 @@
 import { Button, Container, TextField, Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
-import HoverRating from '@components/ReviewRating/review';
+import HoverRating from '@components/ReviewRating/ReviewRating';
 import Stack from '@mui/material/Stack';
 import { Box } from '@mui/system';
 import { useUser } from '@auth0/nextjs-auth0';
@@ -88,13 +88,6 @@ export default function AddNewReview({
 
   return (
     <Container sx={centerContentCol}>
-      <Button
-        onClick={() => {
-          setSendReview(true);
-        }}
-      >
-        Random button
-      </Button>
       <Typography sx={generalTypo}>Leave your review: </Typography>
       <Box
         component="form"

@@ -1,4 +1,4 @@
-import ReviewSection from '@components/reviewSection/reviewSection';
+import ReviewSection from '@components/ReviewSection/ReviewSection';
 
 // *******General CSS*******
 export const centerContentRow = {
@@ -459,3 +459,4 @@ export const dashboardContentsCardTypo = {
 
 // Add course Component\
 export const addCourseComponentBoxWrap = { paddingTop: '30px' };
+
