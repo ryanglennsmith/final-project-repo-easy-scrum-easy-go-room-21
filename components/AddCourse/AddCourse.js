@@ -5,6 +5,7 @@ import {
   courseCardButton,
   generalTypo,
   profileTextfields,
+  addCourseComponentBoxWrap,
 } from 'globalCss';
 
 const AddCourse = ({
@@ -128,11 +129,15 @@ const AddCourse = ({
     setNewCourse({ ...newCourse, [field]: event.target.value });
   };
   return (
-    <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+    <Box
+      className="addCourseComponentBoxWrap"
+      sx={{ ...addCourseComponentBoxWrap, display: 'flex', flexWrap: 'wrap' }}
+    >
       {/* Container for text fields */}
       <Box>
         {/* Start of course title */}
         <TextField
+          variant="standard"
           onChange={(e) => {
             fieldChange(e, 'course_title');
           }}
@@ -145,6 +150,7 @@ const AddCourse = ({
         />
         {/* End of course title */}
         {/* Start of bio text */}
+
         {/* <TextField
           onChange={(e) => fieldChange(e, 'bio_text')}
           multiline={true}
@@ -158,6 +164,7 @@ const AddCourse = ({
         {/* End of bio text */}
         {/* Start of long description */}
         <TextField
+          variant="filled"
           onChange={(e) => fieldChange(e, 'long_description')}
           multiline={true}
           required={true}
@@ -170,6 +177,7 @@ const AddCourse = ({
         {/* End of long description */}
         {/* Start of location text */}
         <TextField
+          variant="filled"
           onChange={(e) => fieldChange(e, 'location')}
           required={true}
           defaultValue={newCourse.location}
@@ -181,6 +189,7 @@ const AddCourse = ({
         {/* End of location text */}
         {/* Start of image url */}
         <TextField
+          variant="filled"
           onChange={(e) => fieldChange(e, 'image')}
           id="new-course-image"
           required={true}
@@ -192,6 +201,7 @@ const AddCourse = ({
         {/* End of image url */}
         {/* Start of course brief */}
         <TextField
+          variant="filled"
           onChange={(e) => fieldChange(e, 'course_brief')}
           required={true}
           defaultValue={newCourse.course_brief}
@@ -203,6 +213,7 @@ const AddCourse = ({
         {/* End of course brief */}
         {/* Start of course tags */}
         <TextField
+          variant="filled"
           onChange={(e) =>
             setNewCourse({
               ...newCourse,
@@ -222,44 +233,53 @@ const AddCourse = ({
         {/* End of course tags */}
       </Box>
       {/* Container for checkboxes and submission button */}
-      <Box sx={centerBoxContent}>
+      <Box className="addCourseComponentBoxWrapTop" sx={{ centerBoxContent }}>
         {/* Start of online/offline check boxes */}
-        <Typography
-          sx={{ ...generalTypo, alignSelf: 'flex-start', marginX: '15px' }}
+        <Box
+          className="addCourseComponentBoxWrap"
+          sx={{ ...addCourseComponentBoxWrap }}
         >
-          Indicate if your course available online or offline:
-        </Typography>
-        <Box>
-          <Checkbox
-            defaultChecked={newCourse.is_online === true}
-            onChange={(e) =>
-              setNewCourse({ ...newCourse, is_online: e.target.checked })
-            }
-          />{' '}
-          Online?
-          <Checkbox
-            defaultChecked={newCourse.is_offline === true}
-            onChange={(e) =>
-              setNewCourse({ ...newCourse, is_offline: e.target.checked })
-            }
-          />{' '}
-          Offline? <br /> <br />
+          <Typography
+            sx={{ ...generalTypo, alignSelf: 'flex-start', marginX: '15px' }}
+          >
+            Indicate if your course available online or offline:
+          </Typography>
+          <Box className="addCourseComponentBox2">
+            <Checkbox
+              defaultChecked={newCourse.is_online === true}
+              onChange={(e) =>
+                setNewCourse({ ...newCourse, is_online: e.target.checked })
+              }
+            />{' '}
+            Online?
+            <Checkbox
+              defaultChecked={newCourse.is_offline === true}
+              onChange={(e) =>
+                setNewCourse({ ...newCourse, is_offline: e.target.checked })
+              }
+            />{' '}
+            Offline? <br /> <br />
+          </Box>
         </Box>
         {/* End of online/offline check boxes */}
         {/* Start of days of the week check boxes */}
-        <Typography
-          sx={{ ...generalTypo, alignSelf: 'flex-start', marginX: '15px' }}
-        >
-          Indicate which days your course takes place:
-        </Typography>
         <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-          }}
+          className="addCourseComponentBoxWrap"
+          sx={{ centerBoxContent, ...addCourseComponentBoxWrap }}
         >
+                      <Typography
+            sx={{ ...generalTypo, alignSelf: 'flex-start', marginX: '15px' }}
+          >
+            Indicate which days your course takes place:
+          </Typography>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+            }}
+          >
           {daysOfWeek.map((day, index) => {
             return (
               <Box sx={{ display: 'flex', marginX: '5px' }}>
@@ -284,6 +304,7 @@ const AddCourse = ({
               </Box>
             );
           })}
+
         </Box>
 
         {/* End of days of the week check boxes */}
