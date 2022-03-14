@@ -109,7 +109,7 @@ const AddCourse = ({
             headers: { 'Content-Type': 'application/json' },
           };
           url =
-            `${process.env.NEXT_PUBLIC_LOCALHOST}/api/courses${newCourse.course_id}` ||
+            `${process.env.NEXT_PUBLIC_LOCALHOST}/api/courses/${newCourse.course_id}` ||
             `https://servicestack.netlify.app/api/courses/${newCourse.course_id}`;
         }
         const res = await fetch(url, req);
