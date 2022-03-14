@@ -267,7 +267,7 @@ const AddCourse = ({
           className="addCourseComponentBoxWrap"
           sx={{ centerBoxContent, ...addCourseComponentBoxWrap }}
         >
-                      <Typography
+          <Typography
             sx={{ ...generalTypo, alignSelf: 'flex-start', marginX: '15px' }}
           >
             Indicate which days your course takes place:
@@ -280,56 +280,56 @@ const AddCourse = ({
               justifyContent: 'center',
             }}
           >
-          {daysOfWeek.map((day, index) => {
-            return (
-              <Box sx={{ display: 'flex', marginX: '5px' }}>
-                <Typography sx={{ display: 'flex', alignItems: 'center' }}>
-                  {day}
-                </Typography>
-                <Checkbox
-                  defaultChecked={
-                    Object.keys(courseToEdit).length > 0
-                      ? Object.values(newCourse.dates_available[index])[0] ===
-                        'true'
-                      : false
-                  }
-                  onChange={(e) => {
-                    setWeekdays([
-                      ...weekdays.slice(0, index),
-                      e.target.checked,
-                      ...weekdays.slice(index + 1),
-                    ]);
-                  }}
-                />{' '}
-              </Box>
-            );
-          })}
+            {daysOfWeek.map((day, index) => {
+              return (
+                <Box sx={{ display: 'flex', marginX: '5px' }}>
+                  <Typography sx={{ display: 'flex', alignItems: 'center' }}>
+                    {day}
+                  </Typography>
+                  <Checkbox
+                    defaultChecked={
+                      Object.keys(courseToEdit).length > 0
+                        ? Object.values(newCourse.dates_available[index])[0] ===
+                          'true'
+                        : false
+                    }
+                    onChange={(e) => {
+                      setWeekdays([
+                        ...weekdays.slice(0, index),
+                        e.target.checked,
+                        ...weekdays.slice(index + 1),
+                      ]);
+                    }}
+                  />{' '}
+                </Box>
+              );
+            })}
+          </Box>
 
+          {/* End of days of the week check boxes */}
+
+          {/* Start of submission buttons */}
+          {/* Container for submission buttons */}
+          <Box>
+            {!Object.values(requiredFields).includes(false) ? (
+              <Button
+                sx={{ ...courseCardButton, marginRight: '15px' }}
+                onClick={handleSubmit}
+              >
+                Submit
+              </Button>
+            ) : (
+              <Button
+                sx={{ ...courseCardButton, marginRight: '15px' }}
+                disabled={true}
+                onClick={handleSubmit}
+              >
+                Submit
+              </Button>
+            )}
+          </Box>
+          {/* End of submission buttons */}
         </Box>
-
-        {/* End of days of the week check boxes */}
-
-        {/* Start of submission buttons */}
-        {/* Container for submission buttons */}
-        <Box>
-          {!Object.values(requiredFields).includes(false) ? (
-            <Button
-              sx={{ ...courseCardButton, marginRight: '15px' }}
-              onClick={handleSubmit}
-            >
-              Submit
-            </Button>
-          ) : (
-            <Button
-              sx={{ ...courseCardButton, marginRight: '15px' }}
-              disabled={true}
-              onClick={handleSubmit}
-            >
-              Submit
-            </Button>
-          )}
-        </Box>
-        {/* End of submission buttons */}
       </Box>
     </Box>
   );
