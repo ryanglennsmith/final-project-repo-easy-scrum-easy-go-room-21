@@ -8,7 +8,7 @@ import {
   addCourseComponentBoxWrap,
   addCourseComponentBoxWrap2,
   addCourseComponentBoxTypo,
-  subminBtnBox,
+  submitBtnBox,
   dashboardSubminBtn,
 } from 'globalCss';
 
@@ -328,7 +328,7 @@ const AddCourse = ({
         </Box>
         {/* Start of submission buttons */}
         {/* Container for submission buttons */}
-        <Box className="subminBtnBox" sx={{ subminBtnBox }}>
+        <Box className="submitBtnBox" sx={{ ...submitBtnBox }}>
           {!Object.values(requiredFields).includes(false) ? (
             <Button
               sx={{ ...courseCardButton, ...dashboardSubminBtn }}

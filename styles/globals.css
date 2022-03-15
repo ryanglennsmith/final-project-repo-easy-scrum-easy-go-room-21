@@ -149,6 +149,7 @@ fieldset {
   justify-content: space-between;
   border-top: 5px solid #ececec;
   padding-top: 10px;
+  width: 100%;
 }
 
 .dashboardGreetingAndBtnWrap {
@@ -182,4 +183,20 @@ fieldset {
 
 .wrapAddreviewBtn {
   padding: 50px;
+}
+
+.userUpdateFormWrap {
+  height: 500px;
+}
+
+.bold {
+  font-weight: 400;
+}
+
+.addNewReviewWrap {
+  display: grid;
+}
+
+.rateYourExperienceWrap {
+  padding: 30px 0;
 }

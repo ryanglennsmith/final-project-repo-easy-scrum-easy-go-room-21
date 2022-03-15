@@ -6,7 +6,9 @@ import { Box } from '@mui/system';
 import { useUser } from '@auth0/nextjs-auth0';
 
 import {
+  addReviewButton,
   centerContentCol,
+  contactBtn,
   courseCardButton,
   courseCardContentCourseBrief,
   generalTypo,
@@ -88,7 +90,20 @@ export default function AddNewReview({
 
   return (
     <Container sx={centerContentCol}>
-      <Typography sx={generalTypo}>Leave your review: </Typography>
+      <Typography
+        sx={{
+          fontFamily: 'lato',
+          fontWeight: '600',
+          fontSize: '30px',
+          width: '100%',
+          padding: '40px 0 10px',
+          marginTop: '20px',
+          color: '#333',
+          borderTop: '1px solid #eee',
+        }}
+      >
+        Leave your review
+      </Typography>
       <Box
         component="form"
         sx={{
@@ -97,21 +112,23 @@ export default function AddNewReview({
         noValidate
         autoComplete="off"
       >
-        <div>
+        <div className="addNewReviewWrap">
           <TextField
+            sx={{ width: '1200px!important' }}
             required
             onChange={(e) => {
               handleChangeReview(e);
             }}
             id="review"
             label="Write a review"
-            multiline
-            rows={4}
-            variant="filled"
+            multiline={true}
+            maxRows={4}
+            variant="standard"
             type={'text'}
             inputProps={{ maxLength: 200 }}
           />
           <TextField
+            sx={{ width: '1200px!important' }}
             placeholder={`${userData[0].first_name} ${userData[0].last_name}`}
             disabled={true}
             // required
@@ -125,10 +142,11 @@ export default function AddNewReview({
             // value={value}
             type={'text'}
             inputProps={{ maxLength: 30 }}
-            variant="filled"
+            variant="standard"
           />
           <TextField
             // required
+            sx={{ width: '1200px!important' }}
             onChange={(e) => {
               handleChangeEmail(e);
             }}
@@ -136,16 +154,18 @@ export default function AddNewReview({
             disabled={true}
             label={user.email}
             multiline
-            variant="filled"
+            variant="standard"
             type={'text'}
             inputProps={{ maxLength: 30 }}
           />
         </div>
       </Box>
-      <Typography sx={generalTypo}>Rate your experience:</Typography>
-      <HoverRating setRating={setRating} />
+      <div className="rateYourExperienceWrap">
+        <Typography sx={generalTypo}>Rate your experience:</Typography>
+        <HoverRating setRating={setRating} />
+      </div>
       <Button
-        sx={courseCardButton}
+        sx={{ display: 'block', ...contactBtn, ...addReviewButton }}
         onClick={(e) => {
           handleSubmit(e);
           handleClick();

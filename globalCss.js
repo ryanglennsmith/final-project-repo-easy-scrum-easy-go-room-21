@@ -190,15 +190,17 @@ export const bannerTypographyMobile = {
 // Webpage size for sub header
 export const bannerTypographySubWeb = {
   display: 'flex',
+  flexDirection: 'column',
   justifyContent: 'center',
   alignSelf: 'center',
   width: '1000px',
   color: '#eee',
   fontFamily: 'Roboto',
-  fontSize: '23px',
+  fontSize: '25px',
   fontWeight: '200',
-  lineHeight: '30px',
-  textShadow: '2px 2px 4px #000',
+  lineHeight: '35px',
+  textShadow: '1px 1px 10px #000',
+  paddingTop: '15px',
 };
 
 // Mobile size for sub header
@@ -403,9 +405,9 @@ export const addReviewBtn = {};
 export const fontLato = { fontFamily: 'Lato' };
 export const fontRoboto = { fontFamily: 'Roboto' };
 export const addReviewButton = {
-  width: '500px',
+  width: '1200px',
   height: '50px ',
-  fontSize: '20px',
+  fontSize: '18px',
 };
 
 //   Profile Page
@@ -420,10 +422,11 @@ export const subHeadingTypoProfile = {
 };
 
 export const profileTextfields = {
-  margin: '10px 0 10px 0',
+  margin: '10px 0',
   fontSize: '30px',
   height: 'auto',
 };
+export const profileUpdateTextfields = { margin: '20px 0' };
 
 // dashboard CSS
 export const dashboardTopBox = { width: '100%' };
@@ -483,8 +486,9 @@ export const addCourseComponentBoxTypo = {
   color: '#222',
   fontFamily: 'lato',
 };
-export const subminBtnBox = {
+export const submitBtnBox = {
   width: '100%',
+  paddingBottom: '30px',
 };
 
 export const dashboardSubminBtn = { width: '100%', height: '45px' };
