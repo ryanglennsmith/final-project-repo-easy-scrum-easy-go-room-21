@@ -49,7 +49,7 @@ export default function CourseCard({ cards, setSearch }) {
             sm={6}
             md={6}
             lg={4}
-            style={{ paddingTop: '50px' }}
+            style={{ paddingTop: '60px' }}
           >
             <Link
               href={`/courses/${card.course_id}`}

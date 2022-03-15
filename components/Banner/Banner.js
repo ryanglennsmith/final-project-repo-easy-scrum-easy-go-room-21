@@ -113,9 +113,14 @@ export default function Banner() {
             paragraph
             sx={bannerTypographySubMobile}
           >
-            Here at WeShare, we believe that everyone has something to learn and
-            something to teach. Our platform offers users the opportunity to
-            exchange skills on a class-for-class basis.
+            <p>
+              Here at WeShare, we believe that everyone has something to learn
+              and something to teach.
+            </p>
+            <p>
+              Our platform offers users the opportunity to exchange skills on a
+              class-for-class basis.
+            </p>
           </Typography>
         )}
         {matches && (
@@ -125,9 +130,18 @@ export default function Banner() {
             paragraph
             sx={bannerTypographySubWeb}
           >
-            Here at WeShare, we believe that everyone has something to learn and
-            something to teach. Our platform offers users the opportunity to
-            exchange skills on a class-for-class basis.
+            <span>
+              Here at <span className="bold">WeShare</span>, we believe that{' '}
+              <span className="bold">everyone</span> has{' '}
+              <span className="bold">
+                something to learn and something to teach.
+              </span>
+            </span>
+            <span>
+              <span className="bold">Our platform</span> offers users{' '}
+              <span className="bold">the opportunity to exchange skills</span>{' '}
+              on a class-for-class basis.
+            </span>
           </Typography>
         )}
         <Stack

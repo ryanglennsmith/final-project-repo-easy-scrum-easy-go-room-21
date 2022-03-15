@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { TextField, Button, Typography } from '@mui/material';
 import {
-  centerContentRow,
   courseCardButton,
   profileTextfields,
-  centerBoxContent,
+  submitBtnBox,
   centerContentCol,
   subHeadingTypoProfile,
+  addCourseComponentBoxWrap2,
+  profileUpdateTextfields,
+  dashboardSubminBtn,
 } from 'globalCss';
 import { Box } from '@mui/system';
 
@@ -68,54 +70,74 @@ const UserUpdateForm = ({
     }
   }, [sendUpdate]);
   return (
-    <Box sx={centerContentCol}>
-      {createNew && (
-        <Typography sx={subHeadingTypoProfile}>Enter your user info</Typography>
-      )}
-      <Box>
-        <TextField
-          id="user-email"
-          defaultValue={email}
-          disabled={true}
-          label="email"
-          sx={profileTextfields}
-          inputProps={{ maxLength: 40 }}
-        />
+    <div className="userUpdateFormWrap">
+      <Box sx={centerContentCol}>
+        {createNew && (
+          <Typography sx={subHeadingTypoProfile}>
+            Enter your user info
+          </Typography>
+        )}
 
-        <TextField
-          onChange={(e) => setUpdate({ ...update, first_name: e.target.value })}
-          id="user-first-name"
-          label="first name"
-          defaultValue={firstName}
-          sx={profileTextfields}
-          inputProps={{ maxLength: 40 }}
-        />
-        <TextField
-          onChange={(e) => setUpdate({ ...update, last_name: e.target.value })}
-          id="user-last-name"
-          label="last name"
-          defaultValue={lastName}
-          sx={profileTextfields}
-          inputProps={{ maxLength: 40 }}
-        />
-        <TextField
-          onChange={(e) => setUpdate({ ...update, phone: e.target.value })}
-          id="user-telephone"
-          label="phone number"
-          defaultValue={phone}
-          sx={profileTextfields}
-          inputProps={{ maxLength: 40 }}
-        />
+        <Box
+          className="addCourseComponentBoxWrap2"
+          sx={addCourseComponentBoxWrap2}
+        >
+          <TextField
+            variant="standard"
+            multiline={true}
+            id="user-email"
+            defaultValue={email}
+            disabled={true}
+            label="email"
+            sx={{ ...profileTextfields, ...profileUpdateTextfields }}
+            inputProps={{ maxLength: 40 }}
+          />
+
+          <TextField
+            variant="standard"
+            multiline={true}
+            onChange={(e) =>
+              setUpdate({ ...update, first_name: e.target.value })
+            }
+            id="user-first-name"
+            label="first name"
+            defaultValue={firstName}
+            sx={{ ...profileTextfields, ...profileUpdateTextfields }}
+            inputProps={{ maxLength: 40 }}
+          />
+          <TextField
+            variant="standard"
+            multiline={true}
+            onChange={(e) =>
+              setUpdate({ ...update, last_name: e.target.value })
+            }
+            id="user-last-name"
+            label="last name"
+            defaultValue={lastName}
+            sx={{ ...profileTextfields, ...profileUpdateTextfields }}
+            inputProps={{ maxLength: 40 }}
+          />
+          <TextField
+            variant="standard"
+            multiline={true}
+            onChange={(e) => setUpdate({ ...update, phone: e.target.value })}
+            id="user-telephone"
+            label="phone number"
+            defaultValue={phone}
+            sx={{ ...profileTextfields, ...profileUpdateTextfields }}
+            inputProps={{ maxLength: 40 }}
+          />
+        </Box>
       </Box>
-      <Box>
+      <Box className="submitBtnBox" sx={{ ...submitBtnBox }}>
         <Button
-          sx={{ ...courseCardButton, marginRight: '15px' }}
+          sx={{ ...courseCardButton, ...dashboardSubminBtn }}
           onClick={handleSubmit}
         >
           Submit
         </Button>
       </Box>
-    </Box>
+    </div>
   );
 };
 

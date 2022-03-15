@@ -264,9 +264,8 @@ export default function CoursePage({ data, users }) {
             {/* fix the space between the number of reviews and the rating */}
           </Box>
 
-          {/* <Button sx={{...showMoreLessButton}}>Contact me</Button> */}
           <Button sx={{ display: 'block', ...contactBtn }}>
-            {/* {course.email} */} contact me
+            {/* {course.email} */} Contact me
           </Button>
 
           {/* tags wrap start */}

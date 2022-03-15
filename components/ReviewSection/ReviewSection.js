@@ -6,6 +6,7 @@ import {
   addReviewButton,
   centerContentCol,
   centerContentRow,
+  contactBtn,
   courseCardButton,
   showMoreLessButton,
 } from 'globalCss';
@@ -72,7 +73,7 @@ export default function ReviewSection({
       <div className="wrapAddreviewBtn">
         {!showAddReview && (
           <Button
-            sx={{ ...courseCardButton, ...addReviewButton }}
+            sx={{ display: 'block', ...contactBtn, ...addReviewButton }}
             onClick={() => {
               if (!user) {
                 alert('Please Log in to add review');
