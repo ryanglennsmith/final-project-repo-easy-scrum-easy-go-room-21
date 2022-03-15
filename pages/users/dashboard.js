@@ -19,8 +19,16 @@ import {
   navbarSidePageBox,
   titleTypo,
   generalTypo,
-  subHeadingTypo,
+  greetingTxt,
   subHeadingTypoProfile,
+  dashboardContainer,
+  dashboardTopBox,
+  dashboardBtn,
+  dashboardBtnGrid,
+  dashboardBtnGridWrap,
+  dashboardContentsGrid,
+  dashboardContentsCard,
+  dashboardContentsCardTypo,
 } from 'globalCss';
 import Footer from '@components/Footer/Footer';
 import NavBar from '@components/NavBar/NavBar';
@@ -173,126 +181,143 @@ export default function UserDashboard({
   */
   return (
     <>
-      <Box style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}>
+      <Box
+        className="dashboardTopBox"
+        sx={dashboardTopBox}
+        style={{ height: '100vh', fontFamily: 'Noto Sans Display' }}
+      >
         {/* Navbar section */}
-        <Box sx={navbarSidePageBox}>
+        <Box className="dashboardNavbarBox" sx={navbarSidePageBox}>
           <NavBar logoLink={'https://i1.lensdump.com/i/rLRHNK.png'} />
         </Box>
         {/* Navbar section end*/}
 
-        <Container>
-          <Typography sx={titleTypo}>
-            {greeting} {userData[0].first_name}
-          </Typography>
-          <Grid container spacing={4}>
-            {/* <Grid item>
-              <Card sx={{ ...courseCardCardSection }} xs={12}>
-                <p>Update your user profile here</p>
-                <UserUpdateForm
-                  email={user.email}
-                  firstName={userData[0].first_name}
-                  lastName={userData[0].last_name}
-                  phone={userData[0].phone}
-                  userId={userData[0].id}
-                  createNew={false}
-                />
-              </Card>
-            </Grid> */}
-            <Grid
-              item
-              xs={12}
-              sx={{ display: 'flex', justifyContent: 'right' }}
-            >
-              <Button
-                sx={{ ...courseCardButton, marginX: '15px' }}
-                onClick={() => {
-                  setUpdateProfile(!updateProfile);
-                  setCreateNew(false);
-                  setEditOld(false);
-                }}
-              >
-                Update Profile
-              </Button>
-              <Button
-                sx={{ ...courseCardButton, marginRight: '15px' }}
-                onClick={() => {
-                  setCreateNew(!createNew);
-                  setCourseToEdit({});
-                  setEditOld(false);
-                  setUpdateProfile(false);
-                }}
-              >
-                Create New Course
-              </Button>
-            </Grid>
-            <Grid item xs={6}>
-              <Card sx={{ ...courseCardCardSection, minHeight: '600px' }}>
+        <Container className="dashboardContainer" sx={dashboardContainer}>
+          <Grid className="dashboardGrid" container>
+            <div className="dashboardGreetingAndBtnWrap">
+              <div className="typoGreetingWrap">
                 <Typography
-                  sx={{
-                    ...subHeadingTypoProfile,
-
-                    alignSelf: 'flex-start',
-                  }}
+                  className="greetingTxt"
+                  sx={{ ...titleTypo, ...greetingTxt }}
                 >
-                  Courses you teach:
+                  <div className="spanGreetingWrapReal">
+                    <span className="spanGreeting">{greeting}</span>
+                    <span className="spanGreetingName">
+                      {userData[0].first_name}
+                    </span>
+                  </div>
                 </Typography>
-                <ul
-                  style={{
-                    minWidth: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    alignContent: 'space-between',
-                    flexWrap: 'wrap',
+              </div>
+
+              <div className="dashboardBtnWrap">
+                <Button
+                  className="dashboardBtn"
+                  sx={{ marginX: '10px', ...dashboardBtn }}
+                  onClick={() => {
+                    setUpdateProfile(!updateProfile);
+                    setCreateNew(false);
+                    setEditOld(false);
                   }}
                 >
-                  {myCourses.map((course) => {
-                    return (
-                      <li
-                        key={course.course_id}
-                        style={{
-                          minWidth: '100%',
-                          display: 'flex',
-                          justifyContent: 'space-between',
-                          alignContent: 'space-between',
-                          marginTop: '10px',
-                        }}
-                      >
-                        <Link
-                          sx={{
-                            ...generalTypo,
-                            textDecoration: 'none',
-                            color: 'black',
-                          }}
-                          key={`course-link-${course.id}`}
-                          href={`/courses/${course.course_id}`}
-                        >
-                          {course.course_title.length > 35
-                            ? `${course.course_title
-                                .split('')
-                                .splice(0, 25)
-                                .join('')}...`
-                            : `${course.course_title}`}
-                        </Link>
-                        <Box
-                          sx={{
+                  Update Profile
+                </Button>
+                <Button
+                  className="dashboardBtn"
+                  sx={{ ...dashboardBtn }}
+                  onClick={() => {
+                    setCreateNew(!createNew);
+                    setCourseToEdit({});
+                    setEditOld(false);
+                    setUpdateProfile(false);
+                  }}
+                >
+                  Create New Course
+                </Button>
+              </div>
+            </div>
+
+            <div className="dashboardContentsGridWrap">
+              <Grid
+                className="dashboardContentsGrid"
+                item
+                xs={6}
+                sx={{ ...dashboardContentsGrid }}
+              >
+                <Card
+                  className="dashboardContentsCard"
+                  sx={{
+                    ...courseCardCardSection,
+                    ...dashboardContentsCard,
+                    height: '94.6%',
+                  }}
+                >
+                  <Typography
+                    className="dashboardContentsCardTypo"
+                    sx={{
+                      ...subHeadingTypoProfile,
+                      ...dashboardContentsCardTypo,
+                      alignSelf: 'flex-start',
+                    }}
+                  >
+                    Courses you teach:
+                  </Typography>
+                  <ul
+                    style={{
+                      minWidth: '100%',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      alignContent: 'space-between',
+                      flexWrap: 'wrap',
+                    }}
+                  >
+                    {myCourses.map((course) => {
+                      return (
+                        <li
+                          key={course.course_id}
+                          style={{
+                            minWidth: '100%',
                             display: 'flex',
-                            flexWrap: 'wrap',
-                            margin: '0 25px',
+                            justifyContent: 'space-between',
+                            alignContent: 'space-between',
+                            marginTop: '10px',
                           }}
                         >
-                          <Button
-                            sx={{ ...courseCardButton }}
-                            onClick={() => {
-                              setEditOld(!editOld);
-                              setCreateNew(false);
-                              setCourseToEdit(course);
-                              setUpdateProfile(false);
+                          <Link
+                            sx={{
+                              ...generalTypo,
+                              textDecoration: 'none',
+                              color: 'black',
+                            }}
+                            key={`course-link-${course.id}`}
+                            href={`/courses/${course.course_id}`}
+                          >
+                            {course.course_title.length > 35
+                              ? `${course.course_title
+                                  .split('')
+                                  .splice(0, 25)
+                                  .join('')}...`
+                              : `${course.course_title}`}
+                          </Link>
+                          <Box
+                            sx={{
+                              display: 'flex',
+                              flexWrap: 'wrap',
+                              margin: '0 25px',
                             }}
                           >
-                            Edit Course
-                          </Button>
-                          {/* <Button
+                            <Button
+                              sx={{ ...courseCardButton }}
+                              onClick={() => {
+                                setEditOld(!editOld);
+                                setCreateNew(false);
+                                setCourseToEdit(course);
+                                setUpdateProfile(false);
+                              }}
+                            >
+                              Edit Course
+                            </Button>
+                            {/* <Button
                             onClick={() => {
                               handleDeleteClick(course.id);
                             }}
@@ -300,69 +325,90 @@ export default function UserDashboard({
                           >
                             X
                           </Button> */}
-                        </Box>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </Card>
-            </Grid>
-            <Grid item xs={6}>
-              <Card sx={{ minHeight: '600px' }}>
-                {' '}
-                {updateProfile && (
-                  <>
-                    <Typography
-                      sx={{ ...subHeadingTypoProfile, marginBottom: '10px' }}
-                    >
-                      Update your user profile here:
-                    </Typography>
-                    <UserUpdateForm
-                      email={user.email}
-                      firstName={userData[0].first_name}
-                      lastName={userData[0].last_name}
-                      phone={userData[0].phone}
-                      userId={userData[0].id}
-                      createNew={false}
-                    />
-                  </>
-                )}
-                {createNew && (
-                  <>
-                    <Typography sx={subHeadingTypoProfile}>
-                      Create a new course here:
-                    </Typography>
-                    <AddCourse
-                      createNew={createNew}
-                      editOld={editOld}
-                      courseToEdit={courseToEdit}
-                      email={user.email}
-                      teacherName={`${userData[0].first_name} ${userData[0].last_name}`}
-                      userId={userData[0].id}
-                      courses={allCourses}
-                    />
-                  </>
-                )}
-                {editOld && (
-                  <>
-                    <Typography
-                      sx={{ ...subHeadingTypoProfile, marginBottom: '10px' }}
-                    >
-                      Edit your course here:
-                    </Typography>
-                    <AddCourse
-                      createNew={createNew}
-                      editOld={editOld}
-                      courseToEdit={courseToEdit}
-                      email={user.email}
-                      teacherName={`${userData[0].first_name} ${userData[0].last_name}`}
-                      userId={userData[0].id}
-                      courses={allCourses}
-                    />
-                  </>
-                )}
-              </Card>
-            </Grid>
+                          </Box>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </Card>
+              </Grid>
+              <Grid
+                className="dashboardContentsGrid"
+                item
+                xs={6}
+                sx={{ ...dashboardContentsGrid }}
+              >
+                <Card
+                  className="dashboardContentsCard"
+                  sx={{ ...dashboardContentsCard }}
+                >
+                  {' '}
+                  {updateProfile && (
+                    <>
+                      <Typography
+                        className="dashboardContentsCardTypo"
+                        sx={{
+                          ...subHeadingTypoProfile,
+                          ...dashboardContentsCardTypo,
+                          marginBottom: '10px',
+                        }}
+                      >
+                        Update your user profile here:
+                      </Typography>
+                      <UserUpdateForm
+                        email={user.email}
+                        firstName={userData[0].first_name}
+                        lastName={userData[0].last_name}
+                        phone={userData[0].phone}
+                        userId={userData[0].id}
+                        createNew={false}
+                      />
+                    </>
+                  )}
+                  {createNew && (
+                    <>
+                      <Typography
+                        className="dashboardContentsCardTypo"
+                        sx={{
+                          ...subHeadingTypoProfile,
+                          ...dashboardContentsCardTypo,
+                        }}
+                      >
+                        Create a new course here:
+                      </Typography>
+                      <AddCourse
+                        className="dashboardAddCourse"
+                        createNew={createNew}
+                        editOld={editOld}
+                        courseToEdit={courseToEdit}
+                        email={user.email}
+                        teacherName={`${userData[0].first_name} ${userData[0].last_name}`}
+                        userId={userData[0].id}
+                        courses={allCourses}
+                      />
+                    </>
+                  )}
+                  {editOld && (
+                    <>
+                      <Typography
+                        sx={{ ...subHeadingTypoProfile, marginBottom: '10px' }}
+                      >
+                        Edit your course here:
+                      </Typography>
+                      <AddCourse
+                        createNew={createNew}
+                        editOld={editOld}
+                        courseToEdit={courseToEdit}
+                        email={user.email}
+                        teacherName={`${userData[0].first_name} ${userData[0].last_name}`}
+                        userId={userData[0].id}
+                        courses={allCourses}
+                      />
+                    </>
+                  )}
+                </Card>
+              </Grid>
+            </div>
           </Grid>
         </Container>
         <Footer styling={footerContainerBoxLgr} />

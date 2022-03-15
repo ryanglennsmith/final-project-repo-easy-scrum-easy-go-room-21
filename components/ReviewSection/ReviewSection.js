@@ -3,6 +3,7 @@ import Review from '@components/Review/Review';
 import { Button, Container, Alert, Typography } from '@mui/material';
 import {
   addReviewBtn,
+  addReviewButton,
   centerContentCol,
   centerContentRow,
   courseCardButton,
@@ -71,7 +72,7 @@ export default function ReviewSection({
       <div className="wrapAddreviewBtn">
         {!showAddReview && (
           <Button
-            sx={courseCardButton}
+            sx={{ ...courseCardButton, ...addReviewButton }}
             onClick={() => {
               if (!user) {
                 alert('Please Log in to add review');
@@ -85,19 +86,7 @@ export default function ReviewSection({
           </Button>
         )}
       </div>
-      {/* <div className="wrapAddreviewBtn">
-        {!showAddReview && user && (
-          <Button
-            sx={addReviewBtn}
-            onClick={() => {
-              setShowAddReview(true);
-            }}
-          >
-            Add review
-          </Button>
-        )}
-        {!showAddReview && !user && <p> Log in to add review</p>}
-      </div> */}
+
       <Review visible={visible} reviews={reviewData} />
       <Box sx={centerContentRow}>
         {!showAddReview && visible === 2 && reviewData.length > 2 && (

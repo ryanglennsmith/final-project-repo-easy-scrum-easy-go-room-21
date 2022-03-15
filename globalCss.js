@@ -402,8 +402,14 @@ export const contactBtn = {
 export const addReviewBtn = {};
 export const fontLato = { fontFamily: 'Lato' };
 export const fontRoboto = { fontFamily: 'Roboto' };
+export const addReviewButton = {
+  width: '500px',
+  height: '50px ',
+  fontSize: '20px',
+};
 
 //   Profile Page
+
 export const subHeadingTypoProfile = {
   fontFamily: 'Roboto',
   fontSize: '32px',
@@ -415,5 +421,70 @@ export const subHeadingTypoProfile = {
 
 export const profileTextfields = {
   margin: '10px 0 10px 0',
-  padding: '15px',
+  fontSize: '30px',
+  height: 'auto',
 };
+
+// dashboard CSS
+export const dashboardTopBox = { width: '100%' };
+
+export const dashboardContainer = {
+  paddingLeft: '0!important',
+  paddingRight: '0!important',
+};
+
+export const greetingTxt = {
+  color: '#eee',
+  height: '35px',
+  width: '600px',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+};
+
+export const dashboardBtnGridWrap = {
+  paddingBottom: '20px',
+  display: 'flex',
+  justifyContent: 'flex-end',
+  paddingBottom: '0!important',
+};
+
+export const dashboardBtnGrid = {};
+export const dashboardContentsCard = { padding: '25px' };
+export const dashboardBtn = {
+  '&:hover': { background: '#00632b' },
+  padding: '10px 20px',
+  borderRadius: '30px',
+  background: '#008d3e',
+  color: '#fff',
+};
+
+export const dashboardContentsGrid = { maxWidth: '48%!important' };
+export const dashboardContentsCardTypo = {
+  fontSize: '30px',
+  fontFamily: 'lato',
+};
+
+// Add course Component\
+export const addCourseComponentBoxWrap = { paddingBottom: '50px' };
+export const addCourseComponentBoxWrap2 = {
+  display: 'flex',
+  flexWrap: 'nowrap',
+  flexDirection: 'column',
+  width: '100%',
+  paddingBottom: '50px',
+  paddingTop: '10px',
+};
+
+export const addCourseComponentBoxTypo = {
+  fontWeight: '600',
+  fontSize: '22px',
+  paddingBottom: ' 15px',
+  color: '#222',
+  fontFamily: 'lato',
+};
+export const subminBtnBox = {
+  width: '100%',
+};
+
+export const dashboardSubminBtn = { width: '100%', height: '45px' };
