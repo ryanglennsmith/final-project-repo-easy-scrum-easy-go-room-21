@@ -402,6 +402,11 @@ export const contactBtn = {
 export const addReviewBtn = {};
 export const fontLato = { fontFamily: 'Lato' };
 export const fontRoboto = { fontFamily: 'Roboto' };
+export const addReviewButton = {
+  width: '500px',
+  height: '50px ',
+  fontSize: '20px',
+};
 
 //   Profile Page
 
@@ -417,6 +422,7 @@ export const subHeadingTypoProfile = {
 export const profileTextfields = {
   margin: '10px 0 10px 0',
   fontSize: '30px',
+  height: 'auto',
 };
 
 // dashboard CSS
@@ -429,16 +435,18 @@ export const dashboardContainer = {
 
 export const greetingTxt = {
   color: '#eee',
-  paddingTop: '40px',
-  borderBottom: ' 10px solid #ededed',
   height: '35px',
-  width: 'auto',
+  width: '600px',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
 };
 
 export const dashboardBtnGridWrap = {
-  display: 'flex',
-  justifyContent: 'right',
   paddingBottom: '20px',
+  display: 'flex',
+  justifyContent: 'flex-end',
+  paddingBottom: '0!important',
 };
 
 export const dashboardBtnGrid = {};
@@ -458,5 +466,25 @@ export const dashboardContentsCardTypo = {
 };
 
 // Add course Component\
-export const addCourseComponentBoxWrap = { paddingTop: '30px' };
+export const addCourseComponentBoxWrap = { paddingBottom: '50px' };
+export const addCourseComponentBoxWrap2 = {
+  display: 'flex',
+  flexWrap: 'nowrap',
+  flexDirection: 'column',
+  width: '100%',
+  paddingBottom: '50px',
+  paddingTop: '10px',
+};
 
+export const addCourseComponentBoxTypo = {
+  fontWeight: '600',
+  fontSize: '22px',
+  paddingBottom: ' 15px',
+  color: '#222',
+  fontFamily: 'lato',
+};
+export const subminBtnBox = {
+  width: '100%',
+};
+
+export const dashboardSubminBtn = { width: '100%', height: '45px' };

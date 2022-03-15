@@ -194,56 +194,48 @@ export default function UserDashboard({
 
         <Container className="dashboardContainer" sx={dashboardContainer}>
           <Grid className="dashboardGrid" container>
-            <Typography
-              className="greetingTxt"
-              sx={{ ...titleTypo, ...greetingTxt }}
-            >
-              <span className="spanGreeting">{greeting}</span>
-              <span className="spanGreetingName">{userData[0].first_name}</span>
-            </Typography>
-            {/* <Grid item>
-              <Card sx={{ ...courseCardCardSection }} xs={12}>
-                <p>Update your user profile here</p>
-                <UserUpdateForm
-                  email={user.email}
-                  firstName={userData[0].first_name}
-                  lastName={userData[0].last_name}
-                  phone={userData[0].phone}
-                  userId={userData[0].id}
-                  createNew={false}
-                />
-              </Card>
-            </Grid> */}
-            <Grid
-              className="dashboardBtnGridWrap"
-              item
-              xs={12}
-              sx={{ ...dashboardBtnGridWrap }}
-            >
-              <Button
-                className="dashboardBtn"
-                sx={{ marginX: '10px', ...dashboardBtn }}
-                onClick={() => {
-                  setUpdateProfile(!updateProfile);
-                  setCreateNew(false);
-                  setEditOld(false);
-                }}
-              >
-                Update Profile
-              </Button>
-              <Button
-                className="dashboardBtn"
-                sx={{ ...dashboardBtn }}
-                onClick={() => {
-                  setCreateNew(!createNew);
-                  setCourseToEdit({});
-                  setEditOld(false);
-                  setUpdateProfile(false);
-                }}
-              >
-                Create New Course
-              </Button>
-            </Grid>
+            <div className="dashboardGreetingAndBtnWrap">
+              <div className="typoGreetingWrap">
+                <Typography
+                  className="greetingTxt"
+                  sx={{ ...titleTypo, ...greetingTxt }}
+                >
+                  <div className="spanGreetingWrapReal">
+                    <span className="spanGreeting">{greeting}</span>
+                    <span className="spanGreetingName">
+                      {userData[0].first_name}
+                    </span>
+                  </div>
+                </Typography>
+              </div>
+
+              <div className="dashboardBtnWrap">
+                <Button
+                  className="dashboardBtn"
+                  sx={{ marginX: '10px', ...dashboardBtn }}
+                  onClick={() => {
+                    setUpdateProfile(!updateProfile);
+                    setCreateNew(false);
+                    setEditOld(false);
+                  }}
+                >
+                  Update Profile
+                </Button>
+                <Button
+                  className="dashboardBtn"
+                  sx={{ ...dashboardBtn }}
+                  onClick={() => {
+                    setCreateNew(!createNew);
+                    setCourseToEdit({});
+                    setEditOld(false);
+                    setUpdateProfile(false);
+                  }}
+                >
+                  Create New Course
+                </Button>
+              </div>
+            </div>
+
             <div className="dashboardContentsGridWrap">
               <Grid
                 className="dashboardContentsGrid"
@@ -255,8 +247,8 @@ export default function UserDashboard({
                   className="dashboardContentsCard"
                   sx={{
                     ...courseCardCardSection,
-                    minHeight: '600px',
                     ...dashboardContentsCard,
+                    height: '94.6%',
                   }}
                 >
                   <Typography
@@ -348,7 +340,7 @@ export default function UserDashboard({
               >
                 <Card
                   className="dashboardContentsCard"
-                  sx={{ minHeight: '600px', ...dashboardContentsCard }}
+                  sx={{ ...dashboardContentsCard }}
                 >
                   {' '}
                   {updateProfile && (

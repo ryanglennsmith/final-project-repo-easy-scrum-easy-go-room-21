@@ -117,7 +117,7 @@ fieldset {
 
 .subPageContentWrap {
   padding-top: 15px;
-  padding-right: 100px;
+  padding-right: 90px;
 }
 
 .spanTagNameColor {
@@ -129,12 +129,13 @@ fieldset {
 .spanGreeting {
   font-family: 'Roboto';
   font-weight: 400;
-  font-size: 35px;
+  font-size: 30px;
   color: rgb(73, 73, 73);
   letter-spacing: -0.5px;
   font-style: italic;
 }
 .spanGreetingName {
+  font-size: 33px;
   font-style: italic;
   padding-left: 10px;
   font-family: 'Roboto';
@@ -148,4 +149,37 @@ fieldset {
   justify-content: space-between;
   border-top: 5px solid #ececec;
   padding-top: 10px;
+}
+
+.dashboardGreetingAndBtnWrap {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-evenly;
+  height: 100px;
+  width: 100%;
+}
+
+.spanGreetingWrapReal {
+  width: auto;
+  border-bottom: 10px solid #ededed;
+  height: 32px;
+}
+
+.dashboardBtnWrap {
+  display: flex;
+  width: 900px;
+  justify-content: flex-end;
+}
+
+.addCourseCheckboxWrap {
+  text-align: center;
+}
+
+.offlineTxtWrap {
+  padding: 0 30px 0 20px;
+}
+
+.wrapAddreviewBtn {
+  padding: 50px;
 }
