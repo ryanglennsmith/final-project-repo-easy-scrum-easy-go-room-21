@@ -38,7 +38,7 @@ context('SearchPage', () => {
       .get(
         ':nth-child(1) > .MuiTypography-inherit > .MuiPaper-root > .MuiCardContent-root > .MuiTypography-h5'
       )
-      .contains('Painting Disasters');
+      .contains('Painting For Beginners');
   });
 
   it('should load the course tutors name on the course card', () => {
@@ -63,12 +63,12 @@ context('SearchPage', () => {
         ':nth-child(1) > .MuiTypography-inherit > .MuiPaper-root > .MuiCardContent-root > .courseCardContentCourseBrief'
       )
       .contains(
-        'Master cleanse taiyaki ethical bushwick slow-carb migas XOXO direct trade'
+        "Painting for those who have never painted before or want to reasses their approach to painting. Emotion cannot be contained; let's"
       );
   });
 
   it('Should display tags and those tags should be clickable, taking the user to a search page', () => {
-    const tags = ['art', 'painting', 'disasters'];
+    const tags = ['art', 'painting', 'beginners'];
     // prettier-ignore
     tags.forEach((item, index)=>{
         cy.visit('http://localhost:3000/search/results')
@@ -83,12 +83,12 @@ context('SearchPage', () => {
 
   it(`Should take user to "/courses/{id} by clicking on cards `, () => {
     cy.get(`.MuiFormControl-root`)
-          .type(`art`)
-          .get('.wrapProfileSearchBar > .MuiBox-root > .MuiButton-root')
-          .click()
-    .get(
-      `:nth-child(1) > .MuiTypography-inherit > .MuiPaper-root > .css-11orm13-MuiCardActions-root > .MuiButton-root`
-    )
+      .type(`art`)
+      .get('.wrapProfileSearchBar > .MuiBox-root > .MuiButton-root')
+      .click()
+      .get(
+        `:nth-child(1) > .MuiTypography-inherit > .MuiPaper-root > .css-11orm13-MuiCardActions-root > .MuiButton-root`
+      )
       .click()
       .url()
       .should('include', 'http://localhost:3000/courses/1');
@@ -105,8 +105,7 @@ context('SearchPage', () => {
       .should('include', '/');
   });
 
- it('should take us to the Auth0 Sign in page', () => {
-    cy.get('.navbar-buttons > .MuiButton-root').click();
-  });
-
+  // it('should take us to the Auth0 Sign in page', () => {
+  //   cy.get('.navbar-buttons > .MuiButton-root').click();
+  // });
 });
